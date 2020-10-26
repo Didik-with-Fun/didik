@@ -1,0 +1,585 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B7AB621E2546AB1F007E4895 /* didikApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB621D2546AB1F007E4895 /* didikApp.swift */; };
+		B7AB62202546AB1F007E4895 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB621F2546AB1F007E4895 /* ContentView.swift */; };
+		B7AB62222546AB20007E4895 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7AB62212546AB20007E4895 /* Assets.xcassets */; };
+		B7AB62252546AB20007E4895 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7AB62242546AB20007E4895 /* Preview Assets.xcassets */; };
+		B7AB62302546AB20007E4895 /* didikTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB622F2546AB20007E4895 /* didikTests.swift */; };
+		B7AB623B2546AB20007E4895 /* didikUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB623A2546AB20007E4895 /* didikUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B7AB622C2546AB20007E4895 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B7AB62122546AB1F007E4895 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B7AB62192546AB1F007E4895;
+			remoteInfo = didik;
+		};
+		B7AB62372546AB20007E4895 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B7AB62122546AB1F007E4895 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B7AB62192546AB1F007E4895;
+			remoteInfo = didik;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B7AB621A2546AB1F007E4895 /* didik.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = didik.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7AB621D2546AB1F007E4895 /* didikApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = didikApp.swift; sourceTree = "<group>"; };
+		B7AB621F2546AB1F007E4895 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B7AB62212546AB20007E4895 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B7AB62242546AB20007E4895 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B7AB62262546AB20007E4895 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B7AB622B2546AB20007E4895 /* didikTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = didikTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7AB622F2546AB20007E4895 /* didikTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = didikTests.swift; sourceTree = "<group>"; };
+		B7AB62312546AB20007E4895 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B7AB62362546AB20007E4895 /* didikUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = didikUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7AB623A2546AB20007E4895 /* didikUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = didikUITests.swift; sourceTree = "<group>"; };
+		B7AB623C2546AB20007E4895 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B7AB62172546AB1F007E4895 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7AB62282546AB20007E4895 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7AB62332546AB20007E4895 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B7AB62112546AB1F007E4895 = {
+			isa = PBXGroup;
+			children = (
+				B7AB621C2546AB1F007E4895 /* didik */,
+				B7AB622E2546AB20007E4895 /* didikTests */,
+				B7AB62392546AB20007E4895 /* didikUITests */,
+				B7AB621B2546AB1F007E4895 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B7AB621B2546AB1F007E4895 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B7AB621A2546AB1F007E4895 /* didik.app */,
+				B7AB622B2546AB20007E4895 /* didikTests.xctest */,
+				B7AB62362546AB20007E4895 /* didikUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B7AB621C2546AB1F007E4895 /* didik */ = {
+			isa = PBXGroup;
+			children = (
+				B7AB621D2546AB1F007E4895 /* didikApp.swift */,
+				B7AB621F2546AB1F007E4895 /* ContentView.swift */,
+				B7AB62212546AB20007E4895 /* Assets.xcassets */,
+				B7AB62262546AB20007E4895 /* Info.plist */,
+				B7AB62232546AB20007E4895 /* Preview Content */,
+			);
+			path = didik;
+			sourceTree = "<group>";
+		};
+		B7AB62232546AB20007E4895 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				B7AB62242546AB20007E4895 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B7AB622E2546AB20007E4895 /* didikTests */ = {
+			isa = PBXGroup;
+			children = (
+				B7AB622F2546AB20007E4895 /* didikTests.swift */,
+				B7AB62312546AB20007E4895 /* Info.plist */,
+			);
+			path = didikTests;
+			sourceTree = "<group>";
+		};
+		B7AB62392546AB20007E4895 /* didikUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B7AB623A2546AB20007E4895 /* didikUITests.swift */,
+				B7AB623C2546AB20007E4895 /* Info.plist */,
+			);
+			path = didikUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B7AB62192546AB1F007E4895 /* didik */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B7AB623F2546AB20007E4895 /* Build configuration list for PBXNativeTarget "didik" */;
+			buildPhases = (
+				B7AB62162546AB1F007E4895 /* Sources */,
+				B7AB62172546AB1F007E4895 /* Frameworks */,
+				B7AB62182546AB1F007E4895 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = didik;
+			productName = didik;
+			productReference = B7AB621A2546AB1F007E4895 /* didik.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B7AB622A2546AB20007E4895 /* didikTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B7AB62422546AB20007E4895 /* Build configuration list for PBXNativeTarget "didikTests" */;
+			buildPhases = (
+				B7AB62272546AB20007E4895 /* Sources */,
+				B7AB62282546AB20007E4895 /* Frameworks */,
+				B7AB62292546AB20007E4895 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B7AB622D2546AB20007E4895 /* PBXTargetDependency */,
+			);
+			name = didikTests;
+			productName = didikTests;
+			productReference = B7AB622B2546AB20007E4895 /* didikTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B7AB62352546AB20007E4895 /* didikUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B7AB62452546AB20007E4895 /* Build configuration list for PBXNativeTarget "didikUITests" */;
+			buildPhases = (
+				B7AB62322546AB20007E4895 /* Sources */,
+				B7AB62332546AB20007E4895 /* Frameworks */,
+				B7AB62342546AB20007E4895 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B7AB62382546AB20007E4895 /* PBXTargetDependency */,
+			);
+			name = didikUITests;
+			productName = didikUITests;
+			productReference = B7AB62362546AB20007E4895 /* didikUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B7AB62122546AB1F007E4895 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1200;
+				LastUpgradeCheck = 1200;
+				TargetAttributes = {
+					B7AB62192546AB1F007E4895 = {
+						CreatedOnToolsVersion = 12.0.1;
+					};
+					B7AB622A2546AB20007E4895 = {
+						CreatedOnToolsVersion = 12.0.1;
+						TestTargetID = B7AB62192546AB1F007E4895;
+					};
+					B7AB62352546AB20007E4895 = {
+						CreatedOnToolsVersion = 12.0.1;
+						TestTargetID = B7AB62192546AB1F007E4895;
+					};
+				};
+			};
+			buildConfigurationList = B7AB62152546AB1F007E4895 /* Build configuration list for PBXProject "didik" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B7AB62112546AB1F007E4895;
+			productRefGroup = B7AB621B2546AB1F007E4895 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B7AB62192546AB1F007E4895 /* didik */,
+				B7AB622A2546AB20007E4895 /* didikTests */,
+				B7AB62352546AB20007E4895 /* didikUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B7AB62182546AB1F007E4895 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7AB62252546AB20007E4895 /* Preview Assets.xcassets in Resources */,
+				B7AB62222546AB20007E4895 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7AB62292546AB20007E4895 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7AB62342546AB20007E4895 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B7AB62162546AB1F007E4895 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7AB62202546AB1F007E4895 /* ContentView.swift in Sources */,
+				B7AB621E2546AB1F007E4895 /* didikApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7AB62272546AB20007E4895 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7AB62302546AB20007E4895 /* didikTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7AB62322546AB20007E4895 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7AB623B2546AB20007E4895 /* didikUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B7AB622D2546AB20007E4895 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B7AB62192546AB1F007E4895 /* didik */;
+			targetProxy = B7AB622C2546AB20007E4895 /* PBXContainerItemProxy */;
+		};
+		B7AB62382546AB20007E4895 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B7AB62192546AB1F007E4895 /* didik */;
+			targetProxy = B7AB62372546AB20007E4895 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		B7AB623D2546AB20007E4895 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B7AB623E2546AB20007E4895 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B7AB62402546AB20007E4895 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"didik/Preview Content\"";
+				DEVELOPMENT_TEAM = W5ZPF478J8;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = didik/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.appledeveloperacademy.didik;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B7AB62412546AB20007E4895 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"didik/Preview Content\"";
+				DEVELOPMENT_TEAM = W5ZPF478J8;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = didik/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.appledeveloperacademy.didik;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B7AB62432546AB20007E4895 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W5ZPF478J8;
+				INFOPLIST_FILE = didikTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.appledeveloperacademy.didikTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/didik.app/didik";
+			};
+			name = Debug;
+		};
+		B7AB62442546AB20007E4895 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W5ZPF478J8;
+				INFOPLIST_FILE = didikTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.appledeveloperacademy.didikTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/didik.app/didik";
+			};
+			name = Release;
+		};
+		B7AB62462546AB20007E4895 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W5ZPF478J8;
+				INFOPLIST_FILE = didikUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.appledeveloperacademy.didikUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = didik;
+			};
+			name = Debug;
+		};
+		B7AB62472546AB20007E4895 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W5ZPF478J8;
+				INFOPLIST_FILE = didikUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.appledeveloperacademy.didikUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = didik;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B7AB62152546AB1F007E4895 /* Build configuration list for PBXProject "didik" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7AB623D2546AB20007E4895 /* Debug */,
+				B7AB623E2546AB20007E4895 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B7AB623F2546AB20007E4895 /* Build configuration list for PBXNativeTarget "didik" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7AB62402546AB20007E4895 /* Debug */,
+				B7AB62412546AB20007E4895 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B7AB62422546AB20007E4895 /* Build configuration list for PBXNativeTarget "didikTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7AB62432546AB20007E4895 /* Debug */,
+				B7AB62442546AB20007E4895 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B7AB62452546AB20007E4895 /* Build configuration list for PBXNativeTarget "didikUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7AB62462546AB20007E4895 /* Debug */,
+				B7AB62472546AB20007E4895 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B7AB62122546AB1F007E4895 /* Project object */;
+}
