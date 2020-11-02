@@ -14,6 +14,7 @@
 		B7AB62252546AB20007E4895 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7AB62242546AB20007E4895 /* Preview Assets.xcassets */; };
 		B7AB62302546AB20007E4895 /* didikTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB622F2546AB20007E4895 /* didikTests.swift */; };
 		B7AB623B2546AB20007E4895 /* didikUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB623A2546AB20007E4895 /* didikUITests.swift */; };
+		B7DF19D82550195B00953640 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B7DF19D72550195B00953640 /* GoogleService-Info.plist */; };
 		C1EC5478E2ADBE7F443C6DD5 /* Pods_didik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E40C1E4B35D7524D6B2A8B1F /* Pods_didik.framework */; };
 		C63DD4571D2CBF13FAD649A6 /* Pods_didikTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2482EC5E9EF8FCF0DE9DCE9 /* Pods_didikTests.framework */; };
 /* End PBXBuildFile section */
@@ -52,6 +53,7 @@
 		B7AB62362546AB20007E4895 /* didikUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = didikUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7AB623A2546AB20007E4895 /* didikUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = didikUITests.swift; sourceTree = "<group>"; };
 		B7AB623C2546AB20007E4895 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B7DF19D72550195B00953640 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C2482EC5E9EF8FCF0DE9DCE9 /* Pods_didikTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_didikTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D85E113B8BD84DD483C19A32 /* Pods-didik.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-didik.release.xcconfig"; path = "Target Support Files/Pods-didik/Pods-didik.release.xcconfig"; sourceTree = "<group>"; };
 		E40C1E4B35D7524D6B2A8B1F /* Pods_didik.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_didik.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -156,6 +158,7 @@
 		B7AB621C2546AB1F007E4895 /* didik */ = {
 			isa = PBXGroup;
 			children = (
+				B7DF19D72550195B00953640 /* GoogleService-Info.plist */,
 				B7590EF6254C5F7B00404167 /* View Model */,
 				B7590EF5254C5F7600404167 /* View */,
 				B7590EF4254C5F5B00404167 /* Model */,
@@ -304,6 +307,7 @@
 			files = (
 				B7AB62252546AB20007E4895 /* Preview Assets.xcassets in Resources */,
 				B7AB62222546AB20007E4895 /* Assets.xcassets in Resources */,
+				B7DF19D82550195B00953640 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

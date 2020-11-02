@@ -90,3 +90,8 @@ fastlane/test_output
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
+
+# SecretKey on Your Local Computer
+#
+# After new code Injection tools there's a generated folder /iOSInjectionProject
+GoogleService-Info.plist
