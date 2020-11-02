@@ -24,8 +24,9 @@ struct HomeView: View {
                     }
                     Spacer()
 //                    TabBarView(index: $index)
-                }.navigationBarTitle("asdasd")
+                }.navigationBarTitle("")
                 .navigationBarHidden(true)
+//                .navigationBarColor(UIColor.systemBlue)
             }
             .navigationViewStyle(StackNavigationViewStyle())
             TabBarView(index: $index)

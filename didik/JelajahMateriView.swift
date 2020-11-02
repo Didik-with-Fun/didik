@@ -25,7 +25,7 @@ struct JelajahMateriView: View {
     var body: some View {
         VStack {
             ZStack {
-                CustomNavigationBarView(isHidden: false, title: "Jelajah Materi")
+                CustomNavigationBarView(isHidden: true, title: "Jelajah Materi")
 //                    .ignoresSafeArea(.all)
             }
             

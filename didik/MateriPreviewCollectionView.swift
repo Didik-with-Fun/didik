@@ -30,7 +30,7 @@ struct MateriPreviewCollectionView: View {
                 
                 Spacer()
                 NavigationLink(
-                    destination: LihatSemuaView(dummyMateriPreviewCollectionView: dummyMateriPreviewCollectionView),
+                    destination: LihatSemuaView(dummyMateriPreviewCollectionView: dummyMateriPreviewCollectionView, previousViewTitle: "Jelajah Materi", currentTitle: judul),
                     label: {
                         Text("Lihat Semua")
                             .font(.caption)

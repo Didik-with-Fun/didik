@@ -25,7 +25,7 @@ struct TabBarView: View {
                 self.tabBar2 = false
                 self.tabBar3 = false
             }) {
-                TabBarButton(isPressed: $tabBar1, imageName: "house.fill", title: "Home")
+                TabBarButton(isPressed: $tabBar1, imageName: "house.fill", title: "Jelajah Materi")
                     .padding(.horizontal)
             }
             Button(action: {
@@ -34,7 +34,7 @@ struct TabBarView: View {
                 self.tabBar2 = true
                 self.tabBar3 = false
             }) {
-                TabBarButton(isPressed: $tabBar2, imageName: "hurricane", title: "Hurricane")
+                TabBarButton(isPressed: $tabBar2, imageName: "hurricane", title: "Materi Saya")
                     .padding(.horizontal)
             }
             Button(action: {
@@ -43,7 +43,7 @@ struct TabBarView: View {
                 self.tabBar2 = false
                 self.tabBar3 = true
             }) {
-                TabBarButton(isPressed: $tabBar3, imageName: "photo", title: "Photo")
+                TabBarButton(isPressed: $tabBar3, imageName: "photo", title: "Kelas Saya")
                     .padding(.horizontal)
             }
         }.padding(.vertical, 5)
@@ -65,7 +65,7 @@ struct TabBarButton : View {
     @Binding var isPressed : Bool
     let imageName : String
     let title : String
-    let color = tabBarAndNavBarColor
+    let color : Color = tabBarAndNavBarColor
     
     var body: some View {
         ZStack {
