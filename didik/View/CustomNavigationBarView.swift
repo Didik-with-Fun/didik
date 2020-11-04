@@ -53,12 +53,17 @@ struct CustomNavigationBarView: View {
                     .font(.title)
                     .bold()
                     .foregroundColor(Color.white)
-                //.padding(.vertical)
                 Spacer()
-                Image(systemName: "photo")
-                    .foregroundColor(.black)
-                    .font(.system(size: 20))
-                    .padding(.horizontal)
+                // image
+                NavigationLink(
+                    destination: DummyView(),
+                    label: {
+                        Image(systemName: "person.circle")
+                            .foregroundColor(.black)
+                            .font(.system(size: 20))
+                            .padding(.horizontal)
+                    })
+                
             }.padding(.leading, 20)
             HStack (spacing : 0){
                 if showDropDown {

@@ -7,20 +7,6 @@
 
 import SwiftUI
 
-struct DummyMateriGroup: Identifiable {
-    let id = UUID()
-    let title : String
-    let dummyMateri : [DummyMateri]
-}
-
-let dummyMateriGroup = [
-    DummyMateriGroup(title: "Trigonometri", dummyMateri: LibraryMateri),
-    DummyMateriGroup(title: "Magnet", dummyMateri: LibraryMateri),
-    DummyMateriGroup(title: "Biologi", dummyMateri: LibraryMateri),
-    DummyMateriGroup(title: "Pesawat Sederhana", dummyMateri: LibraryMateri),
-    DummyMateriGroup(title: "Trigonometri", dummyMateri: LibraryMateri)
-]
-
 struct JelajahMateriView: View {
     
     @State var searchText : String = ""
@@ -35,7 +21,12 @@ struct JelajahMateriView: View {
                 if searchText != "" {
                     List(LibraryMateri.filter({ searchText.isEmpty ? true : $0.title.lowercased().contains(searchText.lowercased())
                     })) { materi in
-                        MateriTableCellView(materi: materi, height: 125, width: 230)
+                        NavigationLink(
+                            destination: DummyView(),
+                            label: {
+                                MateriTableCellView(materi: materi, height: 125, width: 230)
+                            })
+                        
                     }
                 } else {
                     ScrollView (.vertical) {

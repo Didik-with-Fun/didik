@@ -22,7 +22,11 @@ struct LihatSemuaView: View {
                 .ignoresSafeArea()
             List(MateriLibrary.filter({ searchText.isEmpty ? true : $0.title.lowercased().contains(searchText.lowercased()) 
             })) { materi in
-                MateriTableCellView(materi: materi, height: height, width: width)
+                NavigationLink(
+                    destination: DummyView(),
+                    label: {
+                        MateriTableCellView(materi: materi, height: height, width: width)
+                    })
             }
         }.navigationBarTitle("")
         .navigationBarHidden(true)
@@ -58,7 +62,7 @@ struct MateriTableCellView : View {
                         Text("❤️ \(materi.likes)")
                             .font(.system(size: 14, weight: .regular, design: .default))
                             .padding(.top,4)
-                            .frame(maxWidth : width/3)
+                            .frame(width : width/3)
                         
                         // duration
                         Text("\(materi.duration) hari")
@@ -68,10 +72,10 @@ struct MateriTableCellView : View {
                             .frame(maxWidth : width/3)
                             .background(Color.blue)
                             .cornerRadius(10.0, corners: .topLeft)
-                    }.frame(maxWidth : width/3)
+                    }.frame(width : width/3)
                     
-                }.frame(maxWidth : width, maxHeight: height)
-            }.frame(maxWidth : width, maxHeight: height)
+                }.frame(width : width, height: height)
+            }.frame(width : width, height: height)
             .cornerRadius(10)
             .clipped()
             

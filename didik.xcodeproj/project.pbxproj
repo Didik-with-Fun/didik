@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E8987C7F227F05F9689F004 /* Pods_didik_didikUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C468DCE94011D5567AEC5EA /* Pods_didik_didikUITests.framework */; };
 		75352C3F254B41EF0039EC2D /* Extension+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75352C3E254B41EF0039EC2D /* Extension+Color.swift */; };
 		75352C4C254B44150039EC2D /* JelajahMateriView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75352C4B254B44150039EC2D /* JelajahMateriView.swift */; };
 		75352C51254B4F840039EC2D /* CustomNavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75352C50254B4F840039EC2D /* CustomNavigationBarView.swift */; };
@@ -19,7 +20,6 @@
 		755B217F254AA95500B0A7E6 /* MateriPreviewCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755B217E254AA95500B0A7E6 /* MateriPreviewCollectionView.swift */; };
 		755B218C254B1DB000B0A7E6 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755B218B254B1DB000B0A7E6 /* TabBarView.swift */; };
 		758081DC2552676000E50787 /* DummyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758081DB2552676000E50787 /* DummyModel.swift */; };
-		1E8987C7F227F05F9689F004 /* Pods_didik_didikUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C468DCE94011D5567AEC5EA /* Pods_didik_didikUITests.framework */; };
 		B7AB621E2546AB1F007E4895 /* didikApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB621D2546AB1F007E4895 /* didikApp.swift */; };
 		B7AB62202546AB1F007E4895 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB621F2546AB1F007E4895 /* ContentView.swift */; };
 		B7AB62222546AB20007E4895 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7AB62212546AB20007E4895 /* Assets.xcassets */; };
@@ -49,6 +49,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C468DCE94011D5567AEC5EA /* Pods_didik_didikUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_didik_didikUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		26433F1143293503E627C9B8 /* Pods-didik-didikUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-didik-didikUITests.debug.xcconfig"; path = "Target Support Files/Pods-didik-didikUITests/Pods-didik-didikUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		75352C3E254B41EF0039EC2D /* Extension+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Color.swift"; sourceTree = "<group>"; };
 		75352C4B254B44150039EC2D /* JelajahMateriView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JelajahMateriView.swift; sourceTree = "<group>"; };
 		75352C50254B4F840039EC2D /* CustomNavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBarView.swift; sourceTree = "<group>"; };
@@ -61,8 +63,6 @@
 		755B217E254AA95500B0A7E6 /* MateriPreviewCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateriPreviewCollectionView.swift; sourceTree = "<group>"; };
 		755B218B254B1DB000B0A7E6 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		758081DB2552676000E50787 /* DummyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyModel.swift; sourceTree = "<group>"; };
-		1C468DCE94011D5567AEC5EA /* Pods_didik_didikUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_didik_didikUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		26433F1143293503E627C9B8 /* Pods-didik-didikUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-didik-didikUITests.debug.xcconfig"; path = "Target Support Files/Pods-didik-didikUITests/Pods-didik-didikUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		899AEB16947BE7EEE933F086 /* Pods-didikTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-didikTests.debug.xcconfig"; path = "Target Support Files/Pods-didikTests/Pods-didikTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A1045C84B5D1ACB467E20451 /* Pods-didik-didikUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-didik-didikUITests.release.xcconfig"; path = "Target Support Files/Pods-didik-didikUITests/Pods-didik-didikUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B7AB621A2546AB1F007E4895 /* didik.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = didik.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,6 +139,9 @@
 		B7590EF4254C5F5B00404167 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				755B2179254A885100B0A7E6 /* Extension+View.swift */,
+				75352C3E254B41EF0039EC2D /* Extension+Color.swift */,
+				758081DB2552676000E50787 /* DummyModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -146,6 +149,15 @@
 		B7590EF5254C5F7600404167 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				75352C50254B4F840039EC2D /* CustomNavigationBarView.swift */,
+				755B2174254A806000B0A7E6 /* MateriPreviewView.swift */,
+				755B217E254AA95500B0A7E6 /* MateriPreviewCollectionView.swift */,
+				755B218B254B1DB000B0A7E6 /* TabBarView.swift */,
+				75352C4B254B44150039EC2D /* JelajahMateriView.swift */,
+				75352C55254C3C9A0039EC2D /* HomeView.swift */,
+				75352C5A254C45060039EC2D /* LihatSemuaView.swift */,
+				75352C5F254D6E730039EC2D /* DummyView.swift */,
+				7552696925516D2600D89FC5 /* SearchBarView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -191,18 +203,6 @@
 				B7AB62212546AB20007E4895 /* Assets.xcassets */,
 				B7AB62262546AB20007E4895 /* Info.plist */,
 				B7AB62232546AB20007E4895 /* Preview Content */,
-				755B2174254A806000B0A7E6 /* MateriPreviewView.swift */,
-				755B2179254A885100B0A7E6 /* Extension+View.swift */,
-				755B217E254AA95500B0A7E6 /* MateriPreviewCollectionView.swift */,
-				755B218B254B1DB000B0A7E6 /* TabBarView.swift */,
-				75352C3E254B41EF0039EC2D /* Extension+Color.swift */,
-				75352C4B254B44150039EC2D /* JelajahMateriView.swift */,
-				75352C50254B4F840039EC2D /* CustomNavigationBarView.swift */,
-				75352C55254C3C9A0039EC2D /* HomeView.swift */,
-				75352C5A254C45060039EC2D /* LihatSemuaView.swift */,
-				75352C5F254D6E730039EC2D /* DummyView.swift */,
-				7552696925516D2600D89FC5 /* SearchBarView.swift */,
-				758081DB2552676000E50787 /* DummyModel.swift */,
 			);
 			path = didik;
 			sourceTree = "<group>";
