@@ -14,11 +14,11 @@ struct DummyMateriGroup: Identifiable {
 }
 
 let dummyMateriGroup = [
-    DummyMateriGroup(title: "Trigonometri", dummyMateri: placeholderCollectionMateri),
-    DummyMateriGroup(title: "Magnet", dummyMateri: placeholderCollectionMateri),
-    DummyMateriGroup(title: "Biologi", dummyMateri: placeholderCollectionMateri),
-    DummyMateriGroup(title: "Pesawat Sederhana", dummyMateri: placeholderCollectionMateri),
-    DummyMateriGroup(title: "Trigonometri", dummyMateri: placeholderCollectionMateri)
+    DummyMateriGroup(title: "Trigonometri", dummyMateri: LibraryMateri),
+    DummyMateriGroup(title: "Magnet", dummyMateri: LibraryMateri),
+    DummyMateriGroup(title: "Biologi", dummyMateri: LibraryMateri),
+    DummyMateriGroup(title: "Pesawat Sederhana", dummyMateri: LibraryMateri),
+    DummyMateriGroup(title: "Trigonometri", dummyMateri: LibraryMateri)
 ]
 
 struct JelajahMateriView: View {
@@ -33,7 +33,7 @@ struct JelajahMateriView: View {
                     .ignoresSafeArea()
                 //foreach
                 if searchText != "" {
-                    List(placeholderCollectionMateri.filter({ searchText.isEmpty ? true : $0.title.lowercased().contains(searchText.lowercased())
+                    List(LibraryMateri.filter({ searchText.isEmpty ? true : $0.title.lowercased().contains(searchText.lowercased())
                     })) { materi in
                         MateriTableCellView(materi: materi, height: 125, width: 230)
                     }
@@ -42,7 +42,7 @@ struct JelajahMateriView: View {
                         VStack (spacing : 0) {
                             ForEach(dummyMateriGroup) {
                                 index in
-                                MateriPreviewCollectionView(judul: index.title, dummyMateriPreviewCollectionView: index.dummyMateri)
+                                MateriPreviewCollectionView(judul: index.title, MateriLibrary: index.dummyMateri)
                                     .frame(height: UIScreen.main.bounds.height/4)
                                 
                             }

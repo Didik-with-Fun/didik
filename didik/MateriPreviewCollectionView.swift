@@ -7,19 +7,12 @@
 
 import SwiftUI
 
-let placeholderCollectionMateri : [DummyMateri] = [
-    placeholderMateri,
-    placeholderMateri2,
-    placeholderMateri3,
-//    placeholderMateri,
-//    placeholderMateri2,
-    placeholderMateri3
-]
+
 
 struct MateriPreviewCollectionView: View {
     
     let judul : String
-    let dummyMateriPreviewCollectionView : [DummyMateri]
+    let MateriLibrary : [DummyMateri]
     
     var body: some View {
         VStack (spacing: 10){
@@ -32,7 +25,7 @@ struct MateriPreviewCollectionView: View {
                 
                 Spacer()
                 NavigationLink(
-                    destination: LihatSemuaView(dummyMateriPreviewCollectionView: dummyMateriPreviewCollectionView, previousViewTitle: "Jelajah Materi", currentTitle: judul),
+                    destination: LihatSemuaView(MateriLibrary: MateriLibrary, previousViewTitle: "Jelajah Materi", currentTitle: judul),
                     label: {
                         Text("Lihat Semua")
                             .font(.caption)
@@ -44,7 +37,7 @@ struct MateriPreviewCollectionView: View {
             }
             ScrollView (.horizontal) {
                 HStack (spacing: 10) {
-                    ForEach(dummyMateriPreviewCollectionView) { index in
+                    ForEach(MateriLibrary) { index in
                         NavigationLink(
                             destination: DummyView(),
                             label: {
@@ -63,6 +56,6 @@ struct MateriPreviewCollectionView: View {
 
 struct MateriPreviewCollectionView_Previews: PreviewProvider {
     static var previews: some View {
-        MateriPreviewCollectionView(judul: "Matematika Dasar", dummyMateriPreviewCollectionView: placeholderCollectionMateri)
+        MateriPreviewCollectionView(judul: "Matematika Dasar", MateriLibrary: LibraryMateri)
     }
 }

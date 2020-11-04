@@ -18,6 +18,7 @@
 		755B217A254A885100B0A7E6 /* Extension+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755B2179254A885100B0A7E6 /* Extension+View.swift */; };
 		755B217F254AA95500B0A7E6 /* MateriPreviewCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755B217E254AA95500B0A7E6 /* MateriPreviewCollectionView.swift */; };
 		755B218C254B1DB000B0A7E6 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755B218B254B1DB000B0A7E6 /* TabBarView.swift */; };
+		758081DC2552676000E50787 /* DummyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758081DB2552676000E50787 /* DummyModel.swift */; };
 		B7AB621E2546AB1F007E4895 /* didikApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB621D2546AB1F007E4895 /* didikApp.swift */; };
 		B7AB62202546AB1F007E4895 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB621F2546AB1F007E4895 /* ContentView.swift */; };
 		B7AB62222546AB20007E4895 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7AB62212546AB20007E4895 /* Assets.xcassets */; };
@@ -55,6 +56,7 @@
 		755B2179254A885100B0A7E6 /* Extension+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+View.swift"; sourceTree = "<group>"; };
 		755B217E254AA95500B0A7E6 /* MateriPreviewCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateriPreviewCollectionView.swift; sourceTree = "<group>"; };
 		755B218B254B1DB000B0A7E6 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		758081DB2552676000E50787 /* DummyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyModel.swift; sourceTree = "<group>"; };
 		B7AB621A2546AB1F007E4895 /* didik.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = didik.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7AB621D2546AB1F007E4895 /* didikApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = didikApp.swift; sourceTree = "<group>"; };
 		B7AB621F2546AB1F007E4895 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				75352C5A254C45060039EC2D /* LihatSemuaView.swift */,
 				75352C5F254D6E730039EC2D /* DummyView.swift */,
 				7552696925516D2600D89FC5 /* SearchBarView.swift */,
+				758081DB2552676000E50787 /* DummyModel.swift */,
 			);
 			path = didik;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 				755B2175254A806000B0A7E6 /* MateriPreviewView.swift in Sources */,
 				755B217A254A885100B0A7E6 /* Extension+View.swift in Sources */,
 				755B218C254B1DB000B0A7E6 /* TabBarView.swift in Sources */,
+				758081DC2552676000E50787 /* DummyModel.swift in Sources */,
 				75352C5B254C45070039EC2D /* LihatSemuaView.swift in Sources */,
 				7552696A25516D2600D89FC5 /* SearchBarView.swift in Sources */,
 				75352C4C254B44150039EC2D /* JelajahMateriView.swift in Sources */,

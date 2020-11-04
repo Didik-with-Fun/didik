@@ -9,21 +9,6 @@ import SwiftUI
 
 
 
-struct DummyMateri : Identifiable {
-    let id = UUID()
-    
-    let imageName : String
-    
-    let likes : Int
-    let duration : Int
-    let title : String
-    let author : String
-}
-
-let placeholderMateri = DummyMateri.init(imageName: "photo", likes: 214, duration: 5, title: "Persamaan Linear", author: "Pak Kirjo")
-let placeholderMateri2 = DummyMateri.init(imageName: "photo", likes: 214, duration: 5, title: "Trigonometri", author: "Pak Kirjo")
-let placeholderMateri3 = DummyMateri.init(imageName: "photo", likes: 214, duration: 5, title: "Persamaan Kuadratik", author: "Pak Kirjo")
-
 struct MateriPreviewView: View {
     
     let height : CGFloat
@@ -50,20 +35,20 @@ struct MateriPreviewView: View {
                             .font(.system(size: 14, weight: .regular, design: .default))
                             .foregroundColor(.black)
                             .padding(.top,4)
-                            .frame(maxWidth : width/3)
+                            .frame(width : width/3)
                         
                         // duration
                         Text("\(materi.duration) hari")
                             .font(.system(size: 14, weight: .regular, design: .default))
                             .foregroundColor(.white)
                             .padding(.vertical,4)
-                            .frame(maxWidth : width/3)
+                            .frame(width : width/3)
                             .background(Color.blue)
                             .cornerRadius(10.0, corners: .topLeft)
-                    }.frame(maxWidth : width/3)
+                    }.frame(width : width/3)
                     
-                }.frame(maxWidth : width, maxHeight: height)
-            }.frame(maxWidth : width, maxHeight: height)
+                }.frame(width : width, height: height)
+            }.frame(width : width, height: height)
             .cornerRadius(10)
             .clipped()
             
@@ -82,7 +67,7 @@ struct MateriPreviewView: View {
                 Spacer()
             }
             
-        }.frame(maxWidth : width)
+        }.frame(width : width)
         
         
     }

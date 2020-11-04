@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LihatSemuaView: View {
-    let dummyMateriPreviewCollectionView : [DummyMateri]
+    let MateriLibrary : [DummyMateri]
     let previousViewTitle : String
     let currentTitle : String
     @State var searchText : String = ""
@@ -20,7 +20,7 @@ struct LihatSemuaView: View {
         VStack {
             CustomNavigationBarView(title: currentTitle, filterKelasString: "Kelas", filterMateriString: "Materi", searchText: $searchText, showDropDown: false, previousTitle: previousViewTitle)
                 .ignoresSafeArea()
-            List(dummyMateriPreviewCollectionView.filter({ searchText.isEmpty ? true : $0.title.lowercased().contains(searchText.lowercased()) 
+            List(MateriLibrary.filter({ searchText.isEmpty ? true : $0.title.lowercased().contains(searchText.lowercased()) 
             })) { materi in
                 MateriTableCellView(materi: materi, height: height, width: width)
             }
@@ -33,7 +33,7 @@ struct LihatSemuaView: View {
 
 struct LihatSemuaView_Previews: PreviewProvider {
     static var previews: some View {
-        LihatSemuaView(dummyMateriPreviewCollectionView: placeholderCollectionMateri, previousViewTitle: "Poop", currentTitle: "nipples")
+        LihatSemuaView(MateriLibrary: LibraryMateri, previousViewTitle: "Poop", currentTitle: "nipples")
     }
 }
 
