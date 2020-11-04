@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,12 +19,16 @@
 		755B217F254AA95500B0A7E6 /* MateriPreviewCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755B217E254AA95500B0A7E6 /* MateriPreviewCollectionView.swift */; };
 		755B218C254B1DB000B0A7E6 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755B218B254B1DB000B0A7E6 /* TabBarView.swift */; };
 		758081DC2552676000E50787 /* DummyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758081DB2552676000E50787 /* DummyModel.swift */; };
+		1E8987C7F227F05F9689F004 /* Pods_didik_didikUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C468DCE94011D5567AEC5EA /* Pods_didik_didikUITests.framework */; };
 		B7AB621E2546AB1F007E4895 /* didikApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB621D2546AB1F007E4895 /* didikApp.swift */; };
 		B7AB62202546AB1F007E4895 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB621F2546AB1F007E4895 /* ContentView.swift */; };
 		B7AB62222546AB20007E4895 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7AB62212546AB20007E4895 /* Assets.xcassets */; };
 		B7AB62252546AB20007E4895 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7AB62242546AB20007E4895 /* Preview Assets.xcassets */; };
 		B7AB62302546AB20007E4895 /* didikTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB622F2546AB20007E4895 /* didikTests.swift */; };
 		B7AB623B2546AB20007E4895 /* didikUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB623A2546AB20007E4895 /* didikUITests.swift */; };
+		B7DF19D82550195B00953640 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B7DF19D72550195B00953640 /* GoogleService-Info.plist */; };
+		C1EC5478E2ADBE7F443C6DD5 /* Pods_didik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E40C1E4B35D7524D6B2A8B1F /* Pods_didik.framework */; };
+		C63DD4571D2CBF13FAD649A6 /* Pods_didikTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2482EC5E9EF8FCF0DE9DCE9 /* Pods_didikTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +61,10 @@
 		755B217E254AA95500B0A7E6 /* MateriPreviewCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateriPreviewCollectionView.swift; sourceTree = "<group>"; };
 		755B218B254B1DB000B0A7E6 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		758081DB2552676000E50787 /* DummyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyModel.swift; sourceTree = "<group>"; };
+		1C468DCE94011D5567AEC5EA /* Pods_didik_didikUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_didik_didikUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		26433F1143293503E627C9B8 /* Pods-didik-didikUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-didik-didikUITests.debug.xcconfig"; path = "Target Support Files/Pods-didik-didikUITests/Pods-didik-didikUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		899AEB16947BE7EEE933F086 /* Pods-didikTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-didikTests.debug.xcconfig"; path = "Target Support Files/Pods-didikTests/Pods-didikTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A1045C84B5D1ACB467E20451 /* Pods-didik-didikUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-didik-didikUITests.release.xcconfig"; path = "Target Support Files/Pods-didik-didikUITests/Pods-didik-didikUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B7AB621A2546AB1F007E4895 /* didik.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = didik.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7AB621D2546AB1F007E4895 /* didikApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = didikApp.swift; sourceTree = "<group>"; };
 		B7AB621F2546AB1F007E4895 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -69,6 +77,12 @@
 		B7AB62362546AB20007E4895 /* didikUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = didikUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7AB623A2546AB20007E4895 /* didikUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = didikUITests.swift; sourceTree = "<group>"; };
 		B7AB623C2546AB20007E4895 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B7DF19D72550195B00953640 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C2482EC5E9EF8FCF0DE9DCE9 /* Pods_didikTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_didikTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D85E113B8BD84DD483C19A32 /* Pods-didik.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-didik.release.xcconfig"; path = "Target Support Files/Pods-didik/Pods-didik.release.xcconfig"; sourceTree = "<group>"; };
+		E40C1E4B35D7524D6B2A8B1F /* Pods_didik.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_didik.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA4439BF531B0A2A6D86EC56 /* Pods-didik.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-didik.debug.xcconfig"; path = "Target Support Files/Pods-didik/Pods-didik.debug.xcconfig"; sourceTree = "<group>"; };
+		EDBDE43B376275069DA1CF3C /* Pods-didikTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-didikTests.release.xcconfig"; path = "Target Support Files/Pods-didikTests/Pods-didikTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1EC5478E2ADBE7F443C6DD5 /* Pods_didik.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C63DD4571D2CBF13FAD649A6 /* Pods_didikTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,12 +106,57 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E8987C7F227F05F9689F004 /* Pods_didik_didikUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		081EF93E6C69187E16D1208F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EA4439BF531B0A2A6D86EC56 /* Pods-didik.debug.xcconfig */,
+				D85E113B8BD84DD483C19A32 /* Pods-didik.release.xcconfig */,
+				26433F1143293503E627C9B8 /* Pods-didik-didikUITests.debug.xcconfig */,
+				A1045C84B5D1ACB467E20451 /* Pods-didik-didikUITests.release.xcconfig */,
+				899AEB16947BE7EEE933F086 /* Pods-didikTests.debug.xcconfig */,
+				EDBDE43B376275069DA1CF3C /* Pods-didikTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		3BE863F7EFB936CA811C59E3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E40C1E4B35D7524D6B2A8B1F /* Pods_didik.framework */,
+				1C468DCE94011D5567AEC5EA /* Pods_didik_didikUITests.framework */,
+				C2482EC5E9EF8FCF0DE9DCE9 /* Pods_didikTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B7590EF4254C5F5B00404167 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B7590EF5254C5F7600404167 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B7590EF6254C5F7B00404167 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
 		B7AB62112546AB1F007E4895 = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +164,8 @@
 				B7AB622E2546AB20007E4895 /* didikTests */,
 				B7AB62392546AB20007E4895 /* didikUITests */,
 				B7AB621B2546AB1F007E4895 /* Products */,
+				081EF93E6C69187E16D1208F /* Pods */,
+				3BE863F7EFB936CA811C59E3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -119,6 +182,10 @@
 		B7AB621C2546AB1F007E4895 /* didik */ = {
 			isa = PBXGroup;
 			children = (
+				B7DF19D72550195B00953640 /* GoogleService-Info.plist */,
+				B7590EF6254C5F7B00404167 /* View Model */,
+				B7590EF5254C5F7600404167 /* View */,
+				B7590EF4254C5F5B00404167 /* Model */,
 				B7AB621D2546AB1F007E4895 /* didikApp.swift */,
 				B7AB621F2546AB1F007E4895 /* ContentView.swift */,
 				B7AB62212546AB20007E4895 /* Assets.xcassets */,
@@ -173,9 +240,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B7AB623F2546AB20007E4895 /* Build configuration list for PBXNativeTarget "didik" */;
 			buildPhases = (
+				CFC767E8E06A823F7A131954 /* [CP] Check Pods Manifest.lock */,
 				B7AB62162546AB1F007E4895 /* Sources */,
 				B7AB62172546AB1F007E4895 /* Frameworks */,
 				B7AB62182546AB1F007E4895 /* Resources */,
+				4D4C6BBF9494B1B0304575CD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -190,6 +259,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B7AB62422546AB20007E4895 /* Build configuration list for PBXNativeTarget "didikTests" */;
 			buildPhases = (
+				D6BEAC31AA6291F134F5BD9A /* [CP] Check Pods Manifest.lock */,
 				B7AB62272546AB20007E4895 /* Sources */,
 				B7AB62282546AB20007E4895 /* Frameworks */,
 				B7AB62292546AB20007E4895 /* Resources */,
@@ -208,9 +278,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B7AB62452546AB20007E4895 /* Build configuration list for PBXNativeTarget "didikUITests" */;
 			buildPhases = (
+				F1C89DDCFFBDC6054D481F36 /* [CP] Check Pods Manifest.lock */,
 				B7AB62322546AB20007E4895 /* Sources */,
 				B7AB62332546AB20007E4895 /* Frameworks */,
 				B7AB62342546AB20007E4895 /* Resources */,
+				4CF140B0F822AA15AF1404D6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -271,6 +343,7 @@
 			files = (
 				B7AB62252546AB20007E4895 /* Preview Assets.xcassets in Resources */,
 				B7AB62222546AB20007E4895 /* Assets.xcassets in Resources */,
+				B7DF19D82550195B00953640 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +362,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4CF140B0F822AA15AF1404D6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-didik-didikUITests/Pods-didik-didikUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-didik-didikUITests/Pods-didik-didikUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-didik-didikUITests/Pods-didik-didikUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4D4C6BBF9494B1B0304575CD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-didik/Pods-didik-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-didik/Pods-didik-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-didik/Pods-didik-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CFC767E8E06A823F7A131954 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-didik-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D6BEAC31AA6291F134F5BD9A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-didikTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F1C89DDCFFBDC6054D481F36 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-didik-didikUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B7AB62162546AB1F007E4895 /* Sources */ = {
@@ -462,6 +638,7 @@
 		};
 		B7AB62402546AB20007E4895 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA4439BF531B0A2A6D86EC56 /* Pods-didik.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -484,6 +661,7 @@
 		};
 		B7AB62412546AB20007E4895 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D85E113B8BD84DD483C19A32 /* Pods-didik.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -506,6 +684,7 @@
 		};
 		B7AB62432546AB20007E4895 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 899AEB16947BE7EEE933F086 /* Pods-didikTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -528,6 +707,7 @@
 		};
 		B7AB62442546AB20007E4895 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EDBDE43B376275069DA1CF3C /* Pods-didikTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -550,6 +730,7 @@
 		};
 		B7AB62462546AB20007E4895 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26433F1143293503E627C9B8 /* Pods-didik-didikUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -570,6 +751,7 @@
 		};
 		B7AB62472546AB20007E4895 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A1045C84B5D1ACB467E20451 /* Pods-didik-didikUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
