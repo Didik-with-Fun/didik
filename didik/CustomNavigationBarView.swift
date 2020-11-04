@@ -11,17 +11,20 @@ import SwiftUI
 struct CustomNavigationBarView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
-    @State var isHidden : Bool
-    @State var dropdown1 : Bool = false
-    @State var dropdown2 : Bool = false
-    
     let title : String
-    var previousTitle : String? = nil
+    @State var filterKelasString : String
+    @State var filterMateriString : String
+    @Binding var searchText : String
+    let showDropDown : Bool
+    let previousTitle : String?
+    
+    //    @Binding var search : String
+    
     
     var body: some View {
-        VStack {
+        VStack (alignment : .leading){
             HStack {
-                if !isHidden {
+                if previousTitle != nil {
                     Button(action: {
                         self.presentationMode.wrappedValue.dismiss()
                     }) {
@@ -30,45 +33,57 @@ struct CustomNavigationBarView: View {
                                 .aspectRatio(contentMode: .fit)
                             Text(previousTitle ?? "back")
                         }.padding()
+                        .foregroundColor(.white)
                         
                     }
                     
                     .padding(.leading)
-//                    .padding(.top, 40)
                 } else {
-                    Rectangle()
-                        .foregroundColor(tabBarAndNavBarColor)
-                        .frame(maxHeight : 60)
+                    
+                    HStack {
+                        Text("")
+                    }.padding()
                 }
                 
                 
                 Spacer()
-            }
+            }.padding(.top, 10)
             HStack {
                 Text(title)
+                    .font(.title)
+                    .bold()
                     .foregroundColor(Color.white)
-                    .padding()
+                //.padding(.vertical)
                 Spacer()
                 Image(systemName: "photo")
                     .foregroundColor(.black)
                     .font(.system(size: 20))
-                    .padding()
-            }
-            HStack {
-                CustomDropDownMenu(options: ["Yes", "No","Hide"], isShowed: dropdown1).zIndex(2)
-                    .onTapGesture(count: 1, perform: {
-                        self.dropdown1.toggle()
-                    })
-                    .padding()
-                CustomDropDownMenu(options: ["What","Yes", "No","Hide"], isShowed: dropdown2).zIndex(2)
-                    .onTapGesture(count: 1, perform: {
-                        self.dropdown2.toggle()
-                    })
-                    .padding()
-                Spacer()
-                Text("TextField")
-                    .padding()
-            }
+                    .padding(.horizontal)
+            }.padding(.leading, 20)
+            HStack (spacing : 0){
+                if showDropDown {
+                    HStack (spacing : 10) {
+                        CustomDropDownMenu(options: ["Yes", "No","Hide"], selected: $filterKelasString, width: UIScreen.main.bounds.width * 0.15)
+                        CustomDropDownMenu(options: ["What","Yes", "No","Hide"], selected: $filterMateriString, width: UIScreen.main.bounds.width * 0.15)
+                            .padding(.trailing, 10)
+                    }
+                } else {
+                    VStack {
+                        HStack {
+                            Text("")
+                                .padding(.vertical, 8)
+
+                        }
+                    }.padding(.vertical, 10)
+                    
+                    
+                }
+
+                SearchBarView(text: $searchText)
+                    .padding(.leading, 10)
+                    .padding(.trailing)
+
+            }.padding(.leading, 20)
         }.background(tabBarAndNavBarColor)
         
     }
@@ -77,8 +92,8 @@ struct CustomNavigationBarView: View {
 struct CustomNavigationBarView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            CustomNavigationBarView(isHidden: true, title: "Juragan Materi", previousTitle: "")
-            CustomDropDownMenu(options: ["Yes", "No","Hide"], isShowed: false)
+            CustomNavigationBarView(title: "Jelajah Materi", filterKelasString: "Kelas", filterMateriString: "Materi", searchText: .constant(""), showDropDown: true, previousTitle: nil)
+            CustomNavigationBarView(title: "Jelajah Materi", filterKelasString: "Kelas", filterMateriString: "Materi", searchText: .constant(""), showDropDown: false, previousTitle: nil)
         }
         
     }
@@ -90,38 +105,69 @@ struct CustomDropDownMenu : View {
     
     let options : [String]
     
-    @State var isShowed : Bool
+    @State var isShowed : Bool = false
+    @Binding var selected : String
+    
+    
+    
+    let width : CGFloat
     
     var body: some View {
         VStack {
-            HStack {
-                Text(options[0])
-                    .padding()
-                
-                Image(systemName: "chevron.up")
-                    .padding()
+            Button(action: {
+                self.isShowed.toggle()
+            }) {
+                HStack(spacing : 10) {
+                    Text(selected)
+                        .frame(width: width * 0.85, alignment: .center)
+                        .padding(.vertical, 8)
+                        .padding(.leading, 10)
+                    Image(systemName: "chevron.up")
+                        .frame(width: width * 0.15, alignment: .center)
+                        .padding(.vertical, 8)
+                        .padding(.trailing, 10)
+                }
             }
             .foregroundColor(.white)
             .background(tabBarAndNavBarColor)
+            
             .overlay(
-                RoundedRectangle(cornerRadius: 20)
-                    .stroke(Color.white, lineWidth: 1)
-            )
-            if isShowed {
-                VStack {
-                    ForEach(0..<self.options.count) {
-                        index in
-                        Text(options[index])
-                            .font(.system(size: 17, weight: .bold, design: .default))
-                            .padding()
+                VStack{
+                    if isShowed {
+                        VStack {
+                            ForEach(0..<self.options.count) {
+                                index in
+                                Button(action: {
+                                    self.isShowed.toggle()
+                                    self.selected = options[index]
+                                }) {
+                                    Text(options[index])
+                                        .foregroundColor(.black)
+                                        .font(.system(size: 17, weight: .bold, design: .default))
+                                        .padding(.vertical, 10)
+                                        .frame(width: width * 0.85, alignment: .center)
+                                }
+   
+                            }
+                        }.background(Color.white)
+                        .cornerRadius(10)
+                        .shadow(radius: 5)
+                        
                     }
-                }.background(Color.white)
-                .cornerRadius(10)
-                .shadow(radius: 5)
-            }
+                }, alignment: .topLeading
+            )
+            
             
             
             
         }
+        .overlay(
+            RoundedRectangle(cornerRadius: 10)
+                .stroke(Color.white, lineWidth: 1)
+        )
+        .padding(.vertical, 10)
+        
+        
+        
     }
 }

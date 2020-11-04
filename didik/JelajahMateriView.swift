@@ -22,28 +22,34 @@ let dummyMateriGroup = [
 ]
 
 struct JelajahMateriView: View {
+    
+    @State var searchText : String = ""
+    
     var body: some View {
-        VStack {
-            ZStack {
-                CustomNavigationBarView(isHidden: true, title: "Jelajah Materi")
-//                    .ignoresSafeArea(.all)
-            }
-            
-            //list
-//            List(dummyMateriGroup) { materi in
-//                MateriPreviewCollectionView(judul: materi.title, dummyMateriPreviewCollectionView: materi.dummyMateri)
-//                }
-            
-            //foreach
-            ScrollView (.vertical) {
-                VStack (spacing : 0) {
-                    ForEach(dummyMateriGroup) {
-                        index in
-                        MateriPreviewCollectionView(judul: index.title, dummyMateriPreviewCollectionView: index.dummyMateri)
-                            .frame(height: UIScreen.main.bounds.height/4)
-                            
+        ZStack {
+            VStack {
+                CustomNavigationBarView(title: "Jelajah Materi", filterKelasString: "Kelas", filterMateriString: "Materi", searchText: $searchText, showDropDown: true, previousTitle: nil)
+                    .zIndex(2)
+                    .ignoresSafeArea()
+                //foreach
+                if searchText != "" {
+                    List(placeholderCollectionMateri.filter({ searchText.isEmpty ? true : $0.title.lowercased().contains(searchText.lowercased())
+                    })) { materi in
+                        MateriTableCellView(materi: materi, height: 125, width: 230)
+                    }
+                } else {
+                    ScrollView (.vertical) {
+                        VStack (spacing : 0) {
+                            ForEach(dummyMateriGroup) {
+                                index in
+                                MateriPreviewCollectionView(judul: index.title, dummyMateriPreviewCollectionView: index.dummyMateri)
+                                    .frame(height: UIScreen.main.bounds.height/4)
+                                
+                            }
+                        }
                     }
                 }
+                
             }
         }
     }

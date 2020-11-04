@@ -9,9 +9,11 @@ import SwiftUI
 
 let placeholderCollectionMateri : [DummyMateri] = [
     placeholderMateri,
-    placeholderMateri,
-    placeholderMateri,
-    placeholderMateri
+    placeholderMateri2,
+    placeholderMateri3,
+//    placeholderMateri,
+//    placeholderMateri2,
+    placeholderMateri3
 ]
 
 struct MateriPreviewCollectionView: View {

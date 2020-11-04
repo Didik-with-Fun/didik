@@ -21,6 +21,8 @@ struct DummyMateri : Identifiable {
 }
 
 let placeholderMateri = DummyMateri.init(imageName: "photo", likes: 214, duration: 5, title: "Persamaan Linear", author: "Pak Kirjo")
+let placeholderMateri2 = DummyMateri.init(imageName: "photo", likes: 214, duration: 5, title: "Trigonometri", author: "Pak Kirjo")
+let placeholderMateri3 = DummyMateri.init(imageName: "photo", likes: 214, duration: 5, title: "Persamaan Kuadratik", author: "Pak Kirjo")
 
 struct MateriPreviewView: View {
     

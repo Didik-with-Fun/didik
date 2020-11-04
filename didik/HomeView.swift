@@ -16,7 +16,11 @@ struct HomeView: View {
                 VStack {
                     switch index {
                     case 1:
-                        Text("Halaman 1")
+                        VStack{
+//                            CustomNavigationBarView(title: "My Materi", filterKelasString: "", filterMateriString: "", showDropDown: false, previousTitle: nil)
+//                                .ignoresSafeArea()
+                            Text("Halaman 1")
+                        }
                     case 2:
                         Text("Halaman 2 WOWOWO")
                     default :
