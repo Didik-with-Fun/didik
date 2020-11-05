@@ -11,10 +11,10 @@ import SwiftUI
 
 struct MateriPreviewView: View {
     
-    let height : CGFloat
-    let width : CGFloat
+    let height: CGFloat
+    let width: CGFloat
     
-    let materi : DummyMateri
+    let materi: DummyMateri
     
     
     var body: some View {
@@ -35,20 +35,20 @@ struct MateriPreviewView: View {
                             .font(.system(size: 14, weight: .regular, design: .default))
                             .foregroundColor(.black)
                             .padding(.top,4)
-                            .frame(width : width/3)
+                            .frame(width: width/3)
                         
                         // duration
                         Text("\(materi.duration) hari")
                             .font(.system(size: 14, weight: .regular, design: .default))
                             .foregroundColor(.white)
                             .padding(.vertical,4)
-                            .frame(width : width/3)
+                            .frame(width: width/3)
                             .background(Color.blue)
                             .cornerRadius(10.0, corners: .topLeft)
-                    }.frame(width : width/3)
+                    }.frame(width: width/3)
                     
-                }.frame(width : width, height: height)
-            }.frame(width : width, height: height)
+                }.frame(width: width, height: height)
+            }.frame(width: width, height: height)
             .cornerRadius(10)
             .clipped()
             
@@ -67,7 +67,7 @@ struct MateriPreviewView: View {
                 Spacer()
             }
             
-        }.frame(width : width)
+        }.frame(width: width)
         
         
     }
@@ -76,6 +76,5 @@ struct MateriPreviewView: View {
 struct MateriPreviewView_Previews: PreviewProvider {
     static var previews: some View {
         MateriPreviewView(height: 126, width: 230, materi: placeholderMateri)
-        //        MateriPreviewView()
     }
 }

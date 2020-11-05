@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    @State var index : Int = 0
+    @State var index: Int = 0
     
     var body: some View {
         VStack {
@@ -16,27 +16,21 @@ struct HomeView: View {
                 VStack {
                     switch index {
                     case 1:
-                        VStack{
-//                            CustomNavigationBarView(title: "My Materi", filterKelasString: "", filterMateriString: "", showDropDown: false, previousTitle: nil)
-//                                .ignoresSafeArea()
-                            Text("Halaman 1")
-                        }
+                        Text("Halaman My Materi")
                     case 2:
-                        Text("Halaman 2 WOWOWO")
+                        Text("Halaman Kelas Saya")
                     default :
                         JelajahMateriView()
                     }
                     Spacer()
-//                    TabBarView(index: $index)
                 }.navigationBarTitle("")
                 .navigationBarHidden(true)
-//                .navigationBarColor(UIColor.systemBlue)
             }
             .navigationViewStyle(StackNavigationViewStyle())
             TabBarView(index: $index)
         }
         
-            
+        
         
     }
 }

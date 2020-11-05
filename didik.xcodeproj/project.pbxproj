@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1E8987C7F227F05F9689F004 /* Pods_didik_didikUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C468DCE94011D5567AEC5EA /* Pods_didik_didikUITests.framework */; };
+		751C70882553BCFD0072C1B5 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751C70872553BCFD0072C1B5 /* Constant.swift */; };
 		75352C3F254B41EF0039EC2D /* Extension+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75352C3E254B41EF0039EC2D /* Extension+Color.swift */; };
 		75352C4C254B44150039EC2D /* JelajahMateriView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75352C4B254B44150039EC2D /* JelajahMateriView.swift */; };
 		75352C51254B4F840039EC2D /* CustomNavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75352C50254B4F840039EC2D /* CustomNavigationBarView.swift */; };
@@ -51,6 +52,7 @@
 /* Begin PBXFileReference section */
 		1C468DCE94011D5567AEC5EA /* Pods_didik_didikUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_didik_didikUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		26433F1143293503E627C9B8 /* Pods-didik-didikUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-didik-didikUITests.debug.xcconfig"; path = "Target Support Files/Pods-didik-didikUITests/Pods-didik-didikUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		751C70872553BCFD0072C1B5 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		75352C3E254B41EF0039EC2D /* Extension+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Color.swift"; sourceTree = "<group>"; };
 		75352C4B254B44150039EC2D /* JelajahMateriView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JelajahMateriView.swift; sourceTree = "<group>"; };
 		75352C50254B4F840039EC2D /* CustomNavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBarView.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				755B2179254A885100B0A7E6 /* Extension+View.swift */,
 				75352C3E254B41EF0039EC2D /* Extension+Color.swift */,
 				758081DB2552676000E50787 /* DummyModel.swift */,
+				751C70872553BCFD0072C1B5 /* Constant.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -473,6 +476,7 @@
 			files = (
 				B7AB62202546AB1F007E4895 /* ContentView.swift in Sources */,
 				75352C60254D6E730039EC2D /* DummyView.swift in Sources */,
+				751C70882553BCFD0072C1B5 /* Constant.swift in Sources */,
 				755B217F254AA95500B0A7E6 /* MateriPreviewCollectionView.swift in Sources */,
 				75352C3F254B41EF0039EC2D /* Extension+Color.swift in Sources */,
 				75352C56254C3C9A0039EC2D /* HomeView.swift in Sources */,

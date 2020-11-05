@@ -11,18 +11,18 @@ import SwiftUI
 struct CustomNavigationBarView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
-    let title : String
-    @State var filterKelasString : String
-    @State var filterMateriString : String
-    @Binding var searchText : String
-    let showDropDown : Bool
-    let previousTitle : String?
+    let title: String
+    @State var filterKelasString: String
+    @State var filterMateriString: String
+    @Binding var searchText: String
+    let showDropDown: Bool
+    let previousTitle: String?
     
     //    @Binding var search : String
     
     
     var body: some View {
-        VStack (alignment : .leading){
+        VStack (alignment: .leading){
             HStack {
                 if previousTitle != nil {
                     Button(action: {
@@ -39,7 +39,6 @@ struct CustomNavigationBarView: View {
                     
                     .padding(.leading)
                 } else {
-                    
                     HStack {
                         Text("")
                     }.padding()
@@ -65,9 +64,9 @@ struct CustomNavigationBarView: View {
                     })
                 
             }.padding(.leading, 20)
-            HStack (spacing : 0){
+            HStack(spacing: 0){
                 if showDropDown {
-                    HStack (spacing : 10) {
+                    HStack(spacing: 10) {
                         CustomDropDownMenu(options: ["Yes", "No","Hide"], selected: $filterKelasString, width: UIScreen.main.bounds.width * 0.15)
                         CustomDropDownMenu(options: ["What","Yes", "No","Hide"], selected: $filterMateriString, width: UIScreen.main.bounds.width * 0.15)
                             .padding(.trailing, 10)
@@ -89,7 +88,7 @@ struct CustomNavigationBarView: View {
                     .padding(.trailing)
 
             }.padding(.leading, 20)
-        }.background(tabBarAndNavBarColor)
+        }.background(Color(K.TabBarColor))
         
     }
 }
@@ -134,7 +133,7 @@ struct CustomDropDownMenu : View {
                 }
             }
             .foregroundColor(.white)
-            .background(tabBarAndNavBarColor)
+            .background(Color(K.TabBarColor))
             
             .overlay(
                 VStack{

@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct LihatSemuaView: View {
-    let MateriLibrary : [DummyMateri]
-    let previousViewTitle : String
-    let currentTitle : String
-    @State var searchText : String = ""
+    let MateriLibrary: [DummyMateri]
+    let previousViewTitle: String
+    let currentTitle: String
+    @State var searchText: String = ""
     
-    let height : CGFloat = 125
-    let width : CGFloat = 230
+    let height: CGFloat = 125
+    let width: CGFloat = 230
     
     var body: some View {
         VStack {
@@ -41,14 +41,14 @@ struct LihatSemuaView_Previews: PreviewProvider {
     }
 }
 
-struct MateriTableCellView : View {
+struct MateriTableCellView: View {
     
-    let materi : DummyMateri
-    let height : CGFloat
-    let width : CGFloat
+    let materi: DummyMateri
+    let height: CGFloat
+    let width: CGFloat
     
     var body: some View {
-        HStack (alignment : .top, spacing : 20){
+        HStack(alignment: .top, spacing: 20) {
             ZStack {
                 Image(systemName: materi.imageName)
                     .resizable()
@@ -69,18 +69,18 @@ struct MateriTableCellView : View {
                             .font(.system(size: 14, weight: .regular, design: .default))
                             .foregroundColor(.white)
                             .padding(.vertical,4)
-                            .frame(maxWidth : width/3)
+                            .frame(width: width/3)
                             .background(Color.blue)
                             .cornerRadius(10.0, corners: .topLeft)
-                    }.frame(width : width/3)
+                    }.frame(width: width/3)
                     
-                }.frame(width : width, height: height)
-            }.frame(width : width, height: height)
+                }.frame(width: width, height: height)
+            }.frame(width: width, height: height)
             .cornerRadius(10)
             .clipped()
             
             
-            VStack (alignment: .leading) {
+            VStack(alignment: .leading) {
                 Text(materi.title)
                     .bold()
                 Text(materi.author)

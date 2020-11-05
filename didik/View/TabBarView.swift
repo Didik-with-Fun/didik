@@ -7,18 +7,17 @@
 
 import SwiftUI
 
-let tabBarAndNavBarColor = Color(hex: "#0F6889")
 
 struct TabBarView: View {
-    @Binding var index : Int
-    @State var tabBar1 : Bool = true
-    @State var tabBar2 : Bool = false
-    @State var tabBar3 : Bool = false
+    @Binding var index: Int
+    @State var tabBar1: Bool = true
+    @State var tabBar2: Bool = false
+    @State var tabBar3: Bool = false
     
-    let color = tabBarAndNavBarColor
+    let color = Color(K.TabBarColor)
     
     var body: some View {
-        HStack (spacing : 10) {
+        HStack(spacing: 10) {
             Button(action: {
                 self.index = 0
                 self.tabBar1 = true
@@ -60,12 +59,12 @@ struct TabBarView: View {
 //    }
 //}
 
-struct TabBarButton : View {
+struct TabBarButton: View {
     
-    @Binding var isPressed : Bool
-    let imageName : String
-    let title : String
-    let color : Color = tabBarAndNavBarColor
+    @Binding var isPressed: Bool
+    let imageName: String
+    let title: String
+    let color: Color = Color(K.TabBarColor)
     
     var body: some View {
         ZStack {
@@ -85,10 +84,6 @@ struct TabBarButton : View {
             }
             
         }
-//        .onTapGesture(perform: {
-//            self.isPressed.toggle()
-//            print("ke pencet")
-//        })
     }
     
 }

@@ -11,11 +11,11 @@ import SwiftUI
 
 struct MateriPreviewCollectionView: View {
     
-    let judul : String
-    let MateriLibrary : [DummyMateri]
+    let judul: String
+    let MateriLibrary: [DummyMateri]
     
     var body: some View {
-        VStack (spacing: 10){
+        VStack(spacing: 10){
             HStack {
                 Text(judul)
                     .font(.title2)

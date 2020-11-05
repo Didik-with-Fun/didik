@@ -9,7 +9,7 @@ import SwiftUI
 
 struct JelajahMateriView: View {
     
-    @State var searchText : String = ""
+    @State var searchText: String = ""
     
     var body: some View {
         ZStack {
