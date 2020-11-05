@@ -76,30 +76,12 @@ extension SignInWithAppleCoordinator: ASAuthorizationControllerDelegate {
             
             // Sign in with Firebase.
             Auth.auth().signIn(with: firebaseCredential) { (authResult, error) in
-                if let user = authResult?.user {
-                    if let callback = self.onSignedIn {
-                        callback()
-                    }
-                }
-
+  
                 if error != nil {
-                    print("Error signing in: \(error?.localizedDescription)")
+                    print("Error signing in: \(error?.localizedDescription ?? "")")
                 }
                 else {
-                    
-//                    // Make a request to set user's display name on Firebase
-//                    let changeRequest = authResult?.user.createProfileChangeRequest()
-//                    changeRequest?.displayName = appleIDCredential.fullName?.givenName
-//                    changeRequest?.commitChanges(completion: { (error) in
-//
-//                        if let error = error {
-//                            print(error.localizedDescription)
-//                        } else {
-//                            print("Updated display name: \(Auth.auth().currentUser!.displayName!)")
-//                        }
-//                    })
-
-                    
+                
                     self.isUserAuthenticated = .signedIn
                     
                     let userIdentifier = appleIDCredential.user
@@ -146,7 +128,6 @@ extension SignInWithAppleCoordinator {
             
             if let userDataEncoded = try? JSONEncoder().encode(userData) {
                 UserDefaults.standard.set(userDataEncoded, forKey: "userData")
-                UserDefaults.standard.set("25", forKey: "Age")
             }
             
         })
