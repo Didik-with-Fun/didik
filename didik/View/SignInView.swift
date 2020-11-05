@@ -18,18 +18,21 @@ struct SignInView: View {
             Rectangle().fill(Color("GreyBackground"))
                 .frame(width: 679, height: 884, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 .cornerRadius(30)
+                .overlay(
+                    VStack {
+                        Image("Icon").resizable()
+                            .frame(width: 176, height: 120, alignment: .leading)
+                            .padding(.bottom, 100)//.offset(x: 0, y: -200)
+                        
+                        SignInWithAppleButton()
+                            .frame(width: 280, height: 60)
+                            .onTapGesture(perform: {
+                                self.signInCoordinator.startSignInWithAppleFlow()
+                            })
+                    }
+                )
             
-            VStack {
-                Image("Icon").resizable()
-                    .frame(width: 176, height: 120, alignment: .leading)
-                    .padding(.bottom, 100)//.offset(x: 0, y: -200)
-                
-                SignInWithAppleButton()
-                    .frame(width: 280, height: 60)
-                    .onTapGesture(perform: {
-                        self.signInCoordinator.startSignInWithAppleFlow()
-                    })
-            }
+
             
         }
     }
