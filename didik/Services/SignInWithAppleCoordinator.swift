@@ -40,13 +40,6 @@ class SignInWithAppleCoordinator: NSObject, ObservableObject, ASAuthorizationCon
     
     func signOut() throws {
         
-//        // Check provider ID to verify that the user has signed in with Apple
-//        if let providerId = Auth.auth().currentUser?.providerData.first?.providerID,
-//            providerId == "apple.com" {
-//            // Clear saved user ID
-//            UserDefaults.standard.set(nil, forKey: "user")
-//        }
-        
         // Perform sign out from Firebase
         try Auth.auth().signOut()
         isUserAuthenticated = AuthState.signedOut
@@ -74,10 +67,6 @@ extension SignInWithAppleCoordinator: ASAuthorizationControllerDelegate {
                 return
             }
             
-            
-            // For the purpose of this demo app, store the `userIdentifier` in the keychain.
-            //self.saveUserInKeychain(userIdentifier)
-            
                         
             // Initialize a Firebase credential.
             let firebaseCredential = OAuthProvider.credential(withProviderID: "apple.com",
@@ -98,7 +87,7 @@ extension SignInWithAppleCoordinator: ASAuthorizationControllerDelegate {
                 }
                 else {
                     
-//                    // Mak a request to set user's display name on Firebase
+//                    // Make a request to set user's display name on Firebase
 //                    let changeRequest = authResult?.user.createProfileChangeRequest()
 //                    changeRequest?.displayName = appleIDCredential.fullName?.givenName
 //                    changeRequest?.commitChanges(completion: { (error) in

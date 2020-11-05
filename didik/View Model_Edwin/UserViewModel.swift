@@ -12,10 +12,6 @@ class UserViewModel: ObservableObject {
     @EnvironmentObject var signInCoordinator: SignInWithAppleCoordinator
 
     @Published var userData: UserData?
- 
-    func getRequest() {
-        self.signInCoordinator.startSignInWithAppleFlow()
-    }
     
     func getUserInfo() {
         if let userDataDefault = UserDefaults.standard.object(forKey: "userData") as? Data,
