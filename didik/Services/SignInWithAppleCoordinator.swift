@@ -23,7 +23,7 @@ class SignInWithAppleCoordinator: NSObject, ObservableObject, ASAuthorizationCon
     fileprivate var currentNonce: String?
     
     @available(iOS 13, *)
-    func startSignInWithAppleFlow(onSignedIn: @escaping () -> Void) {
+    func startSignInWithAppleFlow() { //(onSignedIn: @escaping () -> Void) {
         
         let nonce = AuthenticationUtil.randomNonceString()
         currentNonce = nonce
@@ -44,7 +44,7 @@ class SignInWithAppleCoordinator: NSObject, ObservableObject, ASAuthorizationCon
 //        if let providerId = Auth.auth().currentUser?.providerData.first?.providerID,
 //            providerId == "apple.com" {
 //            // Clear saved user ID
-//            UserDefaults.standard.set(nil, forKey: "appleAuthorizedUserIdKey")
+//            UserDefaults.standard.set(nil, forKey: "user")
 //        }
         
         // Perform sign out from Firebase
@@ -74,10 +74,6 @@ extension SignInWithAppleCoordinator: ASAuthorizationControllerDelegate {
                 return
             }
             
-            // Create an account in your system.
-            let userIdentifier = appleIDCredential.user
-            let fullName = appleIDCredential.fullName
-            let email = appleIDCredential.email
             
             // For the purpose of this demo app, store the `userIdentifier` in the keychain.
             //self.saveUserInKeychain(userIdentifier)
@@ -113,15 +109,16 @@ extension SignInWithAppleCoordinator: ASAuthorizationControllerDelegate {
 //                            print("Updated display name: \(Auth.auth().currentUser!.displayName!)")
 //                        }
 //                    })
+
                     
+                    self.isUserAuthenticated = .signedIn
                     
-                    DispatchQueue.main.async {
-                        self.isUserAuthenticated = .signedIn
-                    }
-              
-                    if let callback = self.onSignedIn {
-                        callback()
-                    }
+                    let userIdentifier = appleIDCredential.user
+                    let fullName = (appleIDCredential.fullName?.givenName ?? "") + " " + (appleIDCredential.fullName?.familyName ?? "")
+                    let email = appleIDCredential.email
+                    
+                    self.setUserInfo(for: userIdentifier, fullname: fullName, email: email)
+
                 }
             }
                    
@@ -133,5 +130,39 @@ extension SignInWithAppleCoordinator: ASAuthorizationControllerDelegate {
         print("Sign in with Apple errored: \(error)")
     }
     
+}
+
+extension SignInWithAppleCoordinator {
+    private func setUserInfo(for userId: String, fullname: String?, email: String?) {
+        
+        ASAuthorizationAppleIDProvider().getCredentialState(forUserID: userId, completion: { (credentialState, error) in
+            
+            var authState: String?
+            
+            switch credentialState {
+                
+            case .authorized:
+                authState = "authorized"
+            case .revoked:
+                authState = "revoked"
+            case .notFound:
+                authState = "notFound"
+            case .transferred:
+                authState = "transferred"
+            @unknown default:
+                fatalError()
+            }
+            
+            let userData = UserData(appleIdentifier: userId, fullName: fullname ?? "", email: email ?? "")
+            
+            if let userDataEncoded = try? JSONEncoder().encode(userData) {
+                UserDefaults.standard.set(userDataEncoded, forKey: "userData")
+                UserDefaults.standard.set("25", forKey: "Age")
+            }
+            
+        })
+            
+        
+    }
 }
 

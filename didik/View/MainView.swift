@@ -11,22 +11,29 @@ struct MainView: View {
     
     @EnvironmentObject var signInCoordinator: SignInWithAppleCoordinator
 
+    @ObservedObject var userViewModel = UserViewModel()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-        Button(action: {
-            do {
-                try signInCoordinator.signOut()
-            }
-            catch {
-                fatalError()
-            }
-            
-        }, label: {
-            Text("Sign Out")
-        })
-        .frame(width: 280, height: 60)
-
+        VStack{
+            Text("Hello, \(userViewModel.userData?.fullName ?? "")")
+            Button(action: {
+                do {
+                    try signInCoordinator.signOut()
+                }
+                catch {
+                    fatalError()
+                }
+                
+            }, label: {
+                Text("Sign Out")
+            })
+            .frame(width: 280, height: 60)
+        }
+        .onAppear(){
+            self.userViewModel.getUserInfo()
+        }
     }
+    
 }
 
 struct MainView_Previews: PreviewProvider {

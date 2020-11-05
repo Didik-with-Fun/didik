@@ -15,6 +15,8 @@
 		B7AB62302546AB20007E4895 /* didikTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB622F2546AB20007E4895 /* didikTests.swift */; };
 		B7AB623B2546AB20007E4895 /* didikUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB623A2546AB20007E4895 /* didikUITests.swift */; };
 		B7DF19D82550195B00953640 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B7DF19D72550195B00953640 /* GoogleService-Info.plist */; };
+		BA3A772B255337DF00975121 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3A772A255337DF00975121 /* UserData.swift */; };
+		BA3A773325534EA800975121 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3A773225534EA800975121 /* UserViewModel.swift */; };
 		BA8CF5D625511BCC0057B9B8 /* SignInWithAppleCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8CF5D525511BCC0057B9B8 /* SignInWithAppleCoordinator.swift */; };
 		BA8CF5F82551B3DD0057B9B8 /* AuthState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8CF5F72551B3DD0057B9B8 /* AuthState.swift */; };
 		BA8CF62E2551DEEA0057B9B8 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8CF62D2551DEEA0057B9B8 /* MainView.swift */; };
@@ -60,8 +62,10 @@
 		B7AB623A2546AB20007E4895 /* didikUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = didikUITests.swift; sourceTree = "<group>"; };
 		B7AB623C2546AB20007E4895 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B7DF19D72550195B00953640 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BA3A772A255337DF00975121 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		BA3A773225534EA800975121 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		BA8CF5D525511BCC0057B9B8 /* SignInWithAppleCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleCoordinator.swift; sourceTree = "<group>"; };
-		BA8CF5F72551B3DD0057B9B8 /* AuthState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuthState.swift; path = didik/Services/AuthState.swift; sourceTree = SOURCE_ROOT; };
+		BA8CF5F72551B3DD0057B9B8 /* AuthState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuthState.swift; path = didik/Model_Edwin/AuthState.swift; sourceTree = SOURCE_ROOT; };
 		BA8CF62D2551DEEA0057B9B8 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		BA90EB3B2552B18300C6DFFD /* AuthenticationUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationUtil.swift; sourceTree = "<group>"; };
 		BA9430192550894900283FB3 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
@@ -125,14 +129,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B7590EF4254C5F5B00404167 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				BA8CF5F72551B3DD0057B9B8 /* AuthState.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		B7590EF5254C5F7600404167 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -141,13 +137,6 @@
 				BA94300F2550885C00283FB3 /* SignIn */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		B7590EF6254C5F7B00404167 /* View Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "View Model";
 			sourceTree = "<group>";
 		};
 		B7AB62112546AB1F007E4895 = {
@@ -175,9 +164,9 @@
 		B7AB621C2546AB1F007E4895 /* didik */ = {
 			isa = PBXGroup;
 			children = (
-				B7590EF6254C5F7B00404167 /* View Model */,
+				BA3A77292553378100975121 /* View Model_Edwin */,
 				B7590EF5254C5F7600404167 /* View */,
-				B7590EF4254C5F5B00404167 /* Model */,
+				BA3A77282553376600975121 /* Model_Edwin */,
 				BA8CF5D125511B9B0057B9B8 /* Services */,
 				BA90EB382552B12100C6DFFD /* Utilities */,
 				B7AB621D2546AB1F007E4895 /* didikApp.swift */,
@@ -214,6 +203,23 @@
 				B7AB623C2546AB20007E4895 /* Info.plist */,
 			);
 			path = didikUITests;
+			sourceTree = "<group>";
+		};
+		BA3A77282553376600975121 /* Model_Edwin */ = {
+			isa = PBXGroup;
+			children = (
+				BA8CF5F72551B3DD0057B9B8 /* AuthState.swift */,
+				BA3A772A255337DF00975121 /* UserData.swift */,
+			);
+			path = Model_Edwin;
+			sourceTree = "<group>";
+		};
+		BA3A77292553378100975121 /* View Model_Edwin */ = {
+			isa = PBXGroup;
+			children = (
+				BA3A773225534EA800975121 /* UserViewModel.swift */,
+			);
+			path = "View Model_Edwin";
 			sourceTree = "<group>";
 		};
 		BA8CF5D125511B9B0057B9B8 /* Services */ = {
@@ -482,8 +488,10 @@
 				BA8CF5D625511BCC0057B9B8 /* SignInWithAppleCoordinator.swift in Sources */,
 				BA8CF62E2551DEEA0057B9B8 /* MainView.swift in Sources */,
 				BA8CF5F82551B3DD0057B9B8 /* AuthState.swift in Sources */,
+				BA3A773325534EA800975121 /* UserViewModel.swift in Sources */,
 				B7AB62202546AB1F007E4895 /* ContentView.swift in Sources */,
 				BA94301A2550894900283FB3 /* SignInView.swift in Sources */,
+				BA3A772B255337DF00975121 /* UserData.swift in Sources */,
 				BA90EB3C2552B18300C6DFFD /* AuthenticationUtil.swift in Sources */,
 				BA94301F25508AF600283FB3 /* SignInWithAppleButton.swift in Sources */,
 				B7AB621E2546AB1F007E4895 /* didikApp.swift in Sources */,

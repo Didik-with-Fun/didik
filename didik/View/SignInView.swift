@@ -27,7 +27,7 @@ struct SignInView: View {
                 SignInWithAppleButton()
                     .frame(width: 280, height: 60)
                     .onTapGesture(perform: {
-                        self.signInCoordinator.startSignInWithAppleFlow {}
+                        self.signInCoordinator.startSignInWithAppleFlow()
                     })
             }
             
