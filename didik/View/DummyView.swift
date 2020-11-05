@@ -8,8 +8,33 @@
 import SwiftUI
 
 struct DummyView: View {
+    
+    let MateriLibrary: [DummyMateri] = LibraryMateri
+    @State var searchText: String = ""
+    
+    let height: CGFloat = 125
+    let width: CGFloat = 230
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            CustomNavigationBarView(filterKelasString: "Kelas", filterMateriString: "Materi", searchText: $searchText, showDropDown: true)
+            Spacer()
+            
+            List(MateriLibrary.filter({ searchText.isEmpty ? true : $0.title.lowercased().contains(searchText.lowercased())
+            })) { materi in
+                NavigationLink(
+                    destination: HomeView(),
+                    label: {
+                        MateriTableCellView(materi: materi, height: height, width: width)
+                    })
+            }
+            Spacer()
+            
+        }
+        .navigationBarTitle("Dummy", displayMode: .automatic)
+        .navigationBarColor(UIColor(named: K.TabBarColor))
+        .navigationBarItems(trailing: UserButton())
+        
     }
 }
 

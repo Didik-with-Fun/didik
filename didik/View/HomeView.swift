@@ -15,21 +15,29 @@ struct HomeView: View {
             NavigationView {
                 VStack {
                     switch index {
+                    case 0:
+                        JelajahMateriView()
                     case 1:
-                        Text("Halaman My Materi")
+                        LihatSemuaView(MateriLibrary: LibraryMateri, currentTitle: "nipples")
                     case 2:
-                        Text("Halaman Kelas Saya")
+                        DummyView()
                     default :
                         JelajahMateriView()
                     }
                     Spacer()
-                }.navigationBarTitle("")
-                .navigationBarHidden(true)
-            }
+                }
+                
+            }.navigationBarTitle("", displayMode: .automatic)
+            .navigationBarColor(UIColor(named: K.TabBarColor))
+            .navigationBarItems(trailing: UserButton())
+//            .navigationBarHidden(true)
             .navigationViewStyle(StackNavigationViewStyle())
+
             Spacer()
             TabBarView(index: $index)
         }.ignoresSafeArea(.keyboard, edges: .bottom)
+        
+        
             
         
         

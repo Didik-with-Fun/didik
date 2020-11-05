@@ -14,9 +14,8 @@ struct JelajahMateriView: View {
     var body: some View {
         ZStack {
             VStack {
-                CustomNavigationBarView(title: "Jelajah Materi", filterKelasString: "Kelas", filterMateriString: "Materi", searchText: $searchText, showDropDown: true, previousTitle: nil)
+                CustomNavigationBarView(filterKelasString: "Kelas", filterMateriString: "Materi", searchText: $searchText, showDropDown: true)
                     .zIndex(2)
-                    .ignoresSafeArea()
                 //foreach
                 if searchText != "" {
                     List(LibraryMateri.filter({ searchText.isEmpty ? true : $0.title.lowercased().contains(searchText.lowercased())
@@ -42,9 +41,16 @@ struct JelajahMateriView: View {
                 }
                 
             }
-        }
+            //        }
+        }.navigationBarItems(trailing: UserButton())
+        .navigationBarTitle("Jelajah Materi", displayMode: .automatic)
+        .navigationBarColor(UIColor(named: K.TabBarColor))
+        
+        
     }
+    
 }
+
 
 struct JelajahMateriView_Previews: PreviewProvider {
     static var previews: some View {
