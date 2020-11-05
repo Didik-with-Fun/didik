@@ -27,9 +27,10 @@ struct HomeView: View {
                 .navigationBarHidden(true)
             }
             .navigationViewStyle(StackNavigationViewStyle())
+            Spacer()
             TabBarView(index: $index)
-        }
-        
+        }.ignoresSafeArea(.keyboard, edges: .bottom)
+            
         
         
     }

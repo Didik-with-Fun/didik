@@ -18,8 +18,6 @@ struct CustomNavigationBarView: View {
     let showDropDown: Bool
     let previousTitle: String?
     
-    //    @Binding var search : String
-    
     
     var body: some View {
         VStack (alignment: .leading){
@@ -34,17 +32,13 @@ struct CustomNavigationBarView: View {
                             Text(previousTitle ?? "back")
                         }.padding()
                         .foregroundColor(.white)
-                        
                     }
-                    
                     .padding(.leading)
                 } else {
                     HStack {
                         Text("")
                     }.padding()
                 }
-                
-                
                 Spacer()
             }.padding(.top, 10)
             HStack {
@@ -53,7 +47,6 @@ struct CustomNavigationBarView: View {
                     .bold()
                     .foregroundColor(Color.white)
                 Spacer()
-                // image
                 NavigationLink(
                     destination: DummyView(),
                     label: {
@@ -99,7 +92,6 @@ struct CustomNavigationBarView_Previews: PreviewProvider {
             CustomNavigationBarView(title: "Jelajah Materi", filterKelasString: "Kelas", filterMateriString: "Materi", searchText: .constant(""), showDropDown: true, previousTitle: nil)
             CustomNavigationBarView(title: "Jelajah Materi", filterKelasString: "Kelas", filterMateriString: "Materi", searchText: .constant(""), showDropDown: false, previousTitle: nil)
         }
-        
     }
 }
 
@@ -111,8 +103,6 @@ struct CustomDropDownMenu : View {
     
     @State var isShowed : Bool = false
     @Binding var selected : String
-    
-    
     
     let width : CGFloat
     
@@ -134,7 +124,6 @@ struct CustomDropDownMenu : View {
             }
             .foregroundColor(.white)
             .background(Color(K.TabBarColor))
-            
             .overlay(
                 VStack{
                     if isShowed {
@@ -151,18 +140,13 @@ struct CustomDropDownMenu : View {
                                         .padding(.vertical, 10)
                                         .frame(width: width * 0.85, alignment: .center)
                                 }
-   
                             }
                         }.background(Color.white)
                         .cornerRadius(10)
                         .shadow(radius: 5)
-                        
                     }
                 }, alignment: .topLeading
             )
-            
-            
-            
             
         }
         .overlay(
@@ -170,8 +154,6 @@ struct CustomDropDownMenu : View {
                 .stroke(Color.white, lineWidth: 1)
         )
         .padding(.vertical, 10)
-        
-        
         
     }
 }
