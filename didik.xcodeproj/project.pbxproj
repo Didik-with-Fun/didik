@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1E8987C7F227F05F9689F004 /* Pods_didik_didikUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C468DCE94011D5567AEC5EA /* Pods_didik_didikUITests.framework */; };
+		B76514E22552AF560041D6A3 /* CreateProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76514E12552AF560041D6A3 /* CreateProjectView.swift */; };
 		B7AB621E2546AB1F007E4895 /* didikApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB621D2546AB1F007E4895 /* didikApp.swift */; };
 		B7AB62202546AB1F007E4895 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB621F2546AB1F007E4895 /* ContentView.swift */; };
 		B7AB62222546AB20007E4895 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7AB62212546AB20007E4895 /* Assets.xcassets */; };
@@ -49,6 +50,7 @@
 		26433F1143293503E627C9B8 /* Pods-didik-didikUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-didik-didikUITests.debug.xcconfig"; path = "Target Support Files/Pods-didik-didikUITests/Pods-didik-didikUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		899AEB16947BE7EEE933F086 /* Pods-didikTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-didikTests.debug.xcconfig"; path = "Target Support Files/Pods-didikTests/Pods-didikTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A1045C84B5D1ACB467E20451 /* Pods-didik-didikUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-didik-didikUITests.release.xcconfig"; path = "Target Support Files/Pods-didik-didikUITests/Pods-didik-didikUITests.release.xcconfig"; sourceTree = "<group>"; };
+		B76514E12552AF560041D6A3 /* CreateProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProjectView.swift; sourceTree = "<group>"; };
 		B7AB621A2546AB1F007E4895 /* didik.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = didik.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7AB621D2546AB1F007E4895 /* didikApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = didikApp.swift; sourceTree = "<group>"; };
 		B7AB621F2546AB1F007E4895 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -135,8 +137,24 @@
 				B7AB621F2546AB1F007E4895 /* ContentView.swift */,
 				BA8CF62D2551DEEA0057B9B8 /* MainView.swift */,
 				BA94300F2550885C00283FB3 /* SignIn */,
+				B76514E02552AF150041D6A3 /* CreateProjectView */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		B7590EF6254C5F7B00404167 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		B76514E02552AF150041D6A3 /* CreateProjectView */ = {
+			isa = PBXGroup;
+			children = (
+				B76514E12552AF560041D6A3 /* CreateProjectView.swift */,
+			);
+			path = CreateProjectView;
 			sourceTree = "<group>";
 		};
 		B7AB62112546AB1F007E4895 = {
@@ -489,6 +507,7 @@
 				BA8CF62E2551DEEA0057B9B8 /* MainView.swift in Sources */,
 				BA8CF5F82551B3DD0057B9B8 /* AuthState.swift in Sources */,
 				BA3A773325534EA800975121 /* UserViewModel.swift in Sources */,
+				B76514E22552AF560041D6A3 /* CreateProjectView.swift in Sources */,
 				B7AB62202546AB1F007E4895 /* ContentView.swift in Sources */,
 				BA94301A2550894900283FB3 /* SignInView.swift in Sources */,
 				BA3A772B255337DF00975121 /* UserData.swift in Sources */,
