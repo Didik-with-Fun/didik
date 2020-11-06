@@ -34,11 +34,11 @@
 		BA3A772B255337DF00975121 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3A772A255337DF00975121 /* UserData.swift */; };
 		BA3A773325534EA800975121 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3A773225534EA800975121 /* UserViewModel.swift */; };
 		BA8CF5D625511BCC0057B9B8 /* SignInWithAppleCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8CF5D525511BCC0057B9B8 /* SignInWithAppleCoordinator.swift */; };
-		BA8CF5F82551B3DD0057B9B8 /* AuthState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8CF5F72551B3DD0057B9B8 /* AuthState.swift */; };
 		BA8CF62E2551DEEA0057B9B8 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8CF62D2551DEEA0057B9B8 /* MainView.swift */; };
 		BA90EB3C2552B18300C6DFFD /* AuthenticationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA90EB3B2552B18300C6DFFD /* AuthenticationUtil.swift */; };
 		BA94301A2550894900283FB3 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9430192550894900283FB3 /* SignInView.swift */; };
 		BA94301F25508AF600283FB3 /* SignInWithAppleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA94301E25508AF600283FB3 /* SignInWithAppleButton.swift */; };
+		BAEC7313255527EF0069574F /* AuthState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEC7312255527EF0069574F /* AuthState.swift */; };
 		C1EC5478E2ADBE7F443C6DD5 /* Pods_didik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E40C1E4B35D7524D6B2A8B1F /* Pods_didik.framework */; };
 		C63DD4571D2CBF13FAD649A6 /* Pods_didikTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2482EC5E9EF8FCF0DE9DCE9 /* Pods_didikTests.framework */; };
 /* End PBXBuildFile section */
@@ -97,12 +97,12 @@
 		BA3A772A255337DF00975121 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		BA3A773225534EA800975121 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		BA8CF5D525511BCC0057B9B8 /* SignInWithAppleCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleCoordinator.swift; sourceTree = "<group>"; };
-		BA8CF5F72551B3DD0057B9B8 /* AuthState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuthState.swift; path = didik/Model_Edwin/AuthState.swift; sourceTree = SOURCE_ROOT; };
 		BA8CF62D2551DEEA0057B9B8 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		BA90EB3B2552B18300C6DFFD /* AuthenticationUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationUtil.swift; sourceTree = "<group>"; };
 		BA9430192550894900283FB3 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		BA94301E25508AF600283FB3 /* SignInWithAppleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleButton.swift; sourceTree = "<group>"; };
 		BA94302325508E5D00283FB3 /* didik.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = didik.entitlements; sourceTree = "<group>"; };
+		BAEC7312255527EF0069574F /* AuthState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthState.swift; sourceTree = "<group>"; };
 		C2482EC5E9EF8FCF0DE9DCE9 /* Pods_didikTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_didikTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D85E113B8BD84DD483C19A32 /* Pods-didik.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-didik.release.xcconfig"; path = "Target Support Files/Pods-didik/Pods-didik.release.xcconfig"; sourceTree = "<group>"; };
 		E40C1E4B35D7524D6B2A8B1F /* Pods_didik.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_didik.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -161,35 +161,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		75BE5D762554F37300E8677E /* Model_Fandri */ = {
-			isa = PBXGroup;
-			children = (
-				755B2179254A885100B0A7E6 /* Extension+View.swift */,
-				75352C3E254B41EF0039EC2D /* Extension+Color.swift */,
-				758081DB2552676000E50787 /* DummyModel.swift */,
-				751C70872553BCFD0072C1B5 /* Constant.swift */,
-				75BE5D232553F0BD00E8677E /* NavigationBarModifier.swift */,
-			);
-			path = Model_Fandri;
-			sourceTree = "<group>";
-		};
 		B7590EF5254C5F7600404167 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				75352C50254B4F840039EC2D /* CustomNavigationBarView.swift */,
-				755B2174254A806000B0A7E6 /* MateriPreviewView.swift */,
-				755B217E254AA95500B0A7E6 /* MateriPreviewCollectionView.swift */,
-				755B218B254B1DB000B0A7E6 /* TabBarView.swift */,
-				75352C4B254B44150039EC2D /* JelajahMateriView.swift */,
-				75352C55254C3C9A0039EC2D /* HomeView.swift */,
-				75352C5A254C45060039EC2D /* LihatSemuaView.swift */,
-				75352C5F254D6E730039EC2D /* DummyView.swift */,
-				7552696925516D2600D89FC5 /* SearchBarView.swift */,
-				75BE5D422554052C00E8677E /* UserButton.swift */,
-				75BE5D472554140A00E8677E /* CustomDropDownMenu.swift */,
 				B7AB621F2546AB1F007E4895 /* ContentView.swift */,
+				75352C55254C3C9A0039EC2D /* HomeView.swift */,
 				BA8CF62D2551DEEA0057B9B8 /* MainView.swift */,
+				75352C5F254D6E730039EC2D /* DummyView.swift */,
+				BAEC734D25552B670069574F /* Marteri */,
 				BA94300F2550885C00283FB3 /* SignIn */,
+				BAEC734E25552BC70069574F /* NavigationAndTabBar */,
+				BAEC7320255528AE0069574F /* Shared */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -219,13 +201,12 @@
 		B7AB621C2546AB1F007E4895 /* didik */ = {
 			isa = PBXGroup;
 			children = (
-				75BE5D762554F37300E8677E /* Model_Fandri */,
-				BA3A77292553378100975121 /* View Model_Edwin */,
+				B7AB621D2546AB1F007E4895 /* didikApp.swift */,
 				B7590EF5254C5F7600404167 /* View */,
-				BA3A77282553376600975121 /* Model_Edwin */,
+				BA3A77292553378100975121 /* View Model */,
+				BA3A77282553376600975121 /* Model */,
 				BA8CF5D125511B9B0057B9B8 /* Services */,
 				BA90EB382552B12100C6DFFD /* Utilities */,
-				B7AB621D2546AB1F007E4895 /* didikApp.swift */,
 				B7AB62212546AB20007E4895 /* Assets.xcassets */,
 				B7AB62262546AB20007E4895 /* Info.plist */,
 				B7DF19D72550195B00953640 /* GoogleService-Info.plist */,
@@ -261,21 +242,25 @@
 			path = didikUITests;
 			sourceTree = "<group>";
 		};
-		BA3A77282553376600975121 /* Model_Edwin */ = {
+		BA3A77282553376600975121 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				BA8CF5F72551B3DD0057B9B8 /* AuthState.swift */,
 				BA3A772A255337DF00975121 /* UserData.swift */,
+				BAEC7312255527EF0069574F /* AuthState.swift */,
+				75BE5D232553F0BD00E8677E /* NavigationBarModifier.swift */,
+				755B2179254A885100B0A7E6 /* Extension+View.swift */,
+				75352C3E254B41EF0039EC2D /* Extension+Color.swift */,
+				758081DB2552676000E50787 /* DummyModel.swift */,
 			);
-			path = Model_Edwin;
+			path = Model;
 			sourceTree = "<group>";
 		};
-		BA3A77292553378100975121 /* View Model_Edwin */ = {
+		BA3A77292553378100975121 /* View Model */ = {
 			isa = PBXGroup;
 			children = (
 				BA3A773225534EA800975121 /* UserViewModel.swift */,
 			);
-			path = "View Model_Edwin";
+			path = "View Model";
 			sourceTree = "<group>";
 		};
 		BA8CF5D125511B9B0057B9B8 /* Services */ = {
@@ -289,6 +274,7 @@
 		BA90EB382552B12100C6DFFD /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				751C70872553BCFD0072C1B5 /* Constant.swift */,
 				BA90EB3B2552B18300C6DFFD /* AuthenticationUtil.swift */,
 			);
 			path = Utilities;
@@ -301,6 +287,36 @@
 				BA94301E25508AF600283FB3 /* SignInWithAppleButton.swift */,
 			);
 			name = SignIn;
+			sourceTree = "<group>";
+		};
+		BAEC7320255528AE0069574F /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				75BE5D422554052C00E8677E /* UserButton.swift */,
+				7552696925516D2600D89FC5 /* SearchBarView.swift */,
+				75BE5D472554140A00E8677E /* CustomDropDownMenu.swift */,
+			);
+			name = Shared;
+			sourceTree = "<group>";
+		};
+		BAEC734D25552B670069574F /* Marteri */ = {
+			isa = PBXGroup;
+			children = (
+				75352C4B254B44150039EC2D /* JelajahMateriView.swift */,
+				75352C5A254C45060039EC2D /* LihatSemuaView.swift */,
+				755B217E254AA95500B0A7E6 /* MateriPreviewCollectionView.swift */,
+				755B2174254A806000B0A7E6 /* MateriPreviewView.swift */,
+			);
+			name = Marteri;
+			sourceTree = "<group>";
+		};
+		BAEC734E25552BC70069574F /* NavigationAndTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				75352C50254B4F840039EC2D /* CustomNavigationBarView.swift */,
+				755B218B254B1DB000B0A7E6 /* TabBarView.swift */,
+			);
+			name = NavigationAndTabBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -543,7 +559,6 @@
 			files = (
 				BA8CF5D625511BCC0057B9B8 /* SignInWithAppleCoordinator.swift in Sources */,
 				BA8CF62E2551DEEA0057B9B8 /* MainView.swift in Sources */,
-				BA8CF5F82551B3DD0057B9B8 /* AuthState.swift in Sources */,
 				BA3A773325534EA800975121 /* UserViewModel.swift in Sources */,
 				B7AB62202546AB1F007E4895 /* ContentView.swift in Sources */,
 				75352C60254D6E730039EC2D /* DummyView.swift in Sources */,
@@ -551,6 +566,7 @@
 				75BE5D432554052C00E8677E /* UserButton.swift in Sources */,
 				755B217F254AA95500B0A7E6 /* MateriPreviewCollectionView.swift in Sources */,
 				75352C3F254B41EF0039EC2D /* Extension+Color.swift in Sources */,
+				BAEC7313255527EF0069574F /* AuthState.swift in Sources */,
 				75352C56254C3C9A0039EC2D /* HomeView.swift in Sources */,
 				755B2175254A806000B0A7E6 /* MateriPreviewView.swift in Sources */,
 				755B217A254A885100B0A7E6 /* Extension+View.swift in Sources */,
@@ -727,7 +743,7 @@
 				CODE_SIGN_ENTITLEMENTS = didik/didik.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"didik/Preview Content\"";
-				DEVELOPMENT_TEAM = JPMPS53HUZ;
+				DEVELOPMENT_TEAM = 49TZU6B4Y9;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = didik/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -751,7 +767,7 @@
 				CODE_SIGN_ENTITLEMENTS = didik/didik.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"didik/Preview Content\"";
-				DEVELOPMENT_TEAM = JPMPS53HUZ;
+				DEVELOPMENT_TEAM = 49TZU6B4Y9;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = didik/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
