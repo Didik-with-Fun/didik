@@ -8,6 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		1E8987C7F227F05F9689F004 /* Pods_didik_didikUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C468DCE94011D5567AEC5EA /* Pods_didik_didikUITests.framework */; };
+		751C70882553BCFD0072C1B5 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751C70872553BCFD0072C1B5 /* Constant.swift */; };
+		75352C3F254B41EF0039EC2D /* Extension+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75352C3E254B41EF0039EC2D /* Extension+Color.swift */; };
+		75352C4C254B44150039EC2D /* JelajahMateriView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75352C4B254B44150039EC2D /* JelajahMateriView.swift */; };
+		75352C51254B4F840039EC2D /* CustomNavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75352C50254B4F840039EC2D /* CustomNavigationBarView.swift */; };
+		75352C56254C3C9A0039EC2D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75352C55254C3C9A0039EC2D /* HomeView.swift */; };
+		75352C5B254C45070039EC2D /* LihatSemuaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75352C5A254C45060039EC2D /* LihatSemuaView.swift */; };
+		75352C60254D6E730039EC2D /* DummyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75352C5F254D6E730039EC2D /* DummyView.swift */; };
+		7552696A25516D2600D89FC5 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7552696925516D2600D89FC5 /* SearchBarView.swift */; };
+		755B2175254A806000B0A7E6 /* MateriPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755B2174254A806000B0A7E6 /* MateriPreviewView.swift */; };
+		755B217A254A885100B0A7E6 /* Extension+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755B2179254A885100B0A7E6 /* Extension+View.swift */; };
+		755B217F254AA95500B0A7E6 /* MateriPreviewCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755B217E254AA95500B0A7E6 /* MateriPreviewCollectionView.swift */; };
+		755B218C254B1DB000B0A7E6 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755B218B254B1DB000B0A7E6 /* TabBarView.swift */; };
+		758081DC2552676000E50787 /* DummyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758081DB2552676000E50787 /* DummyModel.swift */; };
+		75BE5D242553F0BD00E8677E /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BE5D232553F0BD00E8677E /* NavigationBarModifier.swift */; };
+		75BE5D432554052C00E8677E /* UserButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BE5D422554052C00E8677E /* UserButton.swift */; };
+		75BE5D482554140A00E8677E /* CustomDropDownMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BE5D472554140A00E8677E /* CustomDropDownMenu.swift */; };
 		B7AB621E2546AB1F007E4895 /* didikApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB621D2546AB1F007E4895 /* didikApp.swift */; };
 		B7AB62202546AB1F007E4895 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB621F2546AB1F007E4895 /* ContentView.swift */; };
 		B7AB62222546AB20007E4895 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7AB62212546AB20007E4895 /* Assets.xcassets */; };
@@ -47,6 +63,22 @@
 /* Begin PBXFileReference section */
 		1C468DCE94011D5567AEC5EA /* Pods_didik_didikUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_didik_didikUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		26433F1143293503E627C9B8 /* Pods-didik-didikUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-didik-didikUITests.debug.xcconfig"; path = "Target Support Files/Pods-didik-didikUITests/Pods-didik-didikUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		751C70872553BCFD0072C1B5 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		75352C3E254B41EF0039EC2D /* Extension+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Color.swift"; sourceTree = "<group>"; };
+		75352C4B254B44150039EC2D /* JelajahMateriView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JelajahMateriView.swift; sourceTree = "<group>"; };
+		75352C50254B4F840039EC2D /* CustomNavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBarView.swift; sourceTree = "<group>"; };
+		75352C55254C3C9A0039EC2D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		75352C5A254C45060039EC2D /* LihatSemuaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LihatSemuaView.swift; sourceTree = "<group>"; };
+		75352C5F254D6E730039EC2D /* DummyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyView.swift; sourceTree = "<group>"; };
+		7552696925516D2600D89FC5 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		755B2174254A806000B0A7E6 /* MateriPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateriPreviewView.swift; sourceTree = "<group>"; };
+		755B2179254A885100B0A7E6 /* Extension+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+View.swift"; sourceTree = "<group>"; };
+		755B217E254AA95500B0A7E6 /* MateriPreviewCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateriPreviewCollectionView.swift; sourceTree = "<group>"; };
+		755B218B254B1DB000B0A7E6 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		758081DB2552676000E50787 /* DummyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyModel.swift; sourceTree = "<group>"; };
+		75BE5D232553F0BD00E8677E /* NavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
+		75BE5D422554052C00E8677E /* UserButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserButton.swift; sourceTree = "<group>"; };
+		75BE5D472554140A00E8677E /* CustomDropDownMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDropDownMenu.swift; sourceTree = "<group>"; };
 		899AEB16947BE7EEE933F086 /* Pods-didikTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-didikTests.debug.xcconfig"; path = "Target Support Files/Pods-didikTests/Pods-didikTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A1045C84B5D1ACB467E20451 /* Pods-didik-didikUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-didik-didikUITests.release.xcconfig"; path = "Target Support Files/Pods-didik-didikUITests/Pods-didik-didikUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B7AB621A2546AB1F007E4895 /* didik.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = didik.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,9 +161,32 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		75BE5D762554F37300E8677E /* Model_Fandri */ = {
+			isa = PBXGroup;
+			children = (
+				755B2179254A885100B0A7E6 /* Extension+View.swift */,
+				75352C3E254B41EF0039EC2D /* Extension+Color.swift */,
+				758081DB2552676000E50787 /* DummyModel.swift */,
+				751C70872553BCFD0072C1B5 /* Constant.swift */,
+				75BE5D232553F0BD00E8677E /* NavigationBarModifier.swift */,
+			);
+			path = Model_Fandri;
+			sourceTree = "<group>";
+		};
 		B7590EF5254C5F7600404167 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				75352C50254B4F840039EC2D /* CustomNavigationBarView.swift */,
+				755B2174254A806000B0A7E6 /* MateriPreviewView.swift */,
+				755B217E254AA95500B0A7E6 /* MateriPreviewCollectionView.swift */,
+				755B218B254B1DB000B0A7E6 /* TabBarView.swift */,
+				75352C4B254B44150039EC2D /* JelajahMateriView.swift */,
+				75352C55254C3C9A0039EC2D /* HomeView.swift */,
+				75352C5A254C45060039EC2D /* LihatSemuaView.swift */,
+				75352C5F254D6E730039EC2D /* DummyView.swift */,
+				7552696925516D2600D89FC5 /* SearchBarView.swift */,
+				75BE5D422554052C00E8677E /* UserButton.swift */,
+				75BE5D472554140A00E8677E /* CustomDropDownMenu.swift */,
 				B7AB621F2546AB1F007E4895 /* ContentView.swift */,
 				BA8CF62D2551DEEA0057B9B8 /* MainView.swift */,
 				BA94300F2550885C00283FB3 /* SignIn */,
@@ -164,6 +219,7 @@
 		B7AB621C2546AB1F007E4895 /* didik */ = {
 			isa = PBXGroup;
 			children = (
+				75BE5D762554F37300E8677E /* Model_Fandri */,
 				BA3A77292553378100975121 /* View Model_Edwin */,
 				B7590EF5254C5F7600404167 /* View */,
 				BA3A77282553376600975121 /* Model_Edwin */,
@@ -490,11 +546,27 @@
 				BA8CF5F82551B3DD0057B9B8 /* AuthState.swift in Sources */,
 				BA3A773325534EA800975121 /* UserViewModel.swift in Sources */,
 				B7AB62202546AB1F007E4895 /* ContentView.swift in Sources */,
+				75352C60254D6E730039EC2D /* DummyView.swift in Sources */,
+				751C70882553BCFD0072C1B5 /* Constant.swift in Sources */,
+				75BE5D432554052C00E8677E /* UserButton.swift in Sources */,
+				755B217F254AA95500B0A7E6 /* MateriPreviewCollectionView.swift in Sources */,
+				75352C3F254B41EF0039EC2D /* Extension+Color.swift in Sources */,
+				75352C56254C3C9A0039EC2D /* HomeView.swift in Sources */,
+				755B2175254A806000B0A7E6 /* MateriPreviewView.swift in Sources */,
+				755B217A254A885100B0A7E6 /* Extension+View.swift in Sources */,
+				755B218C254B1DB000B0A7E6 /* TabBarView.swift in Sources */,
+				758081DC2552676000E50787 /* DummyModel.swift in Sources */,
+				75BE5D242553F0BD00E8677E /* NavigationBarModifier.swift in Sources */,
+				75BE5D482554140A00E8677E /* CustomDropDownMenu.swift in Sources */,
+				75352C5B254C45070039EC2D /* LihatSemuaView.swift in Sources */,
+				7552696A25516D2600D89FC5 /* SearchBarView.swift in Sources */,
+				75352C4C254B44150039EC2D /* JelajahMateriView.swift in Sources */,
 				BA94301A2550894900283FB3 /* SignInView.swift in Sources */,
 				BA3A772B255337DF00975121 /* UserData.swift in Sources */,
 				BA90EB3C2552B18300C6DFFD /* AuthenticationUtil.swift in Sources */,
 				BA94301F25508AF600283FB3 /* SignInWithAppleButton.swift in Sources */,
 				B7AB621E2546AB1F007E4895 /* didikApp.swift in Sources */,
+				75352C51254B4F840039EC2D /* CustomNavigationBarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -655,7 +727,7 @@
 				CODE_SIGN_ENTITLEMENTS = didik/didik.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"didik/Preview Content\"";
-				DEVELOPMENT_TEAM = 49TZU6B4Y9;
+				DEVELOPMENT_TEAM = JPMPS53HUZ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = didik/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -663,7 +735,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.appledeveloperacademy.didik;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.developeracademy.didik-fandri";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -679,7 +751,7 @@
 				CODE_SIGN_ENTITLEMENTS = didik/didik.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"didik/Preview Content\"";
-				DEVELOPMENT_TEAM = 49TZU6B4Y9;
+				DEVELOPMENT_TEAM = JPMPS53HUZ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = didik/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -687,7 +759,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.appledeveloperacademy.didik;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.developeracademy.didik-fandri";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

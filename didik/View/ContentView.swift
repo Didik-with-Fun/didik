@@ -15,7 +15,7 @@ struct ContentView: View {
     var body: some View {
         ZStack{
             if signInCoordinator.isUserAuthenticated == .signedIn {
-                MainView()
+                HomeView().environmentObject(DummyModel())
             }
             else if signInCoordinator.isUserAuthenticated == .signedOut {
                 SignInView()
