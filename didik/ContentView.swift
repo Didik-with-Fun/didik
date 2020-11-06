@@ -9,7 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        HomeView().environmentObject(DummyModel())
+        Text("Asd")
+//        HomeView().environmentObject(DummyModel())
     }
 }
 

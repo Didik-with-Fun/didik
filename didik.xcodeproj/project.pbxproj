@@ -144,7 +144,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B7590EF4254C5F5B00404167 /* Model */ = {
+		75BE5D762554F37300E8677E /* Model_Fandri */ = {
 			isa = PBXGroup;
 			children = (
 				755B2179254A885100B0A7E6 /* Extension+View.swift */,
@@ -152,6 +152,13 @@
 				758081DB2552676000E50787 /* DummyModel.swift */,
 				751C70872553BCFD0072C1B5 /* Constant.swift */,
 				75BE5D232553F0BD00E8677E /* NavigationBarModifier.swift */,
+			);
+			path = Model_Fandri;
+			sourceTree = "<group>";
+		};
+		B7590EF4254C5F5B00404167 /* Model */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -206,6 +213,7 @@
 		B7AB621C2546AB1F007E4895 /* didik */ = {
 			isa = PBXGroup;
 			children = (
+				75BE5D762554F37300E8677E /* Model_Fandri */,
 				B7DF19D72550195B00953640 /* GoogleService-Info.plist */,
 				B7590EF6254C5F7B00404167 /* View Model */,
 				B7590EF5254C5F7600404167 /* View */,
