@@ -170,7 +170,6 @@
 				75352C55254C3C9A0039EC2D /* HomeView.swift */,
 				BA8CF62D2551DEEA0057B9B8 /* MainView.swift */,
 				75352C5F254D6E730039EC2D /* DummyView.swift */,
-				BAF3188B25554DDB00E188B8 /* UserProfileView.swift */,
 				BAEC734D25552B670069574F /* Materi */,
 				BA94300F2550885C00283FB3 /* SignIn */,
 				BAF3188A25554D2C00E188B8 /* UserProfile */,
@@ -296,7 +295,6 @@
 		BAEC7320255528AE0069574F /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				75BE5D422554052C00E8677E /* UserButton.swift */,
 				7552696925516D2600D89FC5 /* SearchBarView.swift */,
 				75BE5D472554140A00E8677E /* CustomDropDownMenu.swift */,
 			);
@@ -326,6 +324,8 @@
 		BAF3188A25554D2C00E188B8 /* UserProfile */ = {
 			isa = PBXGroup;
 			children = (
+				75BE5D422554052C00E8677E /* UserButton.swift */,
+				BAF3188B25554DDB00E188B8 /* UserProfileView.swift */,
 			);
 			name = UserProfile;
 			sourceTree = "<group>";
@@ -763,7 +763,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.developeracademy.didik-fandri";
+				PRODUCT_BUNDLE_IDENTIFIER = com.appledeveloperacademy.didik;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -787,7 +787,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.developeracademy.didik-fandri";
+				PRODUCT_BUNDLE_IDENTIFIER = com.appledeveloperacademy.didik;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
