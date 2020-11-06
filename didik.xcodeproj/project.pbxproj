@@ -171,7 +171,7 @@
 				BA8CF62D2551DEEA0057B9B8 /* MainView.swift */,
 				75352C5F254D6E730039EC2D /* DummyView.swift */,
 				BAF3188B25554DDB00E188B8 /* UserProfileView.swift */,
-				BAEC734D25552B670069574F /* Marteri */,
+				BAEC734D25552B670069574F /* Materi */,
 				BA94300F2550885C00283FB3 /* SignIn */,
 				BAF3188A25554D2C00E188B8 /* UserProfile */,
 				BAEC734E25552BC70069574F /* NavigationAndTabBar */,
@@ -303,7 +303,7 @@
 			name = Shared;
 			sourceTree = "<group>";
 		};
-		BAEC734D25552B670069574F /* Marteri */ = {
+		BAEC734D25552B670069574F /* Materi */ = {
 			isa = PBXGroup;
 			children = (
 				75352C4B254B44150039EC2D /* JelajahMateriView.swift */,
@@ -311,7 +311,7 @@
 				755B217E254AA95500B0A7E6 /* MateriPreviewCollectionView.swift */,
 				755B2174254A806000B0A7E6 /* MateriPreviewView.swift */,
 			);
-			name = Marteri;
+			name = Materi;
 			sourceTree = "<group>";
 		};
 		BAEC734E25552BC70069574F /* NavigationAndTabBar */ = {
