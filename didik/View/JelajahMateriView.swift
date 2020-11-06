@@ -47,7 +47,7 @@ struct JelajahMateriView: View {
             //        }
         }.navigationBarItems(trailing: UserButton())
         .navigationBarTitle("Jelajah Materi", displayMode: .automatic)
-        .navigationBarColor(UIColor(named: K.TabBarColor))
+        .navigationBarColor(backgroundColor: UIColor(named: K.TabBarColor))
         
         
     }
