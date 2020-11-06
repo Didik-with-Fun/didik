@@ -31,7 +31,7 @@ struct HomeView: View {
                 }
                 
             }.navigationBarTitle("", displayMode: .automatic)
-            .navigationBarColor(UIColor(named: K.TabBarColor))
+            .navigationBarColor(backgroundColor: UIColor(named: K.TabBarColor))
             .navigationBarItems(trailing: UserButton())
 //            .navigationBarHidden(true)
             .navigationViewStyle(StackNavigationViewStyle())
