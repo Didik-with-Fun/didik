@@ -16,6 +16,8 @@ struct didikApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                
+                
         }
     }
 }

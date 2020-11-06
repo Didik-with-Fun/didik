@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct HomeView: View {
+    
+    @EnvironmentObject var db: DummyModel
+    
     @State var index: Int = 0
     
     var body: some View {

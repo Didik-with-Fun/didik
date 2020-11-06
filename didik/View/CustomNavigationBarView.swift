@@ -11,9 +11,11 @@ import SwiftUI
 struct CustomNavigationBarView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
+    @EnvironmentObject var db: DummyModel
+    
 //    let title: String
-    @State var filterKelasString: String
-    @State var filterMateriString: String
+    @Binding var filterKelas: Kelas
+    @Binding var filterMatpel: Matpel
     @Binding var searchText: String
     let showDropDown: Bool
 //    let previousTitle: String?
@@ -59,11 +61,13 @@ struct CustomNavigationBarView: View {
 //            }.padding(.leading, 20)
             HStack(spacing: 0){
                 if showDropDown {
-                    HStack(spacing: 10) {
-                        CustomDropDownMenu(options: ["Yes", "No","Hide"], selected: $filterKelasString, width: UIScreen.main.bounds.width * 0.15)
-                        CustomDropDownMenu(options: ["What","Yes", "No","Hide"], selected: $filterMateriString, width: UIScreen.main.bounds.width * 0.15)
-                            .padding(.trailing, 10)
-                    }
+                    CustomDropDownMenu(selectedKelas: $filterKelas, selectedMatpel: $filterMatpel, width: UIScreen.main.bounds.width * 0.18)
+                        .padding(.trailing, 10)
+//                    HStack(spacing: 10) {
+//                        CustomDropDownMenu(options: ["Yes", "No","Hide"], selected: $filterKelasString, width: UIScreen.main.bounds.width * 0.15)
+//                        CustomDropDownMenu(options: ["What","Yes", "No","Hide"], selected: $filterMateriString, width: UIScreen.main.bounds.width * 0.15)
+//                            .padding(.trailing, 10)
+//                    }
                 } //else {
 //                    VStack {
 //                        HStack {
@@ -89,71 +93,8 @@ struct CustomNavigationBarView: View {
 struct CustomNavigationBarView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            CustomNavigationBarView(filterKelasString: "Kelas", filterMateriString: "Materi", searchText: .constant(""), showDropDown: true)
-            CustomNavigationBarView(filterKelasString: "Kelas", filterMateriString: "Materi", searchText: .constant(""), showDropDown: false)
+            CustomNavigationBarView(filterKelas: .constant(.X), filterMatpel: .constant(.Fisika), searchText: .constant(""), showDropDown: false)
+            CustomNavigationBarView(filterKelas: .constant(.X), filterMatpel: .constant(.Fisika), searchText: .constant(""), showDropDown: false)
         }
-    }
-}
-
-//MARK: - Custom Drop Down Menu
-
-struct CustomDropDownMenu : View {
-    
-    let options : [String]
-    
-    @State var isShowed : Bool = false
-    @Binding var selected : String
-    
-    let width : CGFloat
-    
-    var body: some View {
-        VStack {
-            Button(action: {
-                self.isShowed.toggle()
-            }) {
-                HStack(spacing : 10) {
-                    Text(selected)
-                        .frame(width: width * 0.85, alignment: .center)
-                        .padding(.vertical, 8)
-                        .padding(.leading, 10)
-                    Image(systemName: "chevron.up")
-                        .frame(width: width * 0.15, alignment: .center)
-                        .padding(.vertical, 8)
-                        .padding(.trailing, 10)
-                }
-            }
-            .foregroundColor(.white)
-            .background(Color(K.TabBarColor))
-            .overlay(
-                VStack{
-                    if isShowed {
-                        VStack {
-                            ForEach(0..<self.options.count) {
-                                index in
-                                Button(action: {
-                                    self.isShowed.toggle()
-                                    self.selected = options[index]
-                                }) {
-                                    Text(options[index])
-                                        .foregroundColor(.black)
-                                        .font(.system(size: 17, weight: .bold, design: .default))
-                                        .padding(.vertical, 10)
-                                        .frame(width: width * 0.85, alignment: .center)
-                                }
-                            }
-                        }.background(Color.white)
-                        .cornerRadius(10)
-                        .shadow(radius: 5)
-                    }
-                }, alignment: .topLeading
-            )
-            
-        }
-        .overlay(
-            RoundedRectangle(cornerRadius: 10)
-                .stroke(Color.white, lineWidth: 1)
-        )
-        .padding(.vertical, 10)
-        
     }
 }

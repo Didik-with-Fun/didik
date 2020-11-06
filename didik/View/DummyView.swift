@@ -9,15 +9,19 @@ import SwiftUI
 
 struct DummyView: View {
     
+    @EnvironmentObject var db: DummyModel
+    
     let MateriLibrary: [DummyMateri] = LibraryMateri
     @State var searchText: String = ""
+    @State var selectedKelas: Kelas = .Kelas
+    @State var selectedMatpel: Matpel = .MatPel
     
     let height: CGFloat = 125
     let width: CGFloat = 230
     
     var body: some View {
         VStack {
-            CustomNavigationBarView(filterKelasString: "Kelas", filterMateriString: "Materi", searchText: $searchText, showDropDown: true)
+            CustomNavigationBarView(filterKelas: $selectedKelas, filterMatpel: $selectedMatpel, searchText: $searchText, showDropDown: true)
             Spacer()
             
             List(MateriLibrary.filter({ searchText.isEmpty ? true : $0.title.lowercased().contains(searchText.lowercased())
