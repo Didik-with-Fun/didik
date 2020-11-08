@@ -16,6 +16,13 @@
 		B7AB62302546AB20007E4895 /* didikTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB622F2546AB20007E4895 /* didikTests.swift */; };
 		B7AB623B2546AB20007E4895 /* didikUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB623A2546AB20007E4895 /* didikUITests.swift */; };
 		B7DF19D82550195B00953640 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B7DF19D72550195B00953640 /* GoogleService-Info.plist */; };
+		B7F974052554645E0059C650 /* Topics.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F974042554645E0059C650 /* Topics.swift */; };
+		B7F9740A2554657E0059C650 /* Grades.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F974092554657E0059C650 /* Grades.swift */; };
+		B7F97455255469710059C650 /* ProjectStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F97454255469710059C650 /* ProjectStatus.swift */; };
+		B7F9745A25546A1B0059C650 /* Projects.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9745925546A1B0059C650 /* Projects.swift */; };
+		B7F9745F2554762B0059C650 /* Subjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9745E2554762B0059C650 /* Subjects.swift */; };
+		B7F9746425547F920059C650 /* ProjectActivities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9746325547F920059C650 /* ProjectActivities.swift */; };
+		B7F97469255480710059C650 /* Comments.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F97468255480710059C650 /* Comments.swift */; };
 		BA3A772B255337DF00975121 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3A772A255337DF00975121 /* UserData.swift */; };
 		BA3A773325534EA800975121 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3A773225534EA800975121 /* UserViewModel.swift */; };
 		BA8CF5D625511BCC0057B9B8 /* SignInWithAppleCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8CF5D525511BCC0057B9B8 /* SignInWithAppleCoordinator.swift */; };
@@ -64,6 +71,13 @@
 		B7AB623A2546AB20007E4895 /* didikUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = didikUITests.swift; sourceTree = "<group>"; };
 		B7AB623C2546AB20007E4895 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B7DF19D72550195B00953640 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B7F974042554645E0059C650 /* Topics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topics.swift; sourceTree = "<group>"; };
+		B7F974092554657E0059C650 /* Grades.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grades.swift; sourceTree = "<group>"; };
+		B7F97454255469710059C650 /* ProjectStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectStatus.swift; sourceTree = "<group>"; };
+		B7F9745925546A1B0059C650 /* Projects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Projects.swift; sourceTree = "<group>"; };
+		B7F9745E2554762B0059C650 /* Subjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subjects.swift; sourceTree = "<group>"; };
+		B7F9746325547F920059C650 /* ProjectActivities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectActivities.swift; sourceTree = "<group>"; };
+		B7F97468255480710059C650 /* Comments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comments.swift; sourceTree = "<group>"; };
 		BA3A772A255337DF00975121 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		BA3A773225534EA800975121 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		BA8CF5D525511BCC0057B9B8 /* SignInWithAppleCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleCoordinator.swift; sourceTree = "<group>"; };
@@ -140,13 +154,6 @@
 				B76514E02552AF150041D6A3 /* CreateProjectView */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		B7590EF6254C5F7B00404167 /* View Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "View Model";
 			sourceTree = "<group>";
 		};
 		B76514E02552AF150041D6A3 /* CreateProjectView */ = {
@@ -228,6 +235,13 @@
 			children = (
 				BA8CF5F72551B3DD0057B9B8 /* AuthState.swift */,
 				BA3A772A255337DF00975121 /* UserData.swift */,
+				B7F974042554645E0059C650 /* Topics.swift */,
+				B7F9745E2554762B0059C650 /* Subjects.swift */,
+				B7F974092554657E0059C650 /* Grades.swift */,
+				B7F97454255469710059C650 /* ProjectStatus.swift */,
+				B7F9745925546A1B0059C650 /* Projects.swift */,
+				B7F9746325547F920059C650 /* ProjectActivities.swift */,
+				B7F97468255480710059C650 /* Comments.swift */,
 			);
 			path = Model_Edwin;
 			sourceTree = "<group>";
@@ -508,11 +522,18 @@
 				BA8CF5F82551B3DD0057B9B8 /* AuthState.swift in Sources */,
 				BA3A773325534EA800975121 /* UserViewModel.swift in Sources */,
 				B76514E22552AF560041D6A3 /* CreateProjectView.swift in Sources */,
+				B7F97455255469710059C650 /* ProjectStatus.swift in Sources */,
 				B7AB62202546AB1F007E4895 /* ContentView.swift in Sources */,
 				BA94301A2550894900283FB3 /* SignInView.swift in Sources */,
 				BA3A772B255337DF00975121 /* UserData.swift in Sources */,
 				BA90EB3C2552B18300C6DFFD /* AuthenticationUtil.swift in Sources */,
+				B7F9740A2554657E0059C650 /* Grades.swift in Sources */,
+				B7F97469255480710059C650 /* Comments.swift in Sources */,
+				B7F974052554645E0059C650 /* Topics.swift in Sources */,
+				B7F9745F2554762B0059C650 /* Subjects.swift in Sources */,
+				B7F9745A25546A1B0059C650 /* Projects.swift in Sources */,
 				BA94301F25508AF600283FB3 /* SignInWithAppleButton.swift in Sources */,
+				B7F9746425547F920059C650 /* ProjectActivities.swift in Sources */,
 				B7AB621E2546AB1F007E4895 /* didikApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -674,7 +695,7 @@
 				CODE_SIGN_ENTITLEMENTS = didik/didik.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"didik/Preview Content\"";
-				DEVELOPMENT_TEAM = 49TZU6B4Y9;
+				DEVELOPMENT_TEAM = W5ZPF478J8;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = didik/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -682,7 +703,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.appledeveloperacademy.didik;
+				PRODUCT_BUNDLE_IDENTIFIER = com.developeracademy.didik;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -698,7 +719,7 @@
 				CODE_SIGN_ENTITLEMENTS = didik/didik.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"didik/Preview Content\"";
-				DEVELOPMENT_TEAM = 49TZU6B4Y9;
+				DEVELOPMENT_TEAM = W5ZPF478J8;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = didik/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -706,7 +727,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.appledeveloperacademy.didik;
+				PRODUCT_BUNDLE_IDENTIFIER = com.developeracademy.didik;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
