@@ -28,6 +28,7 @@ class SignInWithAppleCoordinator: NSObject, ObservableObject, ASAuthorizationCon
         let nonce = AuthenticationUtil.randomNonceString()
         currentNonce = nonce
         let appleIDProvider = ASAuthorizationAppleIDProvider()
+       
         let request = appleIDProvider.createRequest()
         request.requestedScopes = [.fullName, .email]
         request.nonce = AuthenticationUtil.sha256(nonce)
@@ -78,7 +79,7 @@ extension SignInWithAppleCoordinator: ASAuthorizationControllerDelegate {
             Auth.auth().signIn(with: firebaseCredential) { (authResult, error) in
   
                 if error != nil {
-                    print("Error signing in: \(error?.localizedDescription ?? "")")
+                    print("Error signing in (FIREBASE): \(error?.localizedDescription ?? "")")
                 }
                 else {
                 
@@ -88,7 +89,9 @@ extension SignInWithAppleCoordinator: ASAuthorizationControllerDelegate {
                     let fullName = (appleIDCredential.fullName?.givenName ?? "") + " " + (appleIDCredential.fullName?.familyName ?? "")
                     let email = appleIDCredential.email
                     
-                    self.setUserInfo(for: userIdentifier, fullname: fullName, email: email)
+                    if (fullName.trimmingCharacters(in: .whitespacesAndNewlines) != "" && email != nil) {
+                        self.setUserInfo(for: userIdentifier, fullname: fullName, email: email)
+                    }
 
                 }
             }

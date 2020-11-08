@@ -20,7 +20,7 @@ struct JelajahMateriView: View {
             VStack {
                 CustomNavigationBarView(filterKelas: $selectedKelas, filterMatpel: $selectedMatpel, searchText: $searchText, showDropDown: true)
                     .zIndex(2)
-                //foreach
+
                 if searchText != "" {
                     List(db.filteredMateri.filter({ searchText.isEmpty ? true : $0.title.lowercased().contains(searchText.lowercased())
                     })) { materi in
@@ -44,20 +44,19 @@ struct JelajahMateriView: View {
                 }
                 
             }
-            //        }
-        }.navigationBarItems(trailing: UserButton())
+        }
         .navigationBarTitle("Jelajah Materi", displayMode: .automatic)
-        .navigationBarColor(backgroundColor: UIColor(named: K.TabBarColor))
-        
-        
+        .navigationBarItems(trailing: UserButton())
+        .navigationBarColor(backgroundColor: UIColor(named: K.TabBarColor), titleColor: .white)
+        .environmentObject(db)
     }
     
-    
 }
-
 
 struct JelajahMateriView_Previews: PreviewProvider {
     static var previews: some View {
         JelajahMateriView()
+            .environmentObject(DummyModel())
+            .previewDevice("iPad (8th generation)")
     }
 }

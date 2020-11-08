@@ -60,7 +60,8 @@ struct CustomDropDownMenu : View {
                                             .frame(width: width, alignment: .center)
                                     }
                                 }
-                            }.background(Color.white)
+                            }
+                            .background(Color.white)
                             .cornerRadius(10)
                             .shadow(radius: 5)
                         }
@@ -111,7 +112,8 @@ struct CustomDropDownMenu : View {
                                             .frame(width: width, alignment: .center)
                                     }
                                 }
-                            }.background(Color.white)
+                            }
+                            .background(Color.white)
                             .cornerRadius(10)
                             .shadow(radius: 5)
                         }

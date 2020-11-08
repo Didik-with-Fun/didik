@@ -42,8 +42,10 @@ struct SignInView: View {
 struct SignInView_Previews: PreviewProvider {
     static var previews: some View {
         SignInView()
+            .previewDevice("iPad (8th generation)")
+
         SignInView()
             .preferredColorScheme(.dark)
-        SignInView().previewLayout(.fixed(width: 1024, height: 768))
+            .previewDevice("iPad (8th generation)")
     }
 }

@@ -10,10 +10,10 @@ import SwiftUI
 struct UserButton: View {
     var body: some View {
         NavigationLink(
-            destination: DummyView(),
+            destination: UserProfileView(),
             label: {
                 Image(systemName: "person.circle")
-                    .foregroundColor(.black)
+                    .foregroundColor(.white)
                     .font(.system(size: 30))
                     .padding()
             })

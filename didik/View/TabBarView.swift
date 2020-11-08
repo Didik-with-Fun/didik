@@ -45,7 +45,8 @@ struct TabBarView: View {
                 TabBarButton(isPressed: $tabBar3, imageName: "photo", title: "Kelas Saya")
                     .padding(.horizontal)
             }
-        }.padding(.vertical, 5)
+        }
+        .padding(.vertical, 5)
         .background(color)
     }
 }

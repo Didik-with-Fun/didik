@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LihatSemuaView: View {
     
-    @EnvironmentObject var db: DummyModel
+//    @EnvironmentObject var db: DummyModel
     
     let MateriLibrary: [DummyMateri]
     let currentTitle: String
@@ -21,6 +21,7 @@ struct LihatSemuaView: View {
     let width: CGFloat = 230
     
     var body: some View {
+        
         VStack {
             CustomNavigationBarView(filterKelas: $selectedKelas, filterMatpel: $selectedMatpel, searchText: $searchText, showDropDown: true)
 //                .ignoresSafeArea()
@@ -32,18 +33,19 @@ struct LihatSemuaView: View {
                         MateriTableCellView(materi: materi, height: height, width: width)
                     })
             }
-        }.navigationBarTitle(currentTitle, displayMode: .automatic)
-        .navigationBarColor(backgroundColor: UIColor(named: K.TabBarColor))
+        }
+        .navigationBarTitle(currentTitle, displayMode: .automatic)
         .navigationBarItems(trailing: UserButton())
+        .navigationBarColor(backgroundColor: UIColor(named: K.TabBarColor))
 //        .navigationBarHidden(true)
             
-        
     }
 }
 
 struct LihatSemuaView_Previews: PreviewProvider {
     static var previews: some View {
         LihatSemuaView(MateriLibrary: LibraryMateri, currentTitle: "nipples")
+            .previewDevice("iPad (8th generation)")
     }
 }
 
@@ -78,13 +80,15 @@ struct MateriTableCellView: View {
                             .frame(width: width/3)
                             .background(Color.blue)
                             .cornerRadius(10.0, corners: .topLeft)
-                    }.frame(width: width/3)
+                    }
+                    .frame(width: width/3)
                     
-                }.frame(width: width, height: height)
-            }.frame(width: width, height: height)
+                }
+                .frame(width: width, height: height)
+            }
+            .frame(width: width, height: height)
             .cornerRadius(10)
             .clipped()
-            
             
             VStack(alignment: .leading) {
                 Text(materi.title)
