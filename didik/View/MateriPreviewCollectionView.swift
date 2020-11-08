@@ -36,7 +36,7 @@ struct MateriPreviewCollectionView: View {
                 
             }
             ScrollView (.horizontal) {
-                HStack (spacing: 10) {
+                HStack (alignment: .top, spacing: 10) {
                     ForEach(MateriLibrary) { index in
                         NavigationLink(
                             destination: DummyView(),

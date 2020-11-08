@@ -15,7 +15,8 @@ struct didikApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView().environmentObject(SignInWithAppleCoordinator())
+//            ContentView().environmentObject(SignInWithAppleCoordinator())
+            HomeView().environmentObject(DummyModel())
         }
     }
 }

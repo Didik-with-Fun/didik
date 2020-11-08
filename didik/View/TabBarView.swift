@@ -24,7 +24,7 @@ struct TabBarView: View {
                 self.tabBar2 = false
                 self.tabBar3 = false
             }) {
-                TabBarButton(isPressed: $tabBar1, imageName: "house.fill", title: "Jelajah Materi")
+                TabBarButton(isPressed: $tabBar1, imageName: K.jelajahIcon, title: "Jelajah Materi")
                     .padding(.horizontal)
             }
             Button(action: {
@@ -33,7 +33,7 @@ struct TabBarView: View {
                 self.tabBar2 = true
                 self.tabBar3 = false
             }) {
-                TabBarButton(isPressed: $tabBar2, imageName: "hurricane", title: "Materi Saya")
+                TabBarButton(isPressed: $tabBar2, imageName: K.materiIcon, title: "Materi Saya")
                     .padding(.horizontal)
             }
             Button(action: {
@@ -42,7 +42,7 @@ struct TabBarView: View {
                 self.tabBar2 = false
                 self.tabBar3 = true
             }) {
-                TabBarButton(isPressed: $tabBar3, imageName: "photo", title: "Kelas Saya")
+                TabBarButton(isPressed: $tabBar3, imageName: K.kelasIcon, title: "Kelas Saya")
                     .padding(.horizontal)
             }
         }.padding(.vertical, 5)
@@ -75,8 +75,11 @@ struct TabBarButton: View {
             
             
             HStack {
-                Image(systemName: imageName).foregroundColor(self.isPressed ? color : .white)
-                    .font(.system(size: 20))
+                Image(imageName)
+                    .resizable()
+                    .colorMultiply(self.isPressed ? color : .white)
+//                    .foregroundColor(self.isPressed ? color : .white)
+                    .frame(width: 20, height: 20)
                 Text(title)
                     .foregroundColor(self.isPressed ? color : .white)
                     .font(.system(size: 13, weight: .semibold))

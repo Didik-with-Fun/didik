@@ -16,6 +16,7 @@
 		75352C5B254C45070039EC2D /* LihatSemuaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75352C5A254C45060039EC2D /* LihatSemuaView.swift */; };
 		75352C60254D6E730039EC2D /* DummyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75352C5F254D6E730039EC2D /* DummyView.swift */; };
 		7552696A25516D2600D89FC5 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7552696925516D2600D89FC5 /* SearchBarView.swift */; };
+		7556CBF32557DC50000539B0 /* MateriTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7556CBF22557DC50000539B0 /* MateriTableCellView.swift */; };
 		755B2175254A806000B0A7E6 /* MateriPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755B2174254A806000B0A7E6 /* MateriPreviewView.swift */; };
 		755B217A254A885100B0A7E6 /* Extension+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755B2179254A885100B0A7E6 /* Extension+View.swift */; };
 		755B217F254AA95500B0A7E6 /* MateriPreviewCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755B217E254AA95500B0A7E6 /* MateriPreviewCollectionView.swift */; };
@@ -72,6 +73,7 @@
 		75352C5A254C45060039EC2D /* LihatSemuaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LihatSemuaView.swift; sourceTree = "<group>"; };
 		75352C5F254D6E730039EC2D /* DummyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyView.swift; sourceTree = "<group>"; };
 		7552696925516D2600D89FC5 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		7556CBF22557DC50000539B0 /* MateriTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateriTableCellView.swift; sourceTree = "<group>"; };
 		755B2174254A806000B0A7E6 /* MateriPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateriPreviewView.swift; sourceTree = "<group>"; };
 		755B2179254A885100B0A7E6 /* Extension+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+View.swift"; sourceTree = "<group>"; };
 		755B217E254AA95500B0A7E6 /* MateriPreviewCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateriPreviewCollectionView.swift; sourceTree = "<group>"; };
@@ -310,6 +312,7 @@
 				75352C5A254C45060039EC2D /* LihatSemuaView.swift */,
 				755B217E254AA95500B0A7E6 /* MateriPreviewCollectionView.swift */,
 				755B2174254A806000B0A7E6 /* MateriPreviewView.swift */,
+				7556CBF22557DC50000539B0 /* MateriTableCellView.swift */,
 			);
 			name = Materi;
 			sourceTree = "<group>";
@@ -585,6 +588,7 @@
 				755B218C254B1DB000B0A7E6 /* TabBarView.swift in Sources */,
 				758081DC2552676000E50787 /* DummyModel.swift in Sources */,
 				75BE5D242553F0BD00E8677E /* NavigationBarModifier.swift in Sources */,
+				7556CBF32557DC50000539B0 /* MateriTableCellView.swift in Sources */,
 				75BE5D482554140A00E8677E /* CustomDropDownMenu.swift in Sources */,
 				75352C5B254C45070039EC2D /* LihatSemuaView.swift in Sources */,
 				7552696A25516D2600D89FC5 /* SearchBarView.swift in Sources */,

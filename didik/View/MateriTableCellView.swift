@@ -1,25 +1,20 @@
 //
-//  MateriPreviewView.swift
+//  MateriTableCellView.swift
 //  didik
 //
-//  Created by Fandrian Rhamadiansyah on 29/10/20.
+//  Created by Fandrian Rhamadiansyah on 08/11/20.
 //
 
 import SwiftUI
 
-
-
-struct MateriPreviewView: View {
+struct MateriTableCellView: View {
     
+    let materi: DummyMateri
     let height: CGFloat
     let width: CGFloat
     
-    let materi: DummyMateri
-    
-    
     var body: some View {
-        
-        VStack {
+        HStack(alignment: .top, spacing: 20) {
             ZStack {
                 Image(systemName: materi.imageName)
                     .resizable()
@@ -81,29 +76,29 @@ struct MateriPreviewView: View {
             .cornerRadius(11)
             .clipped()
             
-            HStack {
-                Text ("\(materi.title)")
-                    .foregroundColor(.black)
-                    .font(.title2)
-                    .lineLimit(2)
-                Spacer()
-            }
-            HStack {
-                Text ("\(materi.author)")
-                    .foregroundColor(.gray)
-                    .font(.subheadline)
-                    .lineLimit(1)
-                Spacer()
-            }
             
-        }.frame(width: width)
-        
-        
+            HStack {
+                VStack(alignment: .leading) {
+                    HStack(alignment: .top){
+                        Text(materi.title)
+                            .font(.title2)
+                    }
+                    Text(materi.author)
+                        .foregroundColor(.gray)
+                        .font(.subheadline)
+                }
+                Spacer()
+                Image(systemName: "bookmark")
+                    .resizable()
+                    .frame(width: width/7, height: height/3)
+                    .padding()
+            }
+        }
     }
 }
 
-struct MateriPreviewView_Previews: PreviewProvider {
+struct MateriTableCellView_Previews: PreviewProvider {
     static var previews: some View {
-        MateriPreviewView(height: 126, width: 230, materi: placeholderMateri)
+        MateriTableCellView(materi: placeholderMateri, height: 125, width: 230)
     }
 }

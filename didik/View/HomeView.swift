@@ -15,33 +15,24 @@ struct HomeView: View {
     
     var body: some View {
         VStack {
-            NavigationView {
-                VStack {
-                    switch index {
-                    case 0:
-                        JelajahMateriView()
-                    case 1:
-                        LihatSemuaView(MateriLibrary: LibraryMateri, currentTitle: "nipples")
-                    case 2:
-                        DummyView()
-                    default :
-                        JelajahMateriView()
-                    }
-                    Spacer()
-                }
+            ZStack {
                 
-            }.navigationBarTitle("", displayMode: .automatic)
-            .navigationBarColor(backgroundColor: UIColor(named: K.TabBarColor))
-            .navigationBarItems(trailing: UserButton())
-//            .navigationBarHidden(true)
-            .navigationViewStyle(StackNavigationViewStyle())
-
-            Spacer()
+                JelajahMateriView()
+                    .opacity(index == 0 ? 1 : 0)
+                
+                Text("My Materi View")
+                    .opacity(index == 1 ? 1 : 0)
+                
+                DummyView()
+                    .opacity(index == 2 ? 1 : 0)
+                
+                Spacer()
+            }
             TabBarView(index: $index)
         }.ignoresSafeArea(.keyboard, edges: .bottom)
         
         
-            
+        
         
         
     }

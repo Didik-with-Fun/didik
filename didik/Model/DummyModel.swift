@@ -32,13 +32,24 @@ struct DummyMateri: Identifiable {
     
     let imageName: String
     
-    let likes: Int
+    var likes: Int
     let duration: Int
     let title: String
     let author: String
     let kelas: Kelas
     let matpel: Matpel
     let subjek: Subjek
+    var liked : Bool
+    var bookmarked : Bool
+    
+    mutating func getBookmarked() {
+        self.bookmarked.toggle()
+    }
+    
+    mutating func getLiked() {
+        self.liked.toggle()
+        self.likes += 1
+    }
 }
 
 struct DummyMateriGroup: Identifiable {
@@ -47,19 +58,19 @@ struct DummyMateriGroup: Identifiable {
     let dummyMateri: [DummyMateri]
 }
 
-let placeholderMateri = DummyMateri(imageName: "photo", likes: 214, duration: 5, title: "Persamaan Linear I", author: "Pak Kirjo", kelas: .X, matpel: .Matematika, subjek: .Linear)
+let placeholderMateri = DummyMateri(imageName: "photo", likes: 232, duration: 2, title: "Persamaan Linear I", author: "Pak Kirjo", kelas: .X, matpel: .Matematika, subjek: .Linear, liked: false, bookmarked: false)
 
-let placeholderMateri2 = DummyMateri(imageName: "photo", likes: 214, duration: 5, title: "Trigonometri", author: "Pak Kirjo", kelas: .XI, matpel: .Matematika, subjek: .Trigonometri)
+let placeholderMateri2 = DummyMateri(imageName: "photo", likes: 214, duration: 5, title: "Trigonometri", author: "Pak Kirjo", kelas: .XI, matpel: .Matematika, subjek: .Trigonometri, liked: false, bookmarked: false)
 
-let placeholderMateri3 = DummyMateri(imageName: "photo", likes: 214, duration: 5, title: "Persamaan Kuadratik I", author: "Pak Kirjo", kelas: .XII, matpel: .Matematika, subjek: .Kuadratik)
+let placeholderMateri3 = DummyMateri(imageName: "photo", likes: 214, duration: 5, title: "Persamaan Kuadratik I", author: "Pak Kirjo", kelas: .XII, matpel: .Matematika, subjek: .Kuadratik, liked: true, bookmarked: false)
 
-let placeholderMateri4 = DummyMateri(imageName: "photo", likes: 214, duration: 5, title: "Magnet I", author: "Pak Kirjo", kelas: .X, matpel: .Fisika, subjek: .Magnet)
+let placeholderMateri4 = DummyMateri(imageName: "photo", likes: 214, duration: 5, title: "Magnet I", author: "Pak Kirjo", kelas: .X, matpel: .Fisika, subjek: .Magnet, liked: false, bookmarked: false)
 
-let placeholderMateri5 = DummyMateri(imageName: "photo", likes: 214, duration: 5, title: "Bidang Miring I", author: "Pak Kirjo", kelas: .XI, matpel: .Fisika, subjek: .PesawatSederhana)
+let placeholderMateri5 = DummyMateri(imageName: "photo", likes: 214, duration: 5, title: "Bidang Miring I", author: "Pak Kirjo", kelas: .XI, matpel: .Fisika, subjek: .PesawatSederhana, liked: true, bookmarked: false)
 
-let placeholderMateri6 = DummyMateri(imageName: "photo", likes: 214, duration: 5, title: "Bidang Miring II", author: "Pak Kirjo", kelas: .XII, matpel: .Fisika, subjek: .PesawatSederhana)
+let placeholderMateri6 = DummyMateri(imageName: "photo", likes: 214, duration: 5, title: "Bidang Miring II", author: "Pak Kirjo", kelas: .XII, matpel: .Fisika, subjek: .PesawatSederhana, liked: false, bookmarked: false)
 
-let placeholderMateri7 = DummyMateri(imageName: "photo", likes: 214, duration: 5, title: "Trigonometri II", author: "Pak Kirjo", kelas: .XII, matpel: .Matematika, subjek: .Trigonometri)
+let placeholderMateri7 = DummyMateri(imageName: "photo", likes: 214, duration: 5, title: "Trigonometri II", author: "Pak Kirjo", kelas: .XII, matpel: .Matematika, subjek: .Trigonometri, liked: false, bookmarked: false)
 
 
 let LibraryMateri: [DummyMateri] = [
