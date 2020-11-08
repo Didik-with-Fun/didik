@@ -14,7 +14,7 @@ extension View {
         clipShape( RoundedCorner(radius: radius, corners: corners) )
     }
     
-    func navigationBarColor(backgroundColor: UIColor?, titleColor: UIColor? = UIColor.blue) -> some View {
+    func navigationBarColor(backgroundColor: UIColor?, titleColor: UIColor? = UIColor.white) -> some View {
         self.modifier(NavigationBarModifier(backgroundColor: backgroundColor, titleColor: titleColor))
     }
     

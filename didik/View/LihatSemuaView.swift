@@ -28,7 +28,7 @@ struct LihatSemuaView: View {
             List(MateriLibrary.filter({ searchText.isEmpty ? true : $0.title.lowercased().contains(searchText.lowercased()) 
             })) { materi in
                 NavigationLink(
-                    destination: DummyView(),
+                    destination: DetailProjectMainView(title: currentTitle),
                     label: {
                         MateriTableCellView(materi: materi, height: height, width: width)
                     })
