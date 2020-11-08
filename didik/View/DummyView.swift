@@ -45,7 +45,7 @@ struct DummyView: View {
 struct DummyView_Previews: PreviewProvider {
     static var previews: some View {
         DummyView()
+            .previewDevice("iPad (8th generation)")
+
     }
 }
-
-

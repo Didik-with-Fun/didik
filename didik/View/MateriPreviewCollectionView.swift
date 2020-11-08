@@ -25,7 +25,8 @@ struct MateriPreviewCollectionView: View {
                 
                 Spacer()
                 NavigationLink(
-                    destination: LihatSemuaView(MateriLibrary: MateriLibrary, currentTitle: judul),
+                    destination: LihatSemuaView(MateriLibrary: MateriLibrary,
+                                                currentTitle: judul),
                     label: {
                         Text("Lihat Semua")
                             .font(.caption)
@@ -50,12 +51,14 @@ struct MateriPreviewCollectionView: View {
                 
             }
             
-        }.padding(.vertical)
+        }
+        .padding(.vertical)
     }
 }
 
 struct MateriPreviewCollectionView_Previews: PreviewProvider {
     static var previews: some View {
         MateriPreviewCollectionView(judul: "Matematika Dasar", MateriLibrary: LibraryMateri)
+            .previewDevice("iPad (8th generation)")
     }
 }

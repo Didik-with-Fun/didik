@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @EnvironmentObject var db: DummyModel
+//    @EnvironmentObject var db: DummyModel
     
     @State var index: Int = 0
     
@@ -21,7 +21,8 @@ struct HomeView: View {
                     case 0:
                         JelajahMateriView()
                     case 1:
-                        LihatSemuaView(MateriLibrary: LibraryMateri, currentTitle: "nipples")
+                        LihatSemuaView(MateriLibrary: LibraryMateri,
+                                       currentTitle: "Materi Saya")
                     case 2:
                         DummyView()
                     default :
@@ -29,20 +30,18 @@ struct HomeView: View {
                     }
                     Spacer()
                 }
-                
-            }.navigationBarTitle("", displayMode: .automatic)
-            .navigationBarColor(backgroundColor: UIColor(named: K.TabBarColor))
-            .navigationBarItems(trailing: UserButton())
-//            .navigationBarHidden(true)
+                .navigationBarTitle("", displayMode: .automatic)
+                .navigationBarItems(trailing: UserButton())
+                .navigationBarColor(backgroundColor: UIColor(named: K.TabBarColor),
+                                    titleColor: UIColor.white)
+
+            }
             .navigationViewStyle(StackNavigationViewStyle())
 
             Spacer()
             TabBarView(index: $index)
-        }.ignoresSafeArea(.keyboard, edges: .bottom)
-        
-        
-            
-        
+        }
+        .ignoresSafeArea(.keyboard, edges: .bottom)
         
     }
 }
@@ -50,5 +49,8 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
+            .environmentObject(DummyModel())
+            .previewDevice("iPad (8th generation)")
+
     }
 }

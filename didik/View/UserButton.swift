@@ -13,7 +13,7 @@ struct UserButton: View {
             destination: UserProfileView(),
             label: {
                 Image(systemName: "person.circle")
-                    .foregroundColor(.black)
+                    .foregroundColor(.white)
                     .font(.system(size: 30))
                     .padding()
             })

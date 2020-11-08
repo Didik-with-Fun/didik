@@ -45,10 +45,13 @@ struct MateriPreviewView: View {
                             .frame(width: width/3)
                             .background(Color.blue)
                             .cornerRadius(10.0, corners: .topLeft)
-                    }.frame(width: width/3)
+                    }
+                    .frame(width: width/3)
                     
-                }.frame(width: width, height: height)
-            }.frame(width: width, height: height)
+                }
+                .frame(width: width, height: height)
+            }
+            .frame(width: width, height: height)
             .cornerRadius(10)
             .clipped()
             
@@ -67,8 +70,8 @@ struct MateriPreviewView: View {
                 Spacer()
             }
             
-        }.frame(width: width)
-        
+        }
+        .frame(width: width)
         
     }
 }
@@ -76,5 +79,6 @@ struct MateriPreviewView: View {
 struct MateriPreviewView_Previews: PreviewProvider {
     static var previews: some View {
         MateriPreviewView(height: 126, width: 230, materi: placeholderMateri)
+            .previewDevice("iPad (8th generation)")
     }
 }

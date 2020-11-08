@@ -84,8 +84,10 @@ struct CustomNavigationBarView: View {
                     .padding(.horizontal, 10)
                     .padding(.trailing)
 
-            }.padding(.leading, 20)
-        }.background(Color(K.TabBarColor))
+            }
+            .padding(.leading, 20)
+        }
+        .background(Color(K.TabBarColor))
         
     }
 }
