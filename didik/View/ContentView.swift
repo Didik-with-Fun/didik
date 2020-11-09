@@ -15,7 +15,8 @@ struct ContentView: View {
     var body: some View {
         ZStack{
             if signInCoordinator.isUserAuthenticated == .signedIn {
-                MainView()
+                HomeView()
+                    .environmentObject(DummyModel())
             }
             else if signInCoordinator.isUserAuthenticated == .signedOut {
                 SignInView()
@@ -31,5 +32,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(SignInWithAppleCoordinator())
+            .previewDevice("iPad (8th generation)")
     }
 }

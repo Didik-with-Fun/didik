@@ -18,6 +18,9 @@ class UserViewModel: ObservableObject {
            let userDecoded = try? JSONDecoder().decode(UserData.self, from: userDataDefault) {
             userData = userDecoded
         }
+        
+        print("name \(self.userData?.fullName)")
+
     }
     
 }

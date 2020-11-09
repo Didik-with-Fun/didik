@@ -22,5 +22,6 @@ struct SignInWithAppleButton: UIViewRepresentable {
 struct SignInWithAppleButton_Previews: PreviewProvider {
     static var previews: some View {
         SignInWithAppleButton()
+            .previewDevice("iPad (8th generation)")
     }
 }

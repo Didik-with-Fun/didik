@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Subjects: String {
+enum Subjects: String, CaseIterable {
     case Matematika
     case Fisika
     case Kimia

@@ -8,31 +8,28 @@
 import SwiftUI
 
 struct CreateProjectView: View {
-    // ---  on development ---
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
-    @State var subject = ""
+    @Binding var selectedSubject: Subjects
+    let isDropdownSubjectOpen: Bool
     
     var body: some View {
         ZStack {
             LinearGradient(gradient: .init(colors: [.white]), startPoint: /*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/, endPoint: /*@START_MENU_TOKEN@*/.trailing/*@END_MENU_TOKEN@*/).edgesIgnoringSafeArea(.all)
             
             VStack(alignment: .leading) {
-                TextField("Matematika", text: $subject).padding().colorMultiply(.red)
-                TextField("Topic", text: $subject).padding()
+                HStack {
+                    if isDropdownSubjectOpen {
+                        DropdownSubject(selected: $selectedSubject, width: 130)
+                    }
+                }
             }
         }
-        
-//        VStack{
-//            Form{
-//                Text("Mata Pelajaran").font(.title)
-//                TextField("Mata Pelajaran", text: $subject)
-//            }
-//        }
     }
 }
 
 struct CreateProjectView_Previews: PreviewProvider {
     static var previews: some View {
-        CreateProjectView()
+        CreateProjectView(selectedSubject: .constant(.Matematika), isDropdownSubjectOpen: false)
     }
 }
