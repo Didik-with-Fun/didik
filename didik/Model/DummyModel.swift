@@ -42,14 +42,6 @@ struct DummyMateri: Identifiable {
     var liked : Bool
     var bookmarked : Bool
     
-    mutating func getBookmarked() {
-        self.bookmarked.toggle()
-    }
-    
-    mutating func getLiked() {
-        self.liked.toggle()
-        self.likes += 1
-    }
 }
 
 struct DummyMateriGroup: Identifiable {

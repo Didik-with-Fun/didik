@@ -12,47 +12,44 @@ struct UserProfileView: View {
     @EnvironmentObject var signInCoordinator: SignInWithAppleCoordinator
     
     @ObservedObject var userViewModel = UserViewModel()
-    @State private var isShowingDetailView = false
     
     var body: some View {
-
-            VStack{
-                
-                NavigationLink(
-                    destination: Text("Destination"),
-                    isActive: $isShowingDetailView,
-                    label: {
-                        EmptyView()
-                    }
-                                       
-                )
-                Button("Tap to show detail", action: {
-                    self.isShowingDetailView = true
-                })
-                
-                
-                Text("Hello  \(userViewModel.userData?.fullName ?? "there")")
-                Button(action: {
-                    do {
-                        try signInCoordinator.signOut()
-                    }
-                    catch {
-                        fatalError()
-                    }
-                    
-                }, label: {
-                    Text("Sign Out")
-                })
-                .frame(width: 280, height: 60)
-                Spacer()
-            }.ignoresSafeArea()
-           .navigationBarColor(backgroundColor: UIColor(Color("NavBar")), titleColor: .red)
-            .onAppear(){
-                self.userViewModel.getUserInfo()
-            }
-            //.navigationBarTitle("User")
+        
+        VStack {
+            UserProfileHeaderView(fullName: self.userViewModel.userData?.fullName)
             
-        //.navigationViewStyle(StackNavigationViewStyle())
+            Spacer(minLength: 100)
+            
+            VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 100, content: {
+                List {
+                    Text("FullName: \(userViewModel.userData?.fullName ?? "")")
+                    Text("Email: \(userViewModel.userData?.email ?? "")")
+                }
+            })
+            
+            Button(action: {
+                do {
+                    try signInCoordinator.signOut()
+                }
+                catch {
+                    fatalError()
+                }
+                
+            }, label: {
+                Text("Sign Out")
+                    .frame(width: 200, height: 30)
+                    .padding()
+                    .background(Color(K.TabBarColor))
+                    .foregroundColor(.white)
+            })
+            
+            Spacer(minLength: 100)
+        }
+        .edgesIgnoringSafeArea(.all)
+        .onAppear(){
+            self.userViewModel.getUserInfo()
+        }
+        
     }
     
 }
@@ -60,5 +57,7 @@ struct UserProfileView: View {
 struct UserProfileView_Previews: PreviewProvider {
     static var previews: some View {
         UserProfileView()
+            .previewDevice("iPad (8th generation)")
+            .environmentObject(SignInWithAppleCoordinator())
     }
 }

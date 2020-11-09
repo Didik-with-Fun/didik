@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @EnvironmentObject var db: DummyModel
+    //    @EnvironmentObject var db: DummyModel
     
     @State var index: Int = 0
     
@@ -23,7 +23,7 @@ struct HomeView: View {
                 Text("My Materi View")
                     .opacity(index == 1 ? 1 : 0)
                 
-                DummyView()
+                Text("Kelas Saya View")
                     .opacity(index == 2 ? 1 : 0)
                 
                 Spacer()
@@ -41,5 +41,8 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
+            .environmentObject(DummyModel())
+            .previewDevice("iPad (8th generation)")
+        
     }
 }

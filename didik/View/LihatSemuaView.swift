@@ -9,8 +9,6 @@ import SwiftUI
 
 struct LihatSemuaView: View {
     
-    @EnvironmentObject var db: DummyModel
-    
     let MateriLibrary: [DummyMateri]
     let currentTitle: String
     @State var searchText: String = ""
@@ -21,22 +19,23 @@ struct LihatSemuaView: View {
     let width: CGFloat = 230
     
     var body: some View {
+        
         VStack {
             CustomNavigationBarView(filterKelas: $selectedKelas, filterMatpel: $selectedMatpel, searchText: $searchText, showDropDown: true)
-//                .ignoresSafeArea()
             List(MateriLibrary.filter({ searchText.isEmpty ? true : $0.title.lowercased().contains(searchText.lowercased()) 
             })) { materi in
                 NavigationLink(
                     destination: DummyView(),
                     label: {
-                        MateriTableCellView(materi: materi, height: height, width: width)
+                        MateriTableCellView(materi: materi, height: height, width: width, bookmarked: materi.bookmarked)
                     })
+                
+                
             }
-        }.navigationBarTitle(currentTitle, displayMode: .automatic)
-        .navigationBarColor(backgroundColor: UIColor.init(named: K.TabBarColor))
+        }
+        .navigationBarTitle(currentTitle, displayMode: .automatic)
         .navigationBarItems(trailing: UserButton())
-//        .navigationBarHidden(true)
-            
+        .navigationBarColor(backgroundColor: UIColor(named: K.TabBarColor))
         
     }
 }
@@ -44,5 +43,6 @@ struct LihatSemuaView: View {
 struct LihatSemuaView_Previews: PreviewProvider {
     static var previews: some View {
         LihatSemuaView(MateriLibrary: LibraryMateri, currentTitle: "nipples")
+            .previewDevice("iPad (8th generation)")
     }
 }

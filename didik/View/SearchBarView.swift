@@ -19,7 +19,6 @@ struct SearchBarView: View {
                 .padding(.horizontal, 25)
                 .background(Color(.systemGray6))
                 .cornerRadius(8)
-//                .padding(.trailing)
                 .onTapGesture {
                     self.isEditing = true
                 }
@@ -32,7 +31,6 @@ struct SearchBarView: View {
                 }) {
                     Text("Cancel")
                 }
-//                .padding(.trailing)
                 .transition(.move(edge: .trailing))
                 .animation(.default)
             }

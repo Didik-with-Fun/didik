@@ -50,12 +50,14 @@ struct MateriPreviewCollectionView: View {
                 
             }
             
-        }.padding(.vertical)
+        }
+        .padding(.vertical)
     }
 }
 
 struct MateriPreviewCollectionView_Previews: PreviewProvider {
     static var previews: some View {
         MateriPreviewCollectionView(judul: "Matematika Dasar", MateriLibrary: LibraryMateri)
+            .previewDevice("iPad (8th generation)")
     }
 }
