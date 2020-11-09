@@ -33,4 +33,12 @@ extension Color {
             opacity: Double(a) / 255
         )
     }
+    
+    struct Didik {
+        static let BluePrimary = Color("BluePrimary")
+        static let BlueSecondary = Color("BlueSecondary")
+        static let GreyDark = Color("GreyDark")
+        static let GreyMedium = Color("GreyMedium")
+        static let GreyLight = Color("GreyLight")
+    }
 }
