@@ -25,8 +25,7 @@ struct MateriPreviewCollectionView: View {
                 
                 Spacer()
                 NavigationLink(
-                    destination: LihatSemuaView(MateriLibrary: MateriLibrary,
-                                                currentTitle: judul),
+                    destination: LihatSemuaView(MateriLibrary: MateriLibrary, currentTitle: judul),
                     label: {
                         Text("Lihat Semua")
                             .font(.caption)
@@ -37,7 +36,7 @@ struct MateriPreviewCollectionView: View {
                 
             }
             ScrollView (.horizontal) {
-                HStack (spacing: 10) {
+                HStack (alignment: .top, spacing: 10) {
                     ForEach(MateriLibrary) { index in
                         NavigationLink(
                             destination: DummyView(),

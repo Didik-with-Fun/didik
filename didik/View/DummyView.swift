@@ -27,9 +27,9 @@ struct DummyView: View {
             List(MateriLibrary.filter({ searchText.isEmpty ? true : $0.title.lowercased().contains(searchText.lowercased())
             })) { materi in
                 NavigationLink(
-                    destination: HomeView(),
+                    destination: JelajahMateriView(),
                     label: {
-                        MateriTableCellView(materi: materi, height: height, width: width)
+                        MateriTableCellView(materi: materi, height: height, width: width, bookmarked: materi.bookmarked)
                     })
             }
             Spacer()
@@ -46,6 +46,6 @@ struct DummyView_Previews: PreviewProvider {
     static var previews: some View {
         DummyView()
             .previewDevice("iPad (8th generation)")
-
+        
     }
 }

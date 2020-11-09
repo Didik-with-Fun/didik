@@ -16,7 +16,7 @@ struct JelajahMateriView: View {
     @State var selectedMatpel: Matpel = .MatPel
     
     var body: some View {
-        ZStack {
+        NavigationView {
             VStack {
                 CustomNavigationBarView(filterKelas: $selectedKelas, filterMatpel: $selectedMatpel, searchText: $searchText, showDropDown: true)
                     .zIndex(2)
@@ -27,7 +27,7 @@ struct JelajahMateriView: View {
                         NavigationLink(
                             destination: DummyView(),
                             label: {
-                                MateriTableCellView(materi: materi, height: 125, width: 230)
+                                MateriTableCellView(materi: materi, height: 125, width: 230, bookmarked: materi.bookmarked)
                             })
                     }
                 } else {
@@ -36,7 +36,7 @@ struct JelajahMateriView: View {
                             ForEach(db.materiGroup) {
                                 index in
                                 MateriPreviewCollectionView(judul: index.title, MateriLibrary: index.dummyMateri)
-                                    .frame(height: UIScreen.main.bounds.height/4)
+
                                 
                             }
                         }
@@ -44,11 +44,14 @@ struct JelajahMateriView: View {
                 }
                 
             }
+            .navigationBarTitle("Jelajah Materi", displayMode: .automatic)
+            .navigationBarColor(backgroundColor: UIColor(named: K.TabBarColor))
+            .navigationBarItems(trailing: UserButton())
+            
         }
-        .navigationBarTitle("Jelajah Materi", displayMode: .automatic)
-        .navigationBarItems(trailing: UserButton())
-        .navigationBarColor(backgroundColor: UIColor(named: K.TabBarColor), titleColor: .white)
-        .environmentObject(db)
+        .navigationViewStyle(StackNavigationViewStyle())
+        
+        
     }
     
 }

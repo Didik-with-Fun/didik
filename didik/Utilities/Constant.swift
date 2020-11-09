@@ -9,4 +9,9 @@ import Foundation
 
 struct K {
     static let TabBarColor = "TabBarColor"
+    
+    static let jelajahIcon = "JelajahMateriIcon"
+    static let materiIcon = "MateriSayaIcon"
+    static let kelasIcon = "KelasSayaIcon"
+    static let calendarIcon = "CalendarIcon"
 }
