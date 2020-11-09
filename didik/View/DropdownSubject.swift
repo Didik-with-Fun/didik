@@ -70,6 +70,6 @@ struct DropdownSubject: View {
 
 struct DropdownSubjectPreviews: PreviewProvider {
     static var previews: some View {
-        DropdownSubject(selected: .constant(.Matematika), width: 130)
+        DropdownSubject(selected: .constant(.Mathematic), width: 130)
     }
 }
