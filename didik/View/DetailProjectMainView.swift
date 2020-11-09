@@ -15,7 +15,9 @@ struct DetailProjectMainView: View {
         
         VStack {
             HeadDetailProjectView()
+                .padding()
             ContentDetailProjectView()
+                .padding()
         }
         .navigationBarTitle(title, displayMode: .automatic)
         .navigationBarItems(trailing: UserButton())
@@ -26,9 +28,10 @@ struct DetailProjectMainView: View {
 struct DetailProjectMainView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-        DetailProjectMainView(title: "alksdjfads")
+            DetailProjectMainView(title: placeholderMateri.title)
             .previewDevice("iPad (8th generation)")
-        }.navigationViewStyle(StackNavigationViewStyle())
+        }
+        .navigationViewStyle(StackNavigationViewStyle())
 
     }
 }

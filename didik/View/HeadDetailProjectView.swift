@@ -9,7 +9,10 @@ import SwiftUI
 
 struct HeadDetailProjectView: View {
     var body: some View {
-        SlideshowHeadDetailProjectView()
+        VStack {
+            SlideshowHeadDetailProjectView()
+            ButtonsDetailProjectView()            
+        }
     }
 }
 
