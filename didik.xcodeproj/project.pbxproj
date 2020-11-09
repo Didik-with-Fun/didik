@@ -34,6 +34,8 @@
 		B7AB62302546AB20007E4895 /* didikTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB622F2546AB20007E4895 /* didikTests.swift */; };
 		B7AB623B2546AB20007E4895 /* didikUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB623A2546AB20007E4895 /* didikUITests.swift */; };
 		B7DF19D82550195B00953640 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B7DF19D72550195B00953640 /* GoogleService-Info.plist */; };
+		B7F9650F25592F2E004F33B3 /* Tooltips.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9650E25592F2E004F33B3 /* Tooltips.swift */; };
+		B7F9651425594A9E004F33B3 /* TooltipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9651325594A9E004F33B3 /* TooltipView.swift */; };
 		BA3A772B255337DF00975121 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3A772A255337DF00975121 /* UserData.swift */; };
 		BA3A773325534EA800975121 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3A773225534EA800975121 /* UserViewModel.swift */; };
 		BA4F58B6255718CE00C87028 /* UserProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4F58B5255718CE00C87028 /* UserProfileHeaderView.swift */; };
@@ -101,6 +103,8 @@
 		B7AB623A2546AB20007E4895 /* didikUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = didikUITests.swift; sourceTree = "<group>"; };
 		B7AB623C2546AB20007E4895 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B7DF19D72550195B00953640 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B7F9650E25592F2E004F33B3 /* Tooltips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tooltips.swift; sourceTree = "<group>"; };
+		B7F9651325594A9E004F33B3 /* TooltipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TooltipView.swift; sourceTree = "<group>"; };
 		BA3A772A255337DF00975121 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		BA3A773225534EA800975121 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		BA4F58B5255718CE00C87028 /* UserProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileHeaderView.swift; sourceTree = "<group>"; };
@@ -257,6 +261,7 @@
 				755B2179254A885100B0A7E6 /* Extension+View.swift */,
 				75352C3E254B41EF0039EC2D /* Extension+Color.swift */,
 				758081DB2552676000E50787 /* DummyModel.swift */,
+				B7F9650E25592F2E004F33B3 /* Tooltips.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -300,6 +305,7 @@
 			children = (
 				7552696925516D2600D89FC5 /* SearchBarView.swift */,
 				75BE5D472554140A00E8677E /* CustomDropDownMenu.swift */,
+				B7F9651325594A9E004F33B3 /* TooltipView.swift */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
@@ -577,8 +583,10 @@
 				BA8CF5D625511BCC0057B9B8 /* SignInWithAppleCoordinator.swift in Sources */,
 				BAF3188C25554DDB00E188B8 /* UserProfileView.swift in Sources */,
 				BA3A773325534EA800975121 /* UserViewModel.swift in Sources */,
+				B7F9651425594A9E004F33B3 /* TooltipView.swift in Sources */,
 				75352C60254D6E730039EC2D /* DummyView.swift in Sources */,
 				751C70882553BCFD0072C1B5 /* Constant.swift in Sources */,
+				B7F9650F25592F2E004F33B3 /* Tooltips.swift in Sources */,
 				75BE5D432554052C00E8677E /* UserButton.swift in Sources */,
 				755B217F254AA95500B0A7E6 /* MateriPreviewCollectionView.swift in Sources */,
 				75352C3F254B41EF0039EC2D /* Extension+Color.swift in Sources */,
@@ -763,7 +771,7 @@
 				CODE_SIGN_ENTITLEMENTS = didik/didik.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"didik/Preview Content\"";
-				DEVELOPMENT_TEAM = JPMPS53HUZ;
+				DEVELOPMENT_TEAM = W5ZPF478J8;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = didik/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -771,7 +779,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.developeracademy.didik-fandri";
+				PRODUCT_BUNDLE_IDENTIFIER = com.developeracademy.didik;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -787,7 +795,7 @@
 				CODE_SIGN_ENTITLEMENTS = didik/didik.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"didik/Preview Content\"";
-				DEVELOPMENT_TEAM = JPMPS53HUZ;
+				DEVELOPMENT_TEAM = W5ZPF478J8;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = didik/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -795,7 +803,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.developeracademy.didik-fandri";
+				PRODUCT_BUNDLE_IDENTIFIER = com.developeracademy.didik;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

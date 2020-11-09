@@ -12,6 +12,7 @@ struct HomeView: View {
     //    @EnvironmentObject var db: DummyModel
     
     @State var index: Int = 0
+    @State var show = false
     
     var body: some View {
         VStack {
@@ -20,21 +21,40 @@ struct HomeView: View {
                 JelajahMateriView()
                     .opacity(index == 0 ? 1 : 0)
                 
-                Text("My Materi View")
-                    .opacity(index == 1 ? 1 : 0)
+                Button(action: {
+                    withAnimation {
+                        self.show.toggle()
+                    }
+                }, label: {
+                    Text("Materi Saya")
+                })
+                .opacity(index == 1 ? 1 : 0)
+                
+                if self.show {
+                    GeometryReader {_ in
+                        VStack(alignment: .center) {
+                            TooltipView(tooltip: .constant(.namaProyek))
+                        }
+                    }.background(
+                        Color.black.opacity(0.6)
+                            .edgesIgnoringSafeArea(.all)
+                            .onTapGesture {
+                                withAnimation {
+                                    self.show.toggle()
+                                }
+                            }
+                    )
+                }
                 
                 Text("Kelas Saya View")
                     .opacity(index == 2 ? 1 : 0)
                 
                 Spacer()
             }
+            
             TabBarView(index: $index)
+            
         }.ignoresSafeArea(.keyboard, edges: .bottom)
-        
-        
-        
-        
-        
     }
 }
 
@@ -43,6 +63,5 @@ struct HomeView_Previews: PreviewProvider {
         HomeView()
             .environmentObject(DummyModel())
             .previewDevice("iPad (8th generation)")
-        
     }
 }
