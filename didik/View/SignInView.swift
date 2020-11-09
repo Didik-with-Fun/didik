@@ -15,7 +15,7 @@ struct SignInView: View {
     var body: some View {
         ZStack {
             
-            Rectangle().fill(Color("GreyBackground"))
+            Rectangle().fill(Color.Didik.GreyLight)
                 .frame(width: 679, height: 884, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 .cornerRadius(30)
                 .overlay(
