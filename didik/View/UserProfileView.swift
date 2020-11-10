@@ -39,7 +39,7 @@ struct UserProfileView: View {
                 Text("Sign Out")
                     .frame(width: 200, height: 30)
                     .padding()
-                    .background(Color(K.TabBarColor))
+                    .background(Color.Didik.BluePrimary)
                     .foregroundColor(.white)
             })
             

@@ -11,10 +11,10 @@ import SwiftUI
 struct CustomNavigationBarView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
-    @EnvironmentObject var db: DummyModel
+    @EnvironmentObject var db: ProjectDatabaseViewModel
     
-    @Binding var filterKelas: Kelas
-    @Binding var filterMatpel: Matpel
+    @Binding var filteredGrade: Grades
+    @Binding var filteredSubject: Subjects
     @Binding var searchText: String
     let showDropDown: Bool
     
@@ -24,7 +24,7 @@ struct CustomNavigationBarView: View {
 
             HStack(spacing: 0){
                 if showDropDown {
-                    CustomDropDownMenu(selectedKelas: $filterKelas, selectedMatpel: $filterMatpel, width: UIScreen.main.bounds.width * 0.18)
+                    ProjectDropDownMenu(selectedGrade: $filteredGrade, selectedSubject: $filteredSubject, width: UIScreen.main.bounds.width * 0.18)
                         .padding(.trailing, 10)
 
                 }
@@ -35,7 +35,7 @@ struct CustomNavigationBarView: View {
             }
             .padding(.leading, 20)
         }
-        .background(Color(K.TabBarColor))
+        .background(Color.Didik.BluePrimary)
         
     }
 }
@@ -43,8 +43,8 @@ struct CustomNavigationBarView: View {
 struct CustomNavigationBarView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            CustomNavigationBarView(filterKelas: .constant(.X), filterMatpel: .constant(.Fisika), searchText: .constant(""), showDropDown: false)
-            CustomNavigationBarView(filterKelas: .constant(.X), filterMatpel: .constant(.Fisika), searchText: .constant(""), showDropDown: false)
+            CustomNavigationBarView(filteredGrade: .constant(.ten), filteredSubject: .constant(.Physic), searchText: .constant(""), showDropDown: false)
+            CustomNavigationBarView(filteredGrade: .constant(.ten), filteredSubject: .constant(.Physic), searchText: .constant(""), showDropDown: false)
         }
     }
 }
