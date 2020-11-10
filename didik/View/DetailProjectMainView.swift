@@ -22,7 +22,7 @@ struct DetailProjectMainView: View {
         }
         .navigationBarTitle(title, displayMode: .automatic)
         .navigationBarItems(trailing: UserButton())
-        .navigationBarColor(backgroundColor: UIColor(named: K.bluePrimary))
+        .navigationBarColor(backgroundColor: UIColor(Color.Didik.BluePrimary))
     }
 }
 

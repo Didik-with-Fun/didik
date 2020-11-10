@@ -27,7 +27,8 @@ struct MateriPreviewView: View {
                 Text ("\(project.name)")
                     .foregroundColor(.black)
                     .font(.title2)
-                    .lineLimit(2)
+                    .lineLimit(nil)
+                    .fixedSize(horizontal: false, vertical: true)
                 Spacer()
             }
             HStack {

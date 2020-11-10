@@ -14,7 +14,7 @@ struct TabBarView: View {
     @State var tabBar2: Bool = false
     @State var tabBar3: Bool = false
     
-    let color = Color(K.bluePrimary)
+    let color = Color.Didik.BluePrimary
     
     var body: some View {
         HStack(spacing: 10) {
@@ -65,7 +65,7 @@ struct TabBarButton: View {
     @Binding var isPressed: Bool
     let imageName: String
     let title: String
-    let color: Color = Color(K.bluePrimary)
+    let color: Color = Color.Didik.BluePrimary
     
     var body: some View {
         ZStack {

@@ -55,7 +55,7 @@ struct MateriSayaView: View {
                 
             }
             .navigationBarTitle("Materi Saya", displayMode: .automatic)
-            .navigationBarColor(backgroundColor: UIColor(named: K.bluePrimary))
+            .navigationBarColor(backgroundColor: UIColor(Color.Didik.BluePrimary))
             .navigationBarItems(trailing: UserButton())
             
         }

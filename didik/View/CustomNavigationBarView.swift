@@ -35,7 +35,7 @@ struct CustomNavigationBarView: View {
             }
             .padding(.leading, 20)
         }
-        .background(Color(K.bluePrimary))
+        .background(Color.Didik.BluePrimary)
         
     }
 }

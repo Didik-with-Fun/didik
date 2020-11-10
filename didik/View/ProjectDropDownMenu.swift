@@ -41,7 +41,7 @@ struct ProjectDropDownMenu : View {
                     }
                 }
                 .foregroundColor(.white)
-                .background(Color(K.bluePrimary))
+                .background(Color.Didik.BluePrimary)
                 .overlay(
                     VStack{
                         if showGradesDropDown {
@@ -93,7 +93,7 @@ struct ProjectDropDownMenu : View {
                     }
                 }
                 .foregroundColor(.white)
-                .background(Color(K.bluePrimary))
+                .background(Color.Didik.BluePrimary)
                 .overlay(
                     VStack{
                         if showSubjectsDropDown {

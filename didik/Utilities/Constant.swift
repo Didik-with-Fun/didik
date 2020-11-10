@@ -8,8 +8,6 @@
 import Foundation
 
 struct K {
-    static let bluePrimary = "BluePrimary"
-    
     static let jelajahIcon = "JelajahMateriIcon"
     static let materiIcon = "MateriSayaIcon"
     static let kelasIcon = "KelasSayaIcon"

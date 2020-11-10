@@ -35,7 +35,7 @@ struct LihatSemuaView: View {
         }
         .navigationBarTitle(currentTitle, displayMode: .automatic)
         .navigationBarItems(trailing: UserButton())
-        .navigationBarColor(backgroundColor: UIColor(named: K.bluePrimary))
+        .navigationBarColor(backgroundColor: UIColor(Color.Didik.BluePrimary))
         
     }
 }
