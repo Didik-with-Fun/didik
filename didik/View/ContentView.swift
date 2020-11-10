@@ -13,7 +13,11 @@ struct ContentView: View {
     @EnvironmentObject var signInCoordinator: SignInWithAppleCoordinator
 
     var body: some View {
-        ZStack{
+        ZStack {
+            // MARK: - Development Use
+            // Uncomment code this line to faster the development debug
+            // HomeView().environmentObject(DummyModel())
+         
             if signInCoordinator.isUserAuthenticated == .signedIn {
                 HomeView()
                     .environmentObject(DummyModel())
