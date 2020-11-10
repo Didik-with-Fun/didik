@@ -21,30 +21,8 @@ struct HomeView: View {
                 JelajahMateriView()
                     .opacity(index == 0 ? 1 : 0)
                 
-                Button(action: {
-                    withAnimation {
-                        self.show.toggle()
-                    }
-                }, label: {
-                    Text("Materi Saya")
-                })
+                CreateProjectView(selectedSubject: .constant(.Mathematic), showPopOverContents: .constant(.namaProyek), isDropdownSubjectOpen: false)
                 .opacity(index == 1 ? 1 : 0)
-                
-                if self.show {
-                    GeometryReader {_ in
-                        VStack(alignment: .center) {
-                            TooltipView(tooltip: .constant(.namaProyek))
-                        }
-                    }.background(
-                        Color.black.opacity(0.6)
-                            .edgesIgnoringSafeArea(.all)
-                            .onTapGesture {
-                                withAnimation {
-                                    self.show.toggle()
-                                }
-                            }
-                    )
-                }
                 
                 Text("Kelas Saya View")
                     .opacity(index == 2 ? 1 : 0)

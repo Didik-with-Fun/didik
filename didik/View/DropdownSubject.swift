@@ -23,21 +23,20 @@ struct DropdownSubject: View {
             }) {
                 HStack (spacing: 10) {
                     Text(selected.rawValue)
-                        .frame(width: width * 0.85, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        .padding(.vertical, 8)
+                        .frame(width: width * 0.85, alignment: .center)
+                        .foregroundColor(.black)
+                        .padding(.vertical, 15)
                         .padding(.trailing, 10)
-                    Image(systemName: "chevron.up")
-                        .frame(width: width * 0.15, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        .padding(.vertical, 9)
+                    
+                    Image(systemName: "chevron.down")
+                        .frame(width: width * 0.15, alignment: .center)
                         .padding(.trailing, 10)
+                        .foregroundColor(.black)
                 }
-                .foregroundColor(.white)
-                .background(Color(K.TabBarColor))
-                .overlay(
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color.white, lineWidth: 1)
-                )
-                .padding(.vertical, 10)
+                .foregroundColor(Color.Didik.GreyMedium)
+                .background(Color.Didik.GreyMedium)
+                .padding(.vertical, 0)
+                .cornerRadius(15)
                 .overlay(
                     VStack{
                         if isDropdownShowed {
