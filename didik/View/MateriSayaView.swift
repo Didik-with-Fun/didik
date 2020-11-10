@@ -1,13 +1,13 @@
 //
-//  JelajahMateriView.swift
+//  MateriSayaView.swift
 //  didik
 //
-//  Created by Fandrian Rhamadiansyah on 30/10/20.
+//  Created by Fandrian Rhamadiansyah on 09/11/20.
 //
 
 import SwiftUI
 
-struct JelajahMateriView: View {
+struct MateriSayaView: View {
     
     @EnvironmentObject var db: DummyModel
     
@@ -15,20 +15,21 @@ struct JelajahMateriView: View {
     @State var selectedKelas: Kelas = .Kelas
     @State var selectedMatpel: Matpel = .MatPel
     
-    
-    
     var body: some View {
         NavigationView {
             VStack {
                 CustomNavigationBarView(filterKelas: $selectedKelas, filterMatpel: $selectedMatpel, searchText: $searchText, showDropDown: true)
                     .zIndex(2)
                 
-                //workaraund to make nav bar not expanding
-                HStack(spacing: 0) {
-                    Rectangle()
-                        .foregroundColor(.white)
-                        .frame(height: 1)
+                HStack{
+                    Spacer()
+                    NavigationLink(
+                        destination: Text("Destination"),
+                        label: {
+                            BuatMateriButton()
+                        })
                 }
+                .padding()
 
                 if searchText != "" {
                     List(db.filteredMateri.filter({ searchText.isEmpty ? true : $0.title.lowercased().contains(searchText.lowercased())
@@ -53,15 +54,9 @@ struct JelajahMateriView: View {
                 }
                 
             }
+            .navigationBarTitle("Materi Saya", displayMode: .automatic)
             .navigationBarColor(backgroundColor: UIColor(named: K.TabBarColor))
-            .navigationBarTitle("Jelajah Materi", displayMode: .automatic)
             .navigationBarItems(trailing: UserButton())
-//            .background(NavigationConfigurator { nc in
-//                            nc.navigationBar.barTintColor = .blue
-//                            nc.navigationBar.titleTextAttributes = [.foregroundColor : UIColor.blue]
-////                            nc.navigationBar.backgroundColor = .cyan
-//                        }
-//            )
             
         }
         .navigationViewStyle(StackNavigationViewStyle())
@@ -71,10 +66,22 @@ struct JelajahMateriView: View {
     
 }
 
-struct JelajahMateriView_Previews: PreviewProvider {
+struct MateriSayaView_Previews: PreviewProvider {
     static var previews: some View {
-        JelajahMateriView()
+        MateriSayaView()
             .environmentObject(DummyModel())
             .previewDevice("iPad (8th generation)")
+    }
+}
+
+struct BuatMateriButton: View {
+    var body: some View {
+        Text("Buat Materi")
+            .font(.caption)
+            .foregroundColor(.white)
+            .bold()
+            .frame(width: 230, height: 39, alignment: .center)
+            .background(Color.blue)
+            .cornerRadius(10)
     }
 }

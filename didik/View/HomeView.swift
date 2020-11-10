@@ -20,7 +20,7 @@ struct HomeView: View {
                 JelajahMateriView()
                     .opacity(index == 0 ? 1 : 0)
                 
-                Text("My Materi View")
+                MateriSayaView()
                     .opacity(index == 1 ? 1 : 0)
                 
                 Text("Kelas Saya View")
