@@ -8,6 +8,7 @@
 import Foundation
 
 enum Subjects: String, CaseIterable {
+    case allSubjects = "Semua Subjek"
     case Mathematic = "Matematika"
     case Physic = "Fisika"
     case Chemist = "Kimia"
