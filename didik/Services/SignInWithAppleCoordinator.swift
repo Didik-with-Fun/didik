@@ -111,21 +111,21 @@ extension SignInWithAppleCoordinator {
         
         ASAuthorizationAppleIDProvider().getCredentialState(forUserID: userId, completion: { (credentialState, error) in
             
-            var authState: String?
-            
-            switch credentialState {
-                
-            case .authorized:
-                authState = "authorized"
-            case .revoked:
-                authState = "revoked"
-            case .notFound:
-                authState = "notFound"
-            case .transferred:
-                authState = "transferred"
-            @unknown default:
-                fatalError()
-            }
+//            var authState: String?
+//            
+//            switch credentialState {
+//                
+//            case .authorized:
+//                authState = "authorized"
+//            case .revoked:
+//                authState = "revoked"
+//            case .notFound:
+//                authState = "notFound"
+//            case .transferred:
+//                authState = "transferred"
+//            @unknown default:
+//                fatalError()
+//            }
             
             let userData = UserData(appleIdentifier: userId, fullName: fullname ?? "", email: email ?? "", school: "", teachingGrades: "", teachingSubject: "", teachingSince: "")
             
