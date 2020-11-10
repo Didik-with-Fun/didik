@@ -35,9 +35,9 @@
 		B7AB62302546AB20007E4895 /* didikTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB622F2546AB20007E4895 /* didikTests.swift */; };
 		B7AB623B2546AB20007E4895 /* didikUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB623A2546AB20007E4895 /* didikUITests.swift */; };
 		B7DF19D82550195B00953640 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B7DF19D72550195B00953640 /* GoogleService-Info.plist */; };
+		B7F9649625586B82004F33B3 /* DropdownSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9649525586B82004F33B3 /* DropdownSubject.swift */; };
 		B7F9650F25592F2E004F33B3 /* Tooltips.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9650E25592F2E004F33B3 /* Tooltips.swift */; };
 		B7F9651425594A9E004F33B3 /* TooltipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9651325594A9E004F33B3 /* TooltipView.swift */; };
-		B7F9649625586B82004F33B3 /* DropdownSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9649525586B82004F33B3 /* DropdownSubject.swift */; };
 		B7F974052554645E0059C650 /* Topics.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F974042554645E0059C650 /* Topics.swift */; };
 		B7F9740A2554657E0059C650 /* Grades.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F974092554657E0059C650 /* Grades.swift */; };
 		B7F97455255469710059C650 /* ProjectStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F97454255469710059C650 /* ProjectStatus.swift */; };
@@ -45,7 +45,7 @@
 		B7F9745F2554762B0059C650 /* Subjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9745E2554762B0059C650 /* Subjects.swift */; };
 		B7F9746425547F920059C650 /* ProjectActivities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9746325547F920059C650 /* ProjectActivities.swift */; };
 		B7F97469255480710059C650 /* Comments.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F97468255480710059C650 /* Comments.swift */; };
-		BA220D2A255A67960075458E /* CompetenceOverviewDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA220D29255A67960075458E /* CompetenceOverviewDetailView.swift */; };
+		BA220D2A255A67960075458E /* CompetenceOverviewDetailProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA220D29255A67960075458E /* CompetenceOverviewDetailProjectView.swift */; };
 		BA220D2F255A67C20075458E /* IndicatorOverviewDetailProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA220D2E255A67C20075458E /* IndicatorOverviewDetailProjectView.swift */; };
 		BA220D3A255A68640075458E /* TeacherOverviewDetailProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA220D39255A68640075458E /* TeacherOverviewDetailProjectView.swift */; };
 		BA3A772B255337DF00975121 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3A772A255337DF00975121 /* UserData.swift */; };
@@ -124,9 +124,9 @@
 		B7AB623A2546AB20007E4895 /* didikUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = didikUITests.swift; sourceTree = "<group>"; };
 		B7AB623C2546AB20007E4895 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B7DF19D72550195B00953640 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B7F9649525586B82004F33B3 /* DropdownSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownSubject.swift; sourceTree = "<group>"; };
 		B7F9650E25592F2E004F33B3 /* Tooltips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tooltips.swift; sourceTree = "<group>"; };
 		B7F9651325594A9E004F33B3 /* TooltipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TooltipView.swift; sourceTree = "<group>"; };
-		B7F9649525586B82004F33B3 /* DropdownSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownSubject.swift; sourceTree = "<group>"; };
 		B7F974042554645E0059C650 /* Topics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topics.swift; sourceTree = "<group>"; };
 		B7F974092554657E0059C650 /* Grades.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grades.swift; sourceTree = "<group>"; };
 		B7F97454255469710059C650 /* ProjectStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectStatus.swift; sourceTree = "<group>"; };
@@ -134,7 +134,7 @@
 		B7F9745E2554762B0059C650 /* Subjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subjects.swift; sourceTree = "<group>"; };
 		B7F9746325547F920059C650 /* ProjectActivities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectActivities.swift; sourceTree = "<group>"; };
 		B7F97468255480710059C650 /* Comments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comments.swift; sourceTree = "<group>"; };
-		BA220D29255A67960075458E /* CompetenceOverviewDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetenceOverviewDetailView.swift; sourceTree = "<group>"; };
+		BA220D29255A67960075458E /* CompetenceOverviewDetailProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetenceOverviewDetailProjectView.swift; sourceTree = "<group>"; };
 		BA220D2E255A67C20075458E /* IndicatorOverviewDetailProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorOverviewDetailProjectView.swift; sourceTree = "<group>"; };
 		BA220D39255A68640075458E /* TeacherOverviewDetailProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherOverviewDetailProjectView.swift; sourceTree = "<group>"; };
 		BA3A772A255337DF00975121 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
@@ -382,7 +382,7 @@
 			isa = PBXGroup;
 			children = (
 				BABCC1BA255867C5005FCC7B /* OverviewDetailProjectView.swift */,
-				BA220D29255A67960075458E /* CompetenceOverviewDetailView.swift */,
+				BA220D29255A67960075458E /* CompetenceOverviewDetailProjectView.swift */,
 				BA220D2E255A67C20075458E /* IndicatorOverviewDetailProjectView.swift */,
 				BA220D39255A68640075458E /* TeacherOverviewDetailProjectView.swift */,
 			);
@@ -706,7 +706,7 @@
 				B7F9651425594A9E004F33B3 /* TooltipView.swift in Sources */,
 				B76514E22552AF560041D6A3 /* CreateProjectView.swift in Sources */,
 				B7F97455255469710059C650 /* ProjectStatus.swift in Sources */,
-				BA220D2A255A67960075458E /* CompetenceOverviewDetailView.swift in Sources */,
+				BA220D2A255A67960075458E /* CompetenceOverviewDetailProjectView.swift in Sources */,
 				75352C60254D6E730039EC2D /* DummyView.swift in Sources */,
 				751C70882553BCFD0072C1B5 /* Constant.swift in Sources */,
 				B7F9650F25592F2E004F33B3 /* Tooltips.swift in Sources */,
