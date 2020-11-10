@@ -8,14 +8,14 @@
 import Foundation
 
 enum Subjects: String, CaseIterable {
-    case Matematika
-    case Fisika
-    case Kimia
-    case Biologi
-    case Sosiologi
-    case Sejarah
-    case Ekonomi
-    case Geografi
+    case Mathematic = "Matematika"
+    case Physic = "Fisika"
+    case Chemist = "Kimia"
+    case Biology = "Biologi"
+    case Sociology = "Sosiologi"
+    case History = "Sejarah"
+    case Economy = "Ekonomi"
+    case Geography = "Geografi"
     case BahasaIndonesia = "Bahasa Indonesia"
-    case BahasaInggris = "Bahasa Inggris"
+    case English = "Bahasa Inggris"
 }

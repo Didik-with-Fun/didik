@@ -19,8 +19,6 @@ class UserViewModel: ObservableObject {
             userData = userDecoded
         }
         
-        print("name \(self.userData?.fullName)")
-
     }
     
 }

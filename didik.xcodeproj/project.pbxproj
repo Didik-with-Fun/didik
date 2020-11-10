@@ -37,6 +37,8 @@
 		B7AB623B2546AB20007E4895 /* didikUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB623A2546AB20007E4895 /* didikUITests.swift */; };
 		B7DF19D82550195B00953640 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B7DF19D72550195B00953640 /* GoogleService-Info.plist */; };
 		B7F9649625586B82004F33B3 /* DropdownSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9649525586B82004F33B3 /* DropdownSubject.swift */; };
+		B7F9650F25592F2E004F33B3 /* Tooltips.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9650E25592F2E004F33B3 /* Tooltips.swift */; };
+		B7F9651425594A9E004F33B3 /* TooltipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9651325594A9E004F33B3 /* TooltipView.swift */; };
 		B7F974052554645E0059C650 /* Topics.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F974042554645E0059C650 /* Topics.swift */; };
 		B7F9740A2554657E0059C650 /* Grades.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F974092554657E0059C650 /* Grades.swift */; };
 		B7F97455255469710059C650 /* ProjectStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F97454255469710059C650 /* ProjectStatus.swift */; };
@@ -44,15 +46,26 @@
 		B7F9745F2554762B0059C650 /* Subjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9745E2554762B0059C650 /* Subjects.swift */; };
 		B7F9746425547F920059C650 /* ProjectActivities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9746325547F920059C650 /* ProjectActivities.swift */; };
 		B7F97469255480710059C650 /* Comments.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F97468255480710059C650 /* Comments.swift */; };
+		BA220D2A255A67960075458E /* CompetenceOverviewDetailProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA220D29255A67960075458E /* CompetenceOverviewDetailProjectView.swift */; };
+		BA220D2F255A67C20075458E /* IndicatorOverviewDetailProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA220D2E255A67C20075458E /* IndicatorOverviewDetailProjectView.swift */; };
+		BA220D3A255A68640075458E /* TeacherOverviewDetailProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA220D39255A68640075458E /* TeacherOverviewDetailProjectView.swift */; };
 		BA3A772B255337DF00975121 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3A772A255337DF00975121 /* UserData.swift */; };
 		BA3A773325534EA800975121 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3A773225534EA800975121 /* UserViewModel.swift */; };
+		BA43E6E22558876C00754F06 /* ContentDetailProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA43E6E12558876C00754F06 /* ContentDetailProjectView.swift */; };
 		BA4F58B6255718CE00C87028 /* UserProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4F58B5255718CE00C87028 /* UserProfileHeaderView.swift */; };
 		BA8CF5D625511BCC0057B9B8 /* SignInWithAppleCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8CF5D525511BCC0057B9B8 /* SignInWithAppleCoordinator.swift */; };
 		BA90EB3C2552B18300C6DFFD /* AuthenticationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA90EB3B2552B18300C6DFFD /* AuthenticationUtil.swift */; };
 		BA94301A2550894900283FB3 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9430192550894900283FB3 /* SignInView.swift */; };
 		BA94301F25508AF600283FB3 /* SignInWithAppleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA94301E25508AF600283FB3 /* SignInWithAppleButton.swift */; };
+		BABCC17F25585333005FCC7B /* DetailProjectMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABCC17E25585333005FCC7B /* DetailProjectMainView.swift */; };
+		BABCC1BB255867C5005FCC7B /* OverviewDetailProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABCC1BA255867C5005FCC7B /* OverviewDetailProjectView.swift */; };
+		BABCC1C3255867F9005FCC7B /* DetailDetailProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABCC1C2255867F9005FCC7B /* DetailDetailProjectView.swift */; };
+		BABCC1C82558680F005FCC7B /* DiscussionDetailProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABCC1C72558680F005FCC7B /* DiscussionDetailProjectView.swift */; };
+		BABCC1CE25586862005FCC7B /* SlideshowHeadDetailProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABCC1CD25586862005FCC7B /* SlideshowHeadDetailProjectView.swift */; };
+		BABCC1D625586891005FCC7B /* HeadDetailProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABCC1D525586891005FCC7B /* HeadDetailProjectView.swift */; };
 		BADA073E25566E990055A21A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADA073D25566E990055A21A /* ContentView.swift */; };
 		BAEC7313255527EF0069574F /* AuthState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEC7312255527EF0069574F /* AuthState.swift */; };
+		BAED82E32558DA08007DB3CB /* ButtonsDetailProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAED82E22558DA08007DB3CB /* ButtonsDetailProjectView.swift */; };
 		BAF3188C25554DDB00E188B8 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF3188B25554DDB00E188B8 /* UserProfileView.swift */; };
 /* End PBXBuildFile section */
 
@@ -114,6 +127,8 @@
 		B7AB623C2546AB20007E4895 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B7DF19D72550195B00953640 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B7F9649525586B82004F33B3 /* DropdownSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownSubject.swift; sourceTree = "<group>"; };
+		B7F9650E25592F2E004F33B3 /* Tooltips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tooltips.swift; sourceTree = "<group>"; };
+		B7F9651325594A9E004F33B3 /* TooltipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TooltipView.swift; sourceTree = "<group>"; };
 		B7F974042554645E0059C650 /* Topics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topics.swift; sourceTree = "<group>"; };
 		B7F974092554657E0059C650 /* Grades.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grades.swift; sourceTree = "<group>"; };
 		B7F97454255469710059C650 /* ProjectStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectStatus.swift; sourceTree = "<group>"; };
@@ -121,16 +136,27 @@
 		B7F9745E2554762B0059C650 /* Subjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subjects.swift; sourceTree = "<group>"; };
 		B7F9746325547F920059C650 /* ProjectActivities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectActivities.swift; sourceTree = "<group>"; };
 		B7F97468255480710059C650 /* Comments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comments.swift; sourceTree = "<group>"; };
+		BA220D29255A67960075458E /* CompetenceOverviewDetailProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetenceOverviewDetailProjectView.swift; sourceTree = "<group>"; };
+		BA220D2E255A67C20075458E /* IndicatorOverviewDetailProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorOverviewDetailProjectView.swift; sourceTree = "<group>"; };
+		BA220D39255A68640075458E /* TeacherOverviewDetailProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherOverviewDetailProjectView.swift; sourceTree = "<group>"; };
 		BA3A772A255337DF00975121 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		BA3A773225534EA800975121 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		BA43E6E12558876C00754F06 /* ContentDetailProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDetailProjectView.swift; sourceTree = "<group>"; };
 		BA4F58B5255718CE00C87028 /* UserProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileHeaderView.swift; sourceTree = "<group>"; };
 		BA8CF5D525511BCC0057B9B8 /* SignInWithAppleCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleCoordinator.swift; sourceTree = "<group>"; };
 		BA90EB3B2552B18300C6DFFD /* AuthenticationUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationUtil.swift; sourceTree = "<group>"; };
 		BA9430192550894900283FB3 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		BA94301E25508AF600283FB3 /* SignInWithAppleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleButton.swift; sourceTree = "<group>"; };
 		BA94302325508E5D00283FB3 /* didik.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = didik.entitlements; sourceTree = "<group>"; };
+		BABCC17E25585333005FCC7B /* DetailProjectMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailProjectMainView.swift; sourceTree = "<group>"; };
+		BABCC1BA255867C5005FCC7B /* OverviewDetailProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewDetailProjectView.swift; sourceTree = "<group>"; };
+		BABCC1C2255867F9005FCC7B /* DetailDetailProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDetailProjectView.swift; sourceTree = "<group>"; };
+		BABCC1C72558680F005FCC7B /* DiscussionDetailProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscussionDetailProjectView.swift; sourceTree = "<group>"; };
+		BABCC1CD25586862005FCC7B /* SlideshowHeadDetailProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideshowHeadDetailProjectView.swift; sourceTree = "<group>"; };
+		BABCC1D525586891005FCC7B /* HeadDetailProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadDetailProjectView.swift; sourceTree = "<group>"; };
 		BADA073D25566E990055A21A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BAEC7312255527EF0069574F /* AuthState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthState.swift; sourceTree = "<group>"; };
+		BAED82E22558DA08007DB3CB /* ButtonsDetailProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsDetailProjectView.swift; sourceTree = "<group>"; };
 		BAF3188B25554DDB00E188B8 /* UserProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		E4A194F0898B34B628CC598B /* Pods_didik.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_didik.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED113C53DD92EE14323DD71B /* Pods_didik_didikUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_didik_didikUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -194,6 +220,7 @@
 				75352C55254C3C9A0039EC2D /* HomeView.swift */,
 				75352C5F254D6E730039EC2D /* DummyView.swift */,
 				BAEC734D25552B670069574F /* Materi */,
+				BABCC17D255852F9005FCC7B /* DetailProject */,
 				BA94300F2550885C00283FB3 /* SignIn */,
 				B76514E02552AF150041D6A3 /* CreateProjectView */,
 				BAF3188A25554D2C00E188B8 /* UserProfile */,
@@ -293,6 +320,7 @@
 				755B2179254A885100B0A7E6 /* Extension+View.swift */,
 				75352C3E254B41EF0039EC2D /* Extension+Color.swift */,
 				758081DB2552676000E50787 /* DummyModel.swift */,
+				B7F9650E25592F2E004F33B3 /* Tooltips.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -303,6 +331,17 @@
 				BA3A773225534EA800975121 /* UserViewModel.swift */,
 			);
 			path = "View Model";
+			sourceTree = "<group>";
+		};
+		BA43E6E02558870300754F06 /* ContentDetailProjectView */ = {
+			isa = PBXGroup;
+			children = (
+				BA43E6E12558876C00754F06 /* ContentDetailProjectView.swift */,
+				BABCC1B72558678D005FCC7B /* Overview */,
+				BABCC1B825586797005FCC7B /* Detail */,
+				BABCC1B92558679D005FCC7B /* Discussion */,
+			);
+			name = ContentDetailProjectView;
 			sourceTree = "<group>";
 		};
 		BA8CF5D125511B9B0057B9B8 /* Services */ = {
@@ -331,11 +370,59 @@
 			name = SignIn;
 			sourceTree = "<group>";
 		};
+		BABCC17D255852F9005FCC7B /* DetailProject */ = {
+			isa = PBXGroup;
+			children = (
+				BABCC17E25585333005FCC7B /* DetailProjectMainView.swift */,
+				BABCC1CC25586833005FCC7B /* HeadDetailProjectView */,
+				BA43E6E02558870300754F06 /* ContentDetailProjectView */,
+			);
+			name = DetailProject;
+			sourceTree = "<group>";
+		};
+		BABCC1B72558678D005FCC7B /* Overview */ = {
+			isa = PBXGroup;
+			children = (
+				BABCC1BA255867C5005FCC7B /* OverviewDetailProjectView.swift */,
+				BA220D29255A67960075458E /* CompetenceOverviewDetailProjectView.swift */,
+				BA220D2E255A67C20075458E /* IndicatorOverviewDetailProjectView.swift */,
+				BA220D39255A68640075458E /* TeacherOverviewDetailProjectView.swift */,
+			);
+			name = Overview;
+			sourceTree = "<group>";
+		};
+		BABCC1B825586797005FCC7B /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				BABCC1C2255867F9005FCC7B /* DetailDetailProjectView.swift */,
+			);
+			name = Detail;
+			sourceTree = "<group>";
+		};
+		BABCC1B92558679D005FCC7B /* Discussion */ = {
+			isa = PBXGroup;
+			children = (
+				BABCC1C72558680F005FCC7B /* DiscussionDetailProjectView.swift */,
+			);
+			name = Discussion;
+			sourceTree = "<group>";
+		};
+		BABCC1CC25586833005FCC7B /* HeadDetailProjectView */ = {
+			isa = PBXGroup;
+			children = (
+				BABCC1D525586891005FCC7B /* HeadDetailProjectView.swift */,
+				BABCC1CD25586862005FCC7B /* SlideshowHeadDetailProjectView.swift */,
+				BAED82E22558DA08007DB3CB /* ButtonsDetailProjectView.swift */,
+			);
+			name = HeadDetailProjectView;
+			sourceTree = "<group>";
+		};
 		BAEC7320255528AE0069574F /* Shared */ = {
 			isa = PBXGroup;
 			children = (
 				7552696925516D2600D89FC5 /* SearchBarView.swift */,
 				75BE5D472554140A00E8677E /* CustomDropDownMenu.swift */,
+				B7F9651325594A9E004F33B3 /* TooltipView.swift */,
 				B7F9649525586B82004F33B3 /* DropdownSubject.swift */,
 			);
 			name = Shared;
@@ -614,11 +701,18 @@
 			files = (
 				BA8CF5D625511BCC0057B9B8 /* SignInWithAppleCoordinator.swift in Sources */,
 				BAF3188C25554DDB00E188B8 /* UserProfileView.swift in Sources */,
+				BABCC1D625586891005FCC7B /* HeadDetailProjectView.swift in Sources */,
+				BABCC1CE25586862005FCC7B /* SlideshowHeadDetailProjectView.swift in Sources */,
+				BABCC1C3255867F9005FCC7B /* DetailDetailProjectView.swift in Sources */,
+				BABCC1C82558680F005FCC7B /* DiscussionDetailProjectView.swift in Sources */,
 				BA3A773325534EA800975121 /* UserViewModel.swift in Sources */,
+				B7F9651425594A9E004F33B3 /* TooltipView.swift in Sources */,
 				B76514E22552AF560041D6A3 /* CreateProjectView.swift in Sources */,
 				B7F97455255469710059C650 /* ProjectStatus.swift in Sources */,
+				BA220D2A255A67960075458E /* CompetenceOverviewDetailProjectView.swift in Sources */,
 				75352C60254D6E730039EC2D /* DummyView.swift in Sources */,
 				751C70882553BCFD0072C1B5 /* Constant.swift in Sources */,
+				B7F9650F25592F2E004F33B3 /* Tooltips.swift in Sources */,
 				75BE5D432554052C00E8677E /* UserButton.swift in Sources */,
 				750ABE66255941D6002075F0 /* MateriSayaView.swift in Sources */,
 				755B217F254AA95500B0A7E6 /* MateriPreviewCollectionView.swift in Sources */,
@@ -627,18 +721,22 @@
 				750ABE612558E9A9002075F0 /* MateriPreviewImageView.swift in Sources */,
 				75352C56254C3C9A0039EC2D /* HomeView.swift in Sources */,
 				755B2175254A806000B0A7E6 /* MateriPreviewView.swift in Sources */,
+				BA43E6E22558876C00754F06 /* ContentDetailProjectView.swift in Sources */,
 				755B217A254A885100B0A7E6 /* Extension+View.swift in Sources */,
 				755B218C254B1DB000B0A7E6 /* TabBarView.swift in Sources */,
 				BA4F58B6255718CE00C87028 /* UserProfileHeaderView.swift in Sources */,
 				758081DC2552676000E50787 /* DummyModel.swift in Sources */,
 				75BE5D242553F0BD00E8677E /* NavigationBarModifier.swift in Sources */,
 				7556CBF32557DC50000539B0 /* MateriTableCellView.swift in Sources */,
+				BA220D2F255A67C20075458E /* IndicatorOverviewDetailProjectView.swift in Sources */,
 				75BE5D482554140A00E8677E /* CustomDropDownMenu.swift in Sources */,
 				75352C5B254C45070039EC2D /* LihatSemuaView.swift in Sources */,
 				7552696A25516D2600D89FC5 /* SearchBarView.swift in Sources */,
 				75352C4C254B44150039EC2D /* JelajahMateriView.swift in Sources */,
 				BA94301A2550894900283FB3 /* SignInView.swift in Sources */,
+				BAED82E32558DA08007DB3CB /* ButtonsDetailProjectView.swift in Sources */,
 				BADA073E25566E990055A21A /* ContentView.swift in Sources */,
+				BA220D3A255A68640075458E /* TeacherOverviewDetailProjectView.swift in Sources */,
 				BA3A772B255337DF00975121 /* UserData.swift in Sources */,
 				BA90EB3C2552B18300C6DFFD /* AuthenticationUtil.swift in Sources */,
 				B7F9740A2554657E0059C650 /* Grades.swift in Sources */,
@@ -648,8 +746,10 @@
 				B7F9745F2554762B0059C650 /* Subjects.swift in Sources */,
 				B7F9745A25546A1B0059C650 /* Projects.swift in Sources */,
 				BA94301F25508AF600283FB3 /* SignInWithAppleButton.swift in Sources */,
+				BABCC1BB255867C5005FCC7B /* OverviewDetailProjectView.swift in Sources */,
 				B7F9746425547F920059C650 /* ProjectActivities.swift in Sources */,
 				B7AB621E2546AB1F007E4895 /* didikApp.swift in Sources */,
+				BABCC17F25585333005FCC7B /* DetailProjectMainView.swift in Sources */,
 				75352C51254B4F840039EC2D /* CustomNavigationBarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -811,7 +911,7 @@
 				CODE_SIGN_ENTITLEMENTS = didik/didik.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"didik/Preview Content\"";
-				DEVELOPMENT_TEAM = JPMPS53HUZ;
+				DEVELOPMENT_TEAM = 49TZU6B4Y9;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = didik/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -819,7 +919,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.developeracademy.didik-fandri";
+				PRODUCT_BUNDLE_IDENTIFIER = com.appledeveloperacademy.didik;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -835,7 +935,7 @@
 				CODE_SIGN_ENTITLEMENTS = didik/didik.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"didik/Preview Content\"";
-				DEVELOPMENT_TEAM = JPMPS53HUZ;
+				DEVELOPMENT_TEAM = 49TZU6B4Y9;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = didik/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -843,7 +943,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.developeracademy.didik-fandri";
+				PRODUCT_BUNDLE_IDENTIFIER = com.appledeveloperacademy.didik;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

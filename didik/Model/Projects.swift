@@ -20,6 +20,7 @@ struct Projects: Identifiable {
     let projectActivities: [ProjectActivity]
     let notes: String
     let comments: [Comments]
-    let createdDate: Date
-    let updatedDate: Date
+    let likes: Int
+    let createdDate: Double
+    let updatedDate: Double
 }
