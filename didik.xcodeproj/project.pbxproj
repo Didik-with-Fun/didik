@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		080899378584F667A3185EF5 /* Pods_didikTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 068E351037CFA45BE193C4B3 /* Pods_didikTests.framework */; };
 		0FEA6E76F419782DCC322574 /* Pods_didik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4A194F0898B34B628CC598B /* Pods_didik.framework */; };
+		750ABE612558E9A9002075F0 /* MateriPreviewImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750ABE602558E9A9002075F0 /* MateriPreviewImageView.swift */; };
 		751C70882553BCFD0072C1B5 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751C70872553BCFD0072C1B5 /* Constant.swift */; };
 		75352C3F254B41EF0039EC2D /* Extension+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75352C3E254B41EF0039EC2D /* Extension+Color.swift */; };
 		75352C4C254B44150039EC2D /* JelajahMateriView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75352C4B254B44150039EC2D /* JelajahMateriView.swift */; };
@@ -17,6 +18,7 @@
 		75352C5B254C45070039EC2D /* LihatSemuaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75352C5A254C45060039EC2D /* LihatSemuaView.swift */; };
 		75352C60254D6E730039EC2D /* DummyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75352C5F254D6E730039EC2D /* DummyView.swift */; };
 		7552696A25516D2600D89FC5 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7552696925516D2600D89FC5 /* SearchBarView.swift */; };
+		7556CBF32557DC50000539B0 /* MateriTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7556CBF22557DC50000539B0 /* MateriTableCellView.swift */; };
 		755B2175254A806000B0A7E6 /* MateriPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755B2174254A806000B0A7E6 /* MateriPreviewView.swift */; };
 		755B217A254A885100B0A7E6 /* Extension+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755B2179254A885100B0A7E6 /* Extension+View.swift */; };
 		755B217F254AA95500B0A7E6 /* MateriPreviewCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755B217E254AA95500B0A7E6 /* MateriPreviewCollectionView.swift */; };
@@ -26,12 +28,24 @@
 		75BE5D432554052C00E8677E /* UserButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BE5D422554052C00E8677E /* UserButton.swift */; };
 		75BE5D482554140A00E8677E /* CustomDropDownMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BE5D472554140A00E8677E /* CustomDropDownMenu.swift */; };
 		7AF593AB5107C24ACEB32F7E /* Pods_didik_didikUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED113C53DD92EE14323DD71B /* Pods_didik_didikUITests.framework */; };
+		B76514E22552AF560041D6A3 /* CreateProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76514E12552AF560041D6A3 /* CreateProjectView.swift */; };
 		B7AB621E2546AB1F007E4895 /* didikApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB621D2546AB1F007E4895 /* didikApp.swift */; };
 		B7AB62222546AB20007E4895 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7AB62212546AB20007E4895 /* Assets.xcassets */; };
 		B7AB62252546AB20007E4895 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7AB62242546AB20007E4895 /* Preview Assets.xcassets */; };
 		B7AB62302546AB20007E4895 /* didikTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB622F2546AB20007E4895 /* didikTests.swift */; };
 		B7AB623B2546AB20007E4895 /* didikUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB623A2546AB20007E4895 /* didikUITests.swift */; };
 		B7DF19D82550195B00953640 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B7DF19D72550195B00953640 /* GoogleService-Info.plist */; };
+		B7F9649625586B82004F33B3 /* DropdownSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9649525586B82004F33B3 /* DropdownSubject.swift */; };
+		B7F974052554645E0059C650 /* Topics.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F974042554645E0059C650 /* Topics.swift */; };
+		B7F9740A2554657E0059C650 /* Grades.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F974092554657E0059C650 /* Grades.swift */; };
+		B7F97455255469710059C650 /* ProjectStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F97454255469710059C650 /* ProjectStatus.swift */; };
+		B7F9745A25546A1B0059C650 /* Projects.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9745925546A1B0059C650 /* Projects.swift */; };
+		B7F9745F2554762B0059C650 /* Subjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9745E2554762B0059C650 /* Subjects.swift */; };
+		B7F9746425547F920059C650 /* ProjectActivities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9746325547F920059C650 /* ProjectActivities.swift */; };
+		B7F97469255480710059C650 /* Comments.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F97468255480710059C650 /* Comments.swift */; };
+		BA220D2A255A67960075458E /* CompetenceOverviewDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA220D29255A67960075458E /* CompetenceOverviewDetailView.swift */; };
+		BA220D2F255A67C20075458E /* IndicatorOverviewDetailProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA220D2E255A67C20075458E /* IndicatorOverviewDetailProjectView.swift */; };
+		BA220D3A255A68640075458E /* TeacherOverviewDetailProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA220D39255A68640075458E /* TeacherOverviewDetailProjectView.swift */; };
 		BA3A772B255337DF00975121 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3A772A255337DF00975121 /* UserData.swift */; };
 		BA3A773325534EA800975121 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3A773225534EA800975121 /* UserViewModel.swift */; };
 		BA43E6E22558876C00754F06 /* ContentDetailProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA43E6E12558876C00754F06 /* ContentDetailProjectView.swift */; };
@@ -75,6 +89,7 @@
 		2A9D5B0B6D1A7EF26618429E /* Pods-didik.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-didik.release.xcconfig"; path = "Target Support Files/Pods-didik/Pods-didik.release.xcconfig"; sourceTree = "<group>"; };
 		2BA93619EB3623EB4B968185 /* Pods-didik.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-didik.debug.xcconfig"; path = "Target Support Files/Pods-didik/Pods-didik.debug.xcconfig"; sourceTree = "<group>"; };
 		4E9867DA9E8F87E7128C4916 /* Pods-didikTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-didikTests.debug.xcconfig"; path = "Target Support Files/Pods-didikTests/Pods-didikTests.debug.xcconfig"; sourceTree = "<group>"; };
+		750ABE602558E9A9002075F0 /* MateriPreviewImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateriPreviewImageView.swift; sourceTree = "<group>"; };
 		751C70872553BCFD0072C1B5 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		75352C3E254B41EF0039EC2D /* Extension+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Color.swift"; sourceTree = "<group>"; };
 		75352C4B254B44150039EC2D /* JelajahMateriView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JelajahMateriView.swift; sourceTree = "<group>"; };
@@ -83,6 +98,7 @@
 		75352C5A254C45060039EC2D /* LihatSemuaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LihatSemuaView.swift; sourceTree = "<group>"; };
 		75352C5F254D6E730039EC2D /* DummyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyView.swift; sourceTree = "<group>"; };
 		7552696925516D2600D89FC5 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		7556CBF22557DC50000539B0 /* MateriTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateriTableCellView.swift; sourceTree = "<group>"; };
 		755B2174254A806000B0A7E6 /* MateriPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateriPreviewView.swift; sourceTree = "<group>"; };
 		755B2179254A885100B0A7E6 /* Extension+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+View.swift"; sourceTree = "<group>"; };
 		755B217E254AA95500B0A7E6 /* MateriPreviewCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateriPreviewCollectionView.swift; sourceTree = "<group>"; };
@@ -93,6 +109,7 @@
 		75BE5D472554140A00E8677E /* CustomDropDownMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDropDownMenu.swift; sourceTree = "<group>"; };
 		7B046211C7322662323E9A65 /* Pods-didik-didikUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-didik-didikUITests.release.xcconfig"; path = "Target Support Files/Pods-didik-didikUITests/Pods-didik-didikUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B02666D119B4C50E1D3F287C /* Pods-didikTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-didikTests.release.xcconfig"; path = "Target Support Files/Pods-didikTests/Pods-didikTests.release.xcconfig"; sourceTree = "<group>"; };
+		B76514E12552AF560041D6A3 /* CreateProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProjectView.swift; sourceTree = "<group>"; };
 		B7AB621A2546AB1F007E4895 /* didik.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = didik.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7AB621D2546AB1F007E4895 /* didikApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = didikApp.swift; sourceTree = "<group>"; };
 		B7AB62212546AB20007E4895 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -105,6 +122,17 @@
 		B7AB623A2546AB20007E4895 /* didikUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = didikUITests.swift; sourceTree = "<group>"; };
 		B7AB623C2546AB20007E4895 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B7DF19D72550195B00953640 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B7F9649525586B82004F33B3 /* DropdownSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownSubject.swift; sourceTree = "<group>"; };
+		B7F974042554645E0059C650 /* Topics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topics.swift; sourceTree = "<group>"; };
+		B7F974092554657E0059C650 /* Grades.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grades.swift; sourceTree = "<group>"; };
+		B7F97454255469710059C650 /* ProjectStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectStatus.swift; sourceTree = "<group>"; };
+		B7F9745925546A1B0059C650 /* Projects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Projects.swift; sourceTree = "<group>"; };
+		B7F9745E2554762B0059C650 /* Subjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subjects.swift; sourceTree = "<group>"; };
+		B7F9746325547F920059C650 /* ProjectActivities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectActivities.swift; sourceTree = "<group>"; };
+		B7F97468255480710059C650 /* Comments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comments.swift; sourceTree = "<group>"; };
+		BA220D29255A67960075458E /* CompetenceOverviewDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetenceOverviewDetailView.swift; sourceTree = "<group>"; };
+		BA220D2E255A67C20075458E /* IndicatorOverviewDetailProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorOverviewDetailProjectView.swift; sourceTree = "<group>"; };
+		BA220D39255A68640075458E /* TeacherOverviewDetailProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherOverviewDetailProjectView.swift; sourceTree = "<group>"; };
 		BA3A772A255337DF00975121 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		BA3A773225534EA800975121 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		BA43E6E12558876C00754F06 /* ContentDetailProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDetailProjectView.swift; sourceTree = "<group>"; };
@@ -188,11 +216,20 @@
 				BAEC734D25552B670069574F /* Materi */,
 				BABCC17D255852F9005FCC7B /* DetailProject */,
 				BA94300F2550885C00283FB3 /* SignIn */,
+				B76514E02552AF150041D6A3 /* CreateProjectView */,
 				BAF3188A25554D2C00E188B8 /* UserProfile */,
 				BAEC734E25552BC70069574F /* NavigationAndTabBar */,
 				BAEC7320255528AE0069574F /* Shared */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		B76514E02552AF150041D6A3 /* CreateProjectView */ = {
+			isa = PBXGroup;
+			children = (
+				B76514E12552AF560041D6A3 /* CreateProjectView.swift */,
+			);
+			path = CreateProjectView;
 			sourceTree = "<group>";
 		};
 		B7AB62112546AB1F007E4895 = {
@@ -265,6 +302,13 @@
 			isa = PBXGroup;
 			children = (
 				BA3A772A255337DF00975121 /* UserData.swift */,
+				B7F974042554645E0059C650 /* Topics.swift */,
+				B7F9745E2554762B0059C650 /* Subjects.swift */,
+				B7F974092554657E0059C650 /* Grades.swift */,
+				B7F97454255469710059C650 /* ProjectStatus.swift */,
+				B7F9745925546A1B0059C650 /* Projects.swift */,
+				B7F9746325547F920059C650 /* ProjectActivities.swift */,
+				B7F97468255480710059C650 /* Comments.swift */,
 				BAEC7312255527EF0069574F /* AuthState.swift */,
 				75BE5D232553F0BD00E8677E /* NavigationBarModifier.swift */,
 				755B2179254A885100B0A7E6 /* Extension+View.swift */,
@@ -333,6 +377,9 @@
 			isa = PBXGroup;
 			children = (
 				BABCC1BA255867C5005FCC7B /* OverviewDetailProjectView.swift */,
+				BA220D29255A67960075458E /* CompetenceOverviewDetailView.swift */,
+				BA220D2E255A67C20075458E /* IndicatorOverviewDetailProjectView.swift */,
+				BA220D39255A68640075458E /* TeacherOverviewDetailProjectView.swift */,
 			);
 			name = Overview;
 			sourceTree = "<group>";
@@ -368,6 +415,7 @@
 			children = (
 				7552696925516D2600D89FC5 /* SearchBarView.swift */,
 				75BE5D472554140A00E8677E /* CustomDropDownMenu.swift */,
+				B7F9649525586B82004F33B3 /* DropdownSubject.swift */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
@@ -379,6 +427,8 @@
 				75352C5A254C45060039EC2D /* LihatSemuaView.swift */,
 				755B217E254AA95500B0A7E6 /* MateriPreviewCollectionView.swift */,
 				755B2174254A806000B0A7E6 /* MateriPreviewView.swift */,
+				7556CBF22557DC50000539B0 /* MateriTableCellView.swift */,
+				750ABE602558E9A9002075F0 /* MateriPreviewImageView.swift */,
 			);
 			name = Materi;
 			sourceTree = "<group>";
@@ -647,12 +697,16 @@
 				BABCC1C3255867F9005FCC7B /* DetailDetailProjectView.swift in Sources */,
 				BABCC1C82558680F005FCC7B /* DiscussionDetailProjectView.swift in Sources */,
 				BA3A773325534EA800975121 /* UserViewModel.swift in Sources */,
+				B76514E22552AF560041D6A3 /* CreateProjectView.swift in Sources */,
+				B7F97455255469710059C650 /* ProjectStatus.swift in Sources */,
+				BA220D2A255A67960075458E /* CompetenceOverviewDetailView.swift in Sources */,
 				75352C60254D6E730039EC2D /* DummyView.swift in Sources */,
 				751C70882553BCFD0072C1B5 /* Constant.swift in Sources */,
 				75BE5D432554052C00E8677E /* UserButton.swift in Sources */,
 				755B217F254AA95500B0A7E6 /* MateriPreviewCollectionView.swift in Sources */,
 				75352C3F254B41EF0039EC2D /* Extension+Color.swift in Sources */,
 				BAEC7313255527EF0069574F /* AuthState.swift in Sources */,
+				750ABE612558E9A9002075F0 /* MateriPreviewImageView.swift in Sources */,
 				75352C56254C3C9A0039EC2D /* HomeView.swift in Sources */,
 				755B2175254A806000B0A7E6 /* MateriPreviewView.swift in Sources */,
 				BA43E6E22558876C00754F06 /* ContentDetailProjectView.swift in Sources */,
@@ -661,6 +715,8 @@
 				BA4F58B6255718CE00C87028 /* UserProfileHeaderView.swift in Sources */,
 				758081DC2552676000E50787 /* DummyModel.swift in Sources */,
 				75BE5D242553F0BD00E8677E /* NavigationBarModifier.swift in Sources */,
+				7556CBF32557DC50000539B0 /* MateriTableCellView.swift in Sources */,
+				BA220D2F255A67C20075458E /* IndicatorOverviewDetailProjectView.swift in Sources */,
 				75BE5D482554140A00E8677E /* CustomDropDownMenu.swift in Sources */,
 				75352C5B254C45070039EC2D /* LihatSemuaView.swift in Sources */,
 				7552696A25516D2600D89FC5 /* SearchBarView.swift in Sources */,
@@ -668,10 +724,18 @@
 				BA94301A2550894900283FB3 /* SignInView.swift in Sources */,
 				BAED82E32558DA08007DB3CB /* ButtonsDetailProjectView.swift in Sources */,
 				BADA073E25566E990055A21A /* ContentView.swift in Sources */,
+				BA220D3A255A68640075458E /* TeacherOverviewDetailProjectView.swift in Sources */,
 				BA3A772B255337DF00975121 /* UserData.swift in Sources */,
 				BA90EB3C2552B18300C6DFFD /* AuthenticationUtil.swift in Sources */,
+				B7F9740A2554657E0059C650 /* Grades.swift in Sources */,
+				B7F97469255480710059C650 /* Comments.swift in Sources */,
+				B7F974052554645E0059C650 /* Topics.swift in Sources */,
+				B7F9649625586B82004F33B3 /* DropdownSubject.swift in Sources */,
+				B7F9745F2554762B0059C650 /* Subjects.swift in Sources */,
+				B7F9745A25546A1B0059C650 /* Projects.swift in Sources */,
 				BA94301F25508AF600283FB3 /* SignInWithAppleButton.swift in Sources */,
 				BABCC1BB255867C5005FCC7B /* OverviewDetailProjectView.swift in Sources */,
+				B7F9746425547F920059C650 /* ProjectActivities.swift in Sources */,
 				B7AB621E2546AB1F007E4895 /* didikApp.swift in Sources */,
 				BABCC17F25585333005FCC7B /* DetailProjectMainView.swift in Sources */,
 				75352C51254B4F840039EC2D /* CustomNavigationBarView.swift in Sources */,

@@ -29,7 +29,7 @@ struct DummyView: View {
                 NavigationLink(
                     destination: DetailProjectMainView(title: materi.title),
                     label: {
-                        MateriTableCellView(materi: materi, height: height, width: width)
+                        MateriTableCellView(materi: materi, height: height, width: width, bookmarked: materi.bookmarked)
                     })
             }
             Spacer()
@@ -46,6 +46,6 @@ struct DummyView_Previews: PreviewProvider {
     static var previews: some View {
         DummyView()
             .previewDevice("iPad (8th generation)")
-
+        
     }
 }

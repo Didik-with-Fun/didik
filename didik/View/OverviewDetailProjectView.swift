@@ -9,9 +9,16 @@ import SwiftUI
 
 struct OverviewDetailProjectView: View {
     var body: some View {
-        Text("Hello, World! 1")
+        VStack {
+            IndicatorOverviewDetailProjectView()
+            TeacherOverviewDetailProjectView()
+            CompetenceOverviewDetailView()
+        }
+        .padding()
+        
     }
 }
+
 
 struct OverviewDetailProjectView_Previews: PreviewProvider {
     static var previews: some View {
@@ -20,3 +27,5 @@ struct OverviewDetailProjectView_Previews: PreviewProvider {
 
     }
 }
+
+

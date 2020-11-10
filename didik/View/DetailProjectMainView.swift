@@ -12,12 +12,13 @@ struct DetailProjectMainView: View {
     let title: String
 
     var body: some View {
-        
-        VStack {
-            HeadDetailProjectView()
-                .padding()
-            ContentDetailProjectView()
-                .padding()
+        ScrollView(.vertical)  {
+            VStack {
+                HeadDetailProjectView()
+                    .padding()
+                ContentDetailProjectView()
+                    .padding()
+            }
         }
         .navigationBarTitle(title, displayMode: .automatic)
         .navigationBarItems(trailing: UserButton())

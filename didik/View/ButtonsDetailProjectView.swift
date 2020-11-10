@@ -18,15 +18,15 @@ struct ButtonsDetailProjectView: View {
             }
             HStack {
                 Spacer()
-                Image(systemName: "heart")
+                Image("Love")
                     .resizable()
                     .frame(width: 40, height: 40)
                 
-                Image(systemName: "bookmark")
+                Image("Bookmark")
                     .resizable()
                     .frame(width: 40, height: 40)
 
-                Image(systemName: "arrowshape.turn.up.right")
+                Image("Share")
                     .resizable()
                     .frame(width: 40, height: 40)
 
@@ -42,7 +42,7 @@ struct ButtonsDetailProjectView: View {
                     
                     .frame(width: 200, height: 30)
                     .padding()
-                    .background(Color(K.TabBarColor))
+                    .background(Color.Didik.BlueSecondary)
                     .foregroundColor(.white)
                 })
                 .cornerRadius(10)

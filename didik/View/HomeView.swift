@@ -9,39 +9,31 @@ import SwiftUI
 
 struct HomeView: View {
     
-//    @EnvironmentObject var db: DummyModel
+    //    @EnvironmentObject var db: DummyModel
     
     @State var index: Int = 0
     
     var body: some View {
         VStack {
-            NavigationView {
-                VStack {
-                    switch index {
-                    case 0:
-                        JelajahMateriView()
-                    case 1:
-                        LihatSemuaView(MateriLibrary: LibraryMateri,
-                                       currentTitle: "Materi Saya")
-                    case 2:
-                        DummyView()
-                    default :
-                        JelajahMateriView()
-                    }
-                    Spacer()
-                }
-                .navigationBarTitle("", displayMode: .automatic)
-                .navigationBarItems(trailing: UserButton())
-                .navigationBarColor(backgroundColor: UIColor(named: K.TabBarColor),
-                                    titleColor: UIColor.white)
-
+            ZStack {
+                
+                JelajahMateriView()
+                    .opacity(index == 0 ? 1 : 0)
+                
+                Text("My Materi View")
+                    .opacity(index == 1 ? 1 : 0)
+                
+                Text("Kelas Saya View")
+                    .opacity(index == 2 ? 1 : 0)
+                
+                Spacer()
             }
-            .navigationViewStyle(StackNavigationViewStyle())
-
-            Spacer()
             TabBarView(index: $index)
-        }
-        .ignoresSafeArea(.keyboard, edges: .bottom)
+        }.ignoresSafeArea(.keyboard, edges: .bottom)
+        
+        
+        
+        
         
     }
 }
@@ -51,6 +43,6 @@ struct HomeView_Previews: PreviewProvider {
         HomeView()
             .environmentObject(DummyModel())
             .previewDevice("iPad (8th generation)")
-
+        
     }
 }

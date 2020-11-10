@@ -20,51 +20,19 @@ struct MateriPreviewView: View {
     var body: some View {
         
         VStack {
-            ZStack {
-                Image(systemName: materi.imageName)
-                    .resizable()
-                    .scaledToFill()
-                    .foregroundColor(.black)
-                
-                HStack {
-                    Spacer()
-                    VStack {
-                        Spacer()
-                        // Likes
-                        Text("❤️ \(materi.likes)")
-                            .font(.system(size: 14, weight: .regular, design: .default))
-                            .foregroundColor(.black)
-                            .padding(.top,4)
-                            .frame(width: width/3)
-                        
-                        // duration
-                        Text("\(materi.duration) hari")
-                            .font(.system(size: 14, weight: .regular, design: .default))
-                            .foregroundColor(.white)
-                            .padding(.vertical,4)
-                            .frame(width: width/3)
-                            .background(Color.blue)
-                            .cornerRadius(10.0, corners: .topLeft)
-                    }
-                    .frame(width: width/3)
-                    
-                }
-                .frame(width: width, height: height)
-            }
-            .frame(width: width, height: height)
-            .cornerRadius(10)
-            .clipped()
+            
+            MateriPreviewImageView(height: height, width: width, materi: materi)
             
             HStack {
                 Text ("\(materi.title)")
                     .foregroundColor(.black)
-                    .font(.title)
-                    .lineLimit(1)
+                    .font(.title2)
+                    .lineLimit(2)
                 Spacer()
             }
             HStack {
                 Text ("\(materi.author)")
-                    .foregroundColor(.black)
+                    .foregroundColor(.gray)
                     .font(.subheadline)
                     .lineLimit(1)
                 Spacer()
@@ -82,3 +50,4 @@ struct MateriPreviewView_Previews: PreviewProvider {
             .previewDevice("iPad (8th generation)")
     }
 }
+
