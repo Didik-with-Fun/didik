@@ -8,7 +8,7 @@
 import Foundation
 
 struct K {
-    static let TabBarColor = "TabBarColor"
+    static let bluePrimary = "BluePrimary"
     
     static let jelajahIcon = "JelajahMateriIcon"
     static let materiIcon = "MateriSayaIcon"

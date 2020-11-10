@@ -11,13 +11,13 @@ import SwiftUI
 
 struct MateriPreviewCollectionView: View {
     
-    let judul: String
-    let MateriLibrary: [DummyMateri]
+    let title: String
+    let ProjectsLibrary: [Projects]
     
     var body: some View {
         VStack(spacing: 10){
             HStack {
-                Text(judul)
+                Text(title)
                     .font(.title2)
                     .bold()
                     .padding(.horizontal)
@@ -25,7 +25,7 @@ struct MateriPreviewCollectionView: View {
                 
                 Spacer()
                 NavigationLink(
-                    destination: LihatSemuaView(MateriLibrary: MateriLibrary, currentTitle: judul),
+                    destination: LihatSemuaView(ProjectsLibrary: ProjectsLibrary, currentTitle: title),
                     label: {
                         Text("Lihat Semua")
                             .font(.caption)
@@ -37,11 +37,11 @@ struct MateriPreviewCollectionView: View {
             }
             ScrollView (.horizontal) {
                 HStack (alignment: .top, spacing: 10) {
-                    ForEach(MateriLibrary) { index in
+                    ForEach(ProjectsLibrary) { index in
                         NavigationLink(
                             destination: DummyView(),
                             label: {
-                                MateriPreviewView(height: 126, width: 230, materi: index)
+                                MateriPreviewView(height: 126, width: 230, project: index)
                                     .padding(.leading)
                             })
                         
@@ -57,7 +57,7 @@ struct MateriPreviewCollectionView: View {
 
 struct MateriPreviewCollectionView_Previews: PreviewProvider {
     static var previews: some View {
-        MateriPreviewCollectionView(judul: "Matematika Dasar", MateriLibrary: LibraryMateri)
+        MateriPreviewCollectionView(title: "Matematika Dasar", ProjectsLibrary: [placeholder])
             .previewDevice("iPad (8th generation)")
     }
 }

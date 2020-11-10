@@ -16,7 +16,7 @@ struct ContentView: View {
         ZStack{
             if signInCoordinator.isUserAuthenticated == .signedIn {
                 HomeView()
-                    .environmentObject(DummyModel())
+                    .environmentObject(JelajahMateriViewModel())
             }
             else if signInCoordinator.isUserAuthenticated == .signedOut {
                 SignInView()

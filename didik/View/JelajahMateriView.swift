@@ -9,18 +9,18 @@ import SwiftUI
 
 struct JelajahMateriView: View {
     
-    @EnvironmentObject var db: DummyModel
+    @EnvironmentObject var db: JelajahMateriViewModel
     
     @State var searchText: String = ""
-    @State var selectedKelas: Kelas = .Kelas
-    @State var selectedMatpel: Matpel = .MatPel
+    @State var selectedGrade: Grades = .allGrades
+    @State var selectedSubject: Subjects = .allSubjects
     
     
     
     var body: some View {
         NavigationView {
             VStack {
-                CustomNavigationBarView(filterKelas: $selectedKelas, filterMatpel: $selectedMatpel, searchText: $searchText, showDropDown: true)
+                CustomNavigationBarView(filteredGrade: $selectedGrade, filteredSubject: $selectedSubject, searchText: $searchText, showDropDown: true)
                     .zIndex(2)
                 
                 //workaraund to make nav bar not expanding
@@ -31,20 +31,20 @@ struct JelajahMateriView: View {
                 }
 
                 if searchText != "" {
-                    List(db.filteredMateri.filter({ searchText.isEmpty ? true : $0.title.lowercased().contains(searchText.lowercased())
-                    })) { materi in
+                    List(db.filteredProjects.filter({ searchText.isEmpty ? true : $0.name.lowercased().contains(searchText.lowercased())
+                    })) { project in
                         NavigationLink(
                             destination: DummyView(),
                             label: {
-                                MateriTableCellView(materi: materi, height: 125, width: 230, bookmarked: materi.bookmarked)
+                                MateriTableCellView(project: project, height: 125, width: 230, bookmarked: false)
                             })
                     }
                 } else {
                     ScrollView(.vertical) {
                         VStack(spacing : 0) {
-                            ForEach(db.materiGroup) {
+                            ForEach(db.jelajahMateriGroup) {
                                 index in
-                                MateriPreviewCollectionView(judul: index.title, MateriLibrary: index.dummyMateri)
+                                MateriPreviewCollectionView(title: index.title, ProjectsLibrary: index.group)
 
                                 
                             }
@@ -53,15 +53,9 @@ struct JelajahMateriView: View {
                 }
                 
             }
-            .navigationBarColor(backgroundColor: UIColor(named: K.TabBarColor))
+            .navigationBarColor(backgroundColor: UIColor(named: K.bluePrimary))
             .navigationBarTitle("Jelajah Materi", displayMode: .automatic)
             .navigationBarItems(trailing: UserButton())
-//            .background(NavigationConfigurator { nc in
-//                            nc.navigationBar.barTintColor = .blue
-//                            nc.navigationBar.titleTextAttributes = [.foregroundColor : UIColor.blue]
-////                            nc.navigationBar.backgroundColor = .cyan
-//                        }
-//            )
             
         }
         .navigationViewStyle(StackNavigationViewStyle())

@@ -9,11 +9,11 @@ import SwiftUI
 
 struct LihatSemuaView: View {
     
-    let MateriLibrary: [DummyMateri]
+    let ProjectsLibrary: [Projects]
     let currentTitle: String
     @State var searchText: String = ""
-    @State var selectedKelas: Kelas = .Kelas
-    @State var selectedMatpel: Matpel = .MatPel
+    @State var selectedKelas: Grades = .allGrades
+    @State var selectedMatpel: Subjects = .allSubjects
     
     let height: CGFloat = 125
     let width: CGFloat = 230
@@ -21,13 +21,13 @@ struct LihatSemuaView: View {
     var body: some View {
         
         VStack {
-            CustomNavigationBarView(filterKelas: $selectedKelas, filterMatpel: $selectedMatpel, searchText: $searchText, showDropDown: true)
-            List(MateriLibrary.filter({ searchText.isEmpty ? true : $0.title.lowercased().contains(searchText.lowercased()) 
-            })) { materi in
+            CustomNavigationBarView(filteredGrade: $selectedKelas, filteredSubject: $selectedMatpel, searchText: $searchText, showDropDown: true)
+            List(ProjectsLibrary.filter({ searchText.isEmpty ? true : $0.name.lowercased().contains(searchText.lowercased())
+            })) { project in
                 NavigationLink(
                     destination: DetailProjectMainView(title: currentTitle),
                     label: {
-                        MateriTableCellView(materi: materi, height: height, width: width, bookmarked: materi.bookmarked)
+                        MateriTableCellView(project: project, height: height, width: width, bookmarked: false)
                     })
                 
                 
@@ -35,14 +35,14 @@ struct LihatSemuaView: View {
         }
         .navigationBarTitle(currentTitle, displayMode: .automatic)
         .navigationBarItems(trailing: UserButton())
-        .navigationBarColor(backgroundColor: UIColor(named: K.TabBarColor))
+        .navigationBarColor(backgroundColor: UIColor(named: K.bluePrimary))
         
     }
 }
 
 struct LihatSemuaView_Previews: PreviewProvider {
     static var previews: some View {
-        LihatSemuaView(MateriLibrary: LibraryMateri, currentTitle: "nipples")
+        LihatSemuaView(ProjectsLibrary: [placeholder], currentTitle: "nipples")
             .previewDevice("iPad (8th generation)")
     }
 }

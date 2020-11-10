@@ -9,16 +9,16 @@ import SwiftUI
 
 struct MateriSayaView: View {
     
-    @EnvironmentObject var db: DummyModel
+    @EnvironmentObject var db: JelajahMateriViewModel
     
     @State var searchText: String = ""
-    @State var selectedKelas: Kelas = .Kelas
-    @State var selectedMatpel: Matpel = .MatPel
+    @State var selectedKelas: Grades = .allGrades
+    @State var selectedMatpel: Subjects = .allSubjects
     
     var body: some View {
         NavigationView {
             VStack {
-                CustomNavigationBarView(filterKelas: $selectedKelas, filterMatpel: $selectedMatpel, searchText: $searchText, showDropDown: true)
+                CustomNavigationBarView(filteredGrade: $selectedKelas, filteredSubject: $selectedMatpel, searchText: $searchText, showDropDown: true)
                     .zIndex(2)
                 
                 HStack{
@@ -32,20 +32,20 @@ struct MateriSayaView: View {
                 .padding()
 
                 if searchText != "" {
-                    List(db.filteredMateri.filter({ searchText.isEmpty ? true : $0.title.lowercased().contains(searchText.lowercased())
-                    })) { materi in
+                    List(db.myProjects.filter({ searchText.isEmpty ? true : $0.name.lowercased().contains(searchText.lowercased())
+                    })) { project in
                         NavigationLink(
                             destination: DummyView(),
                             label: {
-                                MateriTableCellView(materi: materi, height: 125, width: 230, bookmarked: materi.bookmarked)
+                                MateriTableCellView(project: project, height: 125, width: 230, bookmarked: false)
                             })
                     }
                 } else {
                     ScrollView(.vertical) {
                         VStack(spacing : 0) {
-                            ForEach(db.materiGroup) {
+                            ForEach(db.myProjectsGroup) {
                                 index in
-                                MateriPreviewCollectionView(judul: index.title, MateriLibrary: index.dummyMateri)
+                                MateriPreviewCollectionView(title: index.title, ProjectsLibrary: index.group)
 
                                 
                             }
@@ -55,7 +55,7 @@ struct MateriSayaView: View {
                 
             }
             .navigationBarTitle("Materi Saya", displayMode: .automatic)
-            .navigationBarColor(backgroundColor: UIColor(named: K.TabBarColor))
+            .navigationBarColor(backgroundColor: UIColor(named: K.bluePrimary))
             .navigationBarItems(trailing: UserButton())
             
         }

@@ -14,24 +14,24 @@ struct MateriPreviewView: View {
     let height: CGFloat
     let width: CGFloat
     
-    let materi: DummyMateri
+    let project: Projects
     
     
     var body: some View {
         
         VStack {
             
-            MateriPreviewImageView(height: height, width: width, materi: materi)
+            MateriPreviewImageView(height: height, width: width, project: project)
             
             HStack {
-                Text ("\(materi.title)")
+                Text ("\(project.name)")
                     .foregroundColor(.black)
                     .font(.title2)
                     .lineLimit(2)
                 Spacer()
             }
             HStack {
-                Text ("\(materi.author)")
+                Text ("project.author")
                     .foregroundColor(.gray)
                     .font(.subheadline)
                     .lineLimit(1)
@@ -46,7 +46,7 @@ struct MateriPreviewView: View {
 
 struct MateriPreviewView_Previews: PreviewProvider {
     static var previews: some View {
-        MateriPreviewView(height: 126, width: 230, materi: placeholderMateri)
+        MateriPreviewView(height: 126, width: 230, project: placeholder)
             .previewDevice("iPad (8th generation)")
     }
 }

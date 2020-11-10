@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     
-    //    @EnvironmentObject var db: DummyModel
+    @EnvironmentObject var db: JelajahMateriViewModel
     
     @State var index: Int = 0
     @State var show = false
@@ -18,9 +18,16 @@ struct HomeView: View {
         VStack {
             ZStack {
                 
+                // Jelajah Materi Tab
                 JelajahMateriView()
                     .opacity(index == 0 ? 1 : 0)
                 
+                
+                // Materi Saya Tab
+                MateriSayaView()
+                    .opacity(index == 1 ? 1 : 0)
+                
+                // Kelas Saya Tab
                 Button(action: {
                     withAnimation {
                         self.show.toggle()
@@ -28,7 +35,7 @@ struct HomeView: View {
                 }, label: {
                     Text("Materi Saya")
                 })
-                .opacity(index == 1 ? 1 : 0)
+                .opacity(index == 2 ? 1 : 0)
                 
                 if self.show {
                     GeometryReader {_ in
@@ -46,8 +53,6 @@ struct HomeView: View {
                     )
                 }
                 
-                Text("Kelas Saya View")
-                    .opacity(index == 2 ? 1 : 0)
                 
                 Spacer()
             }
@@ -61,7 +66,7 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
-            .environmentObject(DummyModel())
+            .environmentObject(JelajahMateriViewModel())
             .previewDevice("iPad (8th generation)")
     }
 }

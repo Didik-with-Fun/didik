@@ -19,17 +19,42 @@ class JelajahMateriViewModel: ObservableObject {
     @Published var filteredProjects: [Projects]
     var filteredSubjects: [Projects]
     var filteredGrades: [Projects]
-    
+    @Published var myProjects: [Projects]
     @Published var jelajahMateriGroup: [ProjectsGroup] = []
     
+    
+    @Published var myProjectsGroup: [ProjectsGroup] = []
+    
+    
     init() {
-        print("view model init")
+        
         let requestProjects = JelajahMateriViewModel.createDummyProjects()
         
         self.allProjects = requestProjects
         self.filteredProjects = requestProjects
         self.filteredSubjects = requestProjects
         self.filteredGrades = requestProjects
+        
+        
+        self.myProjects = requestProjects
+        
+        let temp = Dictionary(grouping: self.filteredProjects) { (project) -> String in
+            return project.topic.name
+        }
+        for (key, value) in temp {
+            self.jelajahMateriGroup.append(ProjectsGroup(title: key, group: value))
+        }
+        
+        let myTemp = Dictionary(grouping: self.myProjects) { (project) -> ProjectStatus in
+            return project.projectStatus
+        }
+        for (key, value) in myTemp {
+            self.myProjectsGroup.append(ProjectsGroup(title: key.rawValue, group: value))
+        }
+        
+        
+        print("view model init")
+
     }
     
     
@@ -57,7 +82,7 @@ class JelajahMateriViewModel: ObservableObject {
         
     }
     
-    func filterMatpel(subject: Subjects) {
+    func filterSubjects(subject: Subjects) {
         
         if subject == .allSubjects {
             self.filteredProjects = self.filteredGrades.filter { (Projects) -> Bool in
@@ -88,11 +113,6 @@ class JelajahMateriViewModel: ObservableObject {
         
     }
     
-    func filterSubjek(topics : String) -> [Projects] {
-        return self.filteredProjects.filter { (Projects) -> Bool in
-            return Projects.topic.name == topics
-        }
-    }
     
     func updateProjectsGroup() {
         self.jelajahMateriGroup = []
@@ -240,4 +260,20 @@ extension JelajahMateriViewModel {
         return [p1, p2, p3, p4, p5, p6, p7, p8]
     }
 }
+
+
+let placeholder = Projects(name: "Membuktikan Pythagoras dengan Kerikil",
+                  summary: "Siswa akan Membuktikan Pythagoras dengan Kerikil",
+                  subject: .Mathematic,
+                  grade: .ten,
+                  topic: .init(subject: .Mathematic, name: "Trigonometri", coreCompetence: "Memahami trigonometri", basicCompetence: "Bisa menggunakan phytagoras"),
+                  goal: ["Paham caranya", "Bisa ngitungnya"],
+                  images: ["MathematicBlue"],
+                  projectStatus: .Published,
+                  projectActivities: [ProjectActivity.init(name: "Menghitung", description: "Itung", time: 1)],
+                  notes: "Oke aja",
+                  comments: [Comments.init(comment: "bego lu", authorID: "Atun", createdDate: Date())],
+                  likes: 230,
+                  createdDate: 01.1,
+                  updatedDate: 232.2)
 
