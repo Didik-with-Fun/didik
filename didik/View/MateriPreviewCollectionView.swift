@@ -39,7 +39,7 @@ struct MateriPreviewCollectionView: View {
                 HStack (alignment: .top, spacing: 10) {
                     ForEach(ProjectsLibrary) { index in
                         NavigationLink(
-                            destination: DummyView(),
+                            destination: DetailProjectMainView(title: index.name),
                             label: {
                                 MateriPreviewView(height: 126, width: 230, project: index)
                                     .padding(.leading)

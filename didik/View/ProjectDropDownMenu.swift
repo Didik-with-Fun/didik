@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProjectDropDownMenu : View {
     
-    @EnvironmentObject var db: JelajahMateriViewModel
+    @EnvironmentObject var db: ProjectDatabaseViewModel
     
     let optionGrades: [Grades] = Grades.allCases
     let optionSubjects: [Subjects] = Subjects.allCases

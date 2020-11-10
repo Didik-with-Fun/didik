@@ -9,7 +9,7 @@ import SwiftUI
 
 struct JelajahMateriView: View {
     
-    @EnvironmentObject var db: JelajahMateriViewModel
+    @EnvironmentObject var db: ProjectDatabaseViewModel
     
     @State var searchText: String = ""
     @State var selectedGrade: Grades = .allGrades
@@ -34,7 +34,7 @@ struct JelajahMateriView: View {
                     List(db.filteredProjects.filter({ searchText.isEmpty ? true : $0.name.lowercased().contains(searchText.lowercased())
                     })) { project in
                         NavigationLink(
-                            destination: DummyView(),
+                            destination: DetailProjectMainView(title: project.name),
                             label: {
                                 MateriTableCellView(project: project, height: 125, width: 230, bookmarked: false)
                             })

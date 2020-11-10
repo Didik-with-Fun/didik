@@ -11,7 +11,7 @@ import SwiftUI
 struct CustomNavigationBarView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
-    @EnvironmentObject var db: JelajahMateriViewModel
+    @EnvironmentObject var db: ProjectDatabaseViewModel
     
     @Binding var filteredGrade: Grades
     @Binding var filteredSubject: Subjects

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MateriSayaView: View {
     
-    @EnvironmentObject var db: JelajahMateriViewModel
+    @EnvironmentObject var db: ProjectDatabaseViewModel
     
     @State var searchText: String = ""
     @State var selectedKelas: Grades = .allGrades
@@ -24,7 +24,7 @@ struct MateriSayaView: View {
                 HStack{
                     Spacer()
                     NavigationLink(
-                        destination: Text("Destination"),
+                        destination: CreateProjectView(selectedSubject: .constant(.Mathematic), isDropdownSubjectOpen: true),
                         label: {
                             BuatMateriButton()
                         })
@@ -35,7 +35,7 @@ struct MateriSayaView: View {
                     List(db.myProjects.filter({ searchText.isEmpty ? true : $0.name.lowercased().contains(searchText.lowercased())
                     })) { project in
                         NavigationLink(
-                            destination: DummyView(),
+                            destination: DetailProjectMainView(title: project.name),
                             label: {
                                 MateriTableCellView(project: project, height: 125, width: 230, bookmarked: false)
                             })
@@ -69,7 +69,7 @@ struct MateriSayaView: View {
 struct MateriSayaView_Previews: PreviewProvider {
     static var previews: some View {
         MateriSayaView()
-            .environmentObject(DummyModel())
+            .environmentObject(ProjectDatabaseViewModel())
             .previewDevice("iPad (8th generation)")
     }
 }
@@ -81,7 +81,7 @@ struct BuatMateriButton: View {
             .foregroundColor(.white)
             .bold()
             .frame(width: 230, height: 39, alignment: .center)
-            .background(Color.blue)
+            .background(Color.Didik.BlueSecondary)
             .cornerRadius(10)
     }
 }

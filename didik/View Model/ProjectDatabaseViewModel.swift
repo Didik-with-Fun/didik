@@ -13,7 +13,7 @@ struct ProjectsGroup: Identifiable {
     let group: [Projects]
 }
 
-class JelajahMateriViewModel: ObservableObject {
+class ProjectDatabaseViewModel: ObservableObject {
     
     var allProjects: [Projects]
     @Published var filteredProjects: [Projects]
@@ -27,8 +27,8 @@ class JelajahMateriViewModel: ObservableObject {
     
     
     init() {
-        
-        let requestProjects = JelajahMateriViewModel.createDummyProjects()
+        // insert fetch projects from firebase here
+        let requestProjects = ProjectDatabaseViewModel.createDummyProjects()
         
         self.allProjects = requestProjects
         self.filteredProjects = requestProjects
@@ -134,7 +134,7 @@ class JelajahMateriViewModel: ObservableObject {
 
 //MARK: - Generate Dummy Model
 
-extension JelajahMateriViewModel {
+extension ProjectDatabaseViewModel {
     
     static func createDummyProjects() -> [Projects] {
         let p1 = Projects(name: "Membuktikan Pythagoras dengan Kerikil",

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @EnvironmentObject var db: JelajahMateriViewModel
+    @EnvironmentObject var db: ProjectDatabaseViewModel
     
     @State var index: Int = 0
     @State var show = false
@@ -66,7 +66,7 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
-            .environmentObject(JelajahMateriViewModel())
+            .environmentObject(ProjectDatabaseViewModel())
             .previewDevice("iPad (8th generation)")
     }
 }
