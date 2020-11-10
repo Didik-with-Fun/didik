@@ -127,7 +127,7 @@ extension SignInWithAppleCoordinator {
 //                fatalError()
 //            }
             
-            let userData = UserData(appleIdentifier: userId, fullName: fullname ?? "", email: email ?? "")
+            let userData = UserData(appleIdentifier: userId, fullName: fullname ?? "", email: email ?? "", school: "", teachingGrades: "", teachingSubject: "", teachingSince: "")
             
             if let userDataEncoded = try? JSONEncoder().encode(userData) {
                 UserDefaults.standard.set(userDataEncoded, forKey: "userData")

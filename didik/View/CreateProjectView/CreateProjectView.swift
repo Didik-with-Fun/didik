@@ -30,6 +30,6 @@ struct CreateProjectView: View {
 
 struct CreateProjectView_Previews: PreviewProvider {
     static var previews: some View {
-        CreateProjectView(selectedSubject: .constant(.Matematika), isDropdownSubjectOpen: false)
+        CreateProjectView(selectedSubject: .constant(.Mathematic), isDropdownSubjectOpen: false)
     }
 }

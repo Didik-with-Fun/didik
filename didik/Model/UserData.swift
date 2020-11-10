@@ -12,5 +12,8 @@ struct UserData: Codable {
     var appleIdentifier: String
     var fullName: String
     var email: String
-    
+    var school: String
+    var teachingGrades: String
+    var teachingSubject: String
+    var teachingSince: String
 }

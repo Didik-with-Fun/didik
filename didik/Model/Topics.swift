@@ -11,6 +11,6 @@ struct Topic: Identifiable {
     let id = UUID()
     let subject: Subjects
     let name: String
-    let KI: String
-    let KD: String
+    let coreCompetence: String  // stands for Kompetensi Inti
+    let basicCompetence: String // stands for Kompentensi Dasar
 }
