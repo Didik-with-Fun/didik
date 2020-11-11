@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MateriTableCellView: View {
     
-    let project: Projects
+    let project: Project
     let height: CGFloat
     let width: CGFloat
     @State var bookmarked: Bool

@@ -9,11 +9,11 @@ import SwiftUI
 
 struct LihatSemuaView: View {
     
-    let ProjectsLibrary: [Projects]
+    let ProjectsLibrary: [Project]
     let currentTitle: String
     @State var searchText: String = ""
-    @State var selectedKelas: Grades = .allGrades
-    @State var selectedMatpel: Subjects = .allSubjects
+    @State var selectedKelas: Grade = .allGrades
+    @State var selectedMatpel: Subject = .allSubjects
     
     let height: CGFloat = 125
     let width: CGFloat = 230

@@ -12,7 +12,7 @@ struct Tooltip {
     let descriptions: String
 }
 
-enum tooltips: CaseIterable {
+enum Tooltips: CaseIterable {
     case namaProyek
     case deskripsiProyek
     case tujuanPembelajaran

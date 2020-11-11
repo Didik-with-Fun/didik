@@ -14,7 +14,7 @@ struct MateriPreviewView: View {
     let height: CGFloat
     let width: CGFloat
     
-    let project: Projects
+    let project: Project
     
     
     var body: some View {

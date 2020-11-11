@@ -10,7 +10,7 @@ import SwiftUI
 
 struct TooltipView: View {
     
-    @Binding var tooltip: tooltips
+    @Binding var tooltip: Tooltips
     
     var body: some View {
         VStack (alignment: .center) {

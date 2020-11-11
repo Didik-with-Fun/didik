@@ -9,10 +9,10 @@ import Foundation
 import SwiftUI
 
 struct DropdownSubject: View {
-    let contents: [Subjects] = Subjects.allCases
+    let contents: [Subject] = Subject.allCases
     
     @State var isDropdownShowed: Bool = false
-    @Binding var selected: Subjects
+    @Binding var selected: Subject
     
     let width: CGFloat
     

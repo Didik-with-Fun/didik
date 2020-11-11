@@ -14,7 +14,7 @@ struct MateriPreviewCollectionView: View {
     var parentGeometry: GeometryProxy
 
     let title: String
-    let ProjectsLibrary: [Projects]
+    let ProjectsLibrary: [Project]
 
     var body: some View {
         VStack(spacing: 10){
