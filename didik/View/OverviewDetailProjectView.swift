@@ -7,12 +7,14 @@
 
 import SwiftUI
 
+
 struct OverviewDetailProjectView: View {
     var body: some View {
         VStack {
             IndicatorOverviewDetailProjectView()
             TeacherOverviewDetailProjectView()
             CompetenceOverviewDetailView()
+            LearningObjectiveOverviewDetailProjectView()
         }
         .padding()
         

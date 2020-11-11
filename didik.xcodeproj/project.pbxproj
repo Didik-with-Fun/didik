@@ -48,6 +48,9 @@
 		BA220D2A255A67960075458E /* CompetenceOverviewDetailProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA220D29255A67960075458E /* CompetenceOverviewDetailProjectView.swift */; };
 		BA220D2F255A67C20075458E /* IndicatorOverviewDetailProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA220D2E255A67C20075458E /* IndicatorOverviewDetailProjectView.swift */; };
 		BA220D3A255A68640075458E /* TeacherOverviewDetailProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA220D39255A68640075458E /* TeacherOverviewDetailProjectView.swift */; };
+		BA220D6D255A8D280075458E /* LearningObjectiveOverviewDetailProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA220D6C255A8D280075458E /* LearningObjectiveOverviewDetailProjectView.swift */; };
+		BA220D72255AA6690075458E /* ActivityDetailDetailProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA220D71255AA6690075458E /* ActivityDetailDetailProjectView.swift */; };
+		BA220D77255AA6AF0075458E /* NoteForStudentDetailDetailProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA220D76255AA6AF0075458E /* NoteForStudentDetailDetailProjectView.swift */; };
 		BA3A772B255337DF00975121 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3A772A255337DF00975121 /* UserData.swift */; };
 		BA3A773325534EA800975121 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3A773225534EA800975121 /* UserViewModel.swift */; };
 		BA43E6E22558876C00754F06 /* ContentDetailProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA43E6E12558876C00754F06 /* ContentDetailProjectView.swift */; };
@@ -137,6 +140,9 @@
 		BA220D29255A67960075458E /* CompetenceOverviewDetailProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetenceOverviewDetailProjectView.swift; sourceTree = "<group>"; };
 		BA220D2E255A67C20075458E /* IndicatorOverviewDetailProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorOverviewDetailProjectView.swift; sourceTree = "<group>"; };
 		BA220D39255A68640075458E /* TeacherOverviewDetailProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherOverviewDetailProjectView.swift; sourceTree = "<group>"; };
+		BA220D6C255A8D280075458E /* LearningObjectiveOverviewDetailProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningObjectiveOverviewDetailProjectView.swift; sourceTree = "<group>"; };
+		BA220D71255AA6690075458E /* ActivityDetailDetailProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailDetailProjectView.swift; sourceTree = "<group>"; };
+		BA220D76255AA6AF0075458E /* NoteForStudentDetailDetailProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteForStudentDetailDetailProjectView.swift; sourceTree = "<group>"; };
 		BA3A772A255337DF00975121 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		BA3A773225534EA800975121 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		BA43E6E12558876C00754F06 /* ContentDetailProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDetailProjectView.swift; sourceTree = "<group>"; };
@@ -385,6 +391,7 @@
 				BA220D29255A67960075458E /* CompetenceOverviewDetailProjectView.swift */,
 				BA220D2E255A67C20075458E /* IndicatorOverviewDetailProjectView.swift */,
 				BA220D39255A68640075458E /* TeacherOverviewDetailProjectView.swift */,
+				BA220D6C255A8D280075458E /* LearningObjectiveOverviewDetailProjectView.swift */,
 			);
 			name = Overview;
 			sourceTree = "<group>";
@@ -393,6 +400,8 @@
 			isa = PBXGroup;
 			children = (
 				BABCC1C2255867F9005FCC7B /* DetailDetailProjectView.swift */,
+				BA220D71255AA6690075458E /* ActivityDetailDetailProjectView.swift */,
+				BA220D76255AA6AF0075458E /* NoteForStudentDetailDetailProjectView.swift */,
 			);
 			name = Detail;
 			sourceTree = "<group>";
@@ -703,6 +712,7 @@
 				BABCC1C3255867F9005FCC7B /* DetailDetailProjectView.swift in Sources */,
 				BABCC1C82558680F005FCC7B /* DiscussionDetailProjectView.swift in Sources */,
 				BA3A773325534EA800975121 /* UserViewModel.swift in Sources */,
+				BA220D72255AA6690075458E /* ActivityDetailDetailProjectView.swift in Sources */,
 				B7F9651425594A9E004F33B3 /* TooltipView.swift in Sources */,
 				B76514E22552AF560041D6A3 /* CreateProjectView.swift in Sources */,
 				B7F97455255469710059C650 /* ProjectStatus.swift in Sources */,
@@ -718,6 +728,7 @@
 				75352C56254C3C9A0039EC2D /* HomeView.swift in Sources */,
 				755B2175254A806000B0A7E6 /* MateriPreviewView.swift in Sources */,
 				BA43E6E22558876C00754F06 /* ContentDetailProjectView.swift in Sources */,
+				BA220D6D255A8D280075458E /* LearningObjectiveOverviewDetailProjectView.swift in Sources */,
 				755B217A254A885100B0A7E6 /* Extension+View.swift in Sources */,
 				755B218C254B1DB000B0A7E6 /* TabBarView.swift in Sources */,
 				BA4F58B6255718CE00C87028 /* UserProfileHeaderView.swift in Sources */,
@@ -726,6 +737,7 @@
 				7556CBF32557DC50000539B0 /* MateriTableCellView.swift in Sources */,
 				BA220D2F255A67C20075458E /* IndicatorOverviewDetailProjectView.swift in Sources */,
 				75BE5D482554140A00E8677E /* CustomDropDownMenu.swift in Sources */,
+				BA220D77255AA6AF0075458E /* NoteForStudentDetailDetailProjectView.swift in Sources */,
 				75352C5B254C45070039EC2D /* LihatSemuaView.swift in Sources */,
 				7552696A25516D2600D89FC5 /* SearchBarView.swift in Sources */,
 				75352C4C254B44150039EC2D /* JelajahMateriView.swift in Sources */,

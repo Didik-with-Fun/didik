@@ -20,21 +20,25 @@ struct DummyView: View {
     let width: CGFloat = 230
     
     var body: some View {
-        VStack {
-            CustomNavigationBarView(filterKelas: $selectedKelas, filterMatpel: $selectedMatpel, searchText: $searchText, showDropDown: true)
-            Spacer()
-            
-            List(MateriLibrary.filter({ searchText.isEmpty ? true : $0.title.lowercased().contains(searchText.lowercased())
-            })) { materi in
-                NavigationLink(
-                    destination: DetailProjectMainView(title: materi.title),
-                    label: {
-                        MateriTableCellView(materi: materi, height: height, width: width, bookmarked: materi.bookmarked)
-                    })
+        
+        GeometryReader { geometry in
+            VStack {
+                CustomNavigationBarView(filterKelas: $selectedKelas, filterMatpel: $selectedMatpel, searchText: $searchText, showDropDown: true)
+                Spacer()
+                
+                List(MateriLibrary.filter({ searchText.isEmpty ? true : $0.title.lowercased().contains(searchText.lowercased())
+                })) { materi in
+                    NavigationLink(
+                        destination: DetailProjectMainView(parentGeometry: geometry, title: materi.title),
+                        label: {
+                            MateriTableCellView(materi: materi, height: height, width: width, bookmarked: materi.bookmarked)
+                        })
+                }
+                Spacer()
+                
             }
-            Spacer()
-            
         }
+    
         .navigationBarTitle("Dummy", displayMode: .automatic)
         .navigationBarColor(backgroundColor: UIColor(named: K.TabBarColor))
         .navigationBarItems(trailing: UserButton())
