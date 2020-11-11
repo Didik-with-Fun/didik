@@ -11,6 +11,7 @@ struct CreateProjectView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     @Binding var selectedSubject: Subjects
+    @Binding var selectedGrade: Grades
     @State var contentNamaProyek: String = ""
     @State var showPopOver = false
     @Binding var showPopOverContents: tooltips
@@ -40,7 +41,7 @@ struct CreateProjectView: View {
                                 Text("Kelas")
                                     .padding(.vertical, 5)
                                 
-                                DropdownSubject(selected: $selectedSubject, width: 350)
+                                DropdownGrades(selected: $selectedGrade, width: 350)
                             }
                         }
                         .padding(.vertical, 20)
@@ -241,7 +242,7 @@ struct CreateProjectView: View {
 struct CreateProjectView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            CreateProjectView(selectedSubject: .constant(.Mathematic), showPopOverContents: .constant(.namaProyek), isDropdownSubjectOpen: false).previewDevice("iPad (8th generation)")
+            CreateProjectView(selectedSubject: .constant(.Mathematic), selectedGrade: .constant(.ten), showPopOverContents: .constant(.namaProyek), isDropdownSubjectOpen: false).previewDevice("iPad (8th generation)")
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }

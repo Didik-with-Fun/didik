@@ -7,9 +7,9 @@
 
 import Foundation
 
-enum Grades: Int, CaseIterable {
-    case allGrades = 0
-    case ten = 10
-    case eleven = 11
-    case twelve = 12
+enum Grades: String, CaseIterable {
+    case allGrades = "0"
+    case ten = "10"
+    case eleven = "11"
+    case twelve = "12"
 }

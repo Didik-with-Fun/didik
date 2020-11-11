@@ -24,7 +24,7 @@ struct MateriSayaView: View {
                 HStack{
                     Spacer()
                     NavigationLink(
-                        destination: CreateProjectView(selectedSubject: .constant(.Mathematic), showPopOverContents: .constant(.namaProyek), isDropdownSubjectOpen: true),
+                        destination: CreateProjectView(selectedSubject: .constant(.Mathematic), selectedGrade: .constant(.ten), showPopOverContents: .constant(.namaProyek), isDropdownSubjectOpen: true),
                         label: {
                             BuatMateriButton()
                         })
