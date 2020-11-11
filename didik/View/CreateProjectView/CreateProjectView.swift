@@ -172,6 +172,11 @@ struct CreateProjectView: View {
                             }
                         }.padding([.top, .horizontal], 20)
                         
+                        // MARK: - Form Field - Activity
+                        HStack {
+                            ActivityMainView(contentActivityName: "", contentActivityDescription: "")
+                        }.padding([.top, .horizontal], 20)
+                        
                         // MARK: - Form Field - Notes aka Catatan Siswa
                         HStack {
                             VStack (alignment: .leading, spacing: 10) {

@@ -33,6 +33,7 @@
 		B76514E22552AF560041D6A3 /* CreateProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76514E12552AF560041D6A3 /* CreateProjectView.swift */; };
 		B779FA76255C2E5E00D13DD2 /* DropdownGrades.swift in Sources */ = {isa = PBXBuildFile; fileRef = B779FA75255C2E5E00D13DD2 /* DropdownGrades.swift */; };
 		B779FA81255C4DE700D13DD2 /* DropdownTopics.swift in Sources */ = {isa = PBXBuildFile; fileRef = B779FA80255C4DE700D13DD2 /* DropdownTopics.swift */; };
+		B779FA88255C620000D13DD2 /* ActivityMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B779FA87255C620000D13DD2 /* ActivityMainView.swift */; };
 		B7AB621E2546AB1F007E4895 /* didikApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB621D2546AB1F007E4895 /* didikApp.swift */; };
 		B7AB62222546AB20007E4895 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7AB62212546AB20007E4895 /* Assets.xcassets */; };
 		B7AB62252546AB20007E4895 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7AB62242546AB20007E4895 /* Preview Assets.xcassets */; };
@@ -120,6 +121,7 @@
 		B76514E12552AF560041D6A3 /* CreateProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProjectView.swift; sourceTree = "<group>"; };
 		B779FA75255C2E5E00D13DD2 /* DropdownGrades.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownGrades.swift; sourceTree = "<group>"; };
 		B779FA80255C4DE700D13DD2 /* DropdownTopics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownTopics.swift; sourceTree = "<group>"; };
+		B779FA87255C620000D13DD2 /* ActivityMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityMainView.swift; sourceTree = "<group>"; };
 		B7AB621A2546AB1F007E4895 /* didik.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = didik.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7AB621D2546AB1F007E4895 /* didikApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = didikApp.swift; sourceTree = "<group>"; };
 		B7AB62212546AB20007E4895 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 		B76514E02552AF150041D6A3 /* CreateProjectView */ = {
 			isa = PBXGroup;
 			children = (
+				B779FA86255C61D500D13DD2 /* Activity */,
 				B76514E12552AF560041D6A3 /* CreateProjectView.swift */,
 			);
 			path = CreateProjectView;
@@ -251,6 +254,14 @@
 				B779FA80255C4DE700D13DD2 /* DropdownTopics.swift */,
 			);
 			path = Dropdowns;
+			sourceTree = "<group>";
+		};
+		B779FA86255C61D500D13DD2 /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				B779FA87255C620000D13DD2 /* ActivityMainView.swift */,
+			);
+			path = Activity;
 			sourceTree = "<group>";
 		};
 		B7AB62112546AB1F007E4895 = {
@@ -722,6 +733,7 @@
 				BABCC1CE25586862005FCC7B /* SlideshowHeadDetailProjectView.swift in Sources */,
 				BABCC1C3255867F9005FCC7B /* DetailDetailProjectView.swift in Sources */,
 				BABCC1C82558680F005FCC7B /* DiscussionDetailProjectView.swift in Sources */,
+				B779FA88255C620000D13DD2 /* ActivityMainView.swift in Sources */,
 				BA3A773325534EA800975121 /* UserViewModel.swift in Sources */,
 				B7F9651425594A9E004F33B3 /* TooltipView.swift in Sources */,
 				B76514E22552AF560041D6A3 /* CreateProjectView.swift in Sources */,
