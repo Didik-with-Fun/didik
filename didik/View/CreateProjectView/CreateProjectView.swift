@@ -157,10 +157,16 @@ struct CreateProjectView: View {
                                     })
                                 }
                                 
-                                HStack (spacing: 20) {
-                                    Image("InsertMedia")
-                                    Image("InsertMediaDummy")
-                                    Image("InsertMediaDummy")
+                                ScrollView (.horizontal) {
+                                    HStack (alignment: .top, spacing: 20) {
+                                        Image("InsertMedia")
+                                        
+                                            Image("InsertMediaDummy").padding(.horizontal, 10)
+                                            Image("InsertMediaDummy").padding(.horizontal, 10)
+                                            Image("InsertMediaDummy").padding(.horizontal, 10)
+                                            Image("InsertMediaDummy").padding(.horizontal, 10)
+                                            Image("InsertMediaDummy").padding(.horizontal, 10)
+                                    }
                                 }
                             }
                         }.padding([.top, .horizontal], 20)
@@ -228,7 +234,7 @@ struct CreateProjectView: View {
         }
         .navigationBarTitle("Materi Saya", displayMode: .automatic)
         .navigationBarItems(trailing: UserButton())
-        .navigationBarColor(backgroundColor: UIColor(named: K.TabBarColor))
+        .navigationBarColor(backgroundColor: UIColor(Color.Didik.BluePrimary))
     }
 }
 
