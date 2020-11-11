@@ -52,7 +52,7 @@ struct CreateProjectView: View {
                                 Text("Materi Pembelajaran")
                                     .padding(.vertical, 5)
                                 
-                                DropdownSubject(selected: $selectedSubject, width: 755)
+                                DropdownTopics(isDropdownShowed: false, selected: .constant(topicList[0]), width: 755)
                             }
                         }
                         
