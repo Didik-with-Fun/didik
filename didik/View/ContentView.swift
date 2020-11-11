@@ -9,25 +9,27 @@ import SwiftUI
 
 
 struct ContentView: View {
-    
     @EnvironmentObject var signInCoordinator: SignInWithAppleCoordinator
-
+    
     var body: some View {
-        ZStack {
-            // MARK: - Development Use
-            // Uncomment code this line to faster the development debug
-            // HomeView().environmentObject(DummyModel())
-         
-            if signInCoordinator.isUserAuthenticated == .signedIn {
-                HomeView()
-                    .environmentObject(ProjectDatabaseViewModel())
+        GeometryReader { geometry in
+            ZStack {
+                // MARK: - Development Use
+                // Uncomment code this line to faster the development debug
+                // HomeView().environmentObject(DummyModel())
+                
+                if signInCoordinator.isUserAuthenticated == .signedIn {
+                    HomeView(parentGeometry: geometry)
+                        .environmentObject(ProjectDatabaseViewModel())
+                }
+                else if signInCoordinator.isUserAuthenticated == .signedOut {
+                    SignInView()
+                }
+                else {
+                    SignInView()
+                }
             }
-            else if signInCoordinator.isUserAuthenticated == .signedOut {
-                SignInView()
-            }
-            else {
-                SignInView()
-            }
+        
         }
     
     }

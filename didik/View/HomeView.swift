@@ -14,12 +14,15 @@ struct HomeView: View {
     @State var index: Int = 0
     @State var show = false
     
+    var parentGeometry: GeometryProxy
+
+    
     var body: some View {
         VStack {
             ZStack {
                 
                 // Jelajah Materi Tab
-                JelajahMateriView()
+                JelajahMateriView(parentGeometry: parentGeometry)
                     .opacity(index == 0 ? 1 : 0)
                 
                 /*
@@ -28,7 +31,7 @@ struct HomeView: View {
                 */
 
                 // Materi Saya Tab
-                MateriSayaView()
+                MateriSayaView(parentGeometry: parentGeometry)
                     .opacity(index == 1 ? 1 : 0)
                 
                 // Kelas Saya Tab
@@ -69,8 +72,11 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
-            .environmentObject(ProjectDatabaseViewModel())
-            .previewDevice("iPad (8th generation)")
+        GeometryReader { geometry in
+            HomeView(parentGeometry: geometry)
+                .environmentObject(ProjectDatabaseViewModel())
+                .previewDevice("iPad (8th generation)")
+            
+        }
     }
 }

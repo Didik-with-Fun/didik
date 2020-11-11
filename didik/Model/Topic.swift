@@ -1,5 +1,5 @@
 //
-//  Topics.swift
+//  Topic.swift
 //  didik
 //
 //  Created by Haddawi on 05/11/20.

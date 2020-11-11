@@ -13,8 +13,8 @@ struct CustomNavigationBarView: View {
     
     @EnvironmentObject var db: ProjectDatabaseViewModel
     
-    @Binding var filteredGrade: Grades
-    @Binding var filteredSubject: Subjects
+    @Binding var filteredGrade: Grade
+    @Binding var filteredSubject: Subject
     @Binding var searchText: String
     let showDropDown: Bool
     

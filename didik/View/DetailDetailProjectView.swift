@@ -9,7 +9,13 @@ import SwiftUI
 
 struct DetailDetailProjectView: View {
     var body: some View {
-        Text("Hello, World! 2")
+        
+        VStack {
+            ActivityDetailDetailProjectView()
+            NoteForStudentDetailDetailProjectView()
+        }
+        .padding()
+        
     }
 }
 
@@ -17,6 +23,5 @@ struct DetailDetailProjectView_Previews: PreviewProvider {
     static var previews: some View {
         DetailDetailProjectView()
             .previewDevice("iPad (8th generation)")
-
     }
 }

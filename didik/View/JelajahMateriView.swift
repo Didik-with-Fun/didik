@@ -12,10 +12,11 @@ struct JelajahMateriView: View {
     @EnvironmentObject var db: ProjectDatabaseViewModel
     
     @State var searchText: String = ""
-    @State var selectedGrade: Grades = .allGrades
-    @State var selectedSubject: Subjects = .allSubjects
+    @State var selectedGrade: Grade = .allGrades
+    @State var selectedSubject: Subject = .allSubjects
     
-    
+    var parentGeometry: GeometryProxy
+
     
     var body: some View {
         NavigationView {
@@ -34,7 +35,7 @@ struct JelajahMateriView: View {
                     List(db.filteredProjects.filter({ searchText.isEmpty ? true : $0.name.lowercased().contains(searchText.lowercased())
                     })) { project in
                         NavigationLink(
-                            destination: DetailProjectMainView(title: project.name),
+                            destination: DetailProjectMainView(parentGeometry: parentGeometry, title: project.name),
                             label: {
                                 MateriTableCellView(project: project, height: 125, width: 230, bookmarked: false)
                             })
@@ -44,7 +45,7 @@ struct JelajahMateriView: View {
                         VStack(spacing : 0) {
                             ForEach(db.jelajahMateriGroup) {
                                 index in
-                                MateriPreviewCollectionView(title: index.title, ProjectsLibrary: index.group)
+                                MateriPreviewCollectionView(parentGeometry: parentGeometry, title: index.title, ProjectsLibrary: index.group)
 
                                 
                             }
@@ -67,8 +68,11 @@ struct JelajahMateriView: View {
 
 struct JelajahMateriView_Previews: PreviewProvider {
     static var previews: some View {
-        JelajahMateriView()
-            .environmentObject(DummyModel())
-            .previewDevice("iPad (8th generation)")
+        GeometryReader { geometry in
+
+            JelajahMateriView(parentGeometry: geometry)
+                .environmentObject(ProjectDatabaseViewModel())
+                .previewDevice("iPad (8th generation)")
+        }
     }
 }

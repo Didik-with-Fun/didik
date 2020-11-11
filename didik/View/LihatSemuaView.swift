@@ -9,30 +9,36 @@ import SwiftUI
 
 struct LihatSemuaView: View {
     
-    let ProjectsLibrary: [Projects]
+    let ProjectsLibrary: [Project]
     let currentTitle: String
     @State var searchText: String = ""
-    @State var selectedKelas: Grades = .allGrades
-    @State var selectedMatpel: Subjects = .allSubjects
+    @State var selectedKelas: Grade = .allGrades
+    @State var selectedMatpel: Subject = .allSubjects
     
     let height: CGFloat = 125
     let width: CGFloat = 230
     
     var body: some View {
         
-        VStack {
-            CustomNavigationBarView(filteredGrade: $selectedKelas, filteredSubject: $selectedMatpel, searchText: $searchText, showDropDown: true)
-            List(ProjectsLibrary.filter({ searchText.isEmpty ? true : $0.name.lowercased().contains(searchText.lowercased())
-            })) { project in
-                NavigationLink(
-                    destination: DetailProjectMainView(title: currentTitle),
-                    label: {
-                        MateriTableCellView(project: project, height: height, width: width, bookmarked: false)
-                    })
-                
-                
+            
+        GeometryReader { geometry in
+
+
+        	VStack {
+            	CustomNavigationBarView(filteredGrade: $selectedKelas, filteredSubject: $selectedMatpel, searchText: $searchText, showDropDown: true)
+            	List(ProjectsLibrary.filter({ searchText.isEmpty ? true : $0.name.lowercased().contains(searchText.lowercased())
+            	})) { project in
+                	NavigationLink(
+                        destination: DetailProjectMainView(parentGeometry: geometry, title: currentTitle),
+                    	label: {
+                        	MateriTableCellView(project: project, height: height, width: width, bookmarked: false)
+                    	})
+                }
             }
+
+
         }
+
         .navigationBarTitle(currentTitle, displayMode: .automatic)
         .navigationBarItems(trailing: UserButton())
         .navigationBarColor(backgroundColor: UIColor(Color.Didik.BluePrimary))

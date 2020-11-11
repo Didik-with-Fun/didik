@@ -11,9 +11,11 @@ import SwiftUI
 
 struct MateriPreviewCollectionView: View {
     
+    var parentGeometry: GeometryProxy
+
     let title: String
-    let ProjectsLibrary: [Projects]
-    
+    let ProjectsLibrary: [Project]
+
     var body: some View {
         VStack(spacing: 10){
             HStack {
@@ -39,7 +41,7 @@ struct MateriPreviewCollectionView: View {
                 HStack (alignment: .top, spacing: 10) {
                     ForEach(ProjectsLibrary) { index in
                         NavigationLink(
-                            destination: DetailProjectMainView(title: index.name),
+                            destination: DetailProjectMainView(parentGeometry: parentGeometry, title: index.name),
                             label: {
                                 MateriPreviewView(height: 126, width: 230, project: index)
                                     .padding(.leading)
@@ -57,7 +59,10 @@ struct MateriPreviewCollectionView: View {
 
 struct MateriPreviewCollectionView_Previews: PreviewProvider {
     static var previews: some View {
-        MateriPreviewCollectionView(title: "Matematika Dasar", ProjectsLibrary: [placeholder])
-            .previewDevice("iPad (8th generation)")
+        GeometryReader { geometry in
+
+            MateriPreviewCollectionView(parentGeometry: geometry, title: "Matematika Dasar", ProjectsLibrary: [placeholder])
+                .previewDevice("iPad (8th generation)")
+        }
     }
 }

@@ -16,6 +16,7 @@ struct DummyView: View {
             Text("DUMMY VIEW")
             
         }
+    
         .navigationBarTitle("Dummy", displayMode: .automatic)
         .navigationBarColor(backgroundColor: UIColor(Color.Didik.BluePrimary))
         .navigationBarItems(trailing: UserButton())

@@ -1,5 +1,5 @@
 //
-//  Grades.swift
+//  Grade.swift
 //  didik
 //
 //  Created by Haddawi on 05/11/20.

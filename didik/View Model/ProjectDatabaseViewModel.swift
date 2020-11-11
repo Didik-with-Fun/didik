@@ -10,16 +10,16 @@ import Foundation
 struct ProjectsGroup: Identifiable {
     let id = UUID()
     let title: String
-    let group: [Projects]
+    let group: [Project]
 }
 
 class ProjectDatabaseViewModel: ObservableObject {
     
-    var allProjects: [Projects]
-    @Published var filteredProjects: [Projects]
-    var filteredSubjects: [Projects]
-    var filteredGrades: [Projects]
-    @Published var myProjects: [Projects]
+    var allProjects: [Project]
+    @Published var filteredProjects: [Project]
+    var filteredBySubjectsProjects: [Project]
+    var filteredByGradesProjects: [Project]
+    @Published var myProjects: [Project]
     @Published var jelajahMateriGroup: [ProjectsGroup] = []
     
     
@@ -32,8 +32,8 @@ class ProjectDatabaseViewModel: ObservableObject {
         
         self.allProjects = requestProjects
         self.filteredProjects = requestProjects
-        self.filteredSubjects = requestProjects
-        self.filteredGrades = requestProjects
+        self.filteredBySubjectsProjects = requestProjects
+        self.filteredByGradesProjects = requestProjects
         
         
         self.myProjects = requestProjects
@@ -58,21 +58,21 @@ class ProjectDatabaseViewModel: ObservableObject {
     }
     
     
-    func filterGrades(grade: Grades) {
+    func filterByGrades(grade: Grade) {
         
         if grade == .allGrades {
-            self.filteredProjects = self.filteredSubjects.filter { (Projects) -> Bool in
+            self.filteredProjects = self.filteredBySubjectsProjects.filter { (Projects) -> Bool in
                 return (Projects.grade == .ten) || (Projects.grade == .eleven) || (Projects.grade == .twelve)
             }
             
             return
             
         } else {
-            self.filteredProjects = self.filteredSubjects.filter { (Projects) -> Bool in
+            self.filteredProjects = self.filteredBySubjectsProjects.filter { (Projects) -> Bool in
                 return Projects.grade == grade
             }
             
-            self.filteredGrades = self.allProjects.filter { (Projects) -> Bool in
+            self.filteredByGradesProjects = self.allProjects.filter { (Projects) -> Bool in
                 return Projects.grade == grade
             }
             
@@ -82,30 +82,30 @@ class ProjectDatabaseViewModel: ObservableObject {
         
     }
     
-    func filterSubjects(subject: Subjects) {
+    func filterBySubjects(subject: Subject) {
         
         if subject == .allSubjects {
-            self.filteredProjects = self.filteredGrades.filter { (Projects) -> Bool in
-                return (Projects.subject == .Mathematic) ||
-                    (Projects.subject == .Physic) ||
-                    (Projects.subject == .Chemist) ||
-                    (Projects.subject == .Biology) ||
-                    (Projects.subject == .Sociology) ||
-                    (Projects.subject == .History) ||
-                    (Projects.subject == .Economy) ||
-                    (Projects.subject == .Geography) ||
-                    (Projects.subject == .BahasaIndonesia) ||
-                    (Projects.subject == .English)
+            self.filteredProjects = self.filteredByGradesProjects.filter { (projects) -> Bool in
+                return (projects.subject == .Mathematic) ||
+                    (projects.subject == .Physic) ||
+                    (projects.subject == .Chemist) ||
+                    (projects.subject == .Biology) ||
+                    (projects.subject == .Sociology) ||
+                    (projects.subject == .History) ||
+                    (projects.subject == .Economy) ||
+                    (projects.subject == .Geography) ||
+                    (projects.subject == .BahasaIndonesia) ||
+                    (projects.subject == .English)
             }
             return
             
         } else {
-            self.filteredProjects = self.filteredGrades.filter { (Projects) -> Bool in
-                return Projects.subject == subject
+            self.filteredProjects = self.filteredByGradesProjects.filter { (projects) -> Bool in
+                return projects.subject == subject
             }
             
-            self.filteredSubjects = self.allProjects.filter { (Projects) -> Bool in
-                return Projects.subject == subject
+            self.filteredBySubjectsProjects = self.allProjects.filter { (projects) -> Bool in
+                return projects.subject == subject
             }
             return
             
@@ -136,8 +136,8 @@ class ProjectDatabaseViewModel: ObservableObject {
 
 extension ProjectDatabaseViewModel {
     
-    static func createDummyProjects() -> [Projects] {
-        let p1 = Projects(name: "Membuktikan Pythagoras dengan Kerikil",
+    static func createDummyProjects() -> [Project] {
+        let p1 = Project(name: "Membuktikan Pythagoras dengan Kerikil",
                           summary: "Siswa akan Membuktikan Pythagoras dengan Kerikil",
                           subject: .Mathematic,
                           grade: .ten,
@@ -147,12 +147,12 @@ extension ProjectDatabaseViewModel {
                           projectStatus: .Published,
                           projectActivities: [ProjectActivity.init(name: "Menghitung", description: "Itung", time: 1)],
                           notes: "Oke aja",
-                          comments: [Comments.init(comment: "bego lu", authorID: "Atun", createdDate: Date())],
+                          comments: [Comment.init(comment: "bego lu", authorID: "Atun", createdDate: Date())],
                           likes: 230,
                           createdDate: 01.1,
                           updatedDate: 232.2)
         
-        let p2 = Projects(name: "Membuktikan Pythagoras dengan Tusuk Sate",
+        let p2 = Project(name: "Membuktikan Pythagoras dengan Tusuk Sate",
                           summary: "Siswa akan Membuktikan Pythagoras dengan Tusuk Sate",
                           subject: .Mathematic,
                           grade: .eleven,
@@ -162,12 +162,12 @@ extension ProjectDatabaseViewModel {
                           projectStatus: .Published,
                           projectActivities: [ProjectActivity.init(name: "Menghitung", description: "Itung", time: 1)],
                           notes: "Oke aja",
-                          comments: [Comments.init(comment: "bego lu", authorID: "Atun", createdDate: Date())],
+                          comments: [Comment.init(comment: "bego lu", authorID: "Atun", createdDate: Date())],
                           likes: 230,
                           createdDate: 01.1,
                           updatedDate: 232.2)
         
-        let p3 = Projects(name: "Membuktikan Integral dengan Tusuk Sate",
+        let p3 = Project(name: "Membuktikan Integral dengan Tusuk Sate",
                           summary: "Siswa akan Membuktikan Integral dengan Tusuk Sate",
                           subject: .Mathematic,
                           grade: .eleven,
@@ -177,12 +177,12 @@ extension ProjectDatabaseViewModel {
                           projectStatus: .Published,
                           projectActivities: [ProjectActivity.init(name: "Menghitung", description: "Itung", time: 1)],
                           notes: "Oke aja",
-                          comments: [Comments.init(comment: "bego lu", authorID: "Atun", createdDate: Date())],
+                          comments: [Comment.init(comment: "bego lu", authorID: "Atun", createdDate: Date())],
                           likes: 230,
                           createdDate: 01.1,
                           updatedDate: 232.2)
         
-        let p4 = Projects(name: "Membuat Roket botol air",
+        let p4 = Project(name: "Membuat Roket botol air",
                           summary: "Siswa akan Membuktikan Pythagoras dengan Tusuk Sate",
                           subject: .Physic,
                           grade: .eleven,
@@ -192,12 +192,12 @@ extension ProjectDatabaseViewModel {
                           projectStatus: .Published,
                           projectActivities: [ProjectActivity.init(name: "Menghitung", description: "Itung", time: 1)],
                           notes: "Oke aja",
-                          comments: [Comments.init(comment: "bego lu", authorID: "Atun", createdDate: Date())],
+                          comments: [Comment.init(comment: "bego lu", authorID: "Atun", createdDate: Date())],
                           likes: 230,
                           createdDate: 01.1,
                           updatedDate: 232.2)
         
-        let p5 = Projects(name: "Membuat sabun",
+        let p5 = Project(name: "Membuat sabun",
                           summary: "Siswa akan Membuat sabun dengan minyak",
                           subject: .Chemist,
                           grade: .twelve,
@@ -207,12 +207,12 @@ extension ProjectDatabaseViewModel {
                           projectStatus: .Published,
                           projectActivities: [ProjectActivity.init(name: "Menghitung", description: "Itung", time: 1)],
                           notes: "Oke aja",
-                          comments: [Comments.init(comment: "bego lu", authorID: "Atun", createdDate: Date())],
+                          comments: [Comment.init(comment: "bego lu", authorID: "Atun", createdDate: Date())],
                           likes: 230,
                           createdDate: 01.1,
                           updatedDate: 232.2)
         
-        let p6 = Projects(name: "Membuat Tabung kapiler",
+        let p6 = Project(name: "Membuat Tabung kapiler",
                           summary: "Siswa akan Membuat tabung kapiler",
                           subject: .Physic,
                           grade: .twelve,
@@ -222,12 +222,12 @@ extension ProjectDatabaseViewModel {
                           projectStatus: .Published,
                           projectActivities: [ProjectActivity.init(name: "Menghitung", description: "Itung", time: 1)],
                           notes: "Oke aja",
-                          comments: [Comments.init(comment: "bego lu", authorID: "Atun", createdDate: Date())],
+                          comments: [Comment.init(comment: "bego lu", authorID: "Atun", createdDate: Date())],
                           likes: 230,
                           createdDate: 01.1,
                           updatedDate: 232.2)
         
-        let p7 = Projects(name: "Membuat Tabung kapiler",
+        let p7 = Project(name: "Membuat Tabung kapiler",
                           summary: "Siswa akan Membuat tabung kapiler",
                           subject: .Physic,
                           grade: .twelve,
@@ -237,12 +237,12 @@ extension ProjectDatabaseViewModel {
                           projectStatus: .Published,
                           projectActivities: [ProjectActivity.init(name: "Menghitung", description: "Itung", time: 1)],
                           notes: "Oke aja",
-                          comments: [Comments.init(comment: "bego lu", authorID: "Atun", createdDate: Date())],
+                          comments: [Comment.init(comment: "bego lu", authorID: "Atun", createdDate: Date())],
                           likes: 230,
                           createdDate: 01.1,
                           updatedDate: 232.2)
         
-        let p8 = Projects(name: "Membuat Rail Gun",
+        let p8 = Project(name: "Membuat Rail Gun",
                           summary: "Siswa akan Membuat rail gun",
                           subject: .Physic,
                           grade: .ten,
@@ -252,7 +252,7 @@ extension ProjectDatabaseViewModel {
                           projectStatus: .Published,
                           projectActivities: [ProjectActivity.init(name: "Menghitung", description: "Itung", time: 1)],
                           notes: "Oke aja",
-                          comments: [Comments.init(comment: "bego lu", authorID: "Atun", createdDate: Date())],
+                          comments: [Comment.init(comment: "bego lu", authorID: "Atun", createdDate: Date())],
                           likes: 230,
                           createdDate: 01.1,
                           updatedDate: 232.2)
@@ -262,7 +262,7 @@ extension ProjectDatabaseViewModel {
 }
 
 
-let placeholder = Projects(name: "Membuktikan Pythagoras dengan Kerikil",
+let placeholder = Project(name: "Membuktikan Pythagoras dengan Kerikil",
                   summary: "Siswa akan Membuktikan Pythagoras dengan Kerikil",
                   subject: .Mathematic,
                   grade: .ten,
@@ -272,7 +272,7 @@ let placeholder = Projects(name: "Membuktikan Pythagoras dengan Kerikil",
                   projectStatus: .Published,
                   projectActivities: [ProjectActivity.init(name: "Menghitung", description: "Itung", time: 1)],
                   notes: "Oke aja",
-                  comments: [Comments.init(comment: "bego lu", authorID: "Atun", createdDate: Date())],
+                  comments: [Comment.init(comment: "bego lu", authorID: "Atun", createdDate: Date())],
                   likes: 230,
                   createdDate: 01.1,
                   updatedDate: 232.2)
