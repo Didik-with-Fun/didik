@@ -12,7 +12,7 @@ struct DetailProjectMainView: View {
     var parentGeometry: GeometryProxy
     let title: String
     
-    let project: Projects
+    //let project: Project
     
     var body: some View {
         

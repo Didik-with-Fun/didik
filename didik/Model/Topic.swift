@@ -9,7 +9,7 @@ import Foundation
 
 struct Topic: Identifiable {
     let id = UUID()
-    let subject: Subjects
+    let subject: Subject
     let grade: Grades
     let name: String
     let coreCompetence: String  // stands for Kompetensi Inti

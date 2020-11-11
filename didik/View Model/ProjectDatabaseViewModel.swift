@@ -58,7 +58,7 @@ class ProjectDatabaseViewModel: ObservableObject {
     }
     
     
-    func filterByGrades(grade: Grade) {
+    func filterByGrades(grade: Grades) {
         
         if grade == .allGrades {
             self.filteredProjects = self.filteredBySubjectsProjects.filter { (Projects) -> Bool in

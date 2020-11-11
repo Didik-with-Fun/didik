@@ -12,7 +12,7 @@ struct LihatSemuaView: View {
     let ProjectsLibrary: [Project]
     let currentTitle: String
     @State var searchText: String = ""
-    @State var selectedKelas: Grade = .allGrades
+    @State var selectedKelas: Grades = .allGrades
     @State var selectedMatpel: Subject = .allSubjects
     
     let height: CGFloat = 125

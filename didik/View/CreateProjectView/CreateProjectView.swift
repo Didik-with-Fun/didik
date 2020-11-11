@@ -10,11 +10,11 @@ import SwiftUI
 struct CreateProjectView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
-    @Binding var selectedSubject: Subjects
+    @Binding var selectedSubject: Subject
     @Binding var selectedGrade: Grades
     @State var contentNamaProyek: String = ""
     @State var showPopOver = false
-    @Binding var showPopOverContents: tooltips
+    @Binding var showPopOverContents: Tooltips
     
     let isDropdownSubjectOpen: Bool
     
