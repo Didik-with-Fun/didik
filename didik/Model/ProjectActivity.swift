@@ -11,4 +11,5 @@ struct ProjectActivity {
     let name: String
     let description: String
     let time: Int // time refer to range, not date time
+    
 }

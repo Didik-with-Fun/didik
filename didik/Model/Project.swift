@@ -25,5 +25,10 @@ struct Project: Identifiable {
     let likes: Int
     let createdDate: Double
     let updatedDate: Double
-
+    
+    func getTotalActivitiesDays() -> Int {
+        self.projectActivities.map { $0.time }.reduce(0, +)
+        
+    }
+    
 }

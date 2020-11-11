@@ -9,12 +9,15 @@ import SwiftUI
 
 
 struct OverviewDetailProjectView: View {
+    
+    let project: Project
+
     var body: some View {
         VStack {
-            IndicatorOverviewDetailProjectView()
-            TeacherOverviewDetailProjectView()
-            CompetenceOverviewDetailView()
-            LearningObjectiveOverviewDetailProjectView()
+            IndicatorOverviewDetailProjectView(project: project)
+            TeacherOverviewDetailProjectView(project: project)
+            CompetenceOverviewDetailView(project: project)
+            LearningObjectiveOverviewDetailProjectView(project: project)
         }
         .padding()
         
@@ -23,11 +26,15 @@ struct OverviewDetailProjectView: View {
 
 
 struct OverviewDetailProjectView_Previews: PreviewProvider {
+    
+    static var projectDatabaseVideModel = ProjectDatabaseViewModel()
+
     static var previews: some View {
-        OverviewDetailProjectView()
+        OverviewDetailProjectView(project: projectDatabaseVideModel.allProjects[0])
             .previewDevice("iPad (8th generation)")
 
     }
+
 }
 
 

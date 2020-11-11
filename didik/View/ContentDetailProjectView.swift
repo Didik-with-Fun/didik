@@ -17,7 +17,7 @@ struct ContentDetailProjectView: View {
         
         VStack {
             
-            Picker(selection: $selectedSegment, label: Text("What is your favorite color?")) {
+            Picker(selection: $selectedSegment, label: Text("")) {
                 Text("Overview").tag(0)
                 Text("Detail").tag(1)
                 Text("Discussion").tag(2)
@@ -25,13 +25,13 @@ struct ContentDetailProjectView: View {
             .pickerStyle(SegmentedPickerStyle())
             
             if (selectedSegment) == 1 {
-                DetailDetailProjectView()
+                DetailDetailProjectView(project: project)
             }
             else if (selectedSegment) == 2 {
-                DiscussionDetailProjectView()
+                DiscussionDetailProjectView(project: project)
             }
             else {
-                OverviewDetailProjectView()
+                OverviewDetailProjectView(project: project)
             }
             
             Spacer()

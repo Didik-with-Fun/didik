@@ -19,8 +19,10 @@ extension Image {
         static let MathematicPurple = Image("MathematicPurple")
         
         static let Love = Image("Love")
+        static let LoveRed = Image("LoveRed")
         static let Bookmark = Image("Bookmark")
         static let Share = Image("Share")
+        static let CalendarDays = Image("CalendarDays")
 
         static func generateRandomDefaultImage(subject: Subject) -> Image {
             var colorVariantDefaultImages = [Image] ()
