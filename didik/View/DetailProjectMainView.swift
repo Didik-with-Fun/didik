@@ -12,6 +12,8 @@ struct DetailProjectMainView: View {
     var parentGeometry: GeometryProxy
     let title: String
     
+    let project: Projects
+    
     var body: some View {
         
         ScrollView(.vertical)  {
