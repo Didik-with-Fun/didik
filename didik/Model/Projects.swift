@@ -6,12 +6,14 @@
 //
 
 import Foundation
+import Firebase
+import FirebaseFirestoreSwift
 
 struct Projects: Identifiable {
     let id = UUID()
     let name: String
     let summary: String
-    let subject: String
+    let subject: Subjects //String
     let grade: Grades
     let topic: Topic
     let goal: [String]
@@ -23,4 +25,5 @@ struct Projects: Identifiable {
     let likes: Int
     let createdDate: Double
     let updatedDate: Double
+
 }

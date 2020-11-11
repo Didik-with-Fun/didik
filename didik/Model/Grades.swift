@@ -7,7 +7,8 @@
 
 import Foundation
 
-enum Grades: Int {
+enum Grades: Int, CaseIterable {
+    case allGrades = 0
     case ten = 10
     case eleven = 11
     case twelve = 12

@@ -24,6 +24,7 @@ struct NavigationBarModifier: ViewModifier {
         UINavigationBar.appearance().compactAppearance = coloredAppearance
         UINavigationBar.appearance().scrollEdgeAppearance = coloredAppearance
         UINavigationBar.appearance().tintColor = titleColor ?? .white
+        UINavigationBar.appearance().isTranslucent = true
 
     }
     

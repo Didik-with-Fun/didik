@@ -1,38 +1,40 @@
 //
-//  JelajahMateriView.swift
+//  MateriSayaView.swift
 //  didik
 //
-//  Created by Fandrian Rhamadiansyah on 30/10/20.
+//  Created by Fandrian Rhamadiansyah on 09/11/20.
 //
 
 import SwiftUI
 
-struct JelajahMateriView: View {
+struct MateriSayaView: View {
     
     @EnvironmentObject var db: ProjectDatabaseViewModel
     
     @State var searchText: String = ""
-    @State var selectedGrade: Grades = .allGrades
-    @State var selectedSubject: Subjects = .allSubjects
+    @State var selectedKelas: Grades = .allGrades
+    @State var selectedMatpel: Subjects = .allSubjects
     
     var parentGeometry: GeometryProxy
 
-    
     var body: some View {
         NavigationView {
             VStack {
-                CustomNavigationBarView(filteredGrade: $selectedGrade, filteredSubject: $selectedSubject, searchText: $searchText, showDropDown: true)
+                CustomNavigationBarView(filteredGrade: $selectedKelas, filteredSubject: $selectedMatpel, searchText: $searchText, showDropDown: true)
                     .zIndex(2)
                 
-                //workaraund to make nav bar not expanding
-                HStack(spacing: 0) {
-                    Rectangle()
-                        .foregroundColor(.white)
-                        .frame(height: 1)
+                HStack{
+                    Spacer()
+                    NavigationLink(
+                        destination: CreateProjectView(selectedSubject: .constant(.Mathematic), isDropdownSubjectOpen: true),
+                        label: {
+                            BuatMateriButton()
+                        })
                 }
+                .padding()
 
                 if searchText != "" {
-                    List(db.filteredProjects.filter({ searchText.isEmpty ? true : $0.name.lowercased().contains(searchText.lowercased())
+                    List(db.myProjects.filter({ searchText.isEmpty ? true : $0.name.lowercased().contains(searchText.lowercased())
                     })) { project in
                         NavigationLink(
                             destination: DetailProjectMainView(parentGeometry: parentGeometry, title: project.name),
@@ -43,7 +45,7 @@ struct JelajahMateriView: View {
                 } else {
                     ScrollView(.vertical) {
                         VStack(spacing : 0) {
-                            ForEach(db.jelajahMateriGroup) {
+                            ForEach(db.myProjectsGroup) {
                                 index in
                                 MateriPreviewCollectionView(parentGeometry: parentGeometry, title: index.title, ProjectsLibrary: index.group)
 
@@ -54,8 +56,8 @@ struct JelajahMateriView: View {
                 }
                 
             }
+            .navigationBarTitle("Materi Saya", displayMode: .automatic)
             .navigationBarColor(backgroundColor: UIColor(Color.Didik.BluePrimary))
-            .navigationBarTitle("Jelajah Materi", displayMode: .automatic)
             .navigationBarItems(trailing: UserButton())
             
         }
@@ -66,13 +68,25 @@ struct JelajahMateriView: View {
     
 }
 
-struct JelajahMateriView_Previews: PreviewProvider {
+struct MateriSayaView_Previews: PreviewProvider {
     static var previews: some View {
         GeometryReader { geometry in
 
-            JelajahMateriView(parentGeometry: geometry)
-                .environmentObject(DummyModel())
-                .previewDevice("iPad (8th generation)")
+        MateriSayaView(parentGeometry: geometry)
+            .environmentObject(ProjectDatabaseViewModel())
+            .previewDevice("iPad (8th generation)")
         }
+    }
+}
+
+struct BuatMateriButton: View {
+    var body: some View {
+        Text("Buat Materi")
+            .font(.caption)
+            .foregroundColor(.white)
+            .bold()
+            .frame(width: 230, height: 39, alignment: .center)
+            .background(Color.Didik.BlueSecondary)
+            .cornerRadius(10)
     }
 }

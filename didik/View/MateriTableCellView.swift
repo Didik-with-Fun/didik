@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MateriTableCellView: View {
     
-    let materi: DummyMateri
+    let project: Projects
     let height: CGFloat
     let width: CGFloat
     @State var bookmarked: Bool
@@ -18,15 +18,15 @@ struct MateriTableCellView: View {
     var body: some View {
         HStack(alignment: .top, spacing: 20) {
             
-            MateriPreviewImageView(height: height, width: width, materi: materi)
+            MateriPreviewImageView(height: height, width: width, project: project)
             
             HStack {
                 VStack(alignment: .leading) {
                     HStack(alignment: .top) {
-                        Text(materi.title)
+                        Text(project.name)
                             .font(.title2)
                     }
-                    Text(materi.author)
+                    Text("materi.author")
                         .foregroundColor(.gray)
                         .font(.subheadline)
                 }
@@ -49,6 +49,6 @@ struct MateriTableCellView: View {
 
 struct MateriTableCellView_Previews: PreviewProvider {
     static var previews: some View {
-        MateriTableCellView(materi: placeholderMateri, height: 125, width: 230, bookmarked: placeholderMateri.bookmarked)
+        MateriTableCellView(project: placeholder, height: 125, width: 230, bookmarked: false)
     }
 }

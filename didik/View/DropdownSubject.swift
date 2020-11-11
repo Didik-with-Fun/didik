@@ -32,7 +32,7 @@ struct DropdownSubject: View {
                         .padding(.trailing, 10)
                 }
                 .foregroundColor(.white)
-                .background(Color(K.TabBarColor))
+                .background(Color.Didik.BluePrimary)
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)
                         .stroke(Color.white, lineWidth: 1)

@@ -12,11 +12,13 @@ import Firebase
 struct didikApp: App {
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    
+
     var body: some Scene {
         WindowGroup {
-            ContentView().environmentObject(SignInWithAppleCoordinator())
-//            HomeView().environmentObject(DummyModel())
+//            ContentView().environmentObject(SignInWithAppleCoordinator())
+            GeometryReader { geometry in
+                HomeView(parentGeometry: geometry).environmentObject(ProjectDatabaseViewModel())
+            }
         }
     }
 }

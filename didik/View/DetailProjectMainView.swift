@@ -14,21 +14,18 @@ struct DetailProjectMainView: View {
     
     var body: some View {
         
-        GeometryReader {geometry in
-            ScrollView(.vertical)  {
-                VStack {
-                    HeadDetailProjectView(parentGeometry: geometry)
-                        .padding()
-                    ContentDetailProjectView()
-                        .padding()
-                }
+        ScrollView(.vertical)  {
+            VStack {
+                HeadDetailProjectView(parentGeometry: parentGeometry)
+                    .padding()
+                ContentDetailProjectView()
+                    .padding()
             }
-            
         }
+            
         .navigationBarTitle(title, displayMode: .automatic)
         .navigationBarItems(trailing: UserButton())
-        .navigationBarColor(backgroundColor: UIColor(named: K.TabBarColor))
-        
+        .navigationBarColor(backgroundColor: UIColor(Color.Didik.BluePrimary))
     }
 }
 
