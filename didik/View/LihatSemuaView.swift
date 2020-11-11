@@ -20,19 +20,25 @@ struct LihatSemuaView: View {
     
     var body: some View {
         
-        VStack {
-            CustomNavigationBarView(filteredGrade: $selectedKelas, filteredSubject: $selectedMatpel, searchText: $searchText, showDropDown: true)
-            List(ProjectsLibrary.filter({ searchText.isEmpty ? true : $0.name.lowercased().contains(searchText.lowercased())
-            })) { project in
-                NavigationLink(
-                    destination: DetailProjectMainView(title: currentTitle),
-                    label: {
-                        MateriTableCellView(project: project, height: height, width: width, bookmarked: false)
-                    })
-                
-                
+            
+        GeometryReader { geometry in
+
+
+        	VStack {
+            	CustomNavigationBarView(filteredGrade: $selectedKelas, filteredSubject: $selectedMatpel, searchText: $searchText, showDropDown: true)
+            	List(ProjectsLibrary.filter({ searchText.isEmpty ? true : $0.name.lowercased().contains(searchText.lowercased())
+            	})) { project in
+                	NavigationLink(
+                        destination: DetailProjectMainView(parentGeometry: geometry, title: currentTitle),
+                    	label: {
+                        	MateriTableCellView(project: project, height: height, width: width, bookmarked: false)
+                    	})
+                }
             }
+
+
         }
+
         .navigationBarTitle(currentTitle, displayMode: .automatic)
         .navigationBarItems(trailing: UserButton())
         .navigationBarColor(backgroundColor: UIColor(Color.Didik.BluePrimary))

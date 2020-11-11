@@ -15,6 +15,8 @@ struct MateriSayaView: View {
     @State var selectedKelas: Grades = .allGrades
     @State var selectedMatpel: Subjects = .allSubjects
     
+    var parentGeometry: GeometryProxy
+
     var body: some View {
         NavigationView {
             VStack {
@@ -35,7 +37,7 @@ struct MateriSayaView: View {
                     List(db.myProjects.filter({ searchText.isEmpty ? true : $0.name.lowercased().contains(searchText.lowercased())
                     })) { project in
                         NavigationLink(
-                            destination: DetailProjectMainView(title: project.name),
+                            destination: DetailProjectMainView(parentGeometry: parentGeometry, title: project.name),
                             label: {
                                 MateriTableCellView(project: project, height: 125, width: 230, bookmarked: false)
                             })
@@ -45,7 +47,7 @@ struct MateriSayaView: View {
                         VStack(spacing : 0) {
                             ForEach(db.myProjectsGroup) {
                                 index in
-                                MateriPreviewCollectionView(title: index.title, ProjectsLibrary: index.group)
+                                MateriPreviewCollectionView(parentGeometry: parentGeometry, title: index.title, ProjectsLibrary: index.group)
 
                                 
                             }
@@ -68,9 +70,12 @@ struct MateriSayaView: View {
 
 struct MateriSayaView_Previews: PreviewProvider {
     static var previews: some View {
-        MateriSayaView()
+        GeometryReader { geometry in
+
+        MateriSayaView(parentGeometry: geometry)
             .environmentObject(ProjectDatabaseViewModel())
             .previewDevice("iPad (8th generation)")
+        }
     }
 }
 

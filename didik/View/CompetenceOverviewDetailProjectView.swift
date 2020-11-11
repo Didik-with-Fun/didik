@@ -19,11 +19,12 @@ struct CompetenceOverviewDetailView: View {
                 }
                 .padding()
                 
-                HStack {
+                HStack (alignment: .top){
                     Text("KD 3.1")
                     
                     Text("Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.")
-                        
+                        .fixedSize(horizontal: false, vertical: true)
+
                         .padding(.leading, 10)
                         
                         Spacer()
@@ -34,7 +35,8 @@ struct CompetenceOverviewDetailView: View {
                     Text("KD 3.2")
                     
                     Text("Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.")
-                        
+                        .fixedSize(horizontal: false, vertical: true)
+
                         .padding(.leading, 10)
                         
                         Spacer()

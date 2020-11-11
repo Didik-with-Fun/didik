@@ -30,6 +30,8 @@ struct IndicatorOverviewDetailProjectView: View {
             
             VStack {
                 Text("Peserta didik mampu mengkonstruksi pengetahuan dan mempunyai keterampilan menyelesaikan masalah nyata yang berkaitan dengan SPLTV.")
+                    .fixedSize(horizontal: false, vertical: true)
+                
             }
             .padding(.leading, 30)
             

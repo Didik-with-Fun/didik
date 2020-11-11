@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DiscussionDetailProjectView: View {
     var body: some View {
-        Text("Hello, World! 3")
+        Text("Coming Soon")
     }
 }
 
