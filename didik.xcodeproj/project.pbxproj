@@ -10,6 +10,8 @@
 		080899378584F667A3185EF5 /* Pods_didikTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 068E351037CFA45BE193C4B3 /* Pods_didikTests.framework */; };
 		0FEA6E76F419782DCC322574 /* Pods_didik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4A194F0898B34B628CC598B /* Pods_didik.framework */; };
 		750ABE612558E9A9002075F0 /* MateriPreviewImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750ABE602558E9A9002075F0 /* MateriPreviewImageView.swift */; };
+		750ABE66255941D6002075F0 /* MateriSayaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750ABE65255941D6002075F0 /* MateriSayaView.swift */; };
+		750ABEC6255A95DE002075F0 /* ProjectDatabaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750ABEC5255A95DE002075F0 /* ProjectDatabaseViewModel.swift */; };
 		751C70882553BCFD0072C1B5 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751C70872553BCFD0072C1B5 /* Constant.swift */; };
 		75352C3F254B41EF0039EC2D /* Extension+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75352C3E254B41EF0039EC2D /* Extension+Color.swift */; };
 		75352C4C254B44150039EC2D /* JelajahMateriView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75352C4B254B44150039EC2D /* JelajahMateriView.swift */; };
@@ -26,7 +28,7 @@
 		758081DC2552676000E50787 /* DummyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758081DB2552676000E50787 /* DummyModel.swift */; };
 		75BE5D242553F0BD00E8677E /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BE5D232553F0BD00E8677E /* NavigationBarModifier.swift */; };
 		75BE5D432554052C00E8677E /* UserButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BE5D422554052C00E8677E /* UserButton.swift */; };
-		75BE5D482554140A00E8677E /* CustomDropDownMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BE5D472554140A00E8677E /* CustomDropDownMenu.swift */; };
+		75BE5D482554140A00E8677E /* ProjectDropDownMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BE5D472554140A00E8677E /* ProjectDropDownMenu.swift */; };
 		7AF593AB5107C24ACEB32F7E /* Pods_didik_didikUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED113C53DD92EE14323DD71B /* Pods_didik_didikUITests.framework */; };
 		B76514E22552AF560041D6A3 /* CreateProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76514E12552AF560041D6A3 /* CreateProjectView.swift */; };
 		B7AB621E2546AB1F007E4895 /* didikApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB621D2546AB1F007E4895 /* didikApp.swift */; };
@@ -92,6 +94,8 @@
 		2BA93619EB3623EB4B968185 /* Pods-didik.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-didik.debug.xcconfig"; path = "Target Support Files/Pods-didik/Pods-didik.debug.xcconfig"; sourceTree = "<group>"; };
 		4E9867DA9E8F87E7128C4916 /* Pods-didikTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-didikTests.debug.xcconfig"; path = "Target Support Files/Pods-didikTests/Pods-didikTests.debug.xcconfig"; sourceTree = "<group>"; };
 		750ABE602558E9A9002075F0 /* MateriPreviewImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateriPreviewImageView.swift; sourceTree = "<group>"; };
+		750ABE65255941D6002075F0 /* MateriSayaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateriSayaView.swift; sourceTree = "<group>"; };
+		750ABEC5255A95DE002075F0 /* ProjectDatabaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDatabaseViewModel.swift; sourceTree = "<group>"; };
 		751C70872553BCFD0072C1B5 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		75352C3E254B41EF0039EC2D /* Extension+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Color.swift"; sourceTree = "<group>"; };
 		75352C4B254B44150039EC2D /* JelajahMateriView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JelajahMateriView.swift; sourceTree = "<group>"; };
@@ -108,7 +112,7 @@
 		758081DB2552676000E50787 /* DummyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyModel.swift; sourceTree = "<group>"; };
 		75BE5D232553F0BD00E8677E /* NavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
 		75BE5D422554052C00E8677E /* UserButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserButton.swift; sourceTree = "<group>"; };
-		75BE5D472554140A00E8677E /* CustomDropDownMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDropDownMenu.swift; sourceTree = "<group>"; };
+		75BE5D472554140A00E8677E /* ProjectDropDownMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDropDownMenu.swift; sourceTree = "<group>"; };
 		7B046211C7322662323E9A65 /* Pods-didik-didikUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-didik-didikUITests.release.xcconfig"; path = "Target Support Files/Pods-didik-didikUITests/Pods-didik-didikUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B02666D119B4C50E1D3F287C /* Pods-didikTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-didikTests.release.xcconfig"; path = "Target Support Files/Pods-didikTests/Pods-didikTests.release.xcconfig"; sourceTree = "<group>"; };
 		B76514E12552AF560041D6A3 /* CreateProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProjectView.swift; sourceTree = "<group>"; };
@@ -327,6 +331,7 @@
 			isa = PBXGroup;
 			children = (
 				BA3A773225534EA800975121 /* UserViewModel.swift */,
+				750ABEC5255A95DE002075F0 /* ProjectDatabaseViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -419,7 +424,7 @@
 			isa = PBXGroup;
 			children = (
 				7552696925516D2600D89FC5 /* SearchBarView.swift */,
-				75BE5D472554140A00E8677E /* CustomDropDownMenu.swift */,
+				75BE5D472554140A00E8677E /* ProjectDropDownMenu.swift */,
 				B7F9651325594A9E004F33B3 /* TooltipView.swift */,
 				B7F9649525586B82004F33B3 /* DropdownSubject.swift */,
 			);
@@ -435,6 +440,7 @@
 				755B2174254A806000B0A7E6 /* MateriPreviewView.swift */,
 				7556CBF22557DC50000539B0 /* MateriTableCellView.swift */,
 				750ABE602558E9A9002075F0 /* MateriPreviewImageView.swift */,
+				750ABE65255941D6002075F0 /* MateriSayaView.swift */,
 			);
 			name = Materi;
 			sourceTree = "<group>";
@@ -711,6 +717,7 @@
 				751C70882553BCFD0072C1B5 /* Constant.swift in Sources */,
 				B7F9650F25592F2E004F33B3 /* Tooltips.swift in Sources */,
 				75BE5D432554052C00E8677E /* UserButton.swift in Sources */,
+				750ABE66255941D6002075F0 /* MateriSayaView.swift in Sources */,
 				755B217F254AA95500B0A7E6 /* MateriPreviewCollectionView.swift in Sources */,
 				75352C3F254B41EF0039EC2D /* Extension+Color.swift in Sources */,
 				BAEC7313255527EF0069574F /* AuthState.swift in Sources */,
@@ -725,7 +732,7 @@
 				75BE5D242553F0BD00E8677E /* NavigationBarModifier.swift in Sources */,
 				7556CBF32557DC50000539B0 /* MateriTableCellView.swift in Sources */,
 				BA220D2F255A67C20075458E /* IndicatorOverviewDetailProjectView.swift in Sources */,
-				75BE5D482554140A00E8677E /* CustomDropDownMenu.swift in Sources */,
+				75BE5D482554140A00E8677E /* ProjectDropDownMenu.swift in Sources */,
 				75352C5B254C45070039EC2D /* LihatSemuaView.swift in Sources */,
 				7552696A25516D2600D89FC5 /* SearchBarView.swift in Sources */,
 				75352C4C254B44150039EC2D /* JelajahMateriView.swift in Sources */,
@@ -747,6 +754,7 @@
 				B7AB621E2546AB1F007E4895 /* didikApp.swift in Sources */,
 				BABCC17F25585333005FCC7B /* DetailProjectMainView.swift in Sources */,
 				75352C51254B4F840039EC2D /* CustomNavigationBarView.swift in Sources */,
+				750ABEC6255A95DE002075F0 /* ProjectDatabaseViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

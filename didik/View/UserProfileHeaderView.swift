@@ -11,7 +11,7 @@ struct UserProfileHeaderView: View {
     
     var fullName: String?
 
-    let gradient = Gradient(colors: [Color(K.TabBarColor), .white])
+    let gradient = Gradient(colors: [Color.Didik.BluePrimary, .white])
 
     var body: some View {
         VStack {
@@ -50,7 +50,7 @@ struct UserProfileHeaderView: View {
             }
                    
         }
-        .background(Color(K.TabBarColor))
+        .background(Color.Didik.BluePrimary)
         .navigationBarColor(backgroundColor: .clear,
                             titleColor: UIColor.white)
 

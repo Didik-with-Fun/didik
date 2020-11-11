@@ -11,11 +11,11 @@ struct MateriPreviewImageView: View {
     let height: CGFloat
     let width: CGFloat
     
-    let materi: DummyMateri
+    let project: Projects
     
     var body: some View {
         ZStack {
-            Image(systemName: materi.imageName)
+            Image(project.images[0])
                 .resizable()
                 .scaledToFill()
                 .foregroundColor(.black)
@@ -32,9 +32,9 @@ struct MateriPreviewImageView: View {
                             .cornerRadius(6)
                         VStack(spacing: 2) {
                             
-                            Image(systemName: materi.liked ? "heart.fill" : "heart")
-                                .foregroundColor(materi.liked ? .red : .black)
-                            Text("\(materi.likes)")
+                            Image(systemName: project.likes % 2 == 0 ? "heart.fill" : "heart")
+                                .foregroundColor(project.likes % 2 == 0 ? .red : .black)
+                            Text("\(project.likes)")
                                 .font(.system(size: 13, weight: .regular, design: .default))
                                 .foregroundColor(.black)
                             
@@ -55,7 +55,7 @@ struct MateriPreviewImageView: View {
                                 Image(K.calendarIcon)
                                     .resizable()
                                     .frame(width : 22.5, height: 25)
-                                Text("\(materi.duration)")
+                                Text("\(project.projectActivities[0].time)")
                                     .font(.system(size: 13, weight: .regular, design: .default))
                                     .foregroundColor(.black)
                                     .padding(.top, 5)
@@ -85,6 +85,6 @@ struct MateriPreviewImageView: View {
 
 struct MateriPreviewImageView_Previews: PreviewProvider {
     static var previews: some View {
-        MateriPreviewImageView(height: 126, width: 230, materi: placeholderMateri)
+        MateriPreviewImageView(height: 126, width: 230, project: placeholder)
     }
 }

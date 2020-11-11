@@ -7,29 +7,30 @@
 
 import SwiftUI
 
-struct CustomDropDownMenu : View {
+struct ProjectDropDownMenu : View {
     
-    @EnvironmentObject var db: DummyModel
+    @EnvironmentObject var db: ProjectDatabaseViewModel
     
-    let optionKelas: [Kelas] = Kelas.allCases
-    let optionMatpel: [Matpel] = Matpel.allCases
+    let optionGrades: [Grades] = Grades.allCases
+    let optionSubjects: [Subjects] = Subjects.allCases
     
-    @State var isShowedKelas: Bool = false
-    @State var isShowedMatpel: Bool = false
-    @Binding var selectedKelas: Kelas
-    @Binding var selectedMatpel: Matpel
+    @State var showGradesDropDown: Bool = false
+    @State var showSubjectsDropDown: Bool = false
+    @Binding var selectedGrade: Grades
+    @Binding var selectedSubject: Subjects
     
     let width: CGFloat
     
     var body: some View {
+//        Text("AA")
         HStack(spacing: 10) {
             // first drop down
             VStack {
                 Button(action: {
-                    self.isShowedKelas.toggle()
+                    self.showGradesDropDown.toggle()
                 }) {
                     HStack(spacing : 10) {
-                        Text(selectedKelas.rawValue)
+                        Text("\(selectedGrade.rawValue)")
                             .frame(width: width * 0.85, alignment: .center)
                             .padding(.vertical, 8)
                             .padding(.leading, 10)
@@ -40,20 +41,20 @@ struct CustomDropDownMenu : View {
                     }
                 }
                 .foregroundColor(.white)
-                .background(Color(K.TabBarColor))
+                .background(Color.Didik.BluePrimary)
                 .overlay(
                     VStack{
-                        if isShowedKelas {
+                        if showGradesDropDown {
                             VStack {
-                                ForEach(0..<self.optionKelas.count) {
+                                ForEach(0..<self.optionGrades.count) {
                                     index in
                                     Button(action: {
-                                        self.isShowedKelas.toggle()
-                                        self.selectedKelas = optionKelas[index]
-                                        self.db.filterKelas(kelas: self.selectedKelas)
-                                        self.db.updateMateriGroup()
+                                        self.showGradesDropDown.toggle()
+                                        self.selectedGrade = optionGrades[index]
+                                        self.db.filterGrades(grade: self.selectedGrade)
+                                        self.db.updateProjectsGroup()
                                     }) {
-                                        Text(optionKelas[index].rawValue)
+                                        Text("\(optionGrades[index].rawValue)")
                                             .foregroundColor(.black)
                                             .font(.system(size: 17, weight: .bold, design: .default))
                                             .padding(.vertical, 10)
@@ -67,21 +68,21 @@ struct CustomDropDownMenu : View {
                         }
                     }, alignment: .topLeading
                 )
-                
+
             }
             .overlay(
                 RoundedRectangle(cornerRadius: 10)
                     .stroke(Color.white, lineWidth: 1)
             )
             .padding(.vertical, 10)
-            
+
             //second drop down
             VStack {
                 Button(action: {
-                    self.isShowedMatpel.toggle()
+                    self.showSubjectsDropDown.toggle()
                 }) {
                     HStack(spacing : 10) {
-                        Text(selectedMatpel.rawValue)
+                        Text(selectedSubject.rawValue)
                             .frame(width: width * 0.85, alignment: .center)
                             .padding(.vertical, 8)
                             .padding(.leading, 10)
@@ -92,20 +93,20 @@ struct CustomDropDownMenu : View {
                     }
                 }
                 .foregroundColor(.white)
-                .background(Color(K.TabBarColor))
+                .background(Color.Didik.BluePrimary)
                 .overlay(
                     VStack{
-                        if isShowedMatpel {
+                        if showSubjectsDropDown {
                             VStack {
-                                ForEach(0..<self.optionMatpel.count) {
+                                ForEach(0..<self.optionSubjects.count) {
                                     index in
                                     Button(action: {
-                                        self.isShowedMatpel.toggle()
-                                        self.selectedMatpel = optionMatpel[index]
-                                        self.db.filterMatpel(matpel: self.selectedMatpel)
-                                        self.db.updateMateriGroup()
+                                        self.showSubjectsDropDown.toggle()
+                                        self.selectedSubject = optionSubjects[index]
+                                        self.db.filterSubjects(subject: self.selectedSubject)
+                                        self.db.updateProjectsGroup()
                                     }) {
-                                        Text(optionMatpel[index].rawValue)
+                                        Text(optionSubjects[index].rawValue)
                                             .foregroundColor(.black)
                                             .font(.system(size: 17, weight: .bold, design: .default))
                                             .padding(.vertical, 10)
@@ -119,7 +120,7 @@ struct CustomDropDownMenu : View {
                         }
                     }, alignment: .topLeading
                 )
-                
+
             }
             .overlay(
                 RoundedRectangle(cornerRadius: 10)
@@ -133,6 +134,6 @@ struct CustomDropDownMenu : View {
 
 struct CustomDropDownMenu_Previews: PreviewProvider {
     static var previews: some View {
-        CustomDropDownMenu(selectedKelas: .constant(.X), selectedMatpel: .constant(.Fisika), width: 130)
+        ProjectDropDownMenu(selectedGrade: .constant(.ten), selectedSubject: .constant(.Physic), width: 130)
     }
 }

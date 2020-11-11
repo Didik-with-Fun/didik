@@ -37,6 +37,15 @@ struct DropdownSubject: View {
                 .background(Color.Didik.GreyMedium)
                 .padding(.vertical, 0)
                 .cornerRadius(15)
+                /*
+                .foregroundColor(.white)
+                .background(Color.Didik.BluePrimary)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color.white, lineWidth: 1)
+                )
+                .padding(.vertical, 10)
+                */
                 .overlay(
                     VStack{
                         if isDropdownShowed {
