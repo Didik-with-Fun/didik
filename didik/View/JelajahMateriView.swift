@@ -71,7 +71,7 @@ struct JelajahMateriView_Previews: PreviewProvider {
         GeometryReader { geometry in
 
             JelajahMateriView(parentGeometry: geometry)
-                .environmentObject(DummyModel())
+                .environmentObject(ProjectDatabaseViewModel())
                 .previewDevice("iPad (8th generation)")
         }
     }
