@@ -10,7 +10,7 @@ import SwiftUI
 struct CreateProjectView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
-    @Binding var selectedSubject: Subjects
+    @Binding var selectedSubject: Subject
     let isDropdownSubjectOpen: Bool
     
     var body: some View {

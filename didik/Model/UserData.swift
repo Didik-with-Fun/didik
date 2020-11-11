@@ -1,5 +1,5 @@
 //
-//  User.swift
+//  UserData.swift
 //  didik
 //
 //  Created by Edwin Sendjaja on 11/5/20.

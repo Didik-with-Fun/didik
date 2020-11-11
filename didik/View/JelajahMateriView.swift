@@ -12,8 +12,8 @@ struct JelajahMateriView: View {
     @EnvironmentObject var db: ProjectDatabaseViewModel
     
     @State var searchText: String = ""
-    @State var selectedGrade: Grades = .allGrades
-    @State var selectedSubject: Subjects = .allSubjects
+    @State var selectedGrade: Grade = .allGrades
+    @State var selectedSubject: Subject = .allSubjects
     
     var parentGeometry: GeometryProxy
 

@@ -12,8 +12,8 @@ struct MateriSayaView: View {
     @EnvironmentObject var db: ProjectDatabaseViewModel
     
     @State var searchText: String = ""
-    @State var selectedKelas: Grades = .allGrades
-    @State var selectedMatpel: Subjects = .allSubjects
+    @State var selectedKelas: Grade = .allGrades
+    @State var selectedMatpel: Subject = .allSubjects
     
     var parentGeometry: GeometryProxy
 

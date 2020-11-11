@@ -1,5 +1,5 @@
 //
-//  Subjects.swift
+//  Subject.swift
 //  didik
 //
 //  Created by Haddawi on 06/11/20.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Subjects: String, CaseIterable {
+enum Subject: String, CaseIterable {
     case allSubjects = "Semua Subjek"
     case Mathematic = "Matematika"
     case Physic = "Fisika"

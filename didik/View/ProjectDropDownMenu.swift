@@ -11,13 +11,13 @@ struct ProjectDropDownMenu : View {
     
     @EnvironmentObject var db: ProjectDatabaseViewModel
     
-    let optionGrades: [Grades] = Grades.allCases
-    let optionSubjects: [Subjects] = Subjects.allCases
+    let optionGrades: [Grade] = Grade.allCases
+    let optionSubjects: [Subject] = Subject.allCases
     
     @State var showGradesDropDown: Bool = false
     @State var showSubjectsDropDown: Bool = false
-    @Binding var selectedGrade: Grades
-    @Binding var selectedSubject: Subjects
+    @Binding var selectedGrade: Grade
+    @Binding var selectedSubject: Subject
     
     let width: CGFloat
     
@@ -51,7 +51,7 @@ struct ProjectDropDownMenu : View {
                                     Button(action: {
                                         self.showGradesDropDown.toggle()
                                         self.selectedGrade = optionGrades[index]
-                                        self.db.filterGrades(grade: self.selectedGrade)
+                                        self.db.filterByGrades(grade: self.selectedGrade)
                                         self.db.updateProjectsGroup()
                                     }) {
                                         Text("\(optionGrades[index].rawValue)")
@@ -103,7 +103,7 @@ struct ProjectDropDownMenu : View {
                                     Button(action: {
                                         self.showSubjectsDropDown.toggle()
                                         self.selectedSubject = optionSubjects[index]
-                                        self.db.filterSubjects(subject: self.selectedSubject)
+                                        self.db.filterBySubjects(subject: self.selectedSubject)
                                         self.db.updateProjectsGroup()
                                     }) {
                                         Text(optionSubjects[index].rawValue)
