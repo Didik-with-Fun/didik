@@ -45,7 +45,6 @@ struct CompetenceOverviewDetailView: View {
                 
             }
             
-            
             Spacer()
         }
     }

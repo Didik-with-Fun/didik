@@ -149,7 +149,7 @@ extension ProjectDatabaseViewModel {
                           notes: "Oke aja",
                           comments: [Comment.init(comment: "bego lu", authorID: "Atun", createdDate: Date())],
                           likes: 230,
-                          createdDate: 01.1,
+                          createdDate: 1415637900,
                           updatedDate: 232.2)
         
         let p2 = Project(name: "Membuktikan Pythagoras dengan Tusuk Sate",

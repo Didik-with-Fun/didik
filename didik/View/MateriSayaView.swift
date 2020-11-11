@@ -37,7 +37,7 @@ struct MateriSayaView: View {
                     List(db.myProjects.filter({ searchText.isEmpty ? true : $0.name.lowercased().contains(searchText.lowercased())
                     })) { project in
                         NavigationLink(
-                            destination: DetailProjectMainView(parentGeometry: parentGeometry, title: project.name),
+                            destination: DetailProjectMainView(project: project, parentGeometry: parentGeometry, title: project.name),
                             label: {
                                 MateriTableCellView(project: project, height: 125, width: 230, bookmarked: false)
                             })

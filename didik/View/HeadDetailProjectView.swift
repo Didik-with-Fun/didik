@@ -8,22 +8,26 @@
 import SwiftUI
 
 struct HeadDetailProjectView: View {
+    
+    let project: Project
     var parentGeometry: GeometryProxy
     
     var body: some View {
         VStack {
-            SlideshowHeadDetailProjectView(parentGeometry: parentGeometry)
-            ButtonsDetailProjectView()
+            SlideshowHeadDetailProjectView(project: project, parentGeometry: parentGeometry)
+            ButtonsDetailProjectView(project: project)
         }
         
     }
 }
 
 struct HeadDetailProjectView_Previews: PreviewProvider {
+    static var projectDatabaseVideModel = ProjectDatabaseViewModel()
+
     static var previews: some View {
         
         GeometryReader { geometry in
-            HeadDetailProjectView(parentGeometry: geometry)
+            HeadDetailProjectView(project: projectDatabaseVideModel.allProjects[0], parentGeometry: geometry)
                 .previewDevice("iPad (8th generation)")
         }
         

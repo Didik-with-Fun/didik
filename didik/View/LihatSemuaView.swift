@@ -29,7 +29,7 @@ struct LihatSemuaView: View {
             	List(ProjectsLibrary.filter({ searchText.isEmpty ? true : $0.name.lowercased().contains(searchText.lowercased())
             	})) { project in
                 	NavigationLink(
-                        destination: DetailProjectMainView(parentGeometry: geometry, title: currentTitle),
+                        destination: DetailProjectMainView(project: project, parentGeometry: geometry, title: currentTitle),
                     	label: {
                         	MateriTableCellView(project: project, height: height, width: width, bookmarked: false)
                     	})

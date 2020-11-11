@@ -57,6 +57,8 @@
 		BA3A773325534EA800975121 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3A773225534EA800975121 /* UserViewModel.swift */; };
 		BA43E6E22558876C00754F06 /* ContentDetailProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA43E6E12558876C00754F06 /* ContentDetailProjectView.swift */; };
 		BA4F58B6255718CE00C87028 /* UserProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4F58B5255718CE00C87028 /* UserProfileHeaderView.swift */; };
+		BA67F6F0255C4278000A0B26 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA67F6EF255C4278000A0B26 /* DateUtil.swift */; };
+		BA67F6F5255C4D99000A0B26 /* Extension+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA67F6F4255C4D99000A0B26 /* Extension+Image.swift */; };
 		BA8CF5D625511BCC0057B9B8 /* SignInWithAppleCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8CF5D525511BCC0057B9B8 /* SignInWithAppleCoordinator.swift */; };
 		BA90EB3C2552B18300C6DFFD /* AuthenticationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA90EB3B2552B18300C6DFFD /* AuthenticationUtil.swift */; };
 		BA94301A2550894900283FB3 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9430192550894900283FB3 /* SignInView.swift */; };
@@ -151,6 +153,8 @@
 		BA3A773225534EA800975121 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		BA43E6E12558876C00754F06 /* ContentDetailProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDetailProjectView.swift; sourceTree = "<group>"; };
 		BA4F58B5255718CE00C87028 /* UserProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileHeaderView.swift; sourceTree = "<group>"; };
+		BA67F6EF255C4278000A0B26 /* DateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
+		BA67F6F4255C4D99000A0B26 /* Extension+Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Image.swift"; sourceTree = "<group>"; };
 		BA8CF5D525511BCC0057B9B8 /* SignInWithAppleCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleCoordinator.swift; sourceTree = "<group>"; };
 		BA90EB3B2552B18300C6DFFD /* AuthenticationUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationUtil.swift; sourceTree = "<group>"; };
 		BA9430192550894900283FB3 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
@@ -329,6 +333,7 @@
 				75352C3E254B41EF0039EC2D /* Extension+Color.swift */,
 				758081DB2552676000E50787 /* DummyModel.swift */,
 				B7F9650E25592F2E004F33B3 /* Tooltip.swift */,
+				BA67F6F4255C4D99000A0B26 /* Extension+Image.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -366,6 +371,7 @@
 			children = (
 				751C70872553BCFD0072C1B5 /* Constant.swift */,
 				BA90EB3B2552B18300C6DFFD /* AuthenticationUtil.swift */,
+				BA67F6EF255C4278000A0B26 /* DateUtil.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -712,6 +718,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA8CF5D625511BCC0057B9B8 /* SignInWithAppleCoordinator.swift in Sources */,
+				BA67F6F0255C4278000A0B26 /* DateUtil.swift in Sources */,
 				BAF3188C25554DDB00E188B8 /* UserProfileView.swift in Sources */,
 				BABCC1D625586891005FCC7B /* HeadDetailProjectView.swift in Sources */,
 				BABCC1CE25586862005FCC7B /* SlideshowHeadDetailProjectView.swift in Sources */,
@@ -744,6 +751,7 @@
 				7556CBF32557DC50000539B0 /* MateriTableCellView.swift in Sources */,
 				BA220D2F255A67C20075458E /* IndicatorOverviewDetailProjectView.swift in Sources */,
 				75BE5D482554140A00E8677E /* ProjectDropDownMenu.swift in Sources */,
+				BA67F6F5255C4D99000A0B26 /* Extension+Image.swift in Sources */,
 				BA220D77255AA6AF0075458E /* NoteForStudentDetailDetailProjectView.swift in Sources */,
 				75BE5D482554140A00E8677E /* ProjectDropDownMenu.swift in Sources */,
 				75352C5B254C45070039EC2D /* LihatSemuaView.swift in Sources */,

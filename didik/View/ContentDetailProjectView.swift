@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ContentDetailProjectView: View {
+    
+    let project: Project
+
     @State private var selectedSegment = 0
 
     var body: some View {
@@ -37,9 +40,12 @@ struct ContentDetailProjectView: View {
     }
 }
 struct ContentDetailProjectView_Previews: PreviewProvider {
+    
+    static var projectDatabaseVideModel = ProjectDatabaseViewModel()
+
     static var previews: some View {
         NavigationView {
-            ContentDetailProjectView()
+            ContentDetailProjectView(project: projectDatabaseVideModel.allProjects[0])
                 .previewDevice("iPad (8th generation)")
         }.navigationViewStyle(StackNavigationViewStyle())
     }
