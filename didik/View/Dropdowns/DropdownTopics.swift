@@ -1,18 +1,18 @@
 //
-//  DropdownSubject.swift
+//  DropdownTopics.swift
 //  didik
 //
-//  Created by Haddawi on 09/11/20.
+//  Created by Haddawi on 11/11/20.
 //
 
 import Foundation
 import SwiftUI
 
-struct DropdownSubject: View {
-    let contents: [Subject] = Subject.allCases
+struct DropdownTopics: View {
+    let contents: [Topic] = topicList
     
     @State var isDropdownShowed: Bool = false
-    @Binding var selected: Subject
+    @Binding var selected: Topic
     
     let width: CGFloat
     
@@ -22,7 +22,7 @@ struct DropdownSubject: View {
                 self.isDropdownShowed.toggle()
             }) {
                 HStack (spacing: 10) {
-                    Text(selected.rawValue)
+                    Text(selected.name)
                         .frame(width: width * 0.85, alignment: .center)
                         .foregroundColor(.black)
                         .padding(.vertical, 15)
@@ -37,15 +37,6 @@ struct DropdownSubject: View {
                 .background(Color.Didik.GreyMedium)
                 .padding(.vertical, 0)
                 .cornerRadius(15)
-                /*
-                .foregroundColor(.white)
-                .background(Color.Didik.BluePrimary)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color.white, lineWidth: 1)
-                )
-                .padding(.vertical, 10)
-                */
                 .overlay(
                     VStack{
                         if isDropdownShowed {
@@ -54,10 +45,10 @@ struct DropdownSubject: View {
                                     index in
                                     Button(action: {
                                         self.isDropdownShowed.toggle()
-                                        self.selected = contents[index]
+                                        //self.selected = contents[index]
                                         // store subject pick and prepare POST
                                     }) {
-                                        Text(contents[index].rawValue)
+                                        Text(contents[index].name)
                                             .foregroundColor(.black)
                                             .font(.system(size: 17, weight: .bold, design: .default))
                                             .padding(.vertical, 10)
@@ -76,8 +67,8 @@ struct DropdownSubject: View {
     }
 }
 
-struct DropdownSubjectPreviews: PreviewProvider {
+struct DropdownTopicsPreview: PreviewProvider {
     static var previews: some View {
-        DropdownSubject(selected: .constant(.Mathematic), width: 130)
+        DropdownTopics(isDropdownShowed: false, selected: .constant(topicList[1]), width: 755)
     }
 }

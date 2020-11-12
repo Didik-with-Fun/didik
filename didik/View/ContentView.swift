@@ -13,8 +13,11 @@ struct ContentView: View {
     
     var body: some View {
         GeometryReader { geometry in
-
-            ZStack{
+            ZStack {
+                // MARK: - Development Use
+                // Uncomment code this line to faster the development debug
+                // HomeView().environmentObject(DummyModel())
+                
                 if signInCoordinator.isUserAuthenticated == .signedIn {
                     HomeView(parentGeometry: geometry)
                         .environmentObject(ProjectDatabaseViewModel())
