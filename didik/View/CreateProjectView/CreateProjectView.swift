@@ -10,6 +10,19 @@ import SwiftUI
 struct CreateProjectView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
+    // MARK: - State Variable for Data Storing
+    /*
+    @State var contentProjectName: String = ""
+    @State var contentSubject: Subject
+    @State var contentGrade: Grades
+    @State var contentTopic: Topic
+    @State var contentDescriptions: String
+    @State var contentGoals: String
+    @State var contentMedia: [String]
+    @State var contentActivities: [ProjectActivity]
+    @State var contentNotes: String
+    */
+    
     @State var selectedSubject: Subject
     @State var selectedGrade: Grades
     @State var contentNamaProyek: String = ""
