@@ -10,9 +10,10 @@ import SwiftUI
 struct ContentDetailProjectView: View {
     
     let project: Project
-
+    var parentGeometry: GeometryProxy
+    
     @State private var selectedSegment = 0
-
+    
     var body: some View {
         
         VStack {
@@ -25,13 +26,13 @@ struct ContentDetailProjectView: View {
             .pickerStyle(SegmentedPickerStyle())
             
             if (selectedSegment) == 1 {
-                DetailDetailProjectView(project: project)
+                DetailDetailProjectView(project: project, parentGeometry: parentGeometry)
             }
             else if (selectedSegment) == 2 {
                 DiscussionDetailProjectView(project: project)
             }
             else {
-                OverviewDetailProjectView(project: project)
+                OverviewDetailProjectView(project: project, parentGeometry: parentGeometry)
             }
             
             Spacer()
@@ -42,11 +43,13 @@ struct ContentDetailProjectView: View {
 struct ContentDetailProjectView_Previews: PreviewProvider {
     
     static var projectDatabaseVideModel = ProjectDatabaseViewModel()
-
+    
     static var previews: some View {
-        NavigationView {
-            ContentDetailProjectView(project: projectDatabaseVideModel.allProjects[0])
+        GeometryReader { geometry in
+            ContentDetailProjectView(project: projectDatabaseVideModel.allProjects[0], parentGeometry: geometry)
                 .previewDevice("iPad (8th generation)")
-        }.navigationViewStyle(StackNavigationViewStyle())
+        }
+          
     }
+    
 }

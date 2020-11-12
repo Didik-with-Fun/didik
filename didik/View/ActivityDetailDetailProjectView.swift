@@ -10,6 +10,7 @@ import SwiftUI
 struct ActivityDetailDetailProjectView: View {
     
     let project: Project
+    var parentGeometry: GeometryProxy
 
     var body: some View {
         HStack {
@@ -28,13 +29,14 @@ struct ActivityDetailDetailProjectView: View {
                     HStack (alignment: .top){
                         
                         Text("\(index+1).")
+                            .font(.system(size: 24))
 
                         VStack (alignment: .leading) {
                             Text("\(project.projectActivities[index].name)" )
                                 .font(.system(size: 24))
                                 .fixedSize(horizontal: false, vertical: true)
                                 .padding(.leading, 10)
-                                .padding(.bottom, 10)
+                                .padding(.bottom, 2)
                             Text("\(project.projectActivities[index].description)" )
                                 .font(.system(size: 18))
                                 .fixedSize(horizontal: false, vertical: true)
@@ -52,6 +54,7 @@ struct ActivityDetailDetailProjectView: View {
                         
             Spacer()
         }
+        .padding()
     }
 }
 
@@ -60,8 +63,11 @@ struct ActivityDetailDetailProjectView_Previews: PreviewProvider {
     static var projectDatabaseVideModel = ProjectDatabaseViewModel()
 
     static var previews: some View {
-        ActivityDetailDetailProjectView(project: projectDatabaseVideModel.allProjects[0])
-            .previewDevice("iPad (8th generation)")
+        
+        GeometryReader { geometry in
+            ActivityDetailDetailProjectView(project: projectDatabaseVideModel.allProjects[0], parentGeometry: geometry)
+                .previewDevice("iPad (8th generation)")
+        }
 
     }
 }

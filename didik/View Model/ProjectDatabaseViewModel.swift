@@ -142,7 +142,7 @@ extension ProjectDatabaseViewModel {
                           subject: .Mathematic,
                           grade: .ten,
                           topic: .init(subject: .Mathematic, grade: .ten, name: "Trigonometri", coreCompetence: "Memahami trigonometri", basicCompetence: ["Bisa menggunakan phytagoras"]),
-                          goal: ["Paham caranya", "Bisa ngitungnya"],
+                          goal: "Setelah Anda mempelajari bahan belajar ini diharapkan Anda mampu:  1.    Menjelaskan pengertian SPLTV  2.    Menjelaskan bentuk umum SPLTV  3.    Menentukan Himpunan Penyelesaian (HP) SPLTV  4.    Menyelesaikan masalah nyata yang berkaitan dengan SPLTV",
                           images: ["MathematicBlue"],
                           projectStatus: .Published,
                           projectActivities: [ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1),
@@ -158,7 +158,7 @@ extension ProjectDatabaseViewModel {
                           subject: .Mathematic,
                           grade: .eleven,
                           topic: .init(subject: .Mathematic, grade: .eleven, name: "Trigonometri", coreCompetence: "Memahami trigonometri", basicCompetence: ["Bisa menggunakan phytagoras"]),
-                          goal: ["Paham caranya", "Bisa ngitungnya"],
+                          goal: "Setelah Anda mempelajari bahan belajar ini diharapkan Anda mampu:  1.    Menjelaskan pengertian SPLTV  2.    Menjelaskan bentuk umum SPLTV  3.    Menentukan Himpunan Penyelesaian (HP) SPLTV  4.    Menyelesaikan masalah nyata yang berkaitan dengan SPLTV",
                           images: ["MathematicBlue"],
                           projectStatus: .Published,
                           projectActivities: [ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 2),
@@ -174,7 +174,7 @@ extension ProjectDatabaseViewModel {
                           subject: .Mathematic,
                           grade: .eleven,
                           topic: .init(subject: .Mathematic, grade: .eleven, name: "Kalkulus", coreCompetence: "Memahami kalkulus", basicCompetence: ["Bisa menggunakan phytagoras"]),
-                          goal: ["Paham caranya", "Bisa ngitungnya"],
+                          goal: "Setelah Anda mempelajari bahan belajar ini diharapkan Anda mampu:  1.    Menjelaskan pengertian SPLTV  2.    Menjelaskan bentuk umum SPLTV  3.    Menentukan Himpunan Penyelesaian (HP) SPLTV  4.    Menyelesaikan masalah nyata yang berkaitan dengan SPLTV",
                           images: ["MathematicDarkBlue"],
                           projectStatus: .Published,
                           projectActivities: [ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1),
@@ -190,7 +190,7 @@ extension ProjectDatabaseViewModel {
                           subject: .Physic,
                           grade: .eleven,
                           topic: .init(subject: .Physic, grade: .eleven, name: "Tekanan", coreCompetence: "Memahami tekanan", basicCompetence: ["Bisa menggunakan phytagoras"]),
-                          goal: ["Paham caranya", "Bisa ngitungnya"],
+                          goal: "Setelah Anda mempelajari bahan belajar ini diharapkan Anda mampu:  1.    Menjelaskan pengertian SPLTV  2.    Menjelaskan bentuk umum SPLTV  3.    Menentukan Himpunan Penyelesaian (HP) SPLTV  4.    Menyelesaikan masalah nyata yang berkaitan dengan SPLTV",
                           images: ["MathematicGreen"],
                           projectStatus: .Published,
                           projectActivities: [ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1),
@@ -206,7 +206,7 @@ extension ProjectDatabaseViewModel {
                           subject: .Chemist,
                           grade: .twelve,
                           topic: .init(subject: .Chemist, grade: .twelve, name: "Minyak", coreCompetence: "Memahami trigonometri", basicCompetence: ["Bisa menggunakan phytagoras"]),
-                          goal: ["Paham caranya", "Bisa ngitungnya"],
+                          goal: "Setelah Anda mempelajari bahan belajar ini diharapkan Anda mampu:  1.    Menjelaskan pengertian SPLTV  2.    Menjelaskan bentuk umum SPLTV  3.    Menentukan Himpunan Penyelesaian (HP) SPLTV  4.    Menyelesaikan masalah nyata yang berkaitan dengan SPLTV",
                           images: ["MathematicOrange"],
                           projectStatus: .Published,
                           projectActivities: [ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1),
@@ -222,7 +222,7 @@ extension ProjectDatabaseViewModel {
                           subject: .Physic,
                           grade: .twelve,
                           topic: .init(subject: .Physic, grade: .twelve, name: "Tekanan", coreCompetence: "Memahami trigonometri", basicCompetence: ["Bisa menggunakan phytagoras"]),
-                          goal: ["Paham caranya", "Bisa ngitungnya"],
+                          goal: "Setelah Anda mempelajari bahan belajar ini diharapkan Anda mampu:  1.    Menjelaskan pengertian SPLTV  2.    Menjelaskan bentuk umum SPLTV  3.    Menentukan Himpunan Penyelesaian (HP) SPLTV  4.    Menyelesaikan masalah nyata yang berkaitan dengan SPLTV",
                           images: ["MathematicGreen"],
                           projectStatus: .Published,
                           projectActivities: [ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1),
@@ -238,7 +238,7 @@ extension ProjectDatabaseViewModel {
                           subject: .Physic,
                           grade: .twelve,
                           topic: .init(subject: .Physic, grade: .twelve, name: "Tekanan", coreCompetence: "Memahami trigonometri", basicCompetence: ["Bisa menggunakan phytagoras"]),
-                          goal: ["Paham caranya", "Bisa ngitungnya"],
+                          goal: "Setelah Anda mempelajari bahan belajar ini diharapkan Anda mampu:  1.    Menjelaskan pengertian SPLTV  2.    Menjelaskan bentuk umum SPLTV  3.    Menentukan Himpunan Penyelesaian (HP) SPLTV  4.    Menyelesaikan masalah nyata yang berkaitan dengan SPLTV",
                           images: ["MathematicGreen"],
                           projectStatus: .Published,
                           projectActivities: [ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1),
@@ -254,7 +254,7 @@ extension ProjectDatabaseViewModel {
                           subject: .Physic,
                           grade: .ten,
                           topic: .init(subject: .Physic, grade: .ten, name: "Magnet", coreCompetence: "Memahami trigonometri", basicCompetence: ["Bisa menggunakan phytagoras"]),
-                          goal: ["Paham caranya", "Bisa ngitungnya"],
+                          goal: "Setelah Anda mempelajari bahan belajar ini diharapkan Anda mampu:  1.    Menjelaskan pengertian SPLTV  2.    Menjelaskan bentuk umum SPLTV  3.    Menentukan Himpunan Penyelesaian (HP) SPLTV  4.    Menyelesaikan masalah nyata yang berkaitan dengan SPLTV",
                           images: ["MathematicLightBrown"],
                           projectStatus: .Published,
                           projectActivities: [ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1),
@@ -275,7 +275,7 @@ let placeholder = Project(name: "Membuktikan Pythagoras dengan Kerikil",
                   subject: .Mathematic,
                   grade: .ten,
                   topic: .init(subject: .Mathematic, grade: .ten, name: "Trigonometri", coreCompetence: "Memahami trigonometri", basicCompetence: ["Bisa menggunakan phytagoras"]),
-                  goal: ["Paham caranya", "Bisa ngitungnya"],
+                  goal: "Setelah Anda mempelajari bahan belajar ini diharapkan Anda mampu:  1.    Menjelaskan pengertian SPLTV  2.    Menjelaskan bentuk umum SPLTV  3.    Menentukan Himpunan Penyelesaian (HP) SPLTV  4.    Menyelesaikan masalah nyata yang berkaitan dengan SPLTV",
                   images: ["MathematicBlue"],
                   projectStatus: .Published,
                   projectActivities: [ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1),

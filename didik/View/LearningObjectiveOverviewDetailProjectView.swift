@@ -10,10 +10,11 @@ import SwiftUI
 struct LearningObjectiveOverviewDetailProjectView: View {
     
     let project: Project
+    var parentGeometry: GeometryProxy
 
     var body: some View {
         HStack {
-            VStack {
+            VStack (alignment: .leading) {
                 HStack {
                     Text("Tujuan Pembelajaran")
                         .fontWeight(.bold)
@@ -22,9 +23,8 @@ struct LearningObjectiveOverviewDetailProjectView: View {
                 }
                 .padding(15)
                 
-                Text("Setelah Anda mempelajari bahan belajar ini diharapkan Anda mampu:  1.    Menjelaskan pengertian SPLTV  2.    Menjelaskan bentuk umum SPLTV  3.    Menentukan Himpunan Penyelesaian (HP) SPLTV 4.    Menyelesaikan masalah nyata yang berkaitan dengan SPLTV")
+                Text(project.goal)
                     .fixedSize(horizontal: false, vertical: true)
-                    
                     .padding(.leading, 15)
                 
                 //                    Spacer()
@@ -40,8 +40,11 @@ struct LearningObjectiveOverviewDetailProjectView_Previews: PreviewProvider {
     static var projectDatabaseVideModel = ProjectDatabaseViewModel()
 
     static var previews: some View {
-        LearningObjectiveOverviewDetailProjectView(project: projectDatabaseVideModel.allProjects[0])
-            .previewDevice("iPad (8th generation)")
+        
+        GeometryReader { geometry in
+            LearningObjectiveOverviewDetailProjectView(project: projectDatabaseVideModel.allProjects[0], parentGeometry: geometry)
+                .previewDevice("iPad (8th generation)")
+        }
 
     }
 }

@@ -495,9 +495,9 @@
 			isa = PBXGroup;
 			children = (
 				BABCC1BA255867C5005FCC7B /* OverviewDetailProjectView.swift */,
-				BA220D29255A67960075458E /* CompetenceOverviewDetailProjectView.swift */,
 				BA220D2E255A67C20075458E /* IndicatorOverviewDetailProjectView.swift */,
 				BA220D39255A68640075458E /* TeacherOverviewDetailProjectView.swift */,
+				BA220D29255A67960075458E /* CompetenceOverviewDetailProjectView.swift */,
 				BA220D6C255A8D280075458E /* LearningObjectiveOverviewDetailProjectView.swift */,
 			);
 			name = Overview;

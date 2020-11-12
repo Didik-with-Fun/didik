@@ -10,6 +10,7 @@ import SwiftUI
 struct TeacherOverviewDetailProjectView: View {
     
     let project: Project
+    var parentGeometry: GeometryProxy
 
     var body: some View {
         HStack {
@@ -61,8 +62,10 @@ struct TeacherOverviewDetailProjectView_Previews: PreviewProvider {
     static var projectDatabaseVideModel = ProjectDatabaseViewModel()
 
     static var previews: some View {
-        TeacherOverviewDetailProjectView(project: projectDatabaseVideModel.allProjects[0])
-            .previewDevice("iPad (8th generation)")
+        GeometryReader { geometry in
+            TeacherOverviewDetailProjectView(project: projectDatabaseVideModel.allProjects[0], parentGeometry: geometry)
+                .previewDevice("iPad (8th generation)")
+        }
 
     }
 }

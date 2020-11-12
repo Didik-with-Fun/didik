@@ -10,6 +10,7 @@ import SwiftUI
 struct NoteForStudentDetailDetailProjectView: View {
     
     let project: Project
+    var parentGeometry: GeometryProxy
 
     var body: some View {
         HStack {
@@ -24,6 +25,7 @@ struct NoteForStudentDetailDetailProjectView: View {
                 
                 HStack {
                     Text(project.notes)
+                        .font(.system(size: 24))
                         .fixedSize(horizontal: false, vertical: true)
                     Spacer()
                 }
@@ -33,6 +35,7 @@ struct NoteForStudentDetailDetailProjectView: View {
             }
             Spacer()
         }
+        .padding()
     }
 }
 
@@ -41,8 +44,9 @@ struct NoteForStudentDetailDetailProjectView_Previews: PreviewProvider {
     static var projectDatabaseVideModel = ProjectDatabaseViewModel()
 
     static var previews: some View {
-        NoteForStudentDetailDetailProjectView(project: projectDatabaseVideModel.allProjects[0])
-            .previewDevice("iPad (8th generation)")
-
+        GeometryReader { geometry in
+            NoteForStudentDetailDetailProjectView(project: projectDatabaseVideModel.allProjects[0], parentGeometry: geometry)
+                .previewDevice("iPad (8th generation)")
+        }
     }
 }
