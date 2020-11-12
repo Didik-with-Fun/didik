@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct DetailDetailProjectView: View {
+    
+    let project: Project
+
     var body: some View {
         
         VStack {
-            ActivityDetailDetailProjectView()
-            NoteForStudentDetailDetailProjectView()
+            ActivityDetailDetailProjectView(project: project)
+            NoteForStudentDetailDetailProjectView(project: project)
         }
         .padding()
         
@@ -20,8 +23,12 @@ struct DetailDetailProjectView: View {
 }
 
 struct DetailDetailProjectView_Previews: PreviewProvider {
+    
+    static var projectDatabaseVideModel = ProjectDatabaseViewModel()
+
     static var previews: some View {
-        DetailDetailProjectView()
+        DetailDetailProjectView(project: projectDatabaseVideModel.allProjects[0])
             .previewDevice("iPad (8th generation)")
+
     }
 }

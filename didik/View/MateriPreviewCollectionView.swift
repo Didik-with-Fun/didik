@@ -39,11 +39,11 @@ struct MateriPreviewCollectionView: View {
             }
             ScrollView (.horizontal) {
                 HStack (alignment: .top, spacing: 10) {
-                    ForEach(ProjectsLibrary) { index in
+                    ForEach(ProjectsLibrary) { project in
                         NavigationLink(
-                            destination: DetailProjectMainView(parentGeometry: parentGeometry, title: index.name),
+                            destination: DetailProjectMainView(project: project, parentGeometry: parentGeometry, title: project.name),
                             label: {
-                                MateriPreviewView(height: 126, width: 230, project: index)
+                                MateriPreviewView(height: 126, width: 230, project: project)
                                     .padding(.leading)
                             })
                         

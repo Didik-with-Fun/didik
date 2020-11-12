@@ -145,11 +145,12 @@ extension ProjectDatabaseViewModel {
                           goal: ["Paham caranya", "Bisa ngitungnya"],
                           images: ["MathematicBlue"],
                           projectStatus: .Published,
-                          projectActivities: [ProjectActivity.init(name: "Menghitung", description: "Itung", time: 1)],
-                          notes: "Oke aja",
+                          projectActivities: [ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1),
+                                              ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1)],
+                          notes: "Do:  1. Membaca bahan belajar sebagai bahan apersepsi  2. Peserta didik menyelesaikan masalah sederhana Sistem Persamaan Linear Dua Variabel sebagai apersepsi  3. Peserta didik aktif mencari bahan untuk menjawab masalah 4. Peserta didik berkontribusi aktif dalam pemecahan masalah.    Dont  1. Pasif, tidak terlibat.  2. Takut tdk berani mencoba",
                           comments: [Comment.init(comment: "bego lu", authorID: "Atun", createdDate: Date())],
                           likes: 230,
-                          createdDate: 01.1,
+                          createdDate: 1415637900,
                           updatedDate: 232.2)
         
         let p2 = Project(name: "Membuktikan Pythagoras dengan Tusuk Sate",
@@ -160,8 +161,9 @@ extension ProjectDatabaseViewModel {
                           goal: ["Paham caranya", "Bisa ngitungnya"],
                           images: ["MathematicBlue"],
                           projectStatus: .Published,
-                          projectActivities: [ProjectActivity.init(name: "Menghitung", description: "Itung", time: 1)],
-                          notes: "Oke aja",
+                          projectActivities: [ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 2),
+                                              ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 2)],
+                          notes: "Do:  1. Membaca bahan belajar sebagai bahan apersepsi  2. Peserta didik menyelesaikan masalah sederhana Sistem Persamaan Linear Dua Variabel sebagai apersepsi  3. Peserta didik aktif mencari bahan untuk menjawab masalah 4. Peserta didik berkontribusi aktif dalam pemecahan masalah.    Dont  1. Pasif, tidak terlibat.  2. Takut tdk berani mencoba",
                           comments: [Comment.init(comment: "bego lu", authorID: "Atun", createdDate: Date())],
                           likes: 230,
                           createdDate: 01.1,
@@ -175,8 +177,9 @@ extension ProjectDatabaseViewModel {
                           goal: ["Paham caranya", "Bisa ngitungnya"],
                           images: ["MathematicDarkBlue"],
                           projectStatus: .Published,
-                          projectActivities: [ProjectActivity.init(name: "Menghitung", description: "Itung", time: 1)],
-                          notes: "Oke aja",
+                          projectActivities: [ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1),
+                                              ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1)],
+                          notes: "Do:  1. Membaca bahan belajar sebagai bahan apersepsi  2. Peserta didik menyelesaikan masalah sederhana Sistem Persamaan Linear Dua Variabel sebagai apersepsi  3. Peserta didik aktif mencari bahan untuk menjawab masalah 4. Peserta didik berkontribusi aktif dalam pemecahan masalah.    Dont  1. Pasif, tidak terlibat.  2. Takut tdk berani mencoba",
                           comments: [Comment.init(comment: "bego lu", authorID: "Atun", createdDate: Date())],
                           likes: 230,
                           createdDate: 01.1,
@@ -190,8 +193,9 @@ extension ProjectDatabaseViewModel {
                           goal: ["Paham caranya", "Bisa ngitungnya"],
                           images: ["MathematicGreen"],
                           projectStatus: .Published,
-                          projectActivities: [ProjectActivity.init(name: "Menghitung", description: "Itung", time: 1)],
-                          notes: "Oke aja",
+                          projectActivities: [ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1),
+                                              ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1)],
+                          notes: "Do:  1. Membaca bahan belajar sebagai bahan apersepsi  2. Peserta didik menyelesaikan masalah sederhana Sistem Persamaan Linear Dua Variabel sebagai apersepsi  3. Peserta didik aktif mencari bahan untuk menjawab masalah 4. Peserta didik berkontribusi aktif dalam pemecahan masalah.    Dont  1. Pasif, tidak terlibat.  2. Takut tdk berani mencoba",
                           comments: [Comment.init(comment: "bego lu", authorID: "Atun", createdDate: Date())],
                           likes: 230,
                           createdDate: 01.1,
@@ -205,8 +209,9 @@ extension ProjectDatabaseViewModel {
                           goal: ["Paham caranya", "Bisa ngitungnya"],
                           images: ["MathematicOrange"],
                           projectStatus: .Published,
-                          projectActivities: [ProjectActivity.init(name: "Menghitung", description: "Itung", time: 1)],
-                          notes: "Oke aja",
+                          projectActivities: [ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1),
+                                              ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1)],
+                          notes: "Do:  1. Membaca bahan belajar sebagai bahan apersepsi  2. Peserta didik menyelesaikan masalah sederhana Sistem Persamaan Linear Dua Variabel sebagai apersepsi  3. Peserta didik aktif mencari bahan untuk menjawab masalah 4. Peserta didik berkontribusi aktif dalam pemecahan masalah.    Dont  1. Pasif, tidak terlibat.  2. Takut tdk berani mencoba",
                           comments: [Comment.init(comment: "bego lu", authorID: "Atun", createdDate: Date())],
                           likes: 230,
                           createdDate: 01.1,
@@ -220,8 +225,9 @@ extension ProjectDatabaseViewModel {
                           goal: ["Paham caranya", "Bisa ngitungnya"],
                           images: ["MathematicGreen"],
                           projectStatus: .Published,
-                          projectActivities: [ProjectActivity.init(name: "Menghitung", description: "Itung", time: 1)],
-                          notes: "Oke aja",
+                          projectActivities: [ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1),
+                                              ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1)],
+                          notes: "Do:  1. Membaca bahan belajar sebagai bahan apersepsi  2. Peserta didik menyelesaikan masalah sederhana Sistem Persamaan Linear Dua Variabel sebagai apersepsi  3. Peserta didik aktif mencari bahan untuk menjawab masalah 4. Peserta didik berkontribusi aktif dalam pemecahan masalah.    Dont  1. Pasif, tidak terlibat.  2. Takut tdk berani mencoba",
                           comments: [Comment.init(comment: "bego lu", authorID: "Atun", createdDate: Date())],
                           likes: 230,
                           createdDate: 01.1,
@@ -235,8 +241,9 @@ extension ProjectDatabaseViewModel {
                           goal: ["Paham caranya", "Bisa ngitungnya"],
                           images: ["MathematicGreen"],
                           projectStatus: .Published,
-                          projectActivities: [ProjectActivity.init(name: "Menghitung", description: "Itung", time: 1)],
-                          notes: "Oke aja",
+                          projectActivities: [ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1),
+                                              ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1)],
+                          notes: "Do:  1. Membaca bahan belajar sebagai bahan apersepsi  2. Peserta didik menyelesaikan masalah sederhana Sistem Persamaan Linear Dua Variabel sebagai apersepsi  3. Peserta didik aktif mencari bahan untuk menjawab masalah 4. Peserta didik berkontribusi aktif dalam pemecahan masalah.    Dont  1. Pasif, tidak terlibat.  2. Takut tdk berani mencoba",
                           comments: [Comment.init(comment: "bego lu", authorID: "Atun", createdDate: Date())],
                           likes: 230,
                           createdDate: 01.1,
@@ -250,8 +257,9 @@ extension ProjectDatabaseViewModel {
                           goal: ["Paham caranya", "Bisa ngitungnya"],
                           images: ["MathematicLightBrown"],
                           projectStatus: .Published,
-                          projectActivities: [ProjectActivity.init(name: "Menghitung", description: "Itung", time: 1)],
-                          notes: "Oke aja",
+                          projectActivities: [ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1),
+                                              ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1)],
+                          notes: "Do:  1. Membaca bahan belajar sebagai bahan apersepsi  2. Peserta didik menyelesaikan masalah sederhana Sistem Persamaan Linear Dua Variabel sebagai apersepsi  3. Peserta didik aktif mencari bahan untuk menjawab masalah 4. Peserta didik berkontribusi aktif dalam pemecahan masalah.    Dont  1. Pasif, tidak terlibat.  2. Takut tdk berani mencoba",
                           comments: [Comment.init(comment: "bego lu", authorID: "Atun", createdDate: Date())],
                           likes: 230,
                           createdDate: 01.1,
@@ -270,8 +278,9 @@ let placeholder = Project(name: "Membuktikan Pythagoras dengan Kerikil",
                   goal: ["Paham caranya", "Bisa ngitungnya"],
                   images: ["MathematicBlue"],
                   projectStatus: .Published,
-                  projectActivities: [ProjectActivity.init(name: "Menghitung", description: "Itung", time: 1)],
-                  notes: "Oke aja",
+                  projectActivities: [ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1),
+                                      ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1)],
+                  notes: "Do:  1. Membaca bahan belajar sebagai bahan apersepsi  2. Peserta didik menyelesaikan masalah sederhana Sistem Persamaan Linear Dua Variabel sebagai apersepsi  3. Peserta didik aktif mencari bahan untuk menjawab masalah 4. Peserta didik berkontribusi aktif dalam pemecahan masalah.    Dont  1. Pasif, tidak terlibat.  2. Takut tdk berani mencoba",
                   comments: [Comment.init(comment: "bego lu", authorID: "Atun", createdDate: Date())],
                   likes: 230,
                   createdDate: 01.1,
