@@ -39,15 +39,27 @@ struct MateriPreviewCollectionView: View {
             }
             ScrollView (.horizontal) {
                 HStack (alignment: .top, spacing: 10) {
-                    ForEach(ProjectsLibrary) { index in
-                        NavigationLink(
-                            destination: DetailProjectMainView(parentGeometry: parentGeometry, title: index.name),
-                            label: {
-                                MateriPreviewView(height: 126, width: 230, project: index)
-                                    .padding(.leading)
-                            })
-                        
+                    if ProjectsLibrary.count > 5 {
+                        ForEach(0...4, id: \.self) { index in
+                            NavigationLink(
+                                destination: DetailProjectMainView(parentGeometry: parentGeometry, title: ProjectsLibrary[index].name),
+                                label: {
+                                    MateriPreviewView(height: 126, width: 230, project: ProjectsLibrary[index])
+                                        .padding(.leading)
+                                })
+                        }
+                    } else {
+                        ForEach(ProjectsLibrary) { index in
+                            NavigationLink(
+                                destination: DetailProjectMainView(parentGeometry: parentGeometry, title: index.name),
+                                label: {
+                                    MateriPreviewView(height: 126, width: 230, project: index)
+                                        .padding(.leading)
+                                })
+                            
+                        }
                     }
+                    
                 }
                 
             }
