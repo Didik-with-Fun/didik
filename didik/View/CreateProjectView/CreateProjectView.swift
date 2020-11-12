@@ -10,11 +10,11 @@ import SwiftUI
 struct CreateProjectView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
-    @Binding var selectedSubject: Subject
-    @Binding var selectedGrade: Grades
+    @State var selectedSubject: Subject
+    @State var selectedGrade: Grades
     @State var contentNamaProyek: String = ""
     @State var showPopOver = false
-    @Binding var showPopOverContents: Tooltips
+    @State var showPopOverContents: Tooltips
     
     let isDropdownSubjectOpen: Bool
     
@@ -174,7 +174,7 @@ struct CreateProjectView: View {
                         
                         // MARK: - Form Field - Activity
                         HStack {
-                            ActivityMainView(contentActivityName: "", contentActivityDescription: "")
+                            ActivityMainView(totalActivityTime: 0)
                         }.padding([.top, .horizontal], 20)
                         
                         // MARK: - Form Field - Notes aka Catatan Siswa
@@ -247,7 +247,7 @@ struct CreateProjectView: View {
 struct CreateProjectView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            CreateProjectView(selectedSubject: .constant(.Mathematic), selectedGrade: .constant(.ten), showPopOverContents: .constant(.namaProyek), isDropdownSubjectOpen: false).previewDevice("iPad (8th generation)")
+            CreateProjectView(selectedSubject: .Mathematic, selectedGrade: .ten, contentNamaProyek: "", showPopOver: false, showPopOverContents: .namaProyek, isDropdownSubjectOpen: false)
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }

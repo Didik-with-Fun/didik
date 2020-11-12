@@ -10,9 +10,9 @@ import SwiftUI
 
 struct ActivityMainView: View {
     
-    @State var contentActivityName: String
-    @State var contentActivityTime: Int = 1
-    @State var contentActivityDescription: String
+    @State var totalActivityTime: Int = 0
+    @State var dummy = ["Text 1"]
+    @State var contentActivities: [ProjectActivity] = []
     
     var body: some View {
         VStack (alignment: .leading, spacing: 10) {
@@ -25,40 +25,14 @@ struct ActivityMainView: View {
                 })
             }
             
-            HStack (spacing: 10) {
-                Button(action: {}, label: {
-                    ZStack {
-                        Circle()
-                            .fill(Color.Didik.GreyLight)
-                            .frame(width: 53, height: 53, alignment: .center)
-                        Image("ShapeTriangle")
-                    }
-                })
-                    
-                TextEditor(text: $contentActivityName)
-                    .frame(height: 55)
-                    .overlay(RoundedRectangle(cornerRadius: 13).stroke(Color.gray))
-                
-                Image("Calendar")
-                    .resizable()
-                    .frame(width: 34, height: 34, alignment: .center)
-                
-                Text("\(contentActivityTime) Hari")
-                    .padding(0)
-                
-                Stepper("", value: $contentActivityTime, in: 0...30)
-                    .labelsHidden()
-                    .frame(height: 75)
-                    .padding(0)
+            ForEach(contentActivities, id: \.self) { activity in
+                ActivityFieldGroup(contentActivityName: activity.name, contentActivityTime: activity.time, contentActivityDescription: activity.description)
             }
             
-            // TODO: Text Editor have to be minimized white users toggle the drop button on the left of each activity
-            TextEditor(text: $contentActivityDescription)
-                .frame(height: 100)
-                .overlay(RoundedRectangle(cornerRadius: 13).stroke(Color.gray))
-                .padding(.bottom, 10)
-            
-            Button(action: {}, label: {
+            Button(action: {
+                self.addActivityView()
+                print("--> NEW ACTIVITY ADED, \(contentActivities)")
+            }, label: {
                 ZStack {
                     Rectangle()
                         .fill(Color.Didik.GreyLight)
@@ -78,17 +52,24 @@ struct ActivityMainView: View {
                     .resizable()
                     .frame(width: 34, height: 34, alignment: .center)
                 
-                Text("Total: \(contentActivityTime) hari")
+                Text("Total: \(totalActivityTime) hari")
                     .font(.system(size: 19, weight: .bold))
                     .padding(.trailing, 10)
             }
             
         }
     }
+    
+    private func addActivityView() {
+        // TODO: - Dynamicly add new activity and push it to contentActivities array of ProjectActivity
+        let newActivity = ProjectActivity(name: "Aktifitas Proyek Bersama Guru", description: "Quick jump fox runs over the lazy dog", time: 2)
+        
+        self.contentActivities.append(newActivity)
+    }
 }
 
 struct ActivityMainViewPreview: PreviewProvider {
     static var previews: some View {
-        ActivityMainView(contentActivityName: "", contentActivityDescription: "")
+        ActivityMainView(totalActivityTime: 0)
     }
 }

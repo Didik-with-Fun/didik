@@ -7,9 +7,8 @@
 
 import Foundation
 
-struct ProjectActivity {
+struct ProjectActivity: Hashable, Encodable {
     let name: String
     let description: String
     let time: Int // time refer to range, not date time
-    
 }
