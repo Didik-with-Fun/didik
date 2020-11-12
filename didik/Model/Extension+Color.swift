@@ -37,6 +37,7 @@ extension Color {
     struct Didik {
         static let BluePrimary = Color("BluePrimary")
         static let BlueSecondary = Color("BlueSecondary")
+        static let BlueLight = Color("BlueLight")
         static let GreyDark = Color("GreyDark")
         static let GreyMedium = Color("GreyMedium")
         static let GreyLight = Color("GreyLight")
