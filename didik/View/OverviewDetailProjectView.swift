@@ -11,15 +11,24 @@ import SwiftUI
 struct OverviewDetailProjectView: View {
     
     let project: Project
+    var parentGeometry: GeometryProxy
 
     var body: some View {
         VStack {
-            IndicatorOverviewDetailProjectView(project: project)
-            TeacherOverviewDetailProjectView(project: project)
-            CompetenceOverviewDetailView(project: project)
-            LearningObjectiveOverviewDetailProjectView(project: project)
+            IndicatorOverviewDetailProjectView(project: project, parentGeometry: parentGeometry).padding()
+
+            Rectangle().fill(Color.Didik.BlueLight).frame(height: 1)
+
+            TeacherOverviewDetailProjectView(project: project, parentGeometry: parentGeometry).padding()
+            
+            Rectangle().fill(Color.Didik.BlueLight).frame(height: 16)
+
+            CompetenceOverviewDetailView(project: project, parentGeometry: parentGeometry).padding()
+            
+            Rectangle().fill(Color.Didik.BlueLight).frame(height: 16)
+
+            LearningObjectiveOverviewDetailProjectView(project: project, parentGeometry: parentGeometry).padding()
         }
-        .padding()
         
     }
 }
@@ -29,9 +38,11 @@ struct OverviewDetailProjectView_Previews: PreviewProvider {
     
     static var projectDatabaseVideModel = ProjectDatabaseViewModel()
 
-    static var previews: some View {
-        OverviewDetailProjectView(project: projectDatabaseVideModel.allProjects[0])
-            .previewDevice("iPad (8th generation)")
+    static var previews: some View {        
+        GeometryReader { geometry in
+            OverviewDetailProjectView(project: projectDatabaseVideModel.allProjects[0], parentGeometry: geometry)
+                .previewDevice("iPad (8th generation)")
+        }
 
     }
 
