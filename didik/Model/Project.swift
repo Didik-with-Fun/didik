@@ -14,7 +14,7 @@ struct Project: Identifiable {
     let name: String
     let summary: String
     let subject: Subject //String
-    let grade: Grade
+    let grade: Grades
     let topic: Topic
     let goal: [String]
     let images: [String]

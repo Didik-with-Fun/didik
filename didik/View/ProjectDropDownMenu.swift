@@ -11,12 +11,12 @@ struct ProjectDropDownMenu : View {
     
     @EnvironmentObject var db: ProjectDatabaseViewModel
     
-    let optionGrades: [Grade] = Grade.allCases
+    let optionGrades: [Grades] = Grades.allCases
     let optionSubjects: [Subject] = Subject.allCases
     
     @State var showGradesDropDown: Bool = false
     @State var showSubjectsDropDown: Bool = false
-    @Binding var selectedGrade: Grade
+    @Binding var selectedGrade: Grades
     @Binding var selectedSubject: Subject
     
     let width: CGFloat

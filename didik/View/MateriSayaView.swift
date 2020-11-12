@@ -12,7 +12,7 @@ struct MateriSayaView: View {
     @EnvironmentObject var db: ProjectDatabaseViewModel
     
     @State var searchText: String = ""
-    @State var selectedKelas: Grade = .allGrades
+    @State var selectedKelas: Grades = .allGrades
     @State var selectedMatpel: Subject = .allSubjects
     
     var parentGeometry: GeometryProxy
@@ -26,7 +26,7 @@ struct MateriSayaView: View {
                 HStack{
                     Spacer()
                     NavigationLink(
-                        destination: CreateProjectView(selectedSubject: .constant(.Mathematic), isDropdownSubjectOpen: true),
+                        destination: CreateProjectView(selectedSubject: .constant(.Mathematic), selectedGrade: .constant(.ten), showPopOverContents: .constant(.namaProyek), isDropdownSubjectOpen: true),
                         label: {
                             BuatMateriButton()
                         })

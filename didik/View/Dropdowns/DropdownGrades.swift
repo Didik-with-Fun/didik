@@ -1,18 +1,18 @@
 //
-//  DropdownSubject.swift
+//  DropdownSubjects.swift
 //  didik
 //
-//  Created by Haddawi on 09/11/20.
+//  Created by Haddawi on 11/11/20.
 //
 
 import Foundation
 import SwiftUI
 
-struct DropdownSubject: View {
-    let contents: [Subject] = Subject.allCases
+struct DropdownGrades: View {
+    let contents: [Grades] = Grades.allCases
     
     @State var isDropdownShowed: Bool = false
-    @Binding var selected: Subject
+    @Binding var selected: Grades
     
     let width: CGFloat
     
@@ -37,15 +37,6 @@ struct DropdownSubject: View {
                 .background(Color.Didik.GreyMedium)
                 .padding(.vertical, 0)
                 .cornerRadius(15)
-                /*
-                .foregroundColor(.white)
-                .background(Color.Didik.BluePrimary)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color.white, lineWidth: 1)
-                )
-                .padding(.vertical, 10)
-                */
                 .overlay(
                     VStack{
                         if isDropdownShowed {
@@ -76,8 +67,8 @@ struct DropdownSubject: View {
     }
 }
 
-struct DropdownSubjectPreviews: PreviewProvider {
+struct DropdownGradesPreview: PreviewProvider {
     static var previews: some View {
-        DropdownSubject(selected: .constant(.Mathematic), width: 130)
+        DropdownGrades(selected: .constant(.ten), width: 130)
     }
 }
