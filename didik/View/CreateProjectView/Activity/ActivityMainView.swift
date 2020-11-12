@@ -25,8 +25,8 @@ struct ActivityMainView: View {
                 })
             }
             
-            ForEach(contentActivities, id: \.self) { activity in
-                ActivityFieldGroup(contentActivityName: activity.name, contentActivityTime: activity.time, contentActivityDescription: activity.description)
+            ForEach(0..<contentActivities.count, id: \.self) { index in
+                ActivityFieldGroup(contentActivityName: contentActivities[index].name, contentActivityTime: contentActivities[index].time, contentActivityDescription: contentActivities[index].description)
             }
             
             Button(action: {
