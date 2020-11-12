@@ -16,7 +16,10 @@ struct ContentView: View {
             ZStack {
                 // MARK: - Development Use
                 // Uncomment code this line to faster the development debug
-                // HomeView().environmentObject(DummyModel())
+                /*
+                 HomeView(parentGeometry: geometry)
+                    .environmentObject(ProjectDatabaseViewModel())
+                */
                 
                 if signInCoordinator.isUserAuthenticated == .signedIn {
                     HomeView(parentGeometry: geometry)
