@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ActivityDetailDetailProjectView: View {
+    
+    let project: Project
+
     var body: some View {
         HStack {
             VStack {
@@ -19,57 +22,46 @@ struct ActivityDetailDetailProjectView: View {
                 }
                 .padding()
                 
-                HStack (alignment: .top){
-                    
-                    Text("1.")
-                    
-                    VStack (alignment: .leading) {
-                        Text("Mengintepretasi persamaan dan pertidaksamaan nilai")
-                            .font(.system(size: 24))
-                            .fixedSize(horizontal: false, vertical: true)
-                            .padding(.leading, 10)
-                            .padding(.bottom, 10)
-                        Text("Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.")
-                            .font(.system(size: 18))
-                            .fixedSize(horizontal: false, vertical: true)
-                            .padding(.leading, 10)
+                
+                ForEach(0 ..< project.projectActivities.count) { index in
+                
+                    HStack (alignment: .top){
+                        
+                        Text("\(index+1).")
+
+                        VStack (alignment: .leading) {
+                            Text("\(project.projectActivities[index].name)" )
+                                .font(.system(size: 24))
+                                .fixedSize(horizontal: false, vertical: true)
+                                .padding(.leading, 10)
+                                .padding(.bottom, 10)
+                            Text("\(project.projectActivities[index].description)" )
+                                .font(.system(size: 18))
+                                .fixedSize(horizontal: false, vertical: true)
+                                .padding(.leading, 10)
+                        }
+
+                        Spacer()
                     }
-
-                    Spacer()
-                }
-                .padding(.leading, 15)
-                .padding(.bottom, 20)
-
-                HStack (alignment: .top){
+                    .padding(.leading, 15)
+                    .padding(.bottom, 20)
                     
-                    Text("2.")
-                    
-                    VStack (alignment: .leading) {
-                        Text("Mengintepretasi persamaan dan pertidaksamaan nilai")
-                            .font(.system(size: 24))
-                            .fixedSize(horizontal: false, vertical: true)
-                            .padding(.leading, 10)
-                            .padding(.bottom, 10)
-                        Text("Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.")
-                            .font(.system(size: 18))
-                            .fixedSize(horizontal: false, vertical: true)
-                            .padding(.leading, 10)
-                    }
-
-                    Spacer()
                 }
-                .padding(.leading, 15)
                 
             }
-            
-            
+                        
             Spacer()
         }
     }
 }
 
 struct ActivityDetailDetailProjectView_Previews: PreviewProvider {
+    
+    static var projectDatabaseVideModel = ProjectDatabaseViewModel()
+
     static var previews: some View {
-        ActivityDetailDetailProjectView()
+        ActivityDetailDetailProjectView(project: projectDatabaseVideModel.allProjects[0])
+            .previewDevice("iPad (8th generation)")
+
     }
 }

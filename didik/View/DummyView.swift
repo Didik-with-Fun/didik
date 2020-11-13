@@ -12,14 +12,35 @@ struct DummyView: View {
 
     
     var body: some View {
-        VStack {
-            Text("DUMMY VIEW")
+        HStack(alignment: .top){
+            HStack (alignment: .bottom) {
+                VStack {
+                    Image.Didik.Love
+                    Text("DUMMY VIEW")
+                    
+                }
+                Text("Center")
+                VStack {
+                    Image.Didik.Love
+                    Text("DUMMY VIEW")
+                    
+                }
+            }
+            Spacer()
+            Image.Didik.MathematicDarkBlue
+                .resizable()
+                .scaledToFit()
             
-        }
-    
-        .navigationBarTitle("Dummy", displayMode: .automatic)
-        .navigationBarColor(backgroundColor: UIColor(Color.Didik.BluePrimary))
-        .navigationBarItems(trailing: UserButton())
+            VStack {
+                Spacer()
+                HStack(alignment: .bottom) {
+                    Image.Didik.CalendarDays
+                    Text("ASDAD")
+                    Image.Didik.CalendarDays
+                }
+            }
+
+        }.fixedSize(horizontal: false, vertical: true)
         
     }
 }

@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct DetailProjectMainView: View {
-    
+
+    let project: Project
     var parentGeometry: GeometryProxy
     let title: String
     
@@ -18,9 +19,9 @@ struct DetailProjectMainView: View {
         
         ScrollView(.vertical)  {
             VStack {
-                HeadDetailProjectView(parentGeometry: parentGeometry)
+                HeadDetailProjectView(project: project, parentGeometry: parentGeometry)
                     .padding()
-                ContentDetailProjectView()
+                ContentDetailProjectView(project: project)
                     .padding()
             }
         }
@@ -32,14 +33,16 @@ struct DetailProjectMainView: View {
 }
 
 struct DetailProjectMainView_Previews: PreviewProvider {
+    static var projectDatabaseVideModel = ProjectDatabaseViewModel()
+
     static var previews: some View {
         NavigationView {
             GeometryReader { geometry in
-                DetailProjectMainView(parentGeometry: geometry, title: placeholderMateri.title)
+                DetailProjectMainView(project: projectDatabaseVideModel.allProjects[0], parentGeometry: geometry, title: placeholderMateri.title)
                     .previewDevice("iPad (8th generation)")
             }
             
-            
+
         }
         .navigationViewStyle(StackNavigationViewStyle())
         

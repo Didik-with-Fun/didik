@@ -15,12 +15,20 @@ struct ProjectsGroup: Identifiable {
 
 class ProjectDatabaseViewModel: ObservableObject {
     
-    var allProjects: [Project]
+    // all projects from firebase
+    let allProjects: [Project]
+    
+    // variabel to filter projects from jelajah materi view
     @Published var filteredProjects: [Project]
-    var filteredBySubjectsProjects: [Project]
-    var filteredByGradesProjects: [Project]
-    @Published var myProjects: [Project]
+    var filteredProjectsBySubject: [Project]
+    var filteredProjectsByGrade: [Project]
     @Published var jelajahMateriGroup: [ProjectsGroup] = []
+    
+    
+    let myAllProjects : [Project]
+    @Published var myProjects: [Project]
+    var myProjectsBySubject: [Project]
+    var myProjectsByGrade: [Project]
     
     
     @Published var myProjectsGroup: [ProjectsGroup] = []
@@ -30,13 +38,17 @@ class ProjectDatabaseViewModel: ObservableObject {
         // insert fetch projects from firebase here
         let requestProjects = ProjectDatabaseViewModel.createDummyProjects()
         
+        // initialize jelajah materi project database
         self.allProjects = requestProjects
         self.filteredProjects = requestProjects
-        self.filteredBySubjectsProjects = requestProjects
-        self.filteredByGradesProjects = requestProjects
+        self.filteredProjectsBySubject = requestProjects
+        self.filteredProjectsByGrade = requestProjects
         
-        
+        // initialize my materi project database
+        self.myAllProjects = requestProjects
         self.myProjects = requestProjects
+        self.myProjectsBySubject = requestProjects
+        self.myProjectsByGrade = requestProjects
         
         let temp = Dictionary(grouping: self.filteredProjects) { (project) -> String in
             return project.topic.name
@@ -44,6 +56,9 @@ class ProjectDatabaseViewModel: ObservableObject {
         for (key, value) in temp {
             self.jelajahMateriGroup.append(ProjectsGroup(title: key, group: value))
         }
+        
+        
+        
         
         let myTemp = Dictionary(grouping: self.myProjects) { (project) -> ProjectStatus in
             return project.projectStatus
@@ -61,18 +76,18 @@ class ProjectDatabaseViewModel: ObservableObject {
     func filterByGrades(grade: Grades) {
         
         if grade == .allGrades {
-            self.filteredProjects = self.filteredBySubjectsProjects.filter { (Projects) -> Bool in
+            self.filteredProjects = self.filteredProjectsBySubject.filter { (Projects) -> Bool in
                 return (Projects.grade == .ten) || (Projects.grade == .eleven) || (Projects.grade == .twelve)
             }
             
             return
             
         } else {
-            self.filteredProjects = self.filteredBySubjectsProjects.filter { (Projects) -> Bool in
+            self.filteredProjects = self.filteredProjectsBySubject.filter { (Projects) -> Bool in
                 return Projects.grade == grade
             }
             
-            self.filteredByGradesProjects = self.allProjects.filter { (Projects) -> Bool in
+            self.filteredProjectsByGrade = self.allProjects.filter { (Projects) -> Bool in
                 return Projects.grade == grade
             }
             
@@ -85,7 +100,7 @@ class ProjectDatabaseViewModel: ObservableObject {
     func filterBySubjects(subject: Subject) {
         
         if subject == .allSubjects {
-            self.filteredProjects = self.filteredByGradesProjects.filter { (projects) -> Bool in
+            self.filteredProjects = self.filteredProjectsByGrade.filter { (projects) -> Bool in
                 return (projects.subject == .Mathematic) ||
                     (projects.subject == .Physic) ||
                     (projects.subject == .Chemist) ||
@@ -100,11 +115,11 @@ class ProjectDatabaseViewModel: ObservableObject {
             return
             
         } else {
-            self.filteredProjects = self.filteredByGradesProjects.filter { (projects) -> Bool in
+            self.filteredProjects = self.filteredProjectsByGrade.filter { (projects) -> Bool in
                 return projects.subject == subject
             }
             
-            self.filteredBySubjectsProjects = self.allProjects.filter { (projects) -> Bool in
+            self.filteredProjectsBySubject = self.allProjects.filter { (projects) -> Bool in
                 return projects.subject == subject
             }
             return
@@ -131,6 +146,79 @@ class ProjectDatabaseViewModel: ObservableObject {
     
 }
 
+//MARK: - My project extension
+extension ProjectDatabaseViewModel {
+    
+    func myProjectsByGrades(grade: Grades) {
+        
+        if grade == .allGrades {
+            self.myProjects = self.myProjectsBySubject.filter { (Projects) -> Bool in
+                return (Projects.grade == .ten) || (Projects.grade == .eleven) || (Projects.grade == .twelve)
+            }
+            
+            return
+            
+        } else {
+            self.myProjects = self.myProjectsBySubject.filter { (Projects) -> Bool in
+                return Projects.grade == grade
+            }
+            
+            self.myProjectsByGrade = self.myAllProjects.filter { (Projects) -> Bool in
+                return Projects.grade == grade
+            }
+            
+            return
+            
+        }
+        
+    }
+    
+    func myProjectsBySubjects(subject: Subject) {
+        
+        if subject == .allSubjects {
+            self.filteredProjects = self.filteredProjectsByGrade.filter { (projects) -> Bool in
+                return (projects.subject == .Mathematic) ||
+                    (projects.subject == .Physic) ||
+                    (projects.subject == .Chemist) ||
+                    (projects.subject == .Biology) ||
+                    (projects.subject == .Sociology) ||
+                    (projects.subject == .History) ||
+                    (projects.subject == .Economy) ||
+                    (projects.subject == .Geography) ||
+                    (projects.subject == .BahasaIndonesia) ||
+                    (projects.subject == .English)
+            }
+            return
+            
+        } else {
+            self.filteredProjects = self.filteredProjectsByGrade.filter { (projects) -> Bool in
+                return projects.subject == subject
+            }
+            
+            self.filteredProjectsBySubject = self.allProjects.filter { (projects) -> Bool in
+                return projects.subject == subject
+            }
+            return
+            
+        }
+        
+    }
+    
+    
+    func updateMyProjectsGroup() {
+        self.jelajahMateriGroup = []
+        
+        let temp = Dictionary(grouping: filteredProjects) { (project) -> String in
+            return project.topic.name
+        }
+        for (key, value) in temp {
+            self.jelajahMateriGroup.append(ProjectsGroup(title: key, group: value))
+        }
+
+    }
+    
+}
+
 
 //MARK: - Generate Dummy Model
 
@@ -145,11 +233,12 @@ extension ProjectDatabaseViewModel {
                           goal: ["Paham caranya", "Bisa ngitungnya"],
                           images: ["MathematicBlue"],
                           projectStatus: .Published,
-                          projectActivities: [ProjectActivity.init(name: "Menghitung", description: "Itung", time: 1)],
-                          notes: "Oke aja",
+                          projectActivities: [ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1),
+                                              ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1)],
+                          notes: "Do:  1. Membaca bahan belajar sebagai bahan apersepsi  2. Peserta didik menyelesaikan masalah sederhana Sistem Persamaan Linear Dua Variabel sebagai apersepsi  3. Peserta didik aktif mencari bahan untuk menjawab masalah 4. Peserta didik berkontribusi aktif dalam pemecahan masalah.    Dont  1. Pasif, tidak terlibat.  2. Takut tdk berani mencoba",
                           comments: [Comment.init(comment: "bego lu", authorID: "Atun", createdDate: Date())],
                           likes: 230,
-                          createdDate: 01.1,
+                          createdDate: 1415637900,
                           updatedDate: 232.2)
         
         let p2 = Project(name: "Membuktikan Pythagoras dengan Tusuk Sate dan daging kambing dimasak hemmmm enak sekaliii",
@@ -160,8 +249,9 @@ extension ProjectDatabaseViewModel {
                           goal: ["Paham caranya", "Bisa ngitungnya"],
                           images: ["MathematicBlue"],
                           projectStatus: .Published,
-                          projectActivities: [ProjectActivity.init(name: "Menghitung", description: "Itung", time: 1)],
-                          notes: "Oke aja",
+                          projectActivities: [ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 2),
+                                              ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 2)],
+                          notes: "Do:  1. Membaca bahan belajar sebagai bahan apersepsi  2. Peserta didik menyelesaikan masalah sederhana Sistem Persamaan Linear Dua Variabel sebagai apersepsi  3. Peserta didik aktif mencari bahan untuk menjawab masalah 4. Peserta didik berkontribusi aktif dalam pemecahan masalah.    Dont  1. Pasif, tidak terlibat.  2. Takut tdk berani mencoba",
                           comments: [Comment.init(comment: "bego lu", authorID: "Atun", createdDate: Date())],
                           likes: 230,
                           createdDate: 01.1,
@@ -175,8 +265,9 @@ extension ProjectDatabaseViewModel {
                           goal: ["Paham caranya", "Bisa ngitungnya"],
                           images: ["MathematicDarkBlue"],
                           projectStatus: .Published,
-                          projectActivities: [ProjectActivity.init(name: "Menghitung", description: "Itung", time: 1)],
-                          notes: "Oke aja",
+                          projectActivities: [ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1),
+                                              ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1)],
+                          notes: "Do:  1. Membaca bahan belajar sebagai bahan apersepsi  2. Peserta didik menyelesaikan masalah sederhana Sistem Persamaan Linear Dua Variabel sebagai apersepsi  3. Peserta didik aktif mencari bahan untuk menjawab masalah 4. Peserta didik berkontribusi aktif dalam pemecahan masalah.    Dont  1. Pasif, tidak terlibat.  2. Takut tdk berani mencoba",
                           comments: [Comment.init(comment: "bego lu", authorID: "Atun", createdDate: Date())],
                           likes: 230,
                           createdDate: 01.1,
@@ -190,8 +281,9 @@ extension ProjectDatabaseViewModel {
                           goal: ["Paham caranya", "Bisa ngitungnya"],
                           images: ["MathematicGreen"],
                           projectStatus: .Published,
-                          projectActivities: [ProjectActivity.init(name: "Menghitung", description: "Itung", time: 1)],
-                          notes: "Oke aja",
+                          projectActivities: [ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1),
+                                              ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1)],
+                          notes: "Do:  1. Membaca bahan belajar sebagai bahan apersepsi  2. Peserta didik menyelesaikan masalah sederhana Sistem Persamaan Linear Dua Variabel sebagai apersepsi  3. Peserta didik aktif mencari bahan untuk menjawab masalah 4. Peserta didik berkontribusi aktif dalam pemecahan masalah.    Dont  1. Pasif, tidak terlibat.  2. Takut tdk berani mencoba",
                           comments: [Comment.init(comment: "bego lu", authorID: "Atun", createdDate: Date())],
                           likes: 230,
                           createdDate: 01.1,
@@ -205,8 +297,9 @@ extension ProjectDatabaseViewModel {
                           goal: ["Paham caranya", "Bisa ngitungnya"],
                           images: ["MathematicOrange"],
                           projectStatus: .Published,
-                          projectActivities: [ProjectActivity.init(name: "Menghitung", description: "Itung", time: 1)],
-                          notes: "Oke aja",
+                          projectActivities: [ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1),
+                                              ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1)],
+                          notes: "Do:  1. Membaca bahan belajar sebagai bahan apersepsi  2. Peserta didik menyelesaikan masalah sederhana Sistem Persamaan Linear Dua Variabel sebagai apersepsi  3. Peserta didik aktif mencari bahan untuk menjawab masalah 4. Peserta didik berkontribusi aktif dalam pemecahan masalah.    Dont  1. Pasif, tidak terlibat.  2. Takut tdk berani mencoba",
                           comments: [Comment.init(comment: "bego lu", authorID: "Atun", createdDate: Date())],
                           likes: 230,
                           createdDate: 01.1,
@@ -220,8 +313,9 @@ extension ProjectDatabaseViewModel {
                           goal: ["Paham caranya", "Bisa ngitungnya"],
                           images: ["MathematicGreen"],
                           projectStatus: .Published,
-                          projectActivities: [ProjectActivity.init(name: "Menghitung", description: "Itung", time: 1)],
-                          notes: "Oke aja",
+                          projectActivities: [ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1),
+                                              ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1)],
+                          notes: "Do:  1. Membaca bahan belajar sebagai bahan apersepsi  2. Peserta didik menyelesaikan masalah sederhana Sistem Persamaan Linear Dua Variabel sebagai apersepsi  3. Peserta didik aktif mencari bahan untuk menjawab masalah 4. Peserta didik berkontribusi aktif dalam pemecahan masalah.    Dont  1. Pasif, tidak terlibat.  2. Takut tdk berani mencoba",
                           comments: [Comment.init(comment: "bego lu", authorID: "Atun", createdDate: Date())],
                           likes: 230,
                           createdDate: 01.1,
@@ -235,8 +329,9 @@ extension ProjectDatabaseViewModel {
                           goal: ["Paham caranya", "Bisa ngitungnya"],
                           images: ["MathematicGreen"],
                           projectStatus: .Published,
-                          projectActivities: [ProjectActivity.init(name: "Menghitung", description: "Itung", time: 1)],
-                          notes: "Oke aja",
+                          projectActivities: [ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1),
+                                              ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1)],
+                          notes: "Do:  1. Membaca bahan belajar sebagai bahan apersepsi  2. Peserta didik menyelesaikan masalah sederhana Sistem Persamaan Linear Dua Variabel sebagai apersepsi  3. Peserta didik aktif mencari bahan untuk menjawab masalah 4. Peserta didik berkontribusi aktif dalam pemecahan masalah.    Dont  1. Pasif, tidak terlibat.  2. Takut tdk berani mencoba",
                           comments: [Comment.init(comment: "bego lu", authorID: "Atun", createdDate: Date())],
                           likes: 230,
                           createdDate: 01.1,
@@ -250,8 +345,9 @@ extension ProjectDatabaseViewModel {
                           goal: ["Paham caranya", "Bisa ngitungnya"],
                           images: ["MathematicLightBrown"],
                           projectStatus: .Published,
-                          projectActivities: [ProjectActivity.init(name: "Menghitung", description: "Itung", time: 1)],
-                          notes: "Oke aja",
+                          projectActivities: [ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1),
+                                              ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1)],
+                          notes: "Do:  1. Membaca bahan belajar sebagai bahan apersepsi  2. Peserta didik menyelesaikan masalah sederhana Sistem Persamaan Linear Dua Variabel sebagai apersepsi  3. Peserta didik aktif mencari bahan untuk menjawab masalah 4. Peserta didik berkontribusi aktif dalam pemecahan masalah.    Dont  1. Pasif, tidak terlibat.  2. Takut tdk berani mencoba",
                           comments: [Comment.init(comment: "bego lu", authorID: "Atun", createdDate: Date())],
                           likes: 230,
                           createdDate: 01.1,
@@ -270,8 +366,9 @@ let placeholder = Project(name: "Membuktikan Pythagoras dengan Kerikil",
                   goal: ["Paham caranya", "Bisa ngitungnya"],
                   images: ["MathematicBlue"],
                   projectStatus: .Published,
-                  projectActivities: [ProjectActivity.init(name: "Menghitung", description: "Itung", time: 1)],
-                  notes: "Oke aja",
+                  projectActivities: [ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1),
+                                      ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1)],
+                  notes: "Do:  1. Membaca bahan belajar sebagai bahan apersepsi  2. Peserta didik menyelesaikan masalah sederhana Sistem Persamaan Linear Dua Variabel sebagai apersepsi  3. Peserta didik aktif mencari bahan untuk menjawab masalah 4. Peserta didik berkontribusi aktif dalam pemecahan masalah.    Dont  1. Pasif, tidak terlibat.  2. Takut tdk berani mencoba",
                   comments: [Comment.init(comment: "bego lu", authorID: "Atun", createdDate: Date())],
                   likes: 230,
                   createdDate: 01.1,

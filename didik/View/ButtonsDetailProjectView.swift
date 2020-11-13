@@ -8,32 +8,40 @@
 import SwiftUI
 
 struct ButtonsDetailProjectView: View {
+    
+    let project: Project
+
+    var date: String {
+        DateUtil.convertDoubleToDate(date: project.createdDate)
+    }
+
     var body: some View {
         
         VStack {
             HStack {
-                Text("Matematika XII IPA || 22 Februari 2020 || Title Image")
+                Text("\(project.subject.rawValue) || \(date)")
                     .foregroundColor(.gray)
                 Spacer()
             }
             HStack {
                 Spacer()
-                Image("Love")
+                Image.Didik.Love
                     .resizable()
                     .frame(width: 40, height: 40)
                 
-                Image("Bookmark")
+                Image.Didik.Bookmark
                     .resizable()
                     .frame(width: 40, height: 40)
 
-                Image("Share")
+                Image.Didik.Share
                     .resizable()
                     .frame(width: 40, height: 40)
 
             }
 
             HStack {
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                
+                Button(action: {}, label: {
                     HStack(spacing: 10) {
                             Image(systemName: "plus")
                             Text("Gunakan Materi Ini")
@@ -55,7 +63,9 @@ struct ButtonsDetailProjectView: View {
 }
 
 struct ButtonsDetailProjectView_Previews: PreviewProvider {
+    static var projectDatabaseVideModel = ProjectDatabaseViewModel()
+
     static var previews: some View {
-        ButtonsDetailProjectView()
+        ButtonsDetailProjectView(project: projectDatabaseVideModel.allProjects[0])
     }
 }

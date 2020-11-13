@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct TeacherOverviewDetailProjectView: View {
+    
+    let project: Project
+
     var body: some View {
         HStack {
             
@@ -31,18 +34,18 @@ struct TeacherOverviewDetailProjectView: View {
                         .font(.system(size: 18))
                     Spacer()
                 }
-                HStack {
-                    Text("Guru Matematika Kelas XI IPA")
-                        .foregroundColor(Color.Didik.GreyDark)
-                        .font(.system(size: 18))
-                    Text(" | ")
-                        .foregroundColor(Color.Didik.GreyDark)
-                        .font(.system(size: 18))
-                    Text("SAM Kolese de Britto")
-                        .foregroundColor(Color.Didik.GreyDark)
-                        .font(.system(size: 18))
-                    Spacer()
-                }
+//                HStack {
+//                    Text("Guru Matematika Kelas XI IPA")
+//                        .foregroundColor(Color.Didik.GreyDark)
+//                        .font(.system(size: 18))
+//                    Text(" | ")
+//                        .foregroundColor(Color.Didik.GreyDark)
+//                        .font(.system(size: 18))
+//                    Text("SAM Kolese de Britto")
+//                        .foregroundColor(Color.Didik.GreyDark)
+//                        .font(.system(size: 18))
+//                    Spacer()
+//                }
                 
             }
             
@@ -54,7 +57,12 @@ struct TeacherOverviewDetailProjectView: View {
 }
 
 struct TeacherOverviewDetailProjectView_Previews: PreviewProvider {
+    
+    static var projectDatabaseVideModel = ProjectDatabaseViewModel()
+
     static var previews: some View {
-        TeacherOverviewDetailProjectView()
+        TeacherOverviewDetailProjectView(project: projectDatabaseVideModel.allProjects[0])
+            .previewDevice("iPad (8th generation)")
+
     }
 }

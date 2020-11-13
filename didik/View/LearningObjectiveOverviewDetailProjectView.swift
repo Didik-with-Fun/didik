@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct LearningObjectiveOverviewDetailProjectView: View {
+    
+    let project: Project
+
     var body: some View {
         HStack {
             VStack {
@@ -33,7 +36,12 @@ struct LearningObjectiveOverviewDetailProjectView: View {
 }
 
 struct LearningObjectiveOverviewDetailProjectView_Previews: PreviewProvider {
+
+    static var projectDatabaseVideModel = ProjectDatabaseViewModel()
+
     static var previews: some View {
-        LearningObjectiveOverviewDetailProjectView()
+        LearningObjectiveOverviewDetailProjectView(project: projectDatabaseVideModel.allProjects[0])
+            .previewDevice("iPad (8th generation)")
+
     }
 }

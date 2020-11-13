@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct CompetenceOverviewDetailView: View {
+    
+    let project: Project
+
     var body: some View {
         HStack {
             VStack {
@@ -45,15 +48,20 @@ struct CompetenceOverviewDetailView: View {
                 
             }
             
-            
             Spacer()
         }
     }
 }
 
 struct CompetenceOverviewDetailView_Previews: PreviewProvider {
+
+    static var projectDatabaseVideModel = ProjectDatabaseViewModel()
+
     static var previews: some View {
-        CompetenceOverviewDetailView()
+        CompetenceOverviewDetailView(project: projectDatabaseVideModel.allProjects[0])
             .previewDevice("iPad (8th generation)")
+
     }
+    
+    
 }
