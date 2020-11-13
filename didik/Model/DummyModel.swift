@@ -1,173 +1,174 @@
+////
+////  DummyModel.swift
+////  didik
+////
+////  Created by Fandrian Rhamadiansyah on 04/11/20.
+////
 //
-//  DummyModel.swift
-//  didik
-//
-//  Created by Fandrian Rhamadiansyah on 04/11/20.
-//
-
 import Foundation
-import SwiftUI
-
-enum Kelas: String, CaseIterable {
-    case Kelas = "Semua Kelas"
-    case X, XI, XII
-}
-
-enum Matpel: String, CaseIterable {
-    case MatPel = "Semua MatPel"
-    case Matematika, Fisika, Kimia
-}
-
-enum Subjek: String, CaseIterable {
-    case Linear = "Persamaan Linear"
-    case Trigonometri = "Trigonometri"
-    case Magnet = "Magnet"
-    case PesawatSederhana = "Pesawat Sederhana"
-    case Kuadratik = "Persamaan Kuadratik"
-}
 
 
-struct DummyMateri: Identifiable {
-    let id = UUID()
+
+//MARK: - Generate Dummy Model
+
+extension FirebaseRequestService {
+
     
-    let imageName: String
-    
-    var likes: Int
-    let duration: Int
-    let title: String
-    let author: String
-    let kelas: Kelas
-    let matpel: Matpel
-    let subjek: Subjek
-    var liked : Bool
-    var bookmarked : Bool
-    
-}
-
-struct DummyMateriGroup: Identifiable {
-    let id = UUID()
-    let title: String
-    let dummyMateri: [DummyMateri]
-}
-
-let placeholderMateri = DummyMateri(imageName: "photo", likes: 232, duration: 2, title: "Persamaan Linear I", author: "Pak Kirjo", kelas: .X, matpel: .Matematika, subjek: .Linear, liked: false, bookmarked: false)
-
-let placeholderMateri2 = DummyMateri(imageName: "photo", likes: 214, duration: 5, title: "Trigonometri", author: "Pak Kirjo", kelas: .XI, matpel: .Matematika, subjek: .Trigonometri, liked: false, bookmarked: false)
-
-let placeholderMateri3 = DummyMateri(imageName: "photo", likes: 214, duration: 5, title: "Persamaan Kuadratik I", author: "Pak Kirjo", kelas: .XII, matpel: .Matematika, subjek: .Kuadratik, liked: true, bookmarked: false)
-
-let placeholderMateri4 = DummyMateri(imageName: "photo", likes: 214, duration: 5, title: "Magnet I", author: "Pak Kirjo", kelas: .X, matpel: .Fisika, subjek: .Magnet, liked: false, bookmarked: false)
-
-let placeholderMateri5 = DummyMateri(imageName: "photo", likes: 214, duration: 5, title: "Bidang Miring I", author: "Pak Kirjo", kelas: .XI, matpel: .Fisika, subjek: .PesawatSederhana, liked: true, bookmarked: false)
-
-let placeholderMateri6 = DummyMateri(imageName: "photo", likes: 214, duration: 5, title: "Bidang Miring II", author: "Pak Kirjo", kelas: .XII, matpel: .Fisika, subjek: .PesawatSederhana, liked: false, bookmarked: false)
-
-let placeholderMateri7 = DummyMateri(imageName: "photo", likes: 214, duration: 5, title: "Trigonometri II", author: "Pak Kirjo", kelas: .XII, matpel: .Matematika, subjek: .Trigonometri, liked: false, bookmarked: false)
-
-
-let LibraryMateri: [DummyMateri] = [
-    placeholderMateri,
-    placeholderMateri2,
-    placeholderMateri3,
-    placeholderMateri4,
-    placeholderMateri5,
-    placeholderMateri6,
-    placeholderMateri7
-    
-]
-
-let dummyMateriGroup = [
-    DummyMateriGroup(title: "Trigonometri", dummyMateri: LibraryMateri),
-    DummyMateriGroup(title: "Magnet", dummyMateri: LibraryMateri),
-    DummyMateriGroup(title: "Biologi", dummyMateri: LibraryMateri),
-    DummyMateriGroup(title: "Pesawat Sederhana", dummyMateri: LibraryMateri),
-    DummyMateriGroup(title: "Trigonometri", dummyMateri: LibraryMateri)
-]
-
-
-class DummyModel: ObservableObject {
-    @Published var filteredMateri: [DummyMateri] = LibraryMateri
-    
-    let allMateri: [DummyMateri] = LibraryMateri
-    var filteredKelas: [DummyMateri] = LibraryMateri
-    var filteredMatpel: [DummyMateri] = LibraryMateri
-    
-    @Published var materiGroup: [DummyMateriGroup] = []
-    
-    init() {
-        print("init dummyModel")
-        for i in Subjek.allCases {
-            materiGroup.append(.init(title: i.rawValue, dummyMateri: filterSubjek(subjek: i)))
-        }
+    static func createDummyProjects() -> [Project] {
+        let p1 = Project(name: "Membuktikan Pythagoras dengan Kerikil sebesar kelereng",
+                          summary: "Siswa akan Membuktikan Pythagoras dengan Kerikil",
+                          subject: .Mathematic,
+                          grade: .twelve,
+                          topic: .init(subject: .Mathematic, grade: .twelve, name: "Trigonometri", coreCompetence: "Memahami trigonometri", basicCompetence: ["Bisa menggunakan phytagoras"]),
+                          goal: "Setelah Anda mempelajari bahan belajar ini diharapkan Anda mampu:  1.    Menjelaskan pengertian SPLTV  2.    Menjelaskan bentuk umum SPLTV  3.    Menentukan Himpunan Penyelesaian (HP) SPLTV  4.    Menyelesaikan masalah nyata yang berkaitan dengan SPLTV",
+                          images: ["MathematicBlue"],
+                          projectStatus: .Published,
+                          projectActivities: [ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1),
+                                              ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1)],
+                          notes: "Do:  1. Membaca bahan belajar sebagai bahan apersepsi  2. Peserta didik menyelesaikan masalah sederhana Sistem Persamaan Linear Dua Variabel sebagai apersepsi  3. Peserta didik aktif mencari bahan untuk menjawab masalah 4. Peserta didik berkontribusi aktif dalam pemecahan masalah.    Dont  1. Pasif, tidak terlibat.  2. Takut tdk berani mencoba",
+                          comments: [Comment.init(comment: "bego lu", authorID: "Mine", createdDate: Date())],
+                          likes: 230,
+                          createdDate: 1415637900,
+                          updatedDate: 232.2)
+        
+        let p2 = Project(name: "Membuktikan Pythagoras dengan Tusuk Sate dan daging kambing dimasak hemmmm enak sekaliii",
+                          summary: "Siswa akan Membuktikan Pythagoras dengan Tusuk Sate dan daging kambing dimasak hemmmm enak sekaliii",
+                          subject: .Mathematic,
+                          grade: .ten,
+                          topic: .init(subject: .Mathematic, grade: .ten, name: "Trigonometri", coreCompetence: "Memahami trigonometri", basicCompetence: ["Bisa menggunakan phytagoras"]),
+                          goal: "Setelah Anda mempelajari bahan belajar ini diharapkan Anda mampu:  1.    Menjelaskan pengertian SPLTV  2.    Menjelaskan bentuk umum SPLTV  3.    Menentukan Himpunan Penyelesaian (HP) SPLTV  4.    Menyelesaikan masalah nyata yang berkaitan dengan SPLTV",
+                          images: ["MathematicBlue"],
+                          projectStatus: .Published,
+                          projectActivities: [ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 2),
+                                              ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 2)],
+                          notes: "Do:  1. Membaca bahan belajar sebagai bahan apersepsi  2. Peserta didik menyelesaikan masalah sederhana Sistem Persamaan Linear Dua Variabel sebagai apersepsi  3. Peserta didik aktif mencari bahan untuk menjawab masalah 4. Peserta didik berkontribusi aktif dalam pemecahan masalah.    Dont  1. Pasif, tidak terlibat.  2. Takut tdk berani mencoba",
+                          comments: [Comment.init(comment: "bego lu", authorID: "Atun", createdDate: Date())],
+                          likes: 230,
+                          createdDate: 01.1,
+                          updatedDate: 232.2)
+        
+        let p3 = Project(name: "Membuktikan Integral dengan Tusuk Sate",
+                          summary: "Siswa akan Membuktikan Integral dengan Tusuk Sate",
+                          subject: .Mathematic,
+                          grade: .eleven,
+                          topic: .init(subject: .Mathematic, grade: .eleven, name: "Kalkulus", coreCompetence: "Memahami kalkulus", basicCompetence: ["Bisa menggunakan phytagoras"]),
+                          goal: "Setelah Anda mempelajari bahan belajar ini diharapkan Anda mampu:  1.    Menjelaskan pengertian SPLTV  2.    Menjelaskan bentuk umum SPLTV  3.    Menentukan Himpunan Penyelesaian (HP) SPLTV  4.    Menyelesaikan masalah nyata yang berkaitan dengan SPLTV",
+                          images: ["MathematicDarkBlue"],
+                          projectStatus: .Published,
+                          projectActivities: [ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1),
+                                              ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1)],
+                          notes: "Do:  1. Membaca bahan belajar sebagai bahan apersepsi  2. Peserta didik menyelesaikan masalah sederhana Sistem Persamaan Linear Dua Variabel sebagai apersepsi  3. Peserta didik aktif mencari bahan untuk menjawab masalah 4. Peserta didik berkontribusi aktif dalam pemecahan masalah.    Dont  1. Pasif, tidak terlibat.  2. Takut tdk berani mencoba",
+                          comments: [Comment.init(comment: "bego lu", authorID: "Mine", createdDate: Date())],
+                          likes: 230,
+                          createdDate: 01.1,
+                          updatedDate: 232.2)
+        
+        let p4 = Project(name: "Membuat Roket botol air",
+                          summary: "Siswa akan Membuktikan Pythagoras dengan Tusuk Sate",
+                          subject: .Physic,
+                          grade: .eleven,
+                          topic: .init(subject: .Physic, grade: .eleven, name: "Tekanan", coreCompetence: "Memahami tekanan", basicCompetence: ["Bisa menggunakan phytagoras"]),
+                          goal: "Setelah Anda mempelajari bahan belajar ini diharapkan Anda mampu:  1.    Menjelaskan pengertian SPLTV  2.    Menjelaskan bentuk umum SPLTV  3.    Menentukan Himpunan Penyelesaian (HP) SPLTV  4.    Menyelesaikan masalah nyata yang berkaitan dengan SPLTV",
+                          images: ["MathematicGreen"],
+                          projectStatus: .Published,
+                          projectActivities: [ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1),
+                                              ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1)],
+                          notes: "Do:  1. Membaca bahan belajar sebagai bahan apersepsi  2. Peserta didik menyelesaikan masalah sederhana Sistem Persamaan Linear Dua Variabel sebagai apersepsi  3. Peserta didik aktif mencari bahan untuk menjawab masalah 4. Peserta didik berkontribusi aktif dalam pemecahan masalah.    Dont  1. Pasif, tidak terlibat.  2. Takut tdk berani mencoba",
+                          comments: [Comment.init(comment: "bego lu", authorID: "Mine", createdDate: Date())],
+                          likes: 230,
+                          createdDate: 01.1,
+                          updatedDate: 232.2)
+        
+        let p5 = Project(name: "Membuat sabun",
+                          summary: "Siswa akan Membuat sabun dengan minyak",
+                          subject: .Chemist,
+                          grade: .twelve,
+                          topic: .init(subject: .Chemist, grade: .twelve, name: "Minyak", coreCompetence: "Memahami trigonometri", basicCompetence: ["Bisa menggunakan phytagoras"]),
+                          goal: "Setelah Anda mempelajari bahan belajar ini diharapkan Anda mampu:  1.    Menjelaskan pengertian SPLTV  2.    Menjelaskan bentuk umum SPLTV  3.    Menentukan Himpunan Penyelesaian (HP) SPLTV  4.    Menyelesaikan masalah nyata yang berkaitan dengan SPLTV",
+                          images: ["MathematicOrange"],
+                          projectStatus: .Draft,
+                          projectActivities: [ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1),
+                                              ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1)],
+                          notes: "Do:  1. Membaca bahan belajar sebagai bahan apersepsi  2. Peserta didik menyelesaikan masalah sederhana Sistem Persamaan Linear Dua Variabel sebagai apersepsi  3. Peserta didik aktif mencari bahan untuk menjawab masalah 4. Peserta didik berkontribusi aktif dalam pemecahan masalah.    Dont  1. Pasif, tidak terlibat.  2. Takut tdk berani mencoba",
+                          comments: [Comment.init(comment: "bego lu", authorID: "Mine", createdDate: Date())],
+                          likes: 230,
+                          createdDate: 01.1,
+                          updatedDate: 232.2)
+        
+        let p6 = Project(name: "Membuat Tabung kapiler",
+                          summary: "Siswa akan Membuat tabung kapiler",
+                          subject: .Physic,
+                          grade: .twelve,
+                          topic: .init(subject: .Physic, grade: .twelve, name: "Tekanan", coreCompetence: "Memahami trigonometri", basicCompetence: ["Bisa menggunakan phytagoras"]),
+                          goal: "Setelah Anda mempelajari bahan belajar ini diharapkan Anda mampu:  1.    Menjelaskan pengertian SPLTV  2.    Menjelaskan bentuk umum SPLTV  3.    Menentukan Himpunan Penyelesaian (HP) SPLTV  4.    Menyelesaikan masalah nyata yang berkaitan dengan SPLTV",
+                          images: ["MathematicGreen"],
+                          projectStatus: .Draft,
+                          projectActivities: [ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1),
+                                              ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1)],
+                          notes: "Do:  1. Membaca bahan belajar sebagai bahan apersepsi  2. Peserta didik menyelesaikan masalah sederhana Sistem Persamaan Linear Dua Variabel sebagai apersepsi  3. Peserta didik aktif mencari bahan untuk menjawab masalah 4. Peserta didik berkontribusi aktif dalam pemecahan masalah.    Dont  1. Pasif, tidak terlibat.  2. Takut tdk berani mencoba",
+                          comments: [Comment.init(comment: "bego lu", authorID: "Mine", createdDate: Date())],
+                          likes: 230,
+                          createdDate: 01.1,
+                          updatedDate: 232.2)
+        
+        let p7 = Project(name: "Membuat Tabung Hisap",
+                          summary: "Siswa akan Membuat tabung kapiler",
+                          subject: .Physic,
+                          grade: .eleven,
+                          topic: .init(subject: .Physic, grade: .eleven, name: "Tekanan", coreCompetence: "Memahami trigonometri", basicCompetence: ["Bisa menggunakan phytagoras"]),
+                          goal: "Setelah Anda mempelajari bahan belajar ini diharapkan Anda mampu:  1.    Menjelaskan pengertian SPLTV  2.    Menjelaskan bentuk umum SPLTV  3.    Menentukan Himpunan Penyelesaian (HP) SPLTV  4.    Menyelesaikan masalah nyata yang berkaitan dengan SPLTV",
+                          images: ["MathematicGreen"],
+                          projectStatus: .Published,
+                          projectActivities: [ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1),
+                                              ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1)],
+                          notes: "Do:  1. Membaca bahan belajar sebagai bahan apersepsi  2. Peserta didik menyelesaikan masalah sederhana Sistem Persamaan Linear Dua Variabel sebagai apersepsi  3. Peserta didik aktif mencari bahan untuk menjawab masalah 4. Peserta didik berkontribusi aktif dalam pemecahan masalah.    Dont  1. Pasif, tidak terlibat.  2. Takut tdk berani mencoba",
+                          comments: [Comment.init(comment: "bego lu", authorID: "Mine", createdDate: Date())],
+                          likes: 230,
+                          createdDate: 01.1,
+                          updatedDate: 232.2)
+        
+        let p8 = Project(name: "Membuat Rail Gun",
+                          summary: "Siswa akan Membuat rail gun",
+                          subject: .Physic,
+                          grade: .ten,
+                          topic: .init(subject: .Physic, grade: .ten, name: "Magnet", coreCompetence: "Memahami trigonometri", basicCompetence: ["Bisa menggunakan phytagoras"]),
+                          goal: "Setelah Anda mempelajari bahan belajar ini diharapkan Anda mampu:  1.    Menjelaskan pengertian SPLTV  2.    Menjelaskan bentuk umum SPLTV  3.    Menentukan Himpunan Penyelesaian (HP) SPLTV  4.    Menyelesaikan masalah nyata yang berkaitan dengan SPLTV",
+                          images: ["MathematicLightBrown"],
+                          projectStatus: .Published,
+                          projectActivities: [ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1),
+                                              ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1)],
+                          notes: "Do:  1. Membaca bahan belajar sebagai bahan apersepsi  2. Peserta didik menyelesaikan masalah sederhana Sistem Persamaan Linear Dua Variabel sebagai apersepsi  3. Peserta didik aktif mencari bahan untuk menjawab masalah 4. Peserta didik berkontribusi aktif dalam pemecahan masalah.    Dont  1. Pasif, tidak terlibat.  2. Takut tdk berani mencoba",
+                          comments: [Comment.init(comment: "bego lu", authorID: "Mine", createdDate: Date())],
+                          likes: 230,
+                          createdDate: 01.1,
+                          updatedDate: 232.2)
         
         
+        return [p1, p2, p3, p4, p5, p6, p7, p8]
     }
-    
-    
-    func filterKelas(kelas: Kelas) {
-        
-        if kelas == .Kelas {
-            self.filteredMateri = self.filteredMatpel.filter { (isi) -> Bool in
-                return (isi.kelas == .X) || (isi.kelas == .XI) || (isi.kelas == .XII)
-            }
-            
-            return
-            
-        } else {
-            self.filteredMateri = self.filteredMatpel.filter { (isi) -> Bool in
-                return isi.kelas == kelas
-            }
-            
-            self.filteredKelas = self.allMateri.filter { (isi) -> Bool in
-                return isi.kelas == kelas
-            }
-            
-            return
-            
-        }
-        
-    }
-    
-    func filterMatpel(matpel: Matpel) {
-        
-        if matpel == .MatPel {
-            self.filteredMateri = self.filteredKelas.filter { (isi) -> Bool in
-                return (isi.matpel == .Matematika) || (isi.matpel == .Fisika) || (isi.matpel == .Kimia)
-            }
-            return
-            
-        } else {
-            self.filteredMateri = self.filteredKelas.filter { (isi) -> Bool in
-                return isi.matpel == matpel
-            }
-            
-            self.filteredMatpel = self.allMateri.filter { (isi) -> Bool in
-                return isi.matpel == matpel
-            }
-            return
-            
-        }
-        
-    }
-    
-    
-    func filterSubjek(subjek : Subjek) -> [DummyMateri] {
-        return self.filteredMateri.filter { (isi) -> Bool in
-            return isi.subjek == subjek
-        }
-    }
-    
-    func updateMateriGroup() {
-        self.materiGroup = []
-        
-        for i in Subjek.allCases {
-            if filterSubjek(subjek: i).isEmpty == false {
-                materiGroup.append(.init(title: i.rawValue, dummyMateri: filterSubjek(subjek: i)))
-            }
-        }
-    }
-    
-    
-    
-    
 }
+
+
+//MARK: - Generate Dummy Placeholder
+
+
+
+let placeholder = Project(name: "Membuktikan Pythagoras dengan Kerikil sebesar kelereng",
+                          summary: "Siswa akan Membuktikan Pythagoras dengan Kerikil",
+                          subject: .Mathematic,
+                          grade: .ten,
+                          topic: .init(subject: .Mathematic, grade: .ten, name: "Trigonometri", coreCompetence: "Memahami trigonometri", basicCompetence: ["Bisa menggunakan phytagoras"]),
+                          goal: "Setelah Anda mempelajari bahan belajar ini diharapkan Anda mampu:  1.    Menjelaskan pengertian SPLTV  2.    Menjelaskan bentuk umum SPLTV  3.    Menentukan Himpunan Penyelesaian (HP) SPLTV  4.    Menyelesaikan masalah nyata yang berkaitan dengan SPLTV",
+                          images: ["MathematicBlue"],
+                          projectStatus: .Published,
+                          projectActivities: [ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1),
+                                              ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1)],
+                          notes: "Do:  1. Membaca bahan belajar sebagai bahan apersepsi  2. Peserta didik menyelesaikan masalah sederhana Sistem Persamaan Linear Dua Variabel sebagai apersepsi  3. Peserta didik aktif mencari bahan untuk menjawab masalah 4. Peserta didik berkontribusi aktif dalam pemecahan masalah.    Dont  1. Pasif, tidak terlibat.  2. Takut tdk berani mencoba",
+                          comments: [Comment.init(comment: "bego lu", authorID: "Atun", createdDate: Date())],
+                          likes: 230,
+                          createdDate: 01.1,
+                          updatedDate: 232.2)
+
+
+let placeholderGroup = ProjectsGroup(title: "title", unfilteredGroup: [placeholder], group: [placeholder])
+

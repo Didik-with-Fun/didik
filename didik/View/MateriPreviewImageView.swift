@@ -55,7 +55,7 @@ struct MateriPreviewImageView: View {
                                 Image(K.calendarIcon)
                                     .resizable()
                                     .frame(width : 22.5, height: 25)
-                                Text("\(project.projectActivities[0].time)")
+                                Text("\(project.getTotalActivitiesDays())")
                                     .font(.system(size: 13, weight: .regular, design: .default))
                                     .foregroundColor(.black)
                                     .padding(.top, 5)

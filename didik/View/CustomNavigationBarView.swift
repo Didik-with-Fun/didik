@@ -16,18 +16,17 @@ struct CustomNavigationBarView: View {
     @Binding var filteredGrade: Grades
     @Binding var filteredSubject: Subject
     @Binding var searchText: String
-    let showDropDown: Bool
+    
+    var viewType: ViewType
     
     
     var body: some View {
         VStack (alignment: .leading){
 
             HStack(spacing: 0){
-                if showDropDown {
-                    ProjectDropDownMenu(selectedGrade: $filteredGrade, selectedSubject: $filteredSubject, width: UIScreen.main.bounds.width * 0.18)
-                        .padding(.trailing, 10)
+                ProjectDropDownMenu(selectedGrade: $filteredGrade, selectedSubject: $filteredSubject, viewType: self.viewType, width: UIScreen.main.bounds.width * 0.18)
+                    .padding(.trailing, 10)
 
-                }
                 SearchBarView(text: $searchText)
                     .padding(.horizontal, 10)
                     .padding(.trailing)
@@ -43,8 +42,8 @@ struct CustomNavigationBarView: View {
 struct CustomNavigationBarView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            CustomNavigationBarView(filteredGrade: .constant(.ten), filteredSubject: .constant(.Physic), searchText: .constant(""), showDropDown: false)
-            CustomNavigationBarView(filteredGrade: .constant(.ten), filteredSubject: .constant(.Physic), searchText: .constant(""), showDropDown: false)
+            CustomNavigationBarView(filteredGrade: .constant(.ten), filteredSubject: .constant(.Physic), searchText: .constant(""), viewType: .jelajah)
+            CustomNavigationBarView(filteredGrade: .constant(.ten), filteredSubject: .constant(.Physic), searchText: .constant(""), viewType: .lihatSemua)
         }
     }
 }
