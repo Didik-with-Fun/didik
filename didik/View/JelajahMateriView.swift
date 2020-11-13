@@ -21,7 +21,7 @@ struct JelajahMateriView: View {
     var body: some View {
         NavigationView {
             VStack {
-                CustomNavigationBarView(filteredGrade: $selectedGrade, filteredSubject: $selectedSubject, searchText: $searchText, showDropDown: true)
+                CustomNavigationBarView(filteredGrade: $selectedGrade, filteredSubject: $selectedSubject, searchText: $searchText, viewType: .jelajah)
                     .zIndex(2)
                 
                 //workaraund to make nav bar not expanding
@@ -45,7 +45,8 @@ struct JelajahMateriView: View {
                         VStack(spacing : 0) {
                             ForEach(db.jelajahMateriGroup) {
                                 index in
-                                MateriPreviewCollectionView(parentGeometry: parentGeometry, title: index.title, ProjectsLibrary: index.group)
+                                MateriPreviewCollectionView(parentGeometry: parentGeometry, title: index.title, ProjectsLibrary: index.group, selectedGrades: $selectedGrade, selectedSubject: $selectedSubject)
+                                //(parentGeometry: parentGeometry, title: index.title, ProjectsLibrary: index.group)
 
                                 
                             }

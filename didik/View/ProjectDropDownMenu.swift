@@ -19,6 +19,8 @@ struct ProjectDropDownMenu : View {
     @Binding var selectedGrade: Grades
     @Binding var selectedSubject: Subject
     
+    var viewType: ViewType
+    
     let width: CGFloat
     
     var body: some View {
@@ -51,8 +53,8 @@ struct ProjectDropDownMenu : View {
                                     Button(action: {
                                         self.showGradesDropDown.toggle()
                                         self.selectedGrade = optionGrades[index]
-                                        self.db.filter(grade: self.selectedGrade, subject: self.selectedSubject)
-                                        self.db.updateProjectsGroup()
+                                        self.db.filter(grade: self.selectedGrade, subject: self.selectedSubject, view: self.viewType)
+                                        
                                     }) {
                                         Text("\(optionGrades[index].rawValue)")
                                             .foregroundColor(.black)
@@ -103,8 +105,8 @@ struct ProjectDropDownMenu : View {
                                     Button(action: {
                                         self.showSubjectsDropDown.toggle()
                                         self.selectedSubject = optionSubjects[index]
-                                        self.db.filter(grade: self.selectedGrade, subject: self.selectedSubject)
-                                        self.db.updateProjectsGroup()
+                                        self.db.filter(grade: self.selectedGrade, subject: self.selectedSubject, view: self.viewType)
+                                        
                                     }) {
                                         Text(optionSubjects[index].rawValue)
                                             .foregroundColor(.black)
@@ -134,6 +136,6 @@ struct ProjectDropDownMenu : View {
 
 struct CustomDropDownMenu_Previews: PreviewProvider {
     static var previews: some View {
-        ProjectDropDownMenu(selectedGrade: .constant(.ten), selectedSubject: .constant(.Physic), width: 130)
+        ProjectDropDownMenu(selectedGrade: .constant(.ten), selectedSubject: .constant(.Physic), viewType: .jelajah, width: 130)
     }
 }

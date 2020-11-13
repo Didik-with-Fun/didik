@@ -15,6 +15,12 @@ struct ProjectsGroup: Identifiable {
     let group: [Project]
 }
 
+enum ViewType: String {
+    case jelajah = "Jelajah Materi"
+    case myMateri = "Materi Saya"
+    case lihatSemua
+}
+
 class ProjectDatabaseViewModel: ObservableObject {
     
     // all projects from firebase
@@ -22,19 +28,18 @@ class ProjectDatabaseViewModel: ObservableObject {
     
     // variabel to filter projects from jelajah materi view
     @Published var filteredProjects: [Project] = []
-    var filteredProjectsBySubject: [Project] = []
-    var filteredProjectsByGrade: [Project] = []
+
     @Published var jelajahMateriGroup: [ProjectsGroup] = []
     
     
-    var myAllProjects : [Project] = []
+    var myAllProjects: [Project] = []
     @Published var myProjects: [Project] = []
-    var myProjectsBySubject: [Project] = []
-    var myProjectsByGrade: [Project] = []
-    
-    
+
     @Published var myProjectsGroup: [ProjectsGroup] = []
     
+    
+    var specificProjects: [Project] = []
+    @Published var filteredSpecificProjects: [Project] = []
     
     init() {
         print("view model init delay")
@@ -45,14 +50,12 @@ class ProjectDatabaseViewModel: ObservableObject {
                 // initialize jelajah materi project database
                 self.allProjects = requestProjects
                 self.filteredProjects = requestProjects
-                self.filteredProjectsBySubject = requestProjects
-                self.filteredProjectsByGrade = requestProjects
+
                 
                 // initialize my materi project database
                 self.myAllProjects = requestProjects
                 self.myProjects = requestProjects
-                self.myProjectsBySubject = requestProjects
-                self.myProjectsByGrade = requestProjects
+
                 
                 let temp = Dictionary(grouping: self.filteredProjects) { (project) -> String in
                     return project.topic.name
@@ -75,8 +78,62 @@ class ProjectDatabaseViewModel: ObservableObject {
         
     }
     
-    func filter(grade: Grades, subject: Subject) {
+    func filter(grade: Grades, subject: Subject, view: ViewType) {
         
+        switch view {
+        case .myMateri:
+           filterMyMateri(grade: grade, subject: subject)
+            
+        case .lihatSemua:
+            filterLihatSemua(grade: grade, subject: subject)
+            
+        default:
+            // jelajah
+            filterJelajah(grade: grade, subject: subject)
+        }
+        
+    }
+    
+    
+    
+    func updateProjectsGroup() {
+        self.jelajahMateriGroup = []
+        
+        let temp = Dictionary(grouping: filteredProjects) { (project) -> String in
+            return project.topic.name
+        }
+        for (key, value) in temp {
+            self.jelajahMateriGroup.append(ProjectsGroup(title: key, group: value))
+        }
+        
+    }
+    
+    
+    
+    func filterMyMateri(grade: Grades, subject: Subject) {
+        let filterGrade = self.myAllProjects.filter { (Project) -> Bool in
+            if grade == .allGrades {
+                return true
+            } else {
+                return Project.grade == grade
+            }
+        }
+        
+        let filterSubject = filterGrade.filter { (Project) -> Bool in
+            if subject == .allSubjects {
+                return true
+            } else {
+                return Project.subject == subject
+            }
+        }
+        
+        self.myProjects = filterSubject
+        
+        self.updateMyProjectsGroup()
+    }
+    
+    
+    func filterJelajah(grade: Grades, subject: Subject) {
         let filterGrade = self.allProjects.filter { (Project) -> Bool in
             if grade == .allGrades {
                 return true
@@ -94,76 +151,33 @@ class ProjectDatabaseViewModel: ObservableObject {
         }
         
         self.filteredProjects = filterSubject
+        
+        self.updateProjectsGroup()
     }
     
     
-//    func filterByGrades(grade: Grades) {
-//
-//        if grade == .allGrades {
-//            self.filteredProjects = self.filteredProjectsBySubject.filter { (Projects) -> Bool in
-//                return (Projects.grade == .ten) || (Projects.grade == .eleven) || (Projects.grade == .twelve)
-//            }
-//
-//            return
-//
-//        } else {
-//            self.filteredProjects = self.filteredProjectsBySubject.filter { (Projects) -> Bool in
-//                return Projects.grade == grade
-//            }
-//
-//            self.filteredProjectsByGrade = self.allProjects.filter { (Projects) -> Bool in
-//                return Projects.grade == grade
-//            }
-//
-//            return
-//
-//        }
-//
-//    }
-//
-//    func filterBySubjects(subject: Subject) {
-//
-//        if subject == .allSubjects {
-//            self.filteredProjects = self.filteredProjectsByGrade.filter { (projects) -> Bool in
-//                return (projects.subject == .Mathematic) ||
-//                    (projects.subject == .Physic) ||
-//                    (projects.subject == .Chemist) ||
-//                    (projects.subject == .Biology) ||
-//                    (projects.subject == .Sociology) ||
-//                    (projects.subject == .History) ||
-//                    (projects.subject == .Economy) ||
-//                    (projects.subject == .Geography) ||
-//                    (projects.subject == .BahasaIndonesia) ||
-//                    (projects.subject == .English)
-//            }
-//            return
-//
-//        } else {
-//            self.filteredProjects = self.filteredProjectsByGrade.filter { (projects) -> Bool in
-//                return projects.subject == subject
-//            }
-//
-//            self.filteredProjectsBySubject = self.allProjects.filter { (projects) -> Bool in
-//                return projects.subject == subject
-//            }
-//            return
-//
-//        }
-//
-//    }
-//
     
-    func updateProjectsGroup() {
-        self.jelajahMateriGroup = []
+    func filterLihatSemua(grade: Grades, subject: Subject) {
         
-        let temp = Dictionary(grouping: filteredProjects) { (project) -> String in
-            return project.topic.name
-        }
-        for (key, value) in temp {
-            self.jelajahMateriGroup.append(ProjectsGroup(title: key, group: value))
+        let filterGrade = self.specificProjects.filter { (Project) -> Bool in
+            if grade == .allGrades {
+                return true
+            } else {
+                return Project.grade == grade
+            }
         }
         
+        let filterSubject = filterGrade.filter { (Project) -> Bool in
+            if subject == .allSubjects {
+                return true
+            } else {
+                return Project.subject == subject
+            }
+        }
+        
+        self.filteredSpecificProjects = filterSubject
     }
+    
     
     
     
@@ -172,71 +186,16 @@ class ProjectDatabaseViewModel: ObservableObject {
 
 //MARK: - My project extension
 extension ProjectDatabaseViewModel {
-    
-    func myProjectsByGrades(grade: Grades) {
-        
-        if grade == .allGrades {
-            self.myProjects = self.myProjectsBySubject.filter { (Projects) -> Bool in
-                return (Projects.grade == .ten) || (Projects.grade == .eleven) || (Projects.grade == .twelve)
-            }
-            
-            return
-            
-        } else {
-            self.myProjects = self.myProjectsBySubject.filter { (Projects) -> Bool in
-                return Projects.grade == grade
-            }
-            
-            self.myProjectsByGrade = self.myAllProjects.filter { (Projects) -> Bool in
-                return Projects.grade == grade
-            }
-            
-            return
-            
-        }
-        
-    }
-    
-    func myProjectsBySubjects(subject: Subject) {
-        
-        if subject == .allSubjects {
-            self.filteredProjects = self.filteredProjectsByGrade.filter { (projects) -> Bool in
-                return (projects.subject == .Mathematic) ||
-                    (projects.subject == .Physic) ||
-                    (projects.subject == .Chemist) ||
-                    (projects.subject == .Biology) ||
-                    (projects.subject == .Sociology) ||
-                    (projects.subject == .History) ||
-                    (projects.subject == .Economy) ||
-                    (projects.subject == .Geography) ||
-                    (projects.subject == .BahasaIndonesia) ||
-                    (projects.subject == .English)
-            }
-            return
-            
-        } else {
-            self.filteredProjects = self.filteredProjectsByGrade.filter { (projects) -> Bool in
-                return projects.subject == subject
-            }
-            
-            self.filteredProjectsBySubject = self.allProjects.filter { (projects) -> Bool in
-                return projects.subject == subject
-            }
-            return
-            
-        }
-        
-    }
-    
+
     
     func updateMyProjectsGroup() {
-        self.jelajahMateriGroup = []
+        self.myProjectsGroup = []
         
-        let temp = Dictionary(grouping: filteredProjects) { (project) -> String in
-            return project.topic.name
+        let temp = Dictionary(grouping: myProjects) { (project) -> ProjectStatus in
+            return project.projectStatus
         }
         for (key, value) in temp {
-            self.jelajahMateriGroup.append(ProjectsGroup(title: key, group: value))
+            self.myProjectsGroup.append(ProjectsGroup(title: key.rawValue, group: value))
         }
         
     }
