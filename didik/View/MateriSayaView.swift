@@ -16,6 +16,7 @@ struct MateriSayaView: View {
     @State var selectedSubject: Subject = .allSubjects
     
     var parentGeometry: GeometryProxy
+    var viewType: ViewType = .myMateri
 
     var body: some View {
         NavigationView {
@@ -47,7 +48,7 @@ struct MateriSayaView: View {
                         VStack(spacing : 0) {
                             ForEach(db.myProjectsGroup) {
                                 index in
-                                MateriPreviewCollectionView(parentGeometry: parentGeometry, title: index.title, ProjectsLibrary: index.group, selectedGrades: $selectedGrades, selectedSubject: $selectedSubject)//(parentGeometry: parentGeometry, title: index.title, ProjectsLibrary: index.group)
+                                MateriPreviewCollectionView(parentGeometry: parentGeometry, projectsGroup: index, selectedGrades: $selectedGrades, selectedSubject: $selectedSubject, startPointviewType: viewType)//(parentGeometry: parentGeometry, title: index.title, ProjectsLibrary: index.group)
 
                                 
                             }

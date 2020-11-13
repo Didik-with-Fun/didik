@@ -11,21 +11,16 @@ struct LihatSemuaView: View {
     
     @EnvironmentObject var db: ProjectDatabaseViewModel
     
-    let ProjectsLibrary: [Project]
-    let currentTitle: String
+    let projectsGroup: ProjectsGroup
     @State var searchText: String = ""
-    @State var selectedKelas: Grades
-    @State var selectedMatpel: Subject
+    @Binding var selectedKelas: Grades
+    @Binding var selectedMatpel: Subject
     
     let height: CGFloat = 125
     let width: CGFloat = 230
     
-//    init(ProjectsLibrary: [Project], currentTitle: String) {
-//        self.ProjectsLibrary = ProjectsLibrary
-//        self.currentTitle = currentTitle
-//
-//
-//    }
+    let startPointviewType: ViewType
+    
     
     var body: some View {
         
@@ -39,7 +34,7 @@ struct LihatSemuaView: View {
                 List(db.filteredSpecificProjects.filter({ searchText.isEmpty ? true : $0.name.lowercased().contains(searchText.lowercased())
             	})) { project in
                 	NavigationLink(
-                        destination: DetailProjectMainView(project: project, parentGeometry: geometry, title: currentTitle),
+                        destination: DetailProjectMainView(project: project, parentGeometry: geometry, title: projectsGroup.title),
                     	label: {
                         	MateriTableCellView(project: project, height: height, width: width, bookmarked: false)
                     	})
@@ -49,13 +44,16 @@ struct LihatSemuaView: View {
 
         }
 
-        .navigationBarTitle(currentTitle, displayMode: .automatic)
+        .navigationBarTitle(projectsGroup.title, displayMode: .automatic)
         .navigationBarItems(trailing: UserButton())
         .navigationBarColor(backgroundColor: UIColor(Color.Didik.BluePrimary))
         
         .onAppear(perform: {
-            db.specificProjects = ProjectsLibrary
-            db.filteredSpecificProjects = ProjectsLibrary
+            db.specificProjects = projectsGroup.unfilteredGroup
+            db.filterLihatSemua(grade: selectedKelas, subject: selectedMatpel)
+        })
+        .onDisappear(perform: {
+            db.filter(grade: selectedKelas, subject: selectedMatpel, view: startPointviewType)
         })
         
     }
@@ -63,7 +61,7 @@ struct LihatSemuaView: View {
 
 struct LihatSemuaView_Previews: PreviewProvider {
     static var previews: some View {
-        LihatSemuaView(ProjectsLibrary: [placeholder], currentTitle: "Coba", selectedKelas: .ten, selectedMatpel: .BahasaIndonesia)
+        LihatSemuaView(projectsGroup: placeholderGroup, selectedKelas: .constant(.ten), selectedMatpel: .constant(.BahasaIndonesia), startPointviewType: .jelajah)
             .previewDevice("iPad (8th generation)")
     }
 }

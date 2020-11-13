@@ -15,6 +15,7 @@ struct JelajahMateriView: View {
     @State var selectedGrade: Grades = .allGrades
     @State var selectedSubject: Subject = .allSubjects
     
+    let viewType: ViewType = .jelajah
     var parentGeometry: GeometryProxy
 
     
@@ -45,10 +46,7 @@ struct JelajahMateriView: View {
                         VStack(spacing : 0) {
                             ForEach(db.jelajahMateriGroup) {
                                 index in
-                                MateriPreviewCollectionView(parentGeometry: parentGeometry, title: index.title, ProjectsLibrary: index.group, selectedGrades: $selectedGrade, selectedSubject: $selectedSubject)
-                                //(parentGeometry: parentGeometry, title: index.title, ProjectsLibrary: index.group)
-
-                                
+                                MateriPreviewCollectionView(parentGeometry: parentGeometry, projectsGroup: index, selectedGrades: $selectedGrade, selectedSubject: $selectedSubject, startPointviewType: viewType)
                             }
                         }
                     }
@@ -58,6 +56,9 @@ struct JelajahMateriView: View {
             .navigationBarColor(backgroundColor: UIColor(Color.Didik.BluePrimary))
             .navigationBarTitle("Jelajah Materi", displayMode: .automatic)
             .navigationBarItems(trailing: UserButton())
+//            .onAppear(perform: {
+//                db.filter(grade: selectedGrade, subject: selectedSubject, view: .jelajah)
+//            })
             
         }
         .navigationViewStyle(StackNavigationViewStyle())

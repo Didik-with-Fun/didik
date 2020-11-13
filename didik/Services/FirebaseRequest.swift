@@ -63,11 +63,11 @@ extension FirebaseRequest {
     }
     
     static func createDummyProjects() -> [Project] {
-        let p1 = Project(name: "Membuktikan Pythagoras dengan Kerikil",
+        let p1 = Project(name: "Membuktikan Pythagoras dengan Kerikil sebesar kelereng",
                           summary: "Siswa akan Membuktikan Pythagoras dengan Kerikil",
                           subject: .Mathematic,
-                          grade: .ten,
-                          topic: .init(subject: .Mathematic, grade: .ten, name: "Trigonometri", coreCompetence: "Memahami trigonometri", basicCompetence: ["Bisa menggunakan phytagoras"]),
+                          grade: .twelve,
+                          topic: .init(subject: .Mathematic, grade: .twelve, name: "Trigonometri", coreCompetence: "Memahami trigonometri", basicCompetence: ["Bisa menggunakan phytagoras"]),
                           goal: "Setelah Anda mempelajari bahan belajar ini diharapkan Anda mampu:  1.    Menjelaskan pengertian SPLTV  2.    Menjelaskan bentuk umum SPLTV  3.    Menentukan Himpunan Penyelesaian (HP) SPLTV  4.    Menyelesaikan masalah nyata yang berkaitan dengan SPLTV",
                           images: ["MathematicBlue"],
                           projectStatus: .Published,
@@ -82,8 +82,8 @@ extension FirebaseRequest {
         let p2 = Project(name: "Membuktikan Pythagoras dengan Tusuk Sate dan daging kambing dimasak hemmmm enak sekaliii",
                           summary: "Siswa akan Membuktikan Pythagoras dengan Tusuk Sate dan daging kambing dimasak hemmmm enak sekaliii",
                           subject: .Mathematic,
-                          grade: .eleven,
-                          topic: .init(subject: .Mathematic, grade: .eleven, name: "Trigonometri", coreCompetence: "Memahami trigonometri", basicCompetence: ["Bisa menggunakan phytagoras"]),
+                          grade: .ten,
+                          topic: .init(subject: .Mathematic, grade: .ten, name: "Trigonometri", coreCompetence: "Memahami trigonometri", basicCompetence: ["Bisa menggunakan phytagoras"]),
                           goal: "Setelah Anda mempelajari bahan belajar ini diharapkan Anda mampu:  1.    Menjelaskan pengertian SPLTV  2.    Menjelaskan bentuk umum SPLTV  3.    Menentukan Himpunan Penyelesaian (HP) SPLTV  4.    Menyelesaikan masalah nyata yang berkaitan dengan SPLTV",
                           images: ["MathematicBlue"],
                           projectStatus: .Published,

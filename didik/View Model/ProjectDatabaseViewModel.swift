@@ -12,7 +12,8 @@ import FirebaseFirestoreSwift
 struct ProjectsGroup: Identifiable {
     let id = UUID()
     let title: String
-    let group: [Project]
+    let unfilteredGroup: [Project]
+    var group: [Project]
 }
 
 enum ViewType: String {
@@ -30,12 +31,14 @@ class ProjectDatabaseViewModel: ObservableObject {
     @Published var filteredProjects: [Project] = []
 
     @Published var jelajahMateriGroup: [ProjectsGroup] = []
+    var referenceJelajahMateriGroup: [ProjectsGroup] = []
     
     
     var myAllProjects: [Project] = []
     @Published var myProjects: [Project] = []
 
     @Published var myProjectsGroup: [ProjectsGroup] = []
+    var referenceMyProjectsGroup: [ProjectsGroup] = []
     
     
     var specificProjects: [Project] = []
@@ -61,7 +64,8 @@ class ProjectDatabaseViewModel: ObservableObject {
                     return project.topic.name
                 }
                 for (key, value) in temp {
-                    self.jelajahMateriGroup.append(ProjectsGroup(title: key, group: value))
+                    self.jelajahMateriGroup.append(ProjectsGroup(title: key, unfilteredGroup: value, group: value))
+                    self.referenceJelajahMateriGroup.append(ProjectsGroup(title: key, unfilteredGroup: value, group: value))
                 }
                 
                 
@@ -69,7 +73,8 @@ class ProjectDatabaseViewModel: ObservableObject {
                     return project.projectStatus
                 }
                 for (key, value) in myTemp {
-                    self.myProjectsGroup.append(ProjectsGroup(title: key.rawValue, group: value))
+                    self.myProjectsGroup.append(ProjectsGroup(title: key.rawValue, unfilteredGroup: value, group: value))
+                    self.referenceMyProjectsGroup.append(ProjectsGroup(title: key.rawValue, unfilteredGroup: value, group: value))
                 }
             case .failure(let error):
                 print(error.localizedDescription)
@@ -97,14 +102,21 @@ class ProjectDatabaseViewModel: ObservableObject {
     
     
     func updateProjectsGroup() {
-        self.jelajahMateriGroup = []
+        var updateGroup: [ProjectsGroup] = []
         
         let temp = Dictionary(grouping: filteredProjects) { (project) -> String in
             return project.topic.name
         }
+        
         for (key, value) in temp {
-            self.jelajahMateriGroup.append(ProjectsGroup(title: key, group: value))
+            for i in referenceJelajahMateriGroup {
+                if i.title == key {
+                    updateGroup.append(ProjectsGroup(title: key, unfilteredGroup: i.unfilteredGroup, group: value))
+                }
+                print(i.title)
+            }
         }
+        self.jelajahMateriGroup = updateGroup
         
     }
     
@@ -189,14 +201,22 @@ extension ProjectDatabaseViewModel {
 
     
     func updateMyProjectsGroup() {
-        self.myProjectsGroup = []
+        
+        var updateGroup: [ProjectsGroup] = []
         
         let temp = Dictionary(grouping: myProjects) { (project) -> ProjectStatus in
             return project.projectStatus
         }
+        
         for (key, value) in temp {
-            self.myProjectsGroup.append(ProjectsGroup(title: key.rawValue, group: value))
+            for i in referenceMyProjectsGroup {
+                if i.title == key.rawValue {
+                    updateGroup.append(ProjectsGroup(title: key.rawValue, unfilteredGroup: i.unfilteredGroup, group: value))
+                }
+                print(i.title)
+            }
         }
+        self.myProjectsGroup = updateGroup
         
     }
     
@@ -204,7 +224,7 @@ extension ProjectDatabaseViewModel {
 
 
 
-let placeholder = Project(name: "Membuktikan Pythagoras dengan Kerikil",
+let placeholder = Project(name: "Membuktikan Pythagoras dengan Kerikil sebesar kelereng",
                           summary: "Siswa akan Membuktikan Pythagoras dengan Kerikil",
                           subject: .Mathematic,
                           grade: .ten,
@@ -220,3 +240,5 @@ let placeholder = Project(name: "Membuktikan Pythagoras dengan Kerikil",
                           createdDate: 01.1,
                           updatedDate: 232.2)
 
+
+let placeholderGroup = ProjectsGroup(title: "title", unfilteredGroup: [placeholder], group: [placeholder])
