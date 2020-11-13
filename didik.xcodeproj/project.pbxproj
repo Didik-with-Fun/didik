@@ -359,7 +359,6 @@
 				75352C3E254B41EF0039EC2D /* Extension+Color.swift */,
 				758081DB2552676000E50787 /* DummyModel.swift */,
 				B7F9650E25592F2E004F33B3 /* Tooltip.swift */,
-				75B0C893255D1997004723BE /* FirebaseRequest.swift */,
 				BA67F6F4255C4D99000A0B26 /* Extension+Image.swift */,
 			);
 			path = Model;
@@ -389,6 +388,7 @@
 			isa = PBXGroup;
 			children = (
 				BA8CF5D525511BCC0057B9B8 /* SignInWithAppleCoordinator.swift */,
+				75B0C893255D1997004723BE /* FirebaseRequest.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";

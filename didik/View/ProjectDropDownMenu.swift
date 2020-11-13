@@ -51,7 +51,7 @@ struct ProjectDropDownMenu : View {
                                     Button(action: {
                                         self.showGradesDropDown.toggle()
                                         self.selectedGrade = optionGrades[index]
-                                        self.db.filterByGrades(grade: self.selectedGrade)
+                                        self.db.filter(grade: self.selectedGrade, subject: self.selectedSubject)
                                         self.db.updateProjectsGroup()
                                     }) {
                                         Text("\(optionGrades[index].rawValue)")
@@ -103,7 +103,7 @@ struct ProjectDropDownMenu : View {
                                     Button(action: {
                                         self.showSubjectsDropDown.toggle()
                                         self.selectedSubject = optionSubjects[index]
-                                        self.db.filterBySubjects(subject: self.selectedSubject)
+                                        self.db.filter(grade: self.selectedGrade, subject: self.selectedSubject)
                                         self.db.updateProjectsGroup()
                                     }) {
                                         Text(optionSubjects[index].rawValue)
