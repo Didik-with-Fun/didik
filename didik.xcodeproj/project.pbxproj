@@ -32,14 +32,22 @@
 		75BE5D482554140A00E8677E /* ProjectDropDownMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BE5D472554140A00E8677E /* ProjectDropDownMenu.swift */; };
 		7AF593AB5107C24ACEB32F7E /* Pods_didik_didikUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED113C53DD92EE14323DD71B /* Pods_didik_didikUITests.framework */; };
 		B76514E22552AF560041D6A3 /* CreateProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76514E12552AF560041D6A3 /* CreateProjectView.swift */; };
+		B76C783F255DE8C000D160C3 /* LearningGoalsFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76C783E255DE8C000D160C3 /* LearningGoalsFieldView.swift */; };
+		B76C7848255DEAEF00D160C3 /* NoteToStudentFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76C7847255DEAEF00D160C3 /* NoteToStudentFieldView.swift */; };
 		B779FA76255C2E5E00D13DD2 /* DropdownGrades.swift in Sources */ = {isa = PBXBuildFile; fileRef = B779FA75255C2E5E00D13DD2 /* DropdownGrades.swift */; };
 		B779FA81255C4DE700D13DD2 /* DropdownTopics.swift in Sources */ = {isa = PBXBuildFile; fileRef = B779FA80255C4DE700D13DD2 /* DropdownTopics.swift */; };
 		B779FA88255C620000D13DD2 /* ActivityMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B779FA87255C620000D13DD2 /* ActivityMainView.swift */; };
+		B798EB3A255D4B0500236FE5 /* ActivityFieldGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B798EB39255D4B0500236FE5 /* ActivityFieldGroup.swift */; };
+		B798EB3F255DC27400236FE5 /* Struct+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B798EB3E255DC27400236FE5 /* Struct+Extensions.swift */; };
+		B798EB47255DD0CF00236FE5 /* DescriptionFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B798EB46255DD0CF00236FE5 /* DescriptionFieldView.swift */; };
 		B7AB621E2546AB1F007E4895 /* didikApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB621D2546AB1F007E4895 /* didikApp.swift */; };
 		B7AB62222546AB20007E4895 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7AB62212546AB20007E4895 /* Assets.xcassets */; };
 		B7AB62252546AB20007E4895 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7AB62242546AB20007E4895 /* Preview Assets.xcassets */; };
 		B7AB62302546AB20007E4895 /* didikTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB622F2546AB20007E4895 /* didikTests.swift */; };
 		B7AB623B2546AB20007E4895 /* didikUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB623A2546AB20007E4895 /* didikUITests.swift */; };
+		B7B378C0255DEF6900CE15C5 /* ProjectNameFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B378BF255DEF6900CE15C5 /* ProjectNameFieldView.swift */; };
+		B7B378C9255DF07A00CE15C5 /* MediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B378C8255DF07A00CE15C5 /* MediaView.swift */; };
+		B7B378D5255DF13500CE15C5 /* TopicMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B378D4255DF13500CE15C5 /* TopicMainView.swift */; };
 		B7DF19D82550195B00953640 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B7DF19D72550195B00953640 /* GoogleService-Info.plist */; };
 		B7F9649625586B82004F33B3 /* DropdownSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9649525586B82004F33B3 /* DropdownSubject.swift */; };
 		B7F9650F25592F2E004F33B3 /* Tooltip.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9650E25592F2E004F33B3 /* Tooltip.swift */; };
@@ -126,9 +134,14 @@
 		7B046211C7322662323E9A65 /* Pods-didik-didikUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-didik-didikUITests.release.xcconfig"; path = "Target Support Files/Pods-didik-didikUITests/Pods-didik-didikUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B02666D119B4C50E1D3F287C /* Pods-didikTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-didikTests.release.xcconfig"; path = "Target Support Files/Pods-didikTests/Pods-didikTests.release.xcconfig"; sourceTree = "<group>"; };
 		B76514E12552AF560041D6A3 /* CreateProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProjectView.swift; sourceTree = "<group>"; };
+		B76C783E255DE8C000D160C3 /* LearningGoalsFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningGoalsFieldView.swift; sourceTree = "<group>"; };
+		B76C7847255DEAEF00D160C3 /* NoteToStudentFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteToStudentFieldView.swift; sourceTree = "<group>"; };
 		B779FA75255C2E5E00D13DD2 /* DropdownGrades.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownGrades.swift; sourceTree = "<group>"; };
 		B779FA80255C4DE700D13DD2 /* DropdownTopics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownTopics.swift; sourceTree = "<group>"; };
 		B779FA87255C620000D13DD2 /* ActivityMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityMainView.swift; sourceTree = "<group>"; };
+		B798EB39255D4B0500236FE5 /* ActivityFieldGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityFieldGroup.swift; sourceTree = "<group>"; };
+		B798EB3E255DC27400236FE5 /* Struct+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Struct+Extensions.swift"; sourceTree = "<group>"; };
+		B798EB46255DD0CF00236FE5 /* DescriptionFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionFieldView.swift; sourceTree = "<group>"; };
 		B7AB621A2546AB1F007E4895 /* didik.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = didik.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7AB621D2546AB1F007E4895 /* didikApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = didikApp.swift; sourceTree = "<group>"; };
 		B7AB62212546AB20007E4895 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -140,6 +153,9 @@
 		B7AB62362546AB20007E4895 /* didikUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = didikUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7AB623A2546AB20007E4895 /* didikUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = didikUITests.swift; sourceTree = "<group>"; };
 		B7AB623C2546AB20007E4895 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B7B378BF255DEF6900CE15C5 /* ProjectNameFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectNameFieldView.swift; sourceTree = "<group>"; };
+		B7B378C8255DF07A00CE15C5 /* MediaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaView.swift; sourceTree = "<group>"; };
+		B7B378D4255DF13500CE15C5 /* TopicMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicMainView.swift; sourceTree = "<group>"; };
 		B7DF19D72550195B00953640 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B7F9649525586B82004F33B3 /* DropdownSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownSubject.swift; sourceTree = "<group>"; };
 		B7F9650E25592F2E004F33B3 /* Tooltip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tooltip.swift; sourceTree = "<group>"; };
@@ -253,10 +269,32 @@
 		B76514E02552AF150041D6A3 /* CreateProjectView */ = {
 			isa = PBXGroup;
 			children = (
+				B7B378D3255DF12200CE15C5 /* Topics */,
+				B7B378C7255DF05A00CE15C5 /* Media */,
+				B7B378BE255DEF5200CE15C5 /* ProjectName */,
+				B76C7846255DEAAF00D160C3 /* NoteToStudent */,
+				B76C783D255DE8A300D160C3 /* LearningGoals */,
+				B7B50EE4255DDF0D00D061FC /* Description */,
 				B779FA86255C61D500D13DD2 /* Activity */,
 				B76514E12552AF560041D6A3 /* CreateProjectView.swift */,
 			);
 			path = CreateProjectView;
+			sourceTree = "<group>";
+		};
+		B76C783D255DE8A300D160C3 /* LearningGoals */ = {
+			isa = PBXGroup;
+			children = (
+				B76C783E255DE8C000D160C3 /* LearningGoalsFieldView.swift */,
+			);
+			path = LearningGoals;
+			sourceTree = "<group>";
+		};
+		B76C7846255DEAAF00D160C3 /* NoteToStudent */ = {
+			isa = PBXGroup;
+			children = (
+				B76C7847255DEAEF00D160C3 /* NoteToStudentFieldView.swift */,
+			);
+			path = NoteToStudent;
 			sourceTree = "<group>";
 		};
 		B779FA74255C2E3400D13DD2 /* Dropdowns */ = {
@@ -272,6 +310,7 @@
 			isa = PBXGroup;
 			children = (
 				B779FA87255C620000D13DD2 /* ActivityMainView.swift */,
+				B798EB39255D4B0500236FE5 /* ActivityFieldGroup.swift */,
 			);
 			path = Activity;
 			sourceTree = "<group>";
@@ -342,6 +381,38 @@
 			path = didikUITests;
 			sourceTree = "<group>";
 		};
+		B7B378BE255DEF5200CE15C5 /* ProjectName */ = {
+			isa = PBXGroup;
+			children = (
+				B7B378BF255DEF6900CE15C5 /* ProjectNameFieldView.swift */,
+			);
+			path = ProjectName;
+			sourceTree = "<group>";
+		};
+		B7B378C7255DF05A00CE15C5 /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				B7B378C8255DF07A00CE15C5 /* MediaView.swift */,
+			);
+			path = Media;
+			sourceTree = "<group>";
+		};
+		B7B378D3255DF12200CE15C5 /* Topics */ = {
+			isa = PBXGroup;
+			children = (
+				B7B378D4255DF13500CE15C5 /* TopicMainView.swift */,
+			);
+			path = Topics;
+			sourceTree = "<group>";
+		};
+		B7B50EE4255DDF0D00D061FC /* Description */ = {
+			isa = PBXGroup;
+			children = (
+				B798EB46255DD0CF00236FE5 /* DescriptionFieldView.swift */,
+			);
+			path = Description;
+			sourceTree = "<group>";
+		};
 		BA3A77282553376600975121 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -360,6 +431,7 @@
 				758081DB2552676000E50787 /* DummyModel.swift */,
 				B7F9650E25592F2E004F33B3 /* Tooltip.swift */,
 				BA67F6F4255C4D99000A0B26 /* Extension+Image.swift */,
+				B798EB3E255DC27400236FE5 /* Struct+Extensions.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -759,10 +831,13 @@
 				B76514E22552AF560041D6A3 /* CreateProjectView.swift in Sources */,
 				B7F97455255469710059C650 /* ProjectStatus.swift in Sources */,
 				BA220D2A255A67960075458E /* CompetenceOverviewDetailProjectView.swift in Sources */,
+				B76C783F255DE8C000D160C3 /* LearningGoalsFieldView.swift in Sources */,
 				B779FA76255C2E5E00D13DD2 /* DropdownGrades.swift in Sources */,
 				75352C60254D6E730039EC2D /* DummyView.swift in Sources */,
 				751C70882553BCFD0072C1B5 /* Constant.swift in Sources */,
 				B7F9650F25592F2E004F33B3 /* Tooltip.swift in Sources */,
+				B798EB3F255DC27400236FE5 /* Struct+Extensions.swift in Sources */,
+				B798EB3A255D4B0500236FE5 /* ActivityFieldGroup.swift in Sources */,
 				75BE5D432554052C00E8677E /* UserButton.swift in Sources */,
 				750ABE66255941D6002075F0 /* MateriSayaView.swift in Sources */,
 				755B217F254AA95500B0A7E6 /* MateriPreviewCollectionView.swift in Sources */,
@@ -771,12 +846,14 @@
 				750ABE612558E9A9002075F0 /* MateriPreviewImageView.swift in Sources */,
 				75352C56254C3C9A0039EC2D /* HomeView.swift in Sources */,
 				755B2175254A806000B0A7E6 /* MateriPreviewView.swift in Sources */,
+				B7B378C9255DF07A00CE15C5 /* MediaView.swift in Sources */,
 				BA43E6E22558876C00754F06 /* ContentDetailProjectView.swift in Sources */,
 				BA220D6D255A8D280075458E /* LearningObjectiveOverviewDetailProjectView.swift in Sources */,
 				755B217A254A885100B0A7E6 /* Extension+View.swift in Sources */,
 				75B0C894255D1997004723BE /* FirebaseRequest.swift in Sources */,
 				755B218C254B1DB000B0A7E6 /* TabBarView.swift in Sources */,
 				BA4F58B6255718CE00C87028 /* UserProfileHeaderView.swift in Sources */,
+				B798EB47255DD0CF00236FE5 /* DescriptionFieldView.swift in Sources */,
 				758081DC2552676000E50787 /* DummyModel.swift in Sources */,
 				75BE5D242553F0BD00E8677E /* NavigationBarModifier.swift in Sources */,
 				7556CBF32557DC50000539B0 /* MateriTableCellView.swift in Sources */,
@@ -788,12 +865,15 @@
 				75BE5D482554140A00E8677E /* ProjectDropDownMenu.swift in Sources */,
 				75352C5B254C45070039EC2D /* LihatSemuaView.swift in Sources */,
 				7552696A25516D2600D89FC5 /* SearchBarView.swift in Sources */,
+				B7B378D5255DF13500CE15C5 /* TopicMainView.swift in Sources */,
 				75352C4C254B44150039EC2D /* JelajahMateriView.swift in Sources */,
 				BA94301A2550894900283FB3 /* SignInView.swift in Sources */,
+				B7B378C0255DEF6900CE15C5 /* ProjectNameFieldView.swift in Sources */,
 				BAED82E32558DA08007DB3CB /* ButtonsDetailProjectView.swift in Sources */,
 				BADA073E25566E990055A21A /* ContentView.swift in Sources */,
 				BA220D3A255A68640075458E /* TeacherOverviewDetailProjectView.swift in Sources */,
 				BA3A772B255337DF00975121 /* UserData.swift in Sources */,
+				B76C7848255DEAEF00D160C3 /* NoteToStudentFieldView.swift in Sources */,
 				BA90EB3C2552B18300C6DFFD /* AuthenticationUtil.swift in Sources */,
 				B7F9740A2554657E0059C650 /* Grade.swift in Sources */,
 				B7F97469255480710059C650 /* Comment.swift in Sources */,
