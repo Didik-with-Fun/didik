@@ -10,11 +10,24 @@ import SwiftUI
 struct CreateProjectView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
-    @Binding var selectedSubject: Subject
-    @Binding var selectedGrade: Grades
+    // MARK: - State Variable for Data Storing
+    /*
+    @State var contentProjectName: String = ""
+    @State var contentSubject: Subject
+    @State var contentGrade: Grades
+    @State var contentTopic: Topic
+    @State var contentDescriptions: String
+    @State var contentGoals: String
+    @State var contentMedia: [String]
+    @State var contentActivities: [ProjectActivity]
+    @State var contentNotes: String
+    */
+    
+    @State var selectedSubject: Subject
+    @State var selectedGrade: Grades
     @State var contentNamaProyek: String = ""
     @State var showPopOver = false
-    @Binding var showPopOverContents: Tooltips
+    @State var showPopOverContents: Tooltips
     
     let isDropdownSubjectOpen: Bool
     
@@ -46,156 +59,28 @@ struct CreateProjectView: View {
                         }
                         .padding(.vertical, 20)
                         
-                        // MARK: - Topics Dropdown
-                        HStack {
-                            VStack (alignment: .leading) {
-                                Text("Materi Pembelajaran")
-                                    .padding(.vertical, 5)
-                                
-                                DropdownTopics(isDropdownShowed: false, selected: .constant(topicList[0]), width: 755)
-                            }
-                        }
-                        
-                        // MARK: - Core Competence aka Kompentensi Dasar
-                        HStack {
-                            VStack (alignment: .leading) {
-                                Text("Kompentensi Dasar")
-                                    .padding(.vertical, 10)
-                                
-                                HStack (alignment: .top) {
-                                    Text("KD 3.1")
-                                    
-                                    Text("Menjelaskan dan menentukan penyelesaian pertidaksamaan rasional dan irasional satu variabel.")
-                                }.padding(.bottom, 5)
-                                
-                                HStack (alignment: .top) {
-                                    Text("KD 3.1")
-                                    
-                                    Text("Menjelaskan dan menentukan penyelesaian pertidaksamaan rasional dan irasional satu variabel.")
-                                }.padding(.bottom, 5)
-                            }
-                            .padding(.top, 20)
-                        }
+                        // MARK: - Topics & Core Competence Sections
+                        TopicMainView()
                         
                         // MARK: - Form Field - Project Name aka Nama Proyek
-                        HStack {
-                            VStack (alignment: .leading, spacing: 10) {
-                                HStack {
-                                    Text("Nama Proyek")
-                                        .padding(.vertical, 5)
-                                    
-                                    Button(action: {
-                                        withAnimation {
-                                            self.showPopOver.toggle()
-                                        }
-                                    }, label: {
-                                        Image("Info")
-                                    })
-                                }
-                                
-                                TextField("Nama Proyek", text: $contentNamaProyek, onEditingChanged: { (changed) in
-                                                print("Username onEditingChanged - \(changed)")
-                                })
-                                .font(Font.system(size: 20))
-                                .textFieldStyle(PlainTextFieldStyle())
-                                .foregroundColor(Color.Didik.GreyLight)
-                                .frame(height: 50)
-                                .padding(.leading, 4)
-                                .overlay(RoundedRectangle(cornerRadius: 13).stroke(Color.gray))
-                            }
-                        }.padding([.top, .horizontal], 20)
+                        ProjectNameFieldView(contentProjectName: "")
                         
-                        
-                        // MARK: - Form Field - Project Description aka Deskripsi Proyek
-                        HStack {
-                            VStack (alignment: .leading, spacing: 10) {
-                                HStack {
-                                    Text("Deskripsi/ Ringkasan Proyek")
-                                        .padding(.vertical, 5)
-                                    
-                                    Button(action: {}, label: {
-                                        Image("Info")
-                                    })
-                                }
-                                
-                                TextEditor(text: $contentNamaProyek)
-                                    .frame(height: 100)
-                                    .overlay(RoundedRectangle(cornerRadius: 13).stroke(Color.gray))
-                                
-                               
-                            }
-                        }.padding([.top, .horizontal], 20)
+                        // MARK: - Form Field - Project Description
+                        DescriptionFieldView(contentDescription: "")
                         
                         // MARK: - Form Field - Goals aka Tujuan Proyek
-                        HStack {
-                            VStack (alignment: .leading, spacing: 10) {
-                                HStack {
-                                    Text("Tujuan Pembelajaran")
-                                        .padding(.vertical, 5)
-                                    
-                                    Button(action: {}, label: {
-                                        Image("Info")
-                                    })
-                                }
-                                
-                                TextEditor(text: $contentNamaProyek)
-                                    .frame(height: 100)
-                                    .overlay(RoundedRectangle(cornerRadius: 13).stroke(Color.gray))
-                                
-                               
-                            }
-                        }.padding([.top, .horizontal], 20)
+                        LearningGoalsFieldView(contentLearningGoals: "")
                         
                         // MARK: - Form Field - Media Uploads
-                        HStack {
-                            VStack (alignment: .leading, spacing: 10) {
-                                HStack {
-                                    Text("Media")
-                                        .padding(.vertical, 5)
-                                    
-                                    Button(action: {}, label: {
-                                        Image("Info")
-                                    })
-                                }
-                                
-                                ScrollView (.horizontal) {
-                                    HStack (alignment: .top, spacing: 20) {
-                                        Image("InsertMedia")
-                                        
-                                            Image("InsertMediaDummy").padding(.horizontal, 10)
-                                            Image("InsertMediaDummy").padding(.horizontal, 10)
-                                            Image("InsertMediaDummy").padding(.horizontal, 10)
-                                            Image("InsertMediaDummy").padding(.horizontal, 10)
-                                            Image("InsertMediaDummy").padding(.horizontal, 10)
-                                    }
-                                }
-                            }
-                        }.padding([.top, .horizontal], 20)
+                        MediaView()
                         
                         // MARK: - Form Field - Activity
                         HStack {
-                            ActivityMainView(contentActivityName: "", contentActivityDescription: "")
+                            ActivityMainView(totalActivityTime: 0)
                         }.padding([.top, .horizontal], 20)
                         
                         // MARK: - Form Field - Notes aka Catatan Siswa
-                        HStack {
-                            VStack (alignment: .leading, spacing: 10) {
-                                HStack {
-                                    Text("Catatan Siswa")
-                                        .padding(.vertical, 5)
-                                    
-                                    Button(action: {}, label: {
-                                        Image("Info")
-                                    })
-                                }
-                                
-                                TextEditor(text: $contentNamaProyek)
-                                    .frame(height: 100)
-                                    .overlay(RoundedRectangle(cornerRadius: 13).stroke(Color.gray))
-                                
-                               
-                            }
-                        }.padding([.top, .horizontal], 20)
+                        NoteToStudentFieldView(contentNotes: "")
                     }
                     
                     if self.showPopOver {
@@ -247,7 +132,7 @@ struct CreateProjectView: View {
 struct CreateProjectView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            CreateProjectView(selectedSubject: .constant(.Mathematic), selectedGrade: .constant(.ten), showPopOverContents: .constant(.namaProyek), isDropdownSubjectOpen: false).previewDevice("iPad (8th generation)")
+            CreateProjectView(selectedSubject: .Mathematic, selectedGrade: .ten, contentNamaProyek: "", showPopOver: false, showPopOverContents: .namaProyek, isDropdownSubjectOpen: false)
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }
