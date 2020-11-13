@@ -12,7 +12,7 @@ struct MateriSayaView: View {
     @EnvironmentObject var db: ProjectDatabaseViewModel
     
     @State var searchText: String = ""
-    @State var selectedGrades: Grades = .allGrades
+    @State var selectedGrade: Grades = .allGrades
     @State var selectedSubject: Subject = .allSubjects
     
     var parentGeometry: GeometryProxy
@@ -21,7 +21,7 @@ struct MateriSayaView: View {
     var body: some View {
         NavigationView {
             VStack {
-                CustomNavigationBarView(filteredGrade: $selectedGrades, filteredSubject: $selectedSubject, searchText: $searchText, viewType: .myMateri)
+                CustomNavigationBarView(filteredGrade: $selectedGrade, filteredSubject: $selectedSubject, searchText: $searchText, viewType: .myMateri)
                     .zIndex(2)
                 
                 HStack{
@@ -48,7 +48,7 @@ struct MateriSayaView: View {
                         VStack(spacing : 0) {
                             ForEach(db.myProjectsGroup) {
                                 index in
-                                MateriPreviewCollectionView(parentGeometry: parentGeometry, projectsGroup: index, selectedGrades: $selectedGrades, selectedSubject: $selectedSubject, startPointviewType: viewType)//(parentGeometry: parentGeometry, title: index.title, ProjectsLibrary: index.group)
+                                MateriPreviewCollectionView(parentGeometry: parentGeometry, projectsGroup: index, selectedGrade: $selectedGrade, selectedSubject: $selectedSubject, startPointviewType: viewType)//(parentGeometry: parentGeometry, title: index.title, ProjectsLibrary: index.group)
 
                                 
                             }

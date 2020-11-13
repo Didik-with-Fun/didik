@@ -32,7 +32,7 @@ struct MateriTableCellView: View {
                 }
                 Spacer()
                 Button(action: {
-                    FirebaseRequest().addData(name: project.name)
+                    FirebaseRequestService().addData(name: project.name)
                     self.bookmarked.toggle()
                 }, label: {
                     Image(systemName: self.bookmarked ? "bookmark.fill" : "bookmark")

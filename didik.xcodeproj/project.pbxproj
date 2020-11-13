@@ -25,8 +25,11 @@
 		755B217A254A885100B0A7E6 /* Extension+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755B2179254A885100B0A7E6 /* Extension+View.swift */; };
 		755B217F254AA95500B0A7E6 /* MateriPreviewCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755B217E254AA95500B0A7E6 /* MateriPreviewCollectionView.swift */; };
 		755B218C254B1DB000B0A7E6 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755B218B254B1DB000B0A7E6 /* TabBarView.swift */; };
+		757EBC2D255EAB410021A3C6 /* FirebaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757EBC2C255EAB410021A3C6 /* FirebaseError.swift */; };
+		757EBC32255EABAD0021A3C6 /* ProjectsGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757EBC31255EABAD0021A3C6 /* ProjectsGroup.swift */; };
+		757EBC37255EAC5F0021A3C6 /* ViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757EBC36255EAC5F0021A3C6 /* ViewType.swift */; };
 		758081DC2552676000E50787 /* DummyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758081DB2552676000E50787 /* DummyModel.swift */; };
-		75B0C894255D1997004723BE /* FirebaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B0C893255D1997004723BE /* FirebaseRequest.swift */; };
+		75B0C894255D1997004723BE /* FirebaseRequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B0C893255D1997004723BE /* FirebaseRequestService.swift */; };
 		75BE5D242553F0BD00E8677E /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BE5D232553F0BD00E8677E /* NavigationBarModifier.swift */; };
 		75BE5D432554052C00E8677E /* UserButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BE5D422554052C00E8677E /* UserButton.swift */; };
 		75BE5D482554140A00E8677E /* ProjectDropDownMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BE5D472554140A00E8677E /* ProjectDropDownMenu.swift */; };
@@ -126,8 +129,11 @@
 		755B2179254A885100B0A7E6 /* Extension+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+View.swift"; sourceTree = "<group>"; };
 		755B217E254AA95500B0A7E6 /* MateriPreviewCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateriPreviewCollectionView.swift; sourceTree = "<group>"; };
 		755B218B254B1DB000B0A7E6 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		757EBC2C255EAB410021A3C6 /* FirebaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseError.swift; sourceTree = "<group>"; };
+		757EBC31255EABAD0021A3C6 /* ProjectsGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsGroup.swift; sourceTree = "<group>"; };
+		757EBC36255EAC5F0021A3C6 /* ViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewType.swift; sourceTree = "<group>"; };
 		758081DB2552676000E50787 /* DummyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyModel.swift; sourceTree = "<group>"; };
-		75B0C893255D1997004723BE /* FirebaseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseRequest.swift; sourceTree = "<group>"; };
+		75B0C893255D1997004723BE /* FirebaseRequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseRequestService.swift; sourceTree = "<group>"; };
 		75BE5D232553F0BD00E8677E /* NavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
 		75BE5D422554052C00E8677E /* UserButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserButton.swift; sourceTree = "<group>"; };
 		75BE5D472554140A00E8677E /* ProjectDropDownMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDropDownMenu.swift; sourceTree = "<group>"; };
@@ -432,6 +438,9 @@
 				B7F9650E25592F2E004F33B3 /* Tooltip.swift */,
 				BA67F6F4255C4D99000A0B26 /* Extension+Image.swift */,
 				B798EB3E255DC27400236FE5 /* Struct+Extensions.swift */,
+				757EBC2C255EAB410021A3C6 /* FirebaseError.swift */,
+				757EBC31255EABAD0021A3C6 /* ProjectsGroup.swift */,
+				757EBC36255EAC5F0021A3C6 /* ViewType.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -460,7 +469,7 @@
 			isa = PBXGroup;
 			children = (
 				BA8CF5D525511BCC0057B9B8 /* SignInWithAppleCoordinator.swift */,
-				75B0C893255D1997004723BE /* FirebaseRequest.swift */,
+				75B0C893255D1997004723BE /* FirebaseRequestService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -826,6 +835,7 @@
 				BABCC1C82558680F005FCC7B /* DiscussionDetailProjectView.swift in Sources */,
 				B779FA88255C620000D13DD2 /* ActivityMainView.swift in Sources */,
 				BA3A773325534EA800975121 /* UserViewModel.swift in Sources */,
+				757EBC2D255EAB410021A3C6 /* FirebaseError.swift in Sources */,
 				BA220D72255AA6690075458E /* ActivityDetailDetailProjectView.swift in Sources */,
 				B7F9651425594A9E004F33B3 /* TooltipView.swift in Sources */,
 				B76514E22552AF560041D6A3 /* CreateProjectView.swift in Sources */,
@@ -833,6 +843,7 @@
 				BA220D2A255A67960075458E /* CompetenceOverviewDetailProjectView.swift in Sources */,
 				B76C783F255DE8C000D160C3 /* LearningGoalsFieldView.swift in Sources */,
 				B779FA76255C2E5E00D13DD2 /* DropdownGrades.swift in Sources */,
+				757EBC32255EABAD0021A3C6 /* ProjectsGroup.swift in Sources */,
 				75352C60254D6E730039EC2D /* DummyView.swift in Sources */,
 				751C70882553BCFD0072C1B5 /* Constant.swift in Sources */,
 				B7F9650F25592F2E004F33B3 /* Tooltip.swift in Sources */,
@@ -850,7 +861,7 @@
 				BA43E6E22558876C00754F06 /* ContentDetailProjectView.swift in Sources */,
 				BA220D6D255A8D280075458E /* LearningObjectiveOverviewDetailProjectView.swift in Sources */,
 				755B217A254A885100B0A7E6 /* Extension+View.swift in Sources */,
-				75B0C894255D1997004723BE /* FirebaseRequest.swift in Sources */,
+				75B0C894255D1997004723BE /* FirebaseRequestService.swift in Sources */,
 				755B218C254B1DB000B0A7E6 /* TabBarView.swift in Sources */,
 				BA4F58B6255718CE00C87028 /* UserProfileHeaderView.swift in Sources */,
 				B798EB47255DD0CF00236FE5 /* DescriptionFieldView.swift in Sources */,
@@ -871,6 +882,7 @@
 				B7B378C0255DEF6900CE15C5 /* ProjectNameFieldView.swift in Sources */,
 				BAED82E32558DA08007DB3CB /* ButtonsDetailProjectView.swift in Sources */,
 				BADA073E25566E990055A21A /* ContentView.swift in Sources */,
+				757EBC37255EAC5F0021A3C6 /* ViewType.swift in Sources */,
 				BA220D3A255A68640075458E /* TeacherOverviewDetailProjectView.swift in Sources */,
 				BA3A772B255337DF00975121 /* UserData.swift in Sources */,
 				B76C7848255DEAEF00D160C3 /* NoteToStudentFieldView.swift in Sources */,

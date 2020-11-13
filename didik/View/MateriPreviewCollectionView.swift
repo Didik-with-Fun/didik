@@ -15,7 +15,7 @@ struct MateriPreviewCollectionView: View {
 
     let projectsGroup: ProjectsGroup
 
-    @Binding var selectedGrades: Grades
+    @Binding var selectedGrade: Grades
     @Binding var selectedSubject: Subject
     let startPointviewType: ViewType
 
@@ -30,7 +30,7 @@ struct MateriPreviewCollectionView: View {
                 
                 Spacer()
                 NavigationLink(
-                    destination: LihatSemuaView(projectsGroup: projectsGroup, selectedKelas: $selectedGrades, selectedMatpel: $selectedSubject, startPointviewType: startPointviewType),
+                    destination: LihatSemuaView(projectsGroup: projectsGroup, selectedGrade: $selectedGrade, selectedSubject: $selectedSubject, startPointviewType: startPointviewType),
                     label: {
                         Text("Lihat Semua")
                             .font(.caption)
@@ -76,7 +76,7 @@ struct MateriPreviewCollectionView_Previews: PreviewProvider {
     static var previews: some View {
         GeometryReader { geometry in
 
-            MateriPreviewCollectionView(parentGeometry: geometry, projectsGroup: placeholderGroup, selectedGrades: .constant(.allGrades), selectedSubject: .constant(.BahasaIndonesia), startPointviewType: .jelajah)
+            MateriPreviewCollectionView(parentGeometry: geometry, projectsGroup: placeholderGroup, selectedGrade: .constant(.allGrades), selectedSubject: .constant(.BahasaIndonesia), startPointviewType: .jelajah)
                 .previewDevice("iPad (8th generation)")
         }
     }

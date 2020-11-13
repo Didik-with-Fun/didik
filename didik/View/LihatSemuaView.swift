@@ -13,8 +13,8 @@ struct LihatSemuaView: View {
     
     let projectsGroup: ProjectsGroup
     @State var searchText: String = ""
-    @Binding var selectedKelas: Grades
-    @Binding var selectedMatpel: Subject
+    @Binding var selectedGrade: Grades
+    @Binding var selectedSubject: Subject
     
     let height: CGFloat = 125
     let width: CGFloat = 230
@@ -29,7 +29,7 @@ struct LihatSemuaView: View {
 
 
         	VStack {
-                CustomNavigationBarView(filteredGrade: $selectedKelas, filteredSubject: $selectedMatpel, searchText: $searchText, viewType: .lihatSemua)
+                CustomNavigationBarView(filteredGrade: $selectedGrade, filteredSubject: $selectedSubject, searchText: $searchText, viewType: .lihatSemua)
                     .zIndex(2)
                 List(db.filteredSpecificProjects.filter({ searchText.isEmpty ? true : $0.name.lowercased().contains(searchText.lowercased())
             	})) { project in
@@ -50,10 +50,10 @@ struct LihatSemuaView: View {
         
         .onAppear(perform: {
             db.specificProjects = projectsGroup.unfilteredGroup
-            db.filterLihatSemua(grade: selectedKelas, subject: selectedMatpel)
+            db.filterLihatSemua(grade: selectedGrade, subject: selectedSubject)
         })
         .onDisappear(perform: {
-            db.filter(grade: selectedKelas, subject: selectedMatpel, view: startPointviewType)
+            db.filter(grade: selectedGrade, subject: selectedSubject, view: startPointviewType)
         })
         
     }
@@ -61,7 +61,7 @@ struct LihatSemuaView: View {
 
 struct LihatSemuaView_Previews: PreviewProvider {
     static var previews: some View {
-        LihatSemuaView(projectsGroup: placeholderGroup, selectedKelas: .constant(.ten), selectedMatpel: .constant(.BahasaIndonesia), startPointviewType: .jelajah)
+        LihatSemuaView(projectsGroup: placeholderGroup, selectedGrade: .constant(.ten), selectedSubject: .constant(.BahasaIndonesia), startPointviewType: .jelajah)
             .previewDevice("iPad (8th generation)")
     }
 }

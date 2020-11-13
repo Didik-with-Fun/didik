@@ -36,7 +36,7 @@ struct DetailProjectMainView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             GeometryReader { geometry in
-                DetailProjectMainView(project: projectDatabaseVideModel.allProjects[0], parentGeometry: geometry, title: placeholderMateri.title)
+                DetailProjectMainView(project: projectDatabaseVideModel.allProjects[0], parentGeometry: geometry, title: placeholder.name)
                     .previewDevice("iPad (8th generation)")
             }
             

@@ -9,18 +9,6 @@ import Foundation
 import Firebase
 import FirebaseFirestoreSwift
 
-struct ProjectsGroup: Identifiable {
-    let id = UUID()
-    let title: String
-    let unfilteredGroup: [Project]
-    var group: [Project]
-}
-
-enum ViewType: String {
-    case jelajah = "Jelajah Materi"
-    case myMateri = "Materi Saya"
-    case lihatSemua
-}
 
 class ProjectDatabaseViewModel: ObservableObject {
     
@@ -44,20 +32,20 @@ class ProjectDatabaseViewModel: ObservableObject {
     var specificProjects: [Project] = []
     @Published var filteredSpecificProjects: [Project] = []
     
+    
+//MARK: - init
+    
     init() {
-        print("view model init delay")
-        FirebaseRequest.requestAllProject { (result) in
+        // request all projects
+        FirebaseRequestService.requestAllProject { (result) in
             switch result {
             case .success(let requestProjects):
-                print("data fetched")
                 // initialize jelajah materi project database
                 self.allProjects = requestProjects
                 self.filteredProjects = requestProjects
 
                 
-                // initialize my materi project database
-                self.myAllProjects = requestProjects
-                self.myProjects = requestProjects
+                
 
                 
                 let temp = Dictionary(grouping: self.filteredProjects) { (project) -> String in
@@ -69,6 +57,20 @@ class ProjectDatabaseViewModel: ObservableObject {
                 }
                 
                 
+                
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        
+        // request my projects
+        FirebaseRequestService.requestMyProject { (result) in
+            switch result {
+            case .success(let requestProjects):
+                // initialize my materi project database
+                self.myAllProjects = requestProjects
+                self.myProjects = requestProjects
+                
                 let myTemp = Dictionary(grouping: self.myProjects) { (project) -> ProjectStatus in
                     return project.projectStatus
                 }
@@ -76,12 +78,15 @@ class ProjectDatabaseViewModel: ObservableObject {
                     self.myProjectsGroup.append(ProjectsGroup(title: key.rawValue, unfilteredGroup: value, group: value))
                     self.referenceMyProjectsGroup.append(ProjectsGroup(title: key.rawValue, unfilteredGroup: value, group: value))
                 }
+                
             case .failure(let error):
                 print(error.localizedDescription)
             }
         }
         
     }
+    
+//MARK: - Filter Function
     
     func filter(grade: Grades, subject: Subject, view: ViewType) {
         
@@ -99,51 +104,15 @@ class ProjectDatabaseViewModel: ObservableObject {
         
     }
     
-    
-    
-    func updateProjectsGroup() {
-        var updateGroup: [ProjectsGroup] = []
-        
-        let temp = Dictionary(grouping: filteredProjects) { (project) -> String in
-            return project.topic.name
-        }
-        
-        for (key, value) in temp {
-            for i in referenceJelajahMateriGroup {
-                if i.title == key {
-                    updateGroup.append(ProjectsGroup(title: key, unfilteredGroup: i.unfilteredGroup, group: value))
-                }
-                print(i.title)
-            }
-        }
-        self.jelajahMateriGroup = updateGroup
-        
-    }
-    
-    
-    
-    func filterMyMateri(grade: Grades, subject: Subject) {
-        let filterGrade = self.myAllProjects.filter { (Project) -> Bool in
-            if grade == .allGrades {
-                return true
-            } else {
-                return Project.grade == grade
-            }
-        }
-        
-        let filterSubject = filterGrade.filter { (Project) -> Bool in
-            if subject == .allSubjects {
-                return true
-            } else {
-                return Project.subject == subject
-            }
-        }
-        
-        self.myProjects = filterSubject
-        
-        self.updateMyProjectsGroup()
-    }
-    
+
+}
+
+
+
+//MARK: - Extension for ViewType Jelajah
+
+extension ProjectDatabaseViewModel {
+
     
     func filterJelajah(grade: Grades, subject: Subject) {
         let filterGrade = self.allProjects.filter { (Project) -> Bool in
@@ -169,8 +138,91 @@ class ProjectDatabaseViewModel: ObservableObject {
     
     
     
-    func filterLihatSemua(grade: Grades, subject: Subject) {
+    
+    func updateProjectsGroup() {
+        var updateGroup: [ProjectsGroup] = []
         
+        let temp = Dictionary(grouping: filteredProjects) { (project) -> String in
+            return project.topic.name
+        }
+        
+        for (key, value) in temp {
+            for i in referenceJelajahMateriGroup {
+                if i.title == key {
+                    updateGroup.append(ProjectsGroup(title: key, unfilteredGroup: i.unfilteredGroup, group: value))
+                }
+                print(i.title)
+            }
+        }
+
+        
+        self.jelajahMateriGroup = updateGroup
+        
+    }
+    
+    
+}
+
+
+
+
+//MARK: - Extension for ViewType myMateri
+
+extension ProjectDatabaseViewModel {
+    
+    func filterMyMateri(grade: Grades, subject: Subject) {
+        let filterGrade = self.myAllProjects.filter { (Project) -> Bool in
+            if grade == .allGrades {
+                return true
+            } else {
+                return Project.grade == grade
+            }
+        }
+        
+        let filterSubject = filterGrade.filter { (Project) -> Bool in
+            if subject == .allSubjects {
+                return true
+            } else {
+                return Project.subject == subject
+            }
+        }
+        
+        self.myProjects = filterSubject
+        
+        self.updateMyProjectsGroup()
+    }
+    
+    
+
+    func updateMyProjectsGroup() {
+        var updateGroup: [ProjectsGroup] = []
+        
+        let temp = Dictionary(grouping: myProjects) { (project) -> ProjectStatus in
+            return project.projectStatus
+        }
+        
+        for (key, value) in temp {
+            for i in referenceMyProjectsGroup {
+                if i.title == key.rawValue {
+                    updateGroup.append(ProjectsGroup(title: key.rawValue, unfilteredGroup: i.unfilteredGroup, group: value))
+                }
+                print(i.title)
+            }
+        }
+        
+        self.myProjectsGroup = updateGroup
+        
+    }
+    
+}
+
+
+//MARK: - Extension for View Type Lihat Semua
+
+
+extension ProjectDatabaseViewModel {
+    
+    func filterLihatSemua(grade: Grades, subject: Subject) {
         let filterGrade = self.specificProjects.filter { (Project) -> Bool in
             if grade == .allGrades {
                 return true
@@ -189,56 +241,4 @@ class ProjectDatabaseViewModel: ObservableObject {
         
         self.filteredSpecificProjects = filterSubject
     }
-    
-    
-    
-    
-    
 }
-
-//MARK: - My project extension
-extension ProjectDatabaseViewModel {
-
-    
-    func updateMyProjectsGroup() {
-        
-        var updateGroup: [ProjectsGroup] = []
-        
-        let temp = Dictionary(grouping: myProjects) { (project) -> ProjectStatus in
-            return project.projectStatus
-        }
-        
-        for (key, value) in temp {
-            for i in referenceMyProjectsGroup {
-                if i.title == key.rawValue {
-                    updateGroup.append(ProjectsGroup(title: key.rawValue, unfilteredGroup: i.unfilteredGroup, group: value))
-                }
-                print(i.title)
-            }
-        }
-        self.myProjectsGroup = updateGroup
-        
-    }
-    
-}
-
-
-
-let placeholder = Project(name: "Membuktikan Pythagoras dengan Kerikil sebesar kelereng",
-                          summary: "Siswa akan Membuktikan Pythagoras dengan Kerikil",
-                          subject: .Mathematic,
-                          grade: .ten,
-                          topic: .init(subject: .Mathematic, grade: .ten, name: "Trigonometri", coreCompetence: "Memahami trigonometri", basicCompetence: ["Bisa menggunakan phytagoras"]),
-                          goal: "Setelah Anda mempelajari bahan belajar ini diharapkan Anda mampu:  1.    Menjelaskan pengertian SPLTV  2.    Menjelaskan bentuk umum SPLTV  3.    Menentukan Himpunan Penyelesaian (HP) SPLTV  4.    Menyelesaikan masalah nyata yang berkaitan dengan SPLTV",
-                          images: ["MathematicBlue"],
-                          projectStatus: .Published,
-                          projectActivities: [ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1),
-                                              ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1)],
-                          notes: "Do:  1. Membaca bahan belajar sebagai bahan apersepsi  2. Peserta didik menyelesaikan masalah sederhana Sistem Persamaan Linear Dua Variabel sebagai apersepsi  3. Peserta didik aktif mencari bahan untuk menjawab masalah 4. Peserta didik berkontribusi aktif dalam pemecahan masalah.    Dont  1. Pasif, tidak terlibat.  2. Takut tdk berani mencoba",
-                          comments: [Comment.init(comment: "bego lu", authorID: "Atun", createdDate: Date())],
-                          likes: 230,
-                          createdDate: 01.1,
-                          updatedDate: 232.2)
-
-
-let placeholderGroup = ProjectsGroup(title: "title", unfilteredGroup: [placeholder], group: [placeholder])

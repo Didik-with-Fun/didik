@@ -46,7 +46,7 @@ struct JelajahMateriView: View {
                         VStack(spacing : 0) {
                             ForEach(db.jelajahMateriGroup) {
                                 index in
-                                MateriPreviewCollectionView(parentGeometry: parentGeometry, projectsGroup: index, selectedGrades: $selectedGrade, selectedSubject: $selectedSubject, startPointviewType: viewType)
+                                MateriPreviewCollectionView(parentGeometry: parentGeometry, projectsGroup: index, selectedGrade: $selectedGrade, selectedSubject: $selectedSubject, startPointviewType: viewType)
                             }
                         }
                     }
