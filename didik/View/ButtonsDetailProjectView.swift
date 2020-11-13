@@ -24,6 +24,19 @@ struct ButtonsDetailProjectView: View {
                 Spacer()
             }
             HStack {
+                Button(action: {}, label: {
+                    HStack(spacing: 10) {
+                            Image(systemName: "plus")
+                            Text("Gunakan Materi Ini")
+                        
+                    }
+                    
+                    .frame(width: 200, height: 30)
+                    .padding()
+                    .background(Color.Didik.BlueSecondary)
+                    .foregroundColor(.white)
+                })
+                .cornerRadius(10)
                 Spacer()
                 Image.Didik.Love
                     .resizable()
@@ -39,24 +52,6 @@ struct ButtonsDetailProjectView: View {
 
             }
 
-            HStack {
-                
-                Button(action: {}, label: {
-                    HStack(spacing: 10) {
-                            Image(systemName: "plus")
-                            Text("Gunakan Materi Ini")
-                        
-                    }
-                    
-                    .frame(width: 200, height: 30)
-                    .padding()
-                    .background(Color.Didik.BlueSecondary)
-                    .foregroundColor(.white)
-                })
-                .cornerRadius(10)
-                
-                Spacer()
-            }
             .padding(.top, 17)
         }
     }

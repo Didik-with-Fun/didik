@@ -13,7 +13,6 @@ struct DetailProjectMainView: View {
     var parentGeometry: GeometryProxy
     let title: String
     
-    //let project: Project
     
     var body: some View {
         
@@ -21,8 +20,7 @@ struct DetailProjectMainView: View {
             VStack {
                 HeadDetailProjectView(project: project, parentGeometry: parentGeometry)
                     .padding()
-                ContentDetailProjectView(project: project)
-                    .padding()
+                ContentDetailProjectView(project: project, parentGeometry: parentGeometry)
             }
         }
             

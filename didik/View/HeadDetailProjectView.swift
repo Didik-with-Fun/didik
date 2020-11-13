@@ -13,8 +13,15 @@ struct HeadDetailProjectView: View {
     var parentGeometry: GeometryProxy
     
     var body: some View {
-        VStack {
+        VStack (alignment: .leading){
             SlideshowHeadDetailProjectView(project: project, parentGeometry: parentGeometry)
+            
+            Text(project.name)
+                .fontWeight(.bold)
+                .font(.system(size: 24))
+                .padding(.top, 15)
+                .padding(.bottom, 5)
+
             ButtonsDetailProjectView(project: project)
         }
         

@@ -10,11 +10,12 @@ import SwiftUI
 struct CompetenceOverviewDetailView: View {
     
     let project: Project
+    var parentGeometry: GeometryProxy
 
     var body: some View {
-        HStack {
+        HStack (alignment: .top){
             VStack {
-                HStack {
+                HStack (alignment: .top) {
                     Text("Kompentensi Dasar")
                         .fontWeight(.bold)
                         .font(.system(size: 24))
@@ -22,6 +23,24 @@ struct CompetenceOverviewDetailView: View {
                 }
                 .padding()
                 
+                //TODO: ganti dengan projectCompetences
+                ForEach(0 ..< project.projectActivities.count) { index in
+                    
+                    HStack (alignment: .top){
+                        Text("KD 3.1")
+                        
+                        Text("Ini template aja \(project.projectActivities[index].name)")
+                            .fixedSize(horizontal: false, vertical: true)
+
+                            .padding(.leading, 10)
+                            
+                            Spacer()
+                    }
+                    .padding(.leading, 15)
+                    .padding(.bottom, 15)
+
+                }
+            
                 HStack (alignment: .top){
                     Text("KD 3.1")
                     
@@ -33,8 +52,9 @@ struct CompetenceOverviewDetailView: View {
                         Spacer()
                 }
                 .padding(.leading, 15)
-                
-                HStack {
+                .padding(.bottom, 15)
+
+                HStack (alignment: .top) {
                     Text("KD 3.2")
                     
                     Text("Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.")
@@ -58,8 +78,12 @@ struct CompetenceOverviewDetailView_Previews: PreviewProvider {
     static var projectDatabaseVideModel = ProjectDatabaseViewModel()
 
     static var previews: some View {
-        CompetenceOverviewDetailView(project: projectDatabaseVideModel.allProjects[0])
-            .previewDevice("iPad (8th generation)")
+        
+        GeometryReader { geometry in
+            CompetenceOverviewDetailView(project: projectDatabaseVideModel.allProjects[0], parentGeometry: geometry)
+                .previewDevice("iPad (8th generation)")
+        }
+
 
     }
     

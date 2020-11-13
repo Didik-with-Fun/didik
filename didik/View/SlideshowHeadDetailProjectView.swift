@@ -29,8 +29,6 @@ struct SlideshowHeadDetailProjectView: View {
                     ForEach(0 ..< project.images.count) { index in
                         VStack {
                             
-                            //                            Image("demo_slideshow_\(index)")
-                            
                             Image.Didik.generateRandomDefaultImage(subject: project.subject)
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
@@ -58,7 +56,6 @@ struct SlideshowHeadDetailProjectView: View {
 struct SlideshowHeadDetailProjectView_Previews: PreviewProvider {
     
     static var projectDatabaseVideModel = ProjectDatabaseViewModel()
-    var parentGeometry: GeometryProxy
     
     static var previews: some View {
         NavigationView {
