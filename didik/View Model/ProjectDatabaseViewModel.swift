@@ -6,283 +6,239 @@
 //
 
 import Foundation
+import Firebase
+import FirebaseFirestoreSwift
 
-struct ProjectsGroup: Identifiable {
-    let id = UUID()
-    let title: String
-    let group: [Project]
-}
 
 class ProjectDatabaseViewModel: ObservableObject {
     
-    var allProjects: [Project]
-    @Published var filteredProjects: [Project]
-    var filteredBySubjectsProjects: [Project]
-    var filteredByGradesProjects: [Project]
-    @Published var myProjects: [Project]
+    // all projects from firebase
+    var allProjects: [Project] = []
+    
+    // variabel to filter projects from jelajah materi view
+    @Published var filteredProjects: [Project] = []
+
     @Published var jelajahMateriGroup: [ProjectsGroup] = []
+    var referenceJelajahMateriGroup: [ProjectsGroup] = []
     
     
+    var myAllProjects: [Project] = []
+    @Published var myProjects: [Project] = []
+
     @Published var myProjectsGroup: [ProjectsGroup] = []
+    var referenceMyProjectsGroup: [ProjectsGroup] = []
     
+    
+    var specificProjects: [Project] = []
+    @Published var filteredSpecificProjects: [Project] = []
+    
+    
+//MARK: - init
     
     init() {
-        // insert fetch projects from firebase here
-        let requestProjects = ProjectDatabaseViewModel.createDummyProjects()
-        
-        self.allProjects = requestProjects
-        self.filteredProjects = requestProjects
-        self.filteredBySubjectsProjects = requestProjects
-        self.filteredByGradesProjects = requestProjects
-        
-        
-        self.myProjects = requestProjects
-        
-        let temp = Dictionary(grouping: self.filteredProjects) { (project) -> String in
-            return project.topic.name
-        }
-        for (key, value) in temp {
-            self.jelajahMateriGroup.append(ProjectsGroup(title: key, group: value))
-        }
-        
-        let myTemp = Dictionary(grouping: self.myProjects) { (project) -> ProjectStatus in
-            return project.projectStatus
-        }
-        for (key, value) in myTemp {
-            self.myProjectsGroup.append(ProjectsGroup(title: key.rawValue, group: value))
-        }
-        
-        
-        print("view model init")
+        // request all projects
+        FirebaseRequestService.requestAllProject { (result) in
+            switch result {
+            case .success(let requestProjects):
+                // initialize jelajah materi project database
+                self.allProjects = requestProjects
+                self.filteredProjects = requestProjects
 
-    }
-    
-    
-    func filterByGrades(grade: Grades) {
+                
+                
+
+                
+                let temp = Dictionary(grouping: self.filteredProjects) { (project) -> String in
+                    return project.topic.name
+                }
+                for (key, value) in temp {
+                    self.jelajahMateriGroup.append(ProjectsGroup(title: key, unfilteredGroup: value, group: value))
+                    self.referenceJelajahMateriGroup.append(ProjectsGroup(title: key, unfilteredGroup: value, group: value))
+                }
+                
+                
+                
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
         
-        if grade == .allGrades {
-            self.filteredProjects = self.filteredBySubjectsProjects.filter { (Projects) -> Bool in
-                return (Projects.grade == .ten) || (Projects.grade == .eleven) || (Projects.grade == .twelve)
+        // request my projects
+        FirebaseRequestService.requestMyProject { (result) in
+            switch result {
+            case .success(let requestProjects):
+                // initialize my materi project database
+                self.myAllProjects = requestProjects
+                self.myProjects = requestProjects
+                
+                let myTemp = Dictionary(grouping: self.myProjects) { (project) -> ProjectStatus in
+                    return project.projectStatus
+                }
+                for (key, value) in myTemp {
+                    self.myProjectsGroup.append(ProjectsGroup(title: key.rawValue, unfilteredGroup: value, group: value))
+                    self.referenceMyProjectsGroup.append(ProjectsGroup(title: key.rawValue, unfilteredGroup: value, group: value))
+                }
+                
+            case .failure(let error):
+                print(error.localizedDescription)
             }
-            
-            return
-            
-        } else {
-            self.filteredProjects = self.filteredBySubjectsProjects.filter { (Projects) -> Bool in
-                return Projects.grade == grade
-            }
-            
-            self.filteredByGradesProjects = self.allProjects.filter { (Projects) -> Bool in
-                return Projects.grade == grade
-            }
-            
-            return
-            
         }
         
     }
     
-    func filterBySubjects(subject: Subject) {
+//MARK: - Filter Function
+    
+    func filter(grade: Grades, subject: Subject, view: ViewType) {
         
-        if subject == .allSubjects {
-            self.filteredProjects = self.filteredByGradesProjects.filter { (projects) -> Bool in
-                return (projects.subject == .Mathematic) ||
-                    (projects.subject == .Physic) ||
-                    (projects.subject == .Chemist) ||
-                    (projects.subject == .Biology) ||
-                    (projects.subject == .Sociology) ||
-                    (projects.subject == .History) ||
-                    (projects.subject == .Economy) ||
-                    (projects.subject == .Geography) ||
-                    (projects.subject == .BahasaIndonesia) ||
-                    (projects.subject == .English)
-            }
-            return
+        switch view {
+        case .myMateri:
+           filterMyMateri(grade: grade, subject: subject)
             
-        } else {
-            self.filteredProjects = self.filteredByGradesProjects.filter { (projects) -> Bool in
-                return projects.subject == subject
-            }
+        case .lihatSemua:
+            filterLihatSemua(grade: grade, subject: subject)
             
-            self.filteredBySubjectsProjects = self.allProjects.filter { (projects) -> Bool in
-                return projects.subject == subject
-            }
-            return
-            
+        default:
+            // jelajah
+            filterJelajah(grade: grade, subject: subject)
         }
         
     }
+    
+
+}
+
+
+
+//MARK: - Extension for ViewType Jelajah
+
+extension ProjectDatabaseViewModel {
+
+    
+    func filterJelajah(grade: Grades, subject: Subject) {
+        let filterGrade = self.allProjects.filter { (Project) -> Bool in
+            if grade == .allGrades {
+                return true
+            } else {
+                return Project.grade == grade
+            }
+        }
+        
+        let filterSubject = filterGrade.filter { (Project) -> Bool in
+            if subject == .allSubjects {
+                return true
+            } else {
+                return Project.subject == subject
+            }
+        }
+        
+        self.filteredProjects = filterSubject
+        
+        self.updateProjectsGroup()
+    }
+    
+    
     
     
     func updateProjectsGroup() {
-        self.jelajahMateriGroup = []
+        var updateGroup: [ProjectsGroup] = []
         
         let temp = Dictionary(grouping: filteredProjects) { (project) -> String in
             return project.topic.name
         }
+        
         for (key, value) in temp {
-            self.jelajahMateriGroup.append(ProjectsGroup(title: key, group: value))
+            for i in referenceJelajahMateriGroup {
+                if i.title == key {
+                    updateGroup.append(ProjectsGroup(title: key, unfilteredGroup: i.unfilteredGroup, group: value))
+                }
+                print(i.title)
+            }
         }
 
+        
+        self.jelajahMateriGroup = updateGroup
+        
     }
-    
-
     
     
 }
 
 
-//MARK: - Generate Dummy Model
+
+
+//MARK: - Extension for ViewType myMateri
 
 extension ProjectDatabaseViewModel {
     
-    static func createDummyProjects() -> [Project] {
-        let p1 = Project(name: "Membuktikan Pythagoras dengan Kerikil",
-                          summary: "Siswa akan Membuktikan Pythagoras dengan Kerikil",
-                          subject: .Mathematic,
-                          grade: .ten,
-                          topic: .init(subject: .Mathematic, grade: .ten, name: "Trigonometri", coreCompetence: "Memahami trigonometri", basicCompetence: ["Bisa menggunakan phytagoras"]),
-                          goal: "Setelah Anda mempelajari bahan belajar ini diharapkan Anda mampu:  1.    Menjelaskan pengertian SPLTV  2.    Menjelaskan bentuk umum SPLTV  3.    Menentukan Himpunan Penyelesaian (HP) SPLTV  4.    Menyelesaikan masalah nyata yang berkaitan dengan SPLTV",
-                          images: ["MathematicBlue"],
-                          projectStatus: .Published,
-                          projectActivities: [ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1),
-                                              ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1)],
-                          notes: "Do:  1. Membaca bahan belajar sebagai bahan apersepsi  2. Peserta didik menyelesaikan masalah sederhana Sistem Persamaan Linear Dua Variabel sebagai apersepsi  3. Peserta didik aktif mencari bahan untuk menjawab masalah 4. Peserta didik berkontribusi aktif dalam pemecahan masalah.    Dont  1. Pasif, tidak terlibat.  2. Takut tdk berani mencoba",
-                          comments: [Comment.init(comment: "bego lu", authorID: "Atun", createdDate: Date())],
-                          likes: 230,
-                          createdDate: 1415637900,
-                          updatedDate: 232.2)
+    func filterMyMateri(grade: Grades, subject: Subject) {
+        let filterGrade = self.myAllProjects.filter { (Project) -> Bool in
+            if grade == .allGrades {
+                return true
+            } else {
+                return Project.grade == grade
+            }
+        }
         
-        let p2 = Project(name: "Membuktikan Pythagoras dengan Tusuk Sate",
-                          summary: "Siswa akan Membuktikan Pythagoras dengan Tusuk Sate",
-                          subject: .Mathematic,
-                          grade: .eleven,
-                          topic: .init(subject: .Mathematic, grade: .eleven, name: "Trigonometri", coreCompetence: "Memahami trigonometri", basicCompetence: ["Bisa menggunakan phytagoras"]),
-                          goal: "Setelah Anda mempelajari bahan belajar ini diharapkan Anda mampu:  1.    Menjelaskan pengertian SPLTV  2.    Menjelaskan bentuk umum SPLTV  3.    Menentukan Himpunan Penyelesaian (HP) SPLTV  4.    Menyelesaikan masalah nyata yang berkaitan dengan SPLTV",
-                          images: ["MathematicBlue"],
-                          projectStatus: .Published,
-                          projectActivities: [ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 2),
-                                              ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 2)],
-                          notes: "Do:  1. Membaca bahan belajar sebagai bahan apersepsi  2. Peserta didik menyelesaikan masalah sederhana Sistem Persamaan Linear Dua Variabel sebagai apersepsi  3. Peserta didik aktif mencari bahan untuk menjawab masalah 4. Peserta didik berkontribusi aktif dalam pemecahan masalah.    Dont  1. Pasif, tidak terlibat.  2. Takut tdk berani mencoba",
-                          comments: [Comment.init(comment: "bego lu", authorID: "Atun", createdDate: Date())],
-                          likes: 230,
-                          createdDate: 01.1,
-                          updatedDate: 232.2)
+        let filterSubject = filterGrade.filter { (Project) -> Bool in
+            if subject == .allSubjects {
+                return true
+            } else {
+                return Project.subject == subject
+            }
+        }
         
-        let p3 = Project(name: "Membuktikan Integral dengan Tusuk Sate",
-                          summary: "Siswa akan Membuktikan Integral dengan Tusuk Sate",
-                          subject: .Mathematic,
-                          grade: .eleven,
-                          topic: .init(subject: .Mathematic, grade: .eleven, name: "Kalkulus", coreCompetence: "Memahami kalkulus", basicCompetence: ["Bisa menggunakan phytagoras"]),
-                          goal: "Setelah Anda mempelajari bahan belajar ini diharapkan Anda mampu:  1.    Menjelaskan pengertian SPLTV  2.    Menjelaskan bentuk umum SPLTV  3.    Menentukan Himpunan Penyelesaian (HP) SPLTV  4.    Menyelesaikan masalah nyata yang berkaitan dengan SPLTV",
-                          images: ["MathematicDarkBlue"],
-                          projectStatus: .Published,
-                          projectActivities: [ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1),
-                                              ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1)],
-                          notes: "Do:  1. Membaca bahan belajar sebagai bahan apersepsi  2. Peserta didik menyelesaikan masalah sederhana Sistem Persamaan Linear Dua Variabel sebagai apersepsi  3. Peserta didik aktif mencari bahan untuk menjawab masalah 4. Peserta didik berkontribusi aktif dalam pemecahan masalah.    Dont  1. Pasif, tidak terlibat.  2. Takut tdk berani mencoba",
-                          comments: [Comment.init(comment: "bego lu", authorID: "Atun", createdDate: Date())],
-                          likes: 230,
-                          createdDate: 01.1,
-                          updatedDate: 232.2)
+        self.myProjects = filterSubject
         
-        let p4 = Project(name: "Membuat Roket botol air",
-                          summary: "Siswa akan Membuktikan Pythagoras dengan Tusuk Sate",
-                          subject: .Physic,
-                          grade: .eleven,
-                          topic: .init(subject: .Physic, grade: .eleven, name: "Tekanan", coreCompetence: "Memahami tekanan", basicCompetence: ["Bisa menggunakan phytagoras"]),
-                          goal: "Setelah Anda mempelajari bahan belajar ini diharapkan Anda mampu:  1.    Menjelaskan pengertian SPLTV  2.    Menjelaskan bentuk umum SPLTV  3.    Menentukan Himpunan Penyelesaian (HP) SPLTV  4.    Menyelesaikan masalah nyata yang berkaitan dengan SPLTV",
-                          images: ["MathematicGreen"],
-                          projectStatus: .Published,
-                          projectActivities: [ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1),
-                                              ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1)],
-                          notes: "Do:  1. Membaca bahan belajar sebagai bahan apersepsi  2. Peserta didik menyelesaikan masalah sederhana Sistem Persamaan Linear Dua Variabel sebagai apersepsi  3. Peserta didik aktif mencari bahan untuk menjawab masalah 4. Peserta didik berkontribusi aktif dalam pemecahan masalah.    Dont  1. Pasif, tidak terlibat.  2. Takut tdk berani mencoba",
-                          comments: [Comment.init(comment: "bego lu", authorID: "Atun", createdDate: Date())],
-                          likes: 230,
-                          createdDate: 01.1,
-                          updatedDate: 232.2)
-        
-        let p5 = Project(name: "Membuat sabun",
-                          summary: "Siswa akan Membuat sabun dengan minyak",
-                          subject: .Chemist,
-                          grade: .twelve,
-                          topic: .init(subject: .Chemist, grade: .twelve, name: "Minyak", coreCompetence: "Memahami trigonometri", basicCompetence: ["Bisa menggunakan phytagoras"]),
-                          goal: "Setelah Anda mempelajari bahan belajar ini diharapkan Anda mampu:  1.    Menjelaskan pengertian SPLTV  2.    Menjelaskan bentuk umum SPLTV  3.    Menentukan Himpunan Penyelesaian (HP) SPLTV  4.    Menyelesaikan masalah nyata yang berkaitan dengan SPLTV",
-                          images: ["MathematicOrange"],
-                          projectStatus: .Published,
-                          projectActivities: [ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1),
-                                              ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1)],
-                          notes: "Do:  1. Membaca bahan belajar sebagai bahan apersepsi  2. Peserta didik menyelesaikan masalah sederhana Sistem Persamaan Linear Dua Variabel sebagai apersepsi  3. Peserta didik aktif mencari bahan untuk menjawab masalah 4. Peserta didik berkontribusi aktif dalam pemecahan masalah.    Dont  1. Pasif, tidak terlibat.  2. Takut tdk berani mencoba",
-                          comments: [Comment.init(comment: "bego lu", authorID: "Atun", createdDate: Date())],
-                          likes: 230,
-                          createdDate: 01.1,
-                          updatedDate: 232.2)
-        
-        let p6 = Project(name: "Membuat Tabung kapiler",
-                          summary: "Siswa akan Membuat tabung kapiler",
-                          subject: .Physic,
-                          grade: .twelve,
-                          topic: .init(subject: .Physic, grade: .twelve, name: "Tekanan", coreCompetence: "Memahami trigonometri", basicCompetence: ["Bisa menggunakan phytagoras"]),
-                          goal: "Setelah Anda mempelajari bahan belajar ini diharapkan Anda mampu:  1.    Menjelaskan pengertian SPLTV  2.    Menjelaskan bentuk umum SPLTV  3.    Menentukan Himpunan Penyelesaian (HP) SPLTV  4.    Menyelesaikan masalah nyata yang berkaitan dengan SPLTV",
-                          images: ["MathematicGreen"],
-                          projectStatus: .Published,
-                          projectActivities: [ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1),
-                                              ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1)],
-                          notes: "Do:  1. Membaca bahan belajar sebagai bahan apersepsi  2. Peserta didik menyelesaikan masalah sederhana Sistem Persamaan Linear Dua Variabel sebagai apersepsi  3. Peserta didik aktif mencari bahan untuk menjawab masalah 4. Peserta didik berkontribusi aktif dalam pemecahan masalah.    Dont  1. Pasif, tidak terlibat.  2. Takut tdk berani mencoba",
-                          comments: [Comment.init(comment: "bego lu", authorID: "Atun", createdDate: Date())],
-                          likes: 230,
-                          createdDate: 01.1,
-                          updatedDate: 232.2)
-        
-        let p7 = Project(name: "Membuat Tabung kapiler",
-                          summary: "Siswa akan Membuat tabung kapiler",
-                          subject: .Physic,
-                          grade: .twelve,
-                          topic: .init(subject: .Physic, grade: .twelve, name: "Tekanan", coreCompetence: "Memahami trigonometri", basicCompetence: ["Bisa menggunakan phytagoras"]),
-                          goal: "Setelah Anda mempelajari bahan belajar ini diharapkan Anda mampu:  1.    Menjelaskan pengertian SPLTV  2.    Menjelaskan bentuk umum SPLTV  3.    Menentukan Himpunan Penyelesaian (HP) SPLTV  4.    Menyelesaikan masalah nyata yang berkaitan dengan SPLTV",
-                          images: ["MathematicGreen"],
-                          projectStatus: .Published,
-                          projectActivities: [ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1),
-                                              ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1)],
-                          notes: "Do:  1. Membaca bahan belajar sebagai bahan apersepsi  2. Peserta didik menyelesaikan masalah sederhana Sistem Persamaan Linear Dua Variabel sebagai apersepsi  3. Peserta didik aktif mencari bahan untuk menjawab masalah 4. Peserta didik berkontribusi aktif dalam pemecahan masalah.    Dont  1. Pasif, tidak terlibat.  2. Takut tdk berani mencoba",
-                          comments: [Comment.init(comment: "bego lu", authorID: "Atun", createdDate: Date())],
-                          likes: 230,
-                          createdDate: 01.1,
-                          updatedDate: 232.2)
-        
-        let p8 = Project(name: "Membuat Rail Gun",
-                          summary: "Siswa akan Membuat rail gun",
-                          subject: .Physic,
-                          grade: .ten,
-                          topic: .init(subject: .Physic, grade: .ten, name: "Magnet", coreCompetence: "Memahami trigonometri", basicCompetence: ["Bisa menggunakan phytagoras"]),
-                          goal: "Setelah Anda mempelajari bahan belajar ini diharapkan Anda mampu:  1.    Menjelaskan pengertian SPLTV  2.    Menjelaskan bentuk umum SPLTV  3.    Menentukan Himpunan Penyelesaian (HP) SPLTV  4.    Menyelesaikan masalah nyata yang berkaitan dengan SPLTV",
-                          images: ["MathematicLightBrown"],
-                          projectStatus: .Published,
-                          projectActivities: [ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1),
-                                              ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1)],
-                          notes: "Do:  1. Membaca bahan belajar sebagai bahan apersepsi  2. Peserta didik menyelesaikan masalah sederhana Sistem Persamaan Linear Dua Variabel sebagai apersepsi  3. Peserta didik aktif mencari bahan untuk menjawab masalah 4. Peserta didik berkontribusi aktif dalam pemecahan masalah.    Dont  1. Pasif, tidak terlibat.  2. Takut tdk berani mencoba",
-                          comments: [Comment.init(comment: "bego lu", authorID: "Atun", createdDate: Date())],
-                          likes: 230,
-                          createdDate: 01.1,
-                          updatedDate: 232.2)
-        
-        return [p1, p2, p3, p4, p5, p6, p7, p8]
+        self.updateMyProjectsGroup()
     }
+    
+    
+
+    func updateMyProjectsGroup() {
+        var updateGroup: [ProjectsGroup] = []
+        
+        let temp = Dictionary(grouping: myProjects) { (project) -> ProjectStatus in
+            return project.projectStatus
+        }
+        
+        for (key, value) in temp {
+            for i in referenceMyProjectsGroup {
+                if i.title == key.rawValue {
+                    updateGroup.append(ProjectsGroup(title: key.rawValue, unfilteredGroup: i.unfilteredGroup, group: value))
+                }
+                print(i.title)
+            }
+        }
+        
+        self.myProjectsGroup = updateGroup
+        
+    }
+    
 }
 
 
-let placeholder = Project(name: "Membuktikan Pythagoras dengan Kerikil",
-                  summary: "Siswa akan Membuktikan Pythagoras dengan Kerikil",
-                  subject: .Mathematic,
-                  grade: .ten,
-                  topic: .init(subject: .Mathematic, grade: .ten, name: "Trigonometri", coreCompetence: "Memahami trigonometri", basicCompetence: ["Bisa menggunakan phytagoras"]),
-                  goal: "Setelah Anda mempelajari bahan belajar ini diharapkan Anda mampu:  1.    Menjelaskan pengertian SPLTV  2.    Menjelaskan bentuk umum SPLTV  3.    Menentukan Himpunan Penyelesaian (HP) SPLTV  4.    Menyelesaikan masalah nyata yang berkaitan dengan SPLTV",
-                  images: ["MathematicBlue"],
-                  projectStatus: .Published,
-                  projectActivities: [ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1),
-                                      ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1)],
-                  notes: "Do:  1. Membaca bahan belajar sebagai bahan apersepsi  2. Peserta didik menyelesaikan masalah sederhana Sistem Persamaan Linear Dua Variabel sebagai apersepsi  3. Peserta didik aktif mencari bahan untuk menjawab masalah 4. Peserta didik berkontribusi aktif dalam pemecahan masalah.    Dont  1. Pasif, tidak terlibat.  2. Takut tdk berani mencoba",
-                  comments: [Comment.init(comment: "bego lu", authorID: "Atun", createdDate: Date())],
-                  likes: 230,
-                  createdDate: 01.1,
-                  updatedDate: 232.2)
+//MARK: - Extension for View Type Lihat Semua
 
+
+extension ProjectDatabaseViewModel {
+    
+    func filterLihatSemua(grade: Grades, subject: Subject) {
+        let filterGrade = self.specificProjects.filter { (Project) -> Bool in
+            if grade == .allGrades {
+                return true
+            } else {
+                return Project.grade == grade
+            }
+        }
+        
+        let filterSubject = filterGrade.filter { (Project) -> Bool in
+            if subject == .allSubjects {
+                return true
+            } else {
+                return Project.subject == subject
+            }
+        }
+        
+        self.filteredSpecificProjects = filterSubject
+    }
+}

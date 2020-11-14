@@ -13,13 +13,16 @@ struct MateriPreviewCollectionView: View {
     
     var parentGeometry: GeometryProxy
 
-    let title: String
-    let ProjectsLibrary: [Project]
+    let projectsGroup: ProjectsGroup
+
+    @Binding var selectedGrade: Grades
+    @Binding var selectedSubject: Subject
+    let startPointviewType: ViewType
 
     var body: some View {
         VStack(spacing: 10){
             HStack {
-                Text(title)
+                Text(projectsGroup.title)
                     .font(.title2)
                     .bold()
                     .padding(.horizontal)
@@ -27,7 +30,7 @@ struct MateriPreviewCollectionView: View {
                 
                 Spacer()
                 NavigationLink(
-                    destination: LihatSemuaView(ProjectsLibrary: ProjectsLibrary, currentTitle: title),
+                    destination: LihatSemuaView(projectsGroup: projectsGroup, selectedGrade: $selectedGrade, selectedSubject: $selectedSubject, startPointviewType: startPointviewType),
                     label: {
                         Text("Lihat Semua")
                             .font(.caption)
@@ -37,17 +40,29 @@ struct MateriPreviewCollectionView: View {
                 
                 
             }
-            ScrollView (.horizontal) {
+            ScrollView(.horizontal) {
                 HStack (alignment: .top, spacing: 10) {
-                    ForEach(ProjectsLibrary) { project in
-                        NavigationLink(
-                            destination: DetailProjectMainView(project: project, parentGeometry: parentGeometry, title: project.name),
-                            label: {
-                                MateriPreviewView(height: 126, width: 230, project: project)
-                                    .padding(.leading)
-                            })
-                        
+                    if projectsGroup.group.count > 5 {
+                        ForEach(0...4, id: \.self) { index in
+                            NavigationLink(
+                                destination: DetailProjectMainView(project: projectsGroup.group[index], parentGeometry: parentGeometry, title: projectsGroup.group[index].name),
+                                label: {
+                                    MateriPreviewView(height: 126, width: 230, project: projectsGroup.group[index])
+                                        .padding(.leading)
+                                })
+                        }
+                    } else {
+                        ForEach(projectsGroup.group) { index in
+                            NavigationLink(
+                                destination: DetailProjectMainView(project: index, parentGeometry: parentGeometry, title: index.name),
+                                label: {
+                                    MateriPreviewView(height: 126, width: 230, project: index)
+                                        .padding(.leading)
+                                })
+                            
+                        }
                     }
+                    
                 }
                 
             }
@@ -61,7 +76,7 @@ struct MateriPreviewCollectionView_Previews: PreviewProvider {
     static var previews: some View {
         GeometryReader { geometry in
 
-            MateriPreviewCollectionView(parentGeometry: geometry, title: "Matematika Dasar", ProjectsLibrary: [placeholder])
+            MateriPreviewCollectionView(parentGeometry: geometry, projectsGroup: placeholderGroup, selectedGrade: .constant(.allGrades), selectedSubject: .constant(.BahasaIndonesia), startPointviewType: .jelajah)
                 .previewDevice("iPad (8th generation)")
         }
     }
