@@ -42,11 +42,16 @@ struct SlideshowHeadDetailProjectView: View {
                 
                 
             }
-            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: parentGeometry.size.width, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealHeight: 364, maxHeight: parentGeometry.size.height/3, alignment: .center)
+//            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: parentGeometry.size.width, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealHeight: 364, maxHeight: parentGeometry.size.height/3, alignment: .center)
+            
+            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: parentGeometry.size.width, minHeight: parentGeometry.size.height/3, maxHeight: parentGeometry.size.height/3, alignment: .center)
+            
+//            .frame(width: parentGeometry.size.width, height: parentGeometry.size.height/3, alignment: .leading)
             
             .tabViewStyle(PageTabViewStyle())
             
         }
+        .padding(.bottom, 10)
         
     }
 }

@@ -26,7 +26,7 @@ struct HomeView: View {
                     .opacity(index == 0 ? 1 : 0)
                 
                 /*
-                CreateProjectView(selectedSubject: .constant(.Mathematic), showPopOverContents: .constant(.namaProyek), isDropdownSubjectOpen: false)
+                CreateProjectView(project: nil, selectedSubject: .constant(.Mathematic), showPopOverContents: .constant(.namaProyek), isDropdownSubjectOpen: false)
                 .opacity(index == 1 ? 1 : 0)
                 */
 

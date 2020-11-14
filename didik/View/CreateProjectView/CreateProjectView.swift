@@ -23,6 +23,8 @@ struct CreateProjectView: View {
     @State var contentNotes: String
     */
     
+    let project: Project?
+
     @State var selectedSubject: Subject
     @State var selectedGrade: Grades
     @State var contentNamaProyek: String = ""
@@ -63,24 +65,25 @@ struct CreateProjectView: View {
                         TopicMainView()
                         
                         // MARK: - Form Field - Project Name aka Nama Proyek
-                        ProjectNameFieldView(contentProjectName: "")
+                        ProjectNameFieldView(contentProjectName: project?.name ?? "" )
+                        Text("xxxx\(project?.name ?? "")")
                         
                         // MARK: - Form Field - Project Description
-                        DescriptionFieldView(contentDescription: "")
+                        DescriptionFieldView(contentDescription: project?.summary ?? "")
                         
                         // MARK: - Form Field - Goals aka Tujuan Proyek
-                        LearningGoalsFieldView(contentLearningGoals: "")
+                        LearningGoalsFieldView(contentLearningGoals: project?.goal ?? "")
                         
                         // MARK: - Form Field - Media Uploads
                         MediaView()
                         
                         // MARK: - Form Field - Activity
                         HStack {
-                            ActivityMainView(totalActivityTime: 0)
+                            ActivityMainView(totalActivityTime: project?.getTotalActivitiesDays() ?? 0, contentActivities: project?.projectActivities ?? [])
                         }.padding([.top, .horizontal], 20)
                         
                         // MARK: - Form Field - Notes aka Catatan Siswa
-                        NoteToStudentFieldView(contentNotes: "")
+                        NoteToStudentFieldView(contentNotes: project?.notes ?? "")
                     }
                     
                     if self.showPopOver {
@@ -132,7 +135,7 @@ struct CreateProjectView: View {
 struct CreateProjectView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            CreateProjectView(selectedSubject: .Mathematic, selectedGrade: .ten, contentNamaProyek: "", showPopOver: false, showPopOverContents: .namaProyek, isDropdownSubjectOpen: false)
+            CreateProjectView(project: nil, selectedSubject: .Mathematic, selectedGrade: .ten, contentNamaProyek: "", showPopOver: false, showPopOverContents: .namaProyek, isDropdownSubjectOpen: false)
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }

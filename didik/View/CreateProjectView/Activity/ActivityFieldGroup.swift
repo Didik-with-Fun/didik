@@ -30,7 +30,7 @@ struct ActivityFieldGroup: View {
                     .frame(height: 55)
                     .overlay(RoundedRectangle(cornerRadius: 13).stroke(Color.gray))
                 
-                Image("Calendar")
+                Image.Didik.Calendar
                     .resizable()
                     .frame(width: 34, height: 34, alignment: .center)
                 
