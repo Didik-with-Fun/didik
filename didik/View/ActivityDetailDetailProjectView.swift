@@ -60,12 +60,10 @@ struct ActivityDetailDetailProjectView: View {
 
 struct ActivityDetailDetailProjectView_Previews: PreviewProvider {
     
-    static var projectDatabaseVideModel = ProjectDatabaseViewModel()
-
     static var previews: some View {
         
         GeometryReader { geometry in
-            ActivityDetailDetailProjectView(project: projectDatabaseVideModel.allProjects[0], parentGeometry: geometry)
+            ActivityDetailDetailProjectView(project: FirebaseRequestService.createDummyProjects()[0], parentGeometry: geometry)
                 .previewDevice("iPad (8th generation)")
         }
 

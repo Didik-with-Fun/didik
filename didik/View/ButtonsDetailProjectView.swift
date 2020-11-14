@@ -58,9 +58,8 @@ struct ButtonsDetailProjectView: View {
 }
 
 struct ButtonsDetailProjectView_Previews: PreviewProvider {
-    static var projectDatabaseVideModel = ProjectDatabaseViewModel()
 
     static var previews: some View {
-        ButtonsDetailProjectView(project: projectDatabaseVideModel.allProjects[0])
+        ButtonsDetailProjectView(project: FirebaseRequestService.createDummyProjects()[0])
     }
 }
