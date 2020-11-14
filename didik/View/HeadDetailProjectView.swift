@@ -29,12 +29,11 @@ struct HeadDetailProjectView: View {
 }
 
 struct HeadDetailProjectView_Previews: PreviewProvider {
-    static var projectDatabaseVideModel = ProjectDatabaseViewModel()
 
     static var previews: some View {
         
         GeometryReader { geometry in
-            HeadDetailProjectView(project: projectDatabaseVideModel.allProjects[0], parentGeometry: geometry)
+            HeadDetailProjectView(project: FirebaseRequestService.createDummyProjects()[0], parentGeometry: geometry)
                 .previewDevice("iPad (8th generation)")
         }
         

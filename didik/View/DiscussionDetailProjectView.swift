@@ -18,10 +18,8 @@ struct DiscussionDetailProjectView: View {
 
 struct DiscussionDetailProjectView_Previews: PreviewProvider {
 
-    static var projectDatabaseVideModel = ProjectDatabaseViewModel()
-
     static var previews: some View {
-        DiscussionDetailProjectView(project: projectDatabaseVideModel.allProjects[0])
+        DiscussionDetailProjectView(project: FirebaseRequestService.createDummyProjects()[0])
             .previewDevice("iPad (8th generation)")
 
     }
