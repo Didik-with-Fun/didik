@@ -16,6 +16,8 @@ struct Topic: Identifiable {
     let basicCompetence: [String] // stands for Kompentensi Dasar
 }
 
+let defaultTopic = Topic(subject: .allSubjects, grade: .allGrades, name: "Pilih Materi Pembelajaran", coreCompetence: "", basicCompetence: ["Akan terisi secara otomatis berdasarkan materi yang dipilih"])
+
 let topicMath1 = Topic(subject: .Mathematic, grade: .ten, name: "Pertidaksamaan Linear", coreCompetence: "", basicCompetence: ["Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", "Menyelesaikan masalah yang berkaitan dengan persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel."])
 
 let topicMath2 = Topic(subject: .Mathematic, grade: .ten, name: "Sistem Persamaan Linear", coreCompetence: "", basicCompetence: ["Menjelaskan dan menentukan penyelesaian pertidaksamaan rasional dan irasional satu variabel.", "Menjelaskan dan menentukan penyelesaian pertidaksamaan rasional dan irasional satu variabel."])
@@ -26,4 +28,4 @@ let topicMath4 = Topic(subject: .Mathematic, grade: .ten, name: "Persamaan Kuadr
 
 let topicMath5 = Topic(subject: .Mathematic, grade: .ten, name: "Fungsi Kuadrat", coreCompetence: "", basicCompetence: ["Menjelaskan dan menentukan fungsi (terutama fungsi linear, fungsi kuadrat, dan fungsi rasional) secara formal yang meliputi notasi, daerah asal, daerah hasil, dan ekspresi simbolik, serta sketsa grafiknya.", "Menganalisa karakteristik masing-masing grafik (titik potong dengan sumbu, titik puncak, asimtot) dan perubahan grafik fungsinya akibat transformasi  dsb."])
 
-let topicList = [topicMath1, topicMath2, topicMath3, topicMath4, topicMath5]
+let topicList = [defaultTopic, topicMath1, topicMath2, topicMath3, topicMath4, topicMath5]
