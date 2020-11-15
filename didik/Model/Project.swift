@@ -24,8 +24,8 @@ struct Project: Identifiable, Codable {
     let notes: String
     let comments: [Comment]
     let likes: Int
-    let createdDate: Double
-    let updatedDate: Double
+    let createdDate: Date
+    let updatedDate: Date
     
     func getTotalActivitiesDays() -> Int {
         self.projectActivities.map { $0.time }.reduce(0, +)

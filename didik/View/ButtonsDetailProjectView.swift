@@ -11,15 +11,15 @@ struct ButtonsDetailProjectView: View {
     
     let project: Project
 
-    var date: String {
-        DateUtil.convertDoubleToDate(date: project.createdDate)
-    }
+    //var date: String {
+        //DateUtil.convertDoubleToDate(date: project.createdDate)
+    //}
 
     var body: some View {
         
         VStack {
             HStack {
-                Text("\(project.subject.rawValue) || \(date)")
+                Text("\(project.subject.rawValue) || \(project.createdDate)")
                     .foregroundColor(.gray)
                 Spacer()
             }

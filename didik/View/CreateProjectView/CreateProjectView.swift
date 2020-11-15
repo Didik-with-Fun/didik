@@ -7,6 +7,11 @@
 
 import SwiftUI
 
+let imagePreview1 = "math-preview-1.jpg"
+let contentProjectImages = [imagePreview1]
+let contentProjectActivities = [ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1), ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1)]
+let contentComments = [Comment.init(comment: "bego lu", authorID: "Mine", createdDate: Date())]
+
 struct CreateProjectView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
@@ -15,7 +20,7 @@ struct CreateProjectView: View {
     @State var contentSubject: Subject = .Mathematic        // check
     @State var contentGrade: Grades = .ten
     @State var contentTopic: Topic = defaultTopic
-    @State var contentDescription: String = ""
+    @State var contentSummary: String = ""
     @State var contentLearningGoals: String = ""
     @State var contentMedia: [String] = []
     @State var contentActivities: [ProjectActivity] = []
@@ -59,7 +64,7 @@ struct CreateProjectView: View {
                         ProjectNameFieldView(contentProjectName: $contentProjectName)
                         
                         // MARK: - Form Field - Project Description
-                        DescriptionFieldView(contentDescription: $contentDescription)
+                        DescriptionFieldView(contentDescription: $contentSummary)
                         
                         // MARK: - Form Field - Goals aka Tujuan Proyek
                         LearningGoalsFieldView(contentLearningGoals: $contentLearningGoals)
@@ -97,7 +102,10 @@ struct CreateProjectView: View {
                 HStack (spacing: 20) {
                     Spacer()
                     
-                    Button(action: {}, label: {
+                    // MARK: - Save to Draft Button
+                    Button(action: {
+                        projectWriteFirebase(projectStatus: .Draft)
+                    }, label: {
                         Text("Save to Draft")
                         .frame(width: 258, height: 48)
                         .background(Color.Didik.GreyDark)
@@ -105,9 +113,10 @@ struct CreateProjectView: View {
                     })
                     .cornerRadius(10)
                     
+                    // MARK: - Published Button
                     Button(action: {
-                        // MARK: - Saving Project to Firebase Firestore
                         
+                        projectWriteFirebase(projectStatus: .Published)
                     }, label: {
                         Text("Publish")
                         .frame(width: 258, height: 48)
@@ -122,6 +131,37 @@ struct CreateProjectView: View {
         .navigationBarTitle("Materi Saya", displayMode: .automatic)
         .navigationBarItems(trailing: UserButton())
         .navigationBarColor(backgroundColor: UIColor(Color.Didik.BluePrimary))
+    }
+    
+    func projectWriteFirebase(projectStatus: ProjectStatus) {
+
+        let newContentProject = Project(
+                name: contentProjectName,
+                summary: contentSummary,
+                subject: contentSubject,
+                grade: contentGrade,
+                topic: contentTopic,
+                goal: contentLearningGoals,
+                images: contentProjectImages,
+                projectStatus: projectStatus,
+                projectActivities: contentProjectActivities,
+                notes: contentNotes,
+                comments: contentComments,
+                likes: 0,
+                createdDate: Date(),
+                updatedDate: Date())
+        
+        print("--> Firebase Data Write Project Collection:")
+        print(newContentProject)
+        
+        FirebaseRequestService.writeProject(contentProject: newContentProject) { (status) in
+            print("--> write project to firebase: \(status)")
+             //do action after saving
+             //animate loading of saving to draft or publishing projects
+             //show error or success
+        }
+        
+        return
     }
 }
 
