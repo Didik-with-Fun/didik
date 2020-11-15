@@ -7,29 +7,27 @@
 
 import SwiftUI
 
+let imagePreview1 = "math-preview-1.jpg"
+let contentProjectImages = [imagePreview1]
+let contentProjectActivities = [ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1), ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1)]
+let contentComments = [Comment.init(comment: "bego lu", authorID: "Mine", createdDate: Date())]
+
 struct CreateProjectView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     // MARK: - State Variable for Data Storing
-    /*
     @State var contentProjectName: String = ""
-    @State var contentSubject: Subject
-    @State var contentGrade: Grades
-    @State var contentTopic: Topic
-    @State var contentDescriptions: String
-    @State var contentGoals: String
-    @State var contentMedia: [String]
-    @State var contentActivities: [ProjectActivity]
-    @State var contentNotes: String
-    */
+    @State var contentSubject: Subject = .Mathematic        // check
+    @State var contentGrade: Grades = .ten
+    @State var contentTopic: Topic = defaultTopic
+    @State var contentSummary: String = ""
+    @State var contentLearningGoals: String = ""
+    @State var contentMedia: [String] = []
+    @State var contentActivities: [ProjectActivity] = []
+    @State var contentNotes: String = ""
     
-    @State var selectedSubject: Subject
-    @State var selectedGrade: Grades
-    @State var contentNamaProyek: String = ""
     @State var showPopOver = false
-    @State var showPopOverContents: Tooltips
-    
-    let isDropdownSubjectOpen: Bool
+    @State var showPopOverContents: Tooltips = .namaProyek
     
     var body: some View {
         ScrollView {
@@ -46,7 +44,7 @@ struct CreateProjectView: View {
                                 Text("Mata Pelajaran")
                                     .padding(.vertical, 5)
                                 
-                                DropdownSubject(selected: $selectedSubject, width: 350)
+                                DropdownSubject(contentSubject: $contentSubject, width: 350)
                             }
                             
                             // MARK: - Grades Dropdown
@@ -54,22 +52,22 @@ struct CreateProjectView: View {
                                 Text("Kelas")
                                     .padding(.vertical, 5)
                                 
-                                DropdownGrades(selected: $selectedGrade, width: 350)
+                                DropdownGrades(contentGrade: $contentGrade, width: 350)
                             }
                         }
                         .padding(.vertical, 20)
                         
                         // MARK: - Topics & Core Competence Sections
-                        TopicMainView()
+                        TopicMainView(contentTopic: $contentTopic)
                         
                         // MARK: - Form Field - Project Name aka Nama Proyek
-                        ProjectNameFieldView(contentProjectName: "")
+                        ProjectNameFieldView(contentProjectName: $contentProjectName)
                         
                         // MARK: - Form Field - Project Description
-                        DescriptionFieldView(contentDescription: "")
+                        DescriptionFieldView(contentDescription: $contentSummary)
                         
                         // MARK: - Form Field - Goals aka Tujuan Proyek
-                        LearningGoalsFieldView(contentLearningGoals: "")
+                        LearningGoalsFieldView(contentLearningGoals: $contentLearningGoals)
                         
                         // MARK: - Form Field - Media Uploads
                         MediaView()
@@ -80,7 +78,7 @@ struct CreateProjectView: View {
                         }.padding([.top, .horizontal], 20)
                         
                         // MARK: - Form Field - Notes aka Catatan Siswa
-                        NoteToStudentFieldView(contentNotes: "")
+                        NoteToStudentFieldView(contentNotes: $contentNotes)
                     }
                     
                     if self.showPopOver {
@@ -104,7 +102,10 @@ struct CreateProjectView: View {
                 HStack (spacing: 20) {
                     Spacer()
                     
-                    Button(action: {}, label: {
+                    // MARK: - Save to Draft Button
+                    Button(action: {
+                        projectWriteFirebase(projectStatus: .Draft)
+                    }, label: {
                         Text("Save to Draft")
                         .frame(width: 258, height: 48)
                         .background(Color.Didik.GreyDark)
@@ -112,7 +113,11 @@ struct CreateProjectView: View {
                     })
                     .cornerRadius(10)
                     
-                    Button(action: {}, label: {
+                    // MARK: - Published Button
+                    Button(action: {
+                        
+                        projectWriteFirebase(projectStatus: .Published)
+                    }, label: {
                         Text("Publish")
                         .frame(width: 258, height: 48)
                         .background(Color.Didik.BluePrimary)
@@ -127,12 +132,43 @@ struct CreateProjectView: View {
         .navigationBarItems(trailing: UserButton())
         .navigationBarColor(backgroundColor: UIColor(Color.Didik.BluePrimary))
     }
+    
+    func projectWriteFirebase(projectStatus: ProjectStatus) {
+
+        let newContentProject = Project(
+                name: contentProjectName,
+                summary: contentSummary,
+                subject: contentSubject,
+                grade: contentGrade,
+                topic: contentTopic,
+                goal: contentLearningGoals,
+                images: contentProjectImages,
+                projectStatus: projectStatus,
+                projectActivities: contentProjectActivities,
+                notes: contentNotes,
+                comments: contentComments,
+                likes: 0,
+                createdDate: Date(),
+                updatedDate: Date())
+        
+        print("--> Firebase Data Write Project Collection:")
+        print(newContentProject)
+        
+        FirebaseRequestService.writeProject(contentProject: newContentProject) { (status) in
+            print("--> write project to firebase: \(status)")
+             //do action after saving
+             //animate loading of saving to draft or publishing projects
+             //show error or success
+        }
+        
+        return
+    }
 }
 
 struct CreateProjectView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            CreateProjectView(selectedSubject: .Mathematic, selectedGrade: .ten, contentNamaProyek: "", showPopOver: false, showPopOverContents: .namaProyek, isDropdownSubjectOpen: false)
+            CreateProjectView(showPopOver: false, showPopOverContents: .namaProyek)
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }

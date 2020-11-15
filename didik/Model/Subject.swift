@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Subject: String, CaseIterable {
+enum Subject: String, CaseIterable, Codable {
     case allSubjects = "Semua Subjek"
     case Mathematic = "Matematika"
     case Physic = "Fisika"

@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct ProjectNameFieldView: View {
-    @State var contentProjectName: String
+    @Binding var contentProjectName: String
     
     var body: some View {
         VStack {
@@ -29,7 +29,7 @@ struct ProjectNameFieldView: View {
                     })
                     .font(Font.system(size: 20))
                     .textFieldStyle(PlainTextFieldStyle())
-                    .foregroundColor(Color.Didik.GreyLight)
+                    .foregroundColor(.black)
                     .frame(height: 50)
                     .padding(.leading, 4)
                     .overlay(RoundedRectangle(cornerRadius: 13).stroke(Color.gray))
@@ -42,7 +42,7 @@ struct ProjectNameFieldView: View {
 
 struct ProjectNameFieldViewPreview: PreviewProvider {
     static var previews: some View {
-        ProjectNameFieldView(contentProjectName: "")
+        ProjectNameFieldView(contentProjectName: .constant(""))
     }
 }
 

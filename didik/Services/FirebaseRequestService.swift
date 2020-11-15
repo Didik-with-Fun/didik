@@ -9,8 +9,9 @@ import Foundation
 import Firebase
 import FirebaseFirestoreSwift
 
+let ref = Firestore.firestore()
 
-class FirebaseRequestService {
+class FirebaseRequestService: ObservableObject {
     
     
     let db = Firestore.firestore()
@@ -32,6 +33,22 @@ class FirebaseRequestService {
             } else {
                 print("Document successfully written!")
             }
+        }
+    }
+    
+    static func writeProject(contentProject: Project, completion: @escaping (Bool) -> ()) {
+        do {
+            let _ = try ref.collection("projects").addDocument(from: contentProject) { (error) in
+                if error != nil {
+                    completion(false)
+                    return
+                }
+                
+                completion(true)
+            }
+        } catch {
+            print(error.localizedDescription)
+            completion(false)
         }
     }
     

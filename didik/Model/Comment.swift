@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Comment: Identifiable {
+struct Comment: Identifiable, Codable {
     let id = UUID()
     let comment: String
     let authorID: String

@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct NoteToStudentFieldView: View {
-    @State var contentNotes: String
+    @Binding var contentNotes: String
     
     var body: some View {
         VStack {
@@ -50,7 +50,7 @@ struct NoteToStudentFieldView: View {
 
 struct NoteToStudentFieldViewPreview: PreviewProvider {
     static var previews: some View {
-        NoteToStudentFieldView(contentNotes: "")
+        NoteToStudentFieldView(contentNotes: .constant(""))
     }
 }
 

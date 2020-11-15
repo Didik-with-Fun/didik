@@ -9,6 +9,8 @@ import Foundation
 import SwiftUI
 
 struct TopicMainView: View {
+    @Binding var contentTopic: Topic
+    
     var body: some View {
         VStack {
             // MARK: - Topics Section
@@ -17,7 +19,7 @@ struct TopicMainView: View {
                     Text("Materi Pembelajaran")
                         .padding(.vertical, 5)
                     
-                    DropdownTopics(isDropdownShowed: false, selected: .constant(topicList[0]), width: 755)
+                    DropdownTopics(isDropdownShowed: false, selected: .constant(contentTopic), width: 755)
                 }
             }
             
@@ -25,21 +27,25 @@ struct TopicMainView: View {
             HStack {
                 VStack (alignment: .leading) {
                     Text("Kompentensi Dasar")
-                        .padding(.vertical, 10)
+                        .padding(.bottom, 10)
                     
-                    HStack (alignment: .top) {
-                        Text("KD 3.1")
-                        
-                        Text("Menjelaskan dan menentukan penyelesaian pertidaksamaan rasional dan irasional satu variabel.")
-                    }.padding(.bottom, 5)
-                    
-                    HStack (alignment: .top) {
-                        Text("KD 3.1")
-                        
-                        Text("Menjelaskan dan menentukan penyelesaian pertidaksamaan rasional dan irasional satu variabel.")
-                    }.padding(.bottom, 5)
+                    ForEach(0..<contentTopic.basicCompetence.count, id: \.self) { index in
+                        HStack (alignment: .center) {
+                            if contentTopic.name != defaultTopic.name {
+                                Circle()
+                                    .fill(Color.Didik.GreyDark)
+                                    .frame(width: 10, height: 10, alignment: .center)
+                                    .padding(.trailing, 10)
+                            }
+                            
+                            Text(contentTopic.basicCompetence[index])
+                        }.padding(.bottom, 10)
+                    }
                 }
                 .padding(.top, 20)
+                .padding(.horizontal, 15)
+                
+                Spacer()
             }
         }
     }
@@ -47,6 +53,6 @@ struct TopicMainView: View {
 
 struct TopicMainViewPreview: PreviewProvider {
     static var previews: some View {
-        TopicMainView()
+        TopicMainView(contentTopic: .constant(defaultTopic))
     }
 }
