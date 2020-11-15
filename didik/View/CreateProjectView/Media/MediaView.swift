@@ -62,6 +62,6 @@ struct MediaView: View {
 
 struct MediaViewPreview: PreviewProvider {
     static var previews: some View {
-        MediaView()
+        MediaView(contentImages: [])
     }
 }
