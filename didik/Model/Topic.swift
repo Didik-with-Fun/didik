@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Topic: Identifiable {
+struct Topic: Identifiable, Codable {
     let id = UUID()
     let subject: Subject
     let grade: Grades

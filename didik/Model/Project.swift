@@ -9,8 +9,9 @@ import Foundation
 import Firebase
 import FirebaseFirestoreSwift
 
-struct Project: Identifiable {
-    let id = UUID()
+struct Project: Identifiable, Codable {
+    @DocumentID var id: String?
+    var projectId = UUID()
     let name: String
     let summary: String
     let subject: Subject //String
@@ -28,7 +29,5 @@ struct Project: Identifiable {
     
     func getTotalActivitiesDays() -> Int {
         self.projectActivities.map { $0.time }.reduce(0, +)
-        
     }
-    
 }
