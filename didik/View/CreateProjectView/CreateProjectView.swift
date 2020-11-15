@@ -66,7 +66,6 @@ struct CreateProjectView: View {
                         
                         // MARK: - Form Field - Project Name aka Nama Proyek
                         ProjectNameFieldView(contentProjectName: project?.name ?? "" )
-                        Text("xxxx\(project?.name ?? "")")
                         
                         // MARK: - Form Field - Project Description
                         DescriptionFieldView(contentDescription: project?.summary ?? "")
@@ -75,7 +74,7 @@ struct CreateProjectView: View {
                         LearningGoalsFieldView(contentLearningGoals: project?.goal ?? "")
                         
                         // MARK: - Form Field - Media Uploads
-                        MediaView()
+                        MediaView(contentImages: project?.images ?? [])
                         
                         // MARK: - Form Field - Activity
                         HStack {

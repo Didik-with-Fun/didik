@@ -9,6 +9,9 @@ import Foundation
 import SwiftUI
 
 struct MediaView: View {
+    
+    @State var contentImages: [String]
+
     var body: some View {
         HStack {
             VStack (alignment: .leading, spacing: 10) {

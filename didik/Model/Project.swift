@@ -28,7 +28,6 @@ struct Project: Identifiable {
     
     func getTotalActivitiesDays() -> Int {
         self.projectActivities.map { $0.time }.reduce(0, +)
-        
     }
     
 }
