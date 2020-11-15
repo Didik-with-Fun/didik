@@ -12,7 +12,7 @@ struct DropdownSubject: View {
     let contents: [Subject] = Subject.allCases
     
     @State var isDropdownShowed: Bool = false
-    @Binding var selected: Subject
+    @Binding var contentSubject: Subject
     
     let width: CGFloat
     
@@ -22,7 +22,7 @@ struct DropdownSubject: View {
                 self.isDropdownShowed.toggle()
             }) {
                 HStack (spacing: 10) {
-                    Text(selected.rawValue)
+                    Text(contentSubject.rawValue)
                         .frame(width: width * 0.85, alignment: .center)
                         .foregroundColor(.black)
                         .padding(.vertical, 15)
@@ -54,7 +54,7 @@ struct DropdownSubject: View {
                                     index in
                                     Button(action: {
                                         self.isDropdownShowed.toggle()
-                                        self.selected = contents[index]
+                                        self.contentSubject = contents[index]
                                         // store subject pick and prepare POST
                                     }) {
                                         Text(contents[index].rawValue)
@@ -78,6 +78,6 @@ struct DropdownSubject: View {
 
 struct DropdownSubjectPreviews: PreviewProvider {
     static var previews: some View {
-        DropdownSubject(selected: .constant(.Mathematic), width: 130)
+        DropdownSubject(contentSubject: .constant(.Mathematic), width: 130)
     }
 }

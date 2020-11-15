@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct DescriptionFieldView: View {
-    @State var contentDescription: String
+    @Binding var contentDescription: String
     
     var body: some View {
         VStack {
@@ -51,6 +51,6 @@ struct DescriptionFieldView: View {
 
 struct DescriptionFieldViewPreview: PreviewProvider {
     static var previews: some View {
-        DescriptionFieldView(contentDescription: "")
+        DescriptionFieldView(contentDescription: .constant(""))
     }
 }

@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct TopicMainView: View {
-    @State var selectedTopic: Topic
+    @Binding var contentTopic: Topic
     
     var body: some View {
         VStack {
@@ -19,7 +19,7 @@ struct TopicMainView: View {
                     Text("Materi Pembelajaran")
                         .padding(.vertical, 5)
                     
-                    DropdownTopics(isDropdownShowed: false, selected: .constant(selectedTopic), width: 755)
+                    DropdownTopics(isDropdownShowed: false, selected: .constant(contentTopic), width: 755)
                 }
             }
             
@@ -29,16 +29,16 @@ struct TopicMainView: View {
                     Text("Kompentensi Dasar")
                         .padding(.bottom, 10)
                     
-                    ForEach(0..<selectedTopic.basicCompetence.count, id: \.self) { index in
+                    ForEach(0..<contentTopic.basicCompetence.count, id: \.self) { index in
                         HStack (alignment: .center) {
-                            if selectedTopic.name != defaultTopic.name {
+                            if contentTopic.name != defaultTopic.name {
                                 Circle()
                                     .fill(Color.Didik.GreyDark)
                                     .frame(width: 10, height: 10, alignment: .center)
                                     .padding(.trailing, 10)
                             }
                             
-                            Text(selectedTopic.basicCompetence[index])
+                            Text(contentTopic.basicCompetence[index])
                         }.padding(.bottom, 10)
                     }
                 }
@@ -53,6 +53,6 @@ struct TopicMainView: View {
 
 struct TopicMainViewPreview: PreviewProvider {
     static var previews: some View {
-        TopicMainView(selectedTopic: topicList[0])
+        TopicMainView(contentTopic: .constant(defaultTopic))
     }
 }

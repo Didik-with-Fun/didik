@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct LearningGoalsFieldView: View {
-    @State var contentLearningGoals: String
+    @Binding var contentLearningGoals: String
     
     var body: some View {
         VStack {
@@ -51,7 +51,7 @@ struct LearningGoalsFieldView: View {
 
 struct LearningGoalsFieldViewPreview: PreviewProvider {
     static var previews: some View {
-        LearningGoalsFieldView(contentLearningGoals: "")
+        LearningGoalsFieldView(contentLearningGoals: .constant(""))
     }
 }
 
