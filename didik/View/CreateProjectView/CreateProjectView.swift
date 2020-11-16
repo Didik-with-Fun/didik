@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 let imagePreview1 = "math-preview-1.jpg"
 let contentProjectImages = [imagePreview1]
@@ -133,8 +134,26 @@ struct CreateProjectView: View {
         .navigationBarColor(backgroundColor: UIColor(Color.Didik.BluePrimary))
     }
     
+    func validateForm() -> Bool {
+        if (contentGrade == .allGrades) {
+            print("ERROR: Grade unselected!")
+        } else if (contentSubject == .allSubjects) {
+            print("ERROR: Subject unselected!")
+        } else if (contentTopic.name == defaultTopic.name) {
+            print("ERROR: Topic unselected!")
+        } else if (contentProjectName == "") {
+            print("ERROR: Project Name Must Be Written!")
+        } else {
+            return true
+        }
+        
+        return false
+    }
+    
     func projectWriteFirebase(projectStatus: ProjectStatus) {
 
+        let isFormValidate = validateForm()
+        
         let newContentProject = Project(
                 name: contentProjectName,
                 summary: contentSummary,
@@ -148,17 +167,26 @@ struct CreateProjectView: View {
                 notes: contentNotes,
                 comments: contentComments,
                 likes: 0,
-                createdDate: Date(),
-                updatedDate: Date())
+                authorUID: Author.authorUID ?? "",
+                authorName: Author.authorFullname ?? ""
+            )
         
         print("--> Firebase Data Write Project Collection:")
         print(newContentProject)
+        print("--> author ID: \(newContentProject.authorUID)")
+        print("--> author ID: \(newContentProject.authorName)")
         
-        FirebaseRequestService.writeProject(contentProject: newContentProject) { (status) in
-            print("--> write project to firebase: \(status)")
-             //do action after saving
-             //animate loading of saving to draft or publishing projects
-             //show error or success
+        
+        if isFormValidate {
+            FirebaseRequestService.writeProject(contentProject: newContentProject) { (status) in
+                print("--> write project to firebase: \(status)")
+                 //do action after saving
+                 //animate loading of saving to draft or publishing projects
+                 //show error or success
+            }
+        } else {
+            // perform pop up error form uncomplete
+            print("Form Uncomplete!")
         }
         
         return
