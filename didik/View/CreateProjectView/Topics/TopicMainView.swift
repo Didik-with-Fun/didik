@@ -100,12 +100,12 @@ struct TopicMainView: View {
                         }
                     }
                     .padding(.top, 20)
-                    .padding(.horizontal, 15)
                     
                     Spacer()
                 }
                 .zIndex(1)
                 .padding(.top, 100)
+                .padding(.horizontal, 20)
             }
         }
     }

@@ -57,9 +57,11 @@ struct CreateProjectView: View {
                             }
                         }
                         .padding(.vertical, 20)
+                        .zIndex(10)
                         
                         // MARK: - Topics & Core Competence Sections
                         TopicMainView(contentTopic: $contentTopic)
+                        .zIndex(9)
                         
                         // MARK: - Form Field - Project Name aka Nama Proyek
                         ProjectNameFieldView(contentProjectName: $contentProjectName)
