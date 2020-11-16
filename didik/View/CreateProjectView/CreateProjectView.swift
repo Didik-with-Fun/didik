@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 let imagePreview1 = "math-preview-1.jpg"
 let contentProjectImages = [imagePreview1]
@@ -15,8 +16,9 @@ let contentComments = [Comment.init(comment: "bego lu", authorID: "Mine", create
 struct CreateProjectView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
-    // MARK: - State Variable for Data Storing
+    @EnvironmentObject var signInCoordinator: SignInWithAppleCoordinator
     
+    // MARK: - State Variable for Data Storing
     @State var contentProjectName: String = ""
     @State var contentSubject: Subject = .Mathematic        // check
     @State var contentGrade: Grades = .ten
@@ -27,7 +29,6 @@ struct CreateProjectView: View {
     @State var contentActivities: [ProjectActivity] = []
     @State var contentNotes: String = ""
     
-    @State var contentNamaProyek: String = ""
 
     @State var showPopOver = false
     @State var showPopOverContents: Tooltips = .namaProyek
@@ -45,8 +46,6 @@ struct CreateProjectView: View {
         _contentActivities = State(initialValue: project?.projectActivities ?? contentActivities)
         self.contentActivitiesDays = project?.getTotalActivitiesDays() ?? contentActivitiesDays
         _contentNotes = State(initialValue: project?.notes ?? contentNotes)
-        _contentNamaProyek = State(initialValue: project?.name ?? contentNamaProyek)
-
     }
     
     var body: some View {
@@ -153,8 +152,26 @@ struct CreateProjectView: View {
         .navigationBarColor(backgroundColor: UIColor(Color.Didik.BluePrimary))
     }
     
+    func validateForm() -> Bool {
+        if (contentGrade == .allGrades) {
+            print("ERROR: Grade unselected!")
+        } else if (contentSubject == .allSubjects) {
+            print("ERROR: Subject unselected!")
+        } else if (contentTopic.name == defaultTopic.name) {
+            print("ERROR: Topic unselected!")
+        } else if (contentProjectName == "") {
+            print("ERROR: Project Name Must Be Written!")
+        } else {
+            return true
+        }
+        
+        return false
+    }
+    
     func projectWriteFirebase(projectStatus: ProjectStatus) {
 
+        let isFormValidate = validateForm()
+        
         let newContentProject = Project(
                 name: contentProjectName,
                 summary: contentSummary,
@@ -168,17 +185,28 @@ struct CreateProjectView: View {
                 notes: contentNotes,
                 comments: contentComments,
                 likes: 0,
-                createdDate: Date(),
-                updatedDate: Date())
+            authorUID : Auth.auth().currentUser!.uid ?? "nil",
+            authorName : signInCoordinator.userProfile.fullname
+//                authorUID: Author.authorUID ?? "",
+//                authorName: Author.authorFullname ?? ""
+            )
         
         print("--> Firebase Data Write Project Collection:")
         print(newContentProject)
+        print("--> author ID: \(newContentProject.authorUID)")
+        print("--> author ID: \(newContentProject.authorName)")
         
-        FirebaseRequestService.writeProject(contentProject: newContentProject) { (status) in
-            print("--> write project to firebase: \(status)")
-             //do action after saving
-             //animate loading of saving to draft or publishing projects
-             //show error or success
+        
+        if isFormValidate {
+            FirebaseRequestService.writeProject(contentProject: newContentProject) { (status) in
+                print("--> write project to firebase: \(status)")
+                 //do action after saving
+                 //animate loading of saving to draft or publishing projects
+                 //show error or success
+            }
+        } else {
+            // perform pop up error form uncomplete
+            print("Form Uncomplete!")
         }
         
         return

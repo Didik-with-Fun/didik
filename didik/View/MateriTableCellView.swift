@@ -26,13 +26,13 @@ struct MateriTableCellView: View {
                         Text(project.name)
                             .font(.title2)
                     }
-                    Text("materi.author")
+                    Text(project.authorName)
                         .foregroundColor(.gray)
                         .font(.subheadline)
                 }
                 Spacer()
                 Button(action: {
-                    FirebaseRequestService().addData(name: project.name)
+                    
                     self.bookmarked.toggle()
                 }, label: {
                     Image(systemName: self.bookmarked ? "bookmark.fill" : "bookmark")

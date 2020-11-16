@@ -30,8 +30,8 @@ struct MateriSayaView: View {
                     Spacer()
                     NavigationLink(
                         //destination: CreateProjectView(project: nil, selectedSubject: .Mathematic, selectedGrade: .ten, contentNamaProyek: "", showPopOver: false, showPopOverContents: .namaProyek, isDropdownSubjectOpen: false),
-                        destination: CreateProjectView(project: project),
                         
+                        destination: CreateProjectView(project: project),
                         label: {
                             BuatMateriButton()
                         })

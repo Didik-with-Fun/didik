@@ -34,11 +34,11 @@
 		75BE5D432554052C00E8677E /* UserButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BE5D422554052C00E8677E /* UserButton.swift */; };
 		75BE5D482554140A00E8677E /* ProjectDropDownMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BE5D472554140A00E8677E /* ProjectDropDownMenu.swift */; };
 		7AF593AB5107C24ACEB32F7E /* Pods_didik_didikUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED113C53DD92EE14323DD71B /* Pods_didik_didikUITests.framework */; };
+		B703FDDE25626A2F00FB7300 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B703FDDD25626A2F00FB7300 /* Profile.swift */; };
 		B76514E22552AF560041D6A3 /* CreateProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76514E12552AF560041D6A3 /* CreateProjectView.swift */; };
 		B76C783F255DE8C000D160C3 /* LearningGoalsFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76C783E255DE8C000D160C3 /* LearningGoalsFieldView.swift */; };
 		B76C7848255DEAEF00D160C3 /* NoteToStudentFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76C7847255DEAEF00D160C3 /* NoteToStudentFieldView.swift */; };
 		B779FA76255C2E5E00D13DD2 /* DropdownGrades.swift in Sources */ = {isa = PBXBuildFile; fileRef = B779FA75255C2E5E00D13DD2 /* DropdownGrades.swift */; };
-		B779FA81255C4DE700D13DD2 /* DropdownTopics.swift in Sources */ = {isa = PBXBuildFile; fileRef = B779FA80255C4DE700D13DD2 /* DropdownTopics.swift */; };
 		B779FA88255C620000D13DD2 /* ActivityMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B779FA87255C620000D13DD2 /* ActivityMainView.swift */; };
 		B798EB3A255D4B0500236FE5 /* ActivityFieldGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B798EB39255D4B0500236FE5 /* ActivityFieldGroup.swift */; };
 		B798EB3F255DC27400236FE5 /* Struct+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B798EB3E255DC27400236FE5 /* Struct+Extensions.swift */; };
@@ -140,11 +140,11 @@
 		75BE5D472554140A00E8677E /* ProjectDropDownMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDropDownMenu.swift; sourceTree = "<group>"; };
 		7B046211C7322662323E9A65 /* Pods-didik-didikUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-didik-didikUITests.release.xcconfig"; path = "Target Support Files/Pods-didik-didikUITests/Pods-didik-didikUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B02666D119B4C50E1D3F287C /* Pods-didikTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-didikTests.release.xcconfig"; path = "Target Support Files/Pods-didikTests/Pods-didikTests.release.xcconfig"; sourceTree = "<group>"; };
+		B703FDDD25626A2F00FB7300 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		B76514E12552AF560041D6A3 /* CreateProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProjectView.swift; sourceTree = "<group>"; };
 		B76C783E255DE8C000D160C3 /* LearningGoalsFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningGoalsFieldView.swift; sourceTree = "<group>"; };
 		B76C7847255DEAEF00D160C3 /* NoteToStudentFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteToStudentFieldView.swift; sourceTree = "<group>"; };
 		B779FA75255C2E5E00D13DD2 /* DropdownGrades.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownGrades.swift; sourceTree = "<group>"; };
-		B779FA80255C4DE700D13DD2 /* DropdownTopics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownTopics.swift; sourceTree = "<group>"; };
 		B779FA87255C620000D13DD2 /* ActivityMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityMainView.swift; sourceTree = "<group>"; };
 		B798EB39255D4B0500236FE5 /* ActivityFieldGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityFieldGroup.swift; sourceTree = "<group>"; };
 		B798EB3E255DC27400236FE5 /* Struct+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Struct+Extensions.swift"; sourceTree = "<group>"; };
@@ -309,7 +309,6 @@
 			isa = PBXGroup;
 			children = (
 				B779FA75255C2E5E00D13DD2 /* DropdownGrades.swift */,
-				B779FA80255C4DE700D13DD2 /* DropdownTopics.swift */,
 			);
 			path = Dropdowns;
 			sourceTree = "<group>";
@@ -447,6 +446,7 @@
 				757EBC2C255EAB410021A3C6 /* FirebaseError.swift */,
 				757EBC31255EABAD0021A3C6 /* ProjectsGroup.swift */,
 				757EBC36255EAC5F0021A3C6 /* ViewType.swift */,
+				B703FDDD25626A2F00FB7300 /* Profile.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -848,6 +848,7 @@
 				B7F97455255469710059C650 /* ProjectStatus.swift in Sources */,
 				BA220D2A255A67960075458E /* CompetenceOverviewDetailProjectView.swift in Sources */,
 				B76C783F255DE8C000D160C3 /* LearningGoalsFieldView.swift in Sources */,
+				B703FDDE25626A2F00FB7300 /* Profile.swift in Sources */,
 				B779FA76255C2E5E00D13DD2 /* DropdownGrades.swift in Sources */,
 				757EBC32255EABAD0021A3C6 /* ProjectsGroup.swift in Sources */,
 				75352C60254D6E730039EC2D /* DummyView.swift in Sources */,
@@ -874,7 +875,6 @@
 				758081DC2552676000E50787 /* DummyModel.swift in Sources */,
 				75BE5D242553F0BD00E8677E /* NavigationBarModifier.swift in Sources */,
 				7556CBF32557DC50000539B0 /* MateriTableCellView.swift in Sources */,
-				B779FA81255C4DE700D13DD2 /* DropdownTopics.swift in Sources */,
 				BA220D2F255A67C20075458E /* IndicatorOverviewDetailProjectView.swift in Sources */,
 				75BE5D482554140A00E8677E /* ProjectDropDownMenu.swift in Sources */,
 				BA67F6F5255C4D99000A0B26 /* Extension+Image.swift in Sources */,

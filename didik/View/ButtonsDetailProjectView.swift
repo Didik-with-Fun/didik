@@ -6,11 +6,15 @@
 //
 
 import SwiftUI
+import Foundation
+import FirebaseFirestoreSwift
+import Firebase
 
 struct ButtonsDetailProjectView: View {
     
     let project: Project
 
+    // TODO: Convert Date to User Friendly Interface Format Date
     //var date: String {
         //DateUtil.convertDoubleToDate(date: project.createdDate)
     //}
@@ -19,7 +23,7 @@ struct ButtonsDetailProjectView: View {
         
         VStack {
             HStack {
-                Text("\(project.subject.rawValue) \(project.grade.rawValue) || \(project.createdDate)")
+                Text("\(project.subject.rawValue) \(project.grade.rawValue) || \(DateUtil.convertTimestampToDate(timestamp: project.createdDate ?? Timestamp()))")
                     .foregroundColor(.gray)
                 Spacer()
             }
