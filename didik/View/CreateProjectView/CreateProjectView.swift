@@ -32,6 +32,7 @@ struct CreateProjectView: View {
         ScrollView {
             VStack {
                 ZStack {
+                    
                     // MARK: - Form View
                     VStack {
                         
@@ -83,18 +84,20 @@ struct CreateProjectView: View {
                     }
                     
                     if self.showPopOver {
-                        GeometryReader {_ in
-                            VStack(alignment: .center) {
-                                TooltipView(tooltip: .constant(.namaProyek))
-                            }
-                        }.background(
+                        GeometryReader { geometry in
+                            TooltipView(tooltip: .constant(showPopOverContents), showPopOver: $showPopOver, writeFunction: {          self.write(projectStatus: .Published)
+                                        self.showPopOver = false
+                                })
+                                .position(x: geometry.size.width / 2, y: (geometry.size.height - (geometry.size.height / 2)))
+                        }
+                        .background(
                             Color.black.opacity(0.6)
-                                .edgesIgnoringSafeArea(.all)
-                                .onTapGesture {
-                                    withAnimation {
-                                        self.showPopOver.toggle()
-                                    }
+                            .edgesIgnoringSafeArea(.all)
+                            .onTapGesture {
+                                withAnimation {
+                                    self.showPopOver.toggle()
                                 }
+                            }
                         )
                     }
                 }
@@ -108,9 +111,9 @@ struct CreateProjectView: View {
                         projectWriteFirebase(projectStatus: .Draft)
                     }, label: {
                         Text("Save to Draft")
-                        .frame(width: 258, height: 48)
-                        .background(Color.Didik.GreyDark)
-                        .foregroundColor(.white)
+                            .frame(width: 258, height: 48)
+                            .background(Color.Didik.GreyDark)
+                            .foregroundColor(.white)
                     })
                     .cornerRadius(10)
                     
@@ -120,9 +123,9 @@ struct CreateProjectView: View {
                         projectWriteFirebase(projectStatus: .Published)
                     }, label: {
                         Text("Publish")
-                        .frame(width: 258, height: 48)
-                        .background(Color.Didik.BluePrimary)
-                        .foregroundColor(.white)
+                            .frame(width: 258, height: 48)
+                            .background(Color.Didik.BluePrimary)
+                            .foregroundColor(.white)
                     })
                     .cornerRadius(10)
                 }
@@ -154,6 +157,27 @@ struct CreateProjectView: View {
 
         let isFormValidate = validateForm()
         
+        if !isFormValidate {
+            // perform pop up error form
+            print("Form Uncomplete!")
+            return
+        }
+        
+        if projectStatus == .Published {
+            self.showPopOverContents = .confirmationPublish
+            self.showPopOver = true
+        } else if projectStatus == .Draft {
+            self.write(projectStatus: .Draft)
+        }
+        
+        return
+    }
+    
+    func write(projectStatus: ProjectStatus) {
+        self.showPopOver = false
+        
+        print("writing to firebase...")
+        
         let newContentProject = Project(
                 name: contentProjectName,
                 summary: contentSummary,
@@ -169,20 +193,18 @@ struct CreateProjectView: View {
                 likes: 0,
                 authorUID: Author.authorUID ?? "",
                 authorName: Author.authorFullname ?? ""
-            )
+        )
         
-        print("--> Firebase Data Write Project Collection:")
-        
-        if isFormValidate {
-            FirebaseRequestService.writeProject(contentProject: newContentProject) { (status) in
-                print("--> write project to firebase: \(status)")
-                 //do action after saving
-                 //animate loading of saving to draft or publishing projects
-                 //show error or success
+        FirebaseRequestService.writeProject(contentProject: newContentProject) { (status) in
+            print("--> write project to firebase: \(status)")
+            
+            if status {
+                self.showPopOverContents = (projectStatus == .Published) ? (.projectPublishSuccess) : (.projectDraftSuccess)
+            } else {
+                self.showPopOverContents = (projectStatus == .Published) ? (.projectPublishFailed) : (.projectDraftFailed)
             }
-        } else {
-            // perform pop up error form uncomplete
-            print("Form Uncomplete!")
+            
+            self.showPopOver = true
         }
         
         return
