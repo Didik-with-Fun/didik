@@ -9,6 +9,9 @@ import Foundation
 import SwiftUI
 
 struct MediaView: View {
+    @Binding var showPopOver: Bool
+    @Binding var showPopOverContents: Tooltips
+    
     var body: some View {
         HStack {
             VStack (alignment: .leading, spacing: 10) {
@@ -16,7 +19,7 @@ struct MediaView: View {
                     Text("Media")
                         .padding(.vertical, 5)
                     
-                    Button(action: {}, label: {
+                    Button(action: { childShowPopover() }, label: {
                         Image("Info")
                     })
                 }
@@ -55,10 +58,15 @@ struct MediaView: View {
             }
         }.padding([.top, .horizontal], 20)
     }
+    
+    private func childShowPopover() {
+        self.showPopOverContents = .mediaUpload
+        self.showPopOver = true
+    }
 }
 
 struct MediaViewPreview: PreviewProvider {
     static var previews: some View {
-        MediaView()
+        MediaView(showPopOver: .constant(false), showPopOverContents: .constant(.mediaUpload))
     }
 }

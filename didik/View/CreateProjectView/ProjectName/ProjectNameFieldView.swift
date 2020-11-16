@@ -10,6 +10,8 @@ import SwiftUI
 
 struct ProjectNameFieldView: View {
     @Binding var contentProjectName: String
+    @Binding var showPopOver: Bool
+    @Binding var showPopOverContents: Tooltips
     
     var body: some View {
         VStack {
@@ -19,7 +21,7 @@ struct ProjectNameFieldView: View {
                         Text("Nama Proyek")
                             .padding(.vertical, 5)
                         
-                        Button(action: {}, label: {
+                        Button(action: { childShowPopover() }, label: {
                             Image("Info")
                         })
                     }
@@ -38,11 +40,16 @@ struct ProjectNameFieldView: View {
             }.padding([.top, .horizontal], 20)
         }
     }
+    
+    private func childShowPopover() {
+        self.showPopOverContents = .namaProyek
+        self.showPopOver = true
+    }
 }
 
 struct ProjectNameFieldViewPreview: PreviewProvider {
     static var previews: some View {
-        ProjectNameFieldView(contentProjectName: .constant(""))
+        ProjectNameFieldView(contentProjectName: .constant(""), showPopOver: .constant(false), showPopOverContents: .constant(.namaProyek))
     }
 }
 

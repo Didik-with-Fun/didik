@@ -13,6 +13,8 @@ struct ActivityMainView: View {
     @State var totalActivityTime: Int = 0
     @State var contentActivities: [ProjectActivity]
     @State var contentActivity: ProjectActivity = ProjectActivity(name: "", description: "", time: 0)
+    @Binding var showPopOver: Bool
+    @Binding var showPopOverContents: Tooltips
     
     var body: some View {
         VStack (alignment: .leading, spacing: 10) {
@@ -20,7 +22,7 @@ struct ActivityMainView: View {
                 Text("Aktifitas")
                     .padding(.vertical, 5)
                 
-                Button(action: {}, label: {
+                Button(action: { childShowPopover() }, label: {
                     Image("Info")
                 })
             }
@@ -64,10 +66,15 @@ struct ActivityMainView: View {
         
         self.contentActivities.append(newActivity)
     }
+    
+    private func childShowPopover() {
+        self.showPopOverContents = .aktifitas
+        self.showPopOver = true
+    }
 }
 
 struct ActivityMainViewPreview: PreviewProvider {
     static var previews: some View {
-        ActivityMainView(contentActivities: [])
+        ActivityMainView(contentActivities: [], showPopOver: .constant(false), showPopOverContents: .constant(.aktifitas))
     }
 }

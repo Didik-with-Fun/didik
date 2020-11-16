@@ -10,6 +10,8 @@ import SwiftUI
 
 struct LearningGoalsFieldView: View {
     @Binding var contentLearningGoals: String
+    @Binding var showPopOver: Bool
+    @Binding var showPopOverContents: Tooltips
     
     var body: some View {
         VStack {
@@ -19,7 +21,7 @@ struct LearningGoalsFieldView: View {
                         Text("Tujuan Pembelajaran")
                             .padding(.vertical, 5)
                         
-                        Button(action: {}, label: {
+                        Button(action: { childShowPopover() }, label: {
                             Image("Info")
                         })
                     }
@@ -47,11 +49,16 @@ struct LearningGoalsFieldView: View {
             }.padding([.top, .horizontal], 20)
         }
     }
+    
+    private func childShowPopover() {
+        self.showPopOverContents = .tujuanPembelajaran
+        self.showPopOver = true
+    }
 }
 
 struct LearningGoalsFieldViewPreview: PreviewProvider {
     static var previews: some View {
-        LearningGoalsFieldView(contentLearningGoals: .constant(""))
+        LearningGoalsFieldView(contentLearningGoals: .constant(""), showPopOver: .constant(false), showPopOverContents: .constant(.tujuanPembelajaran))
     }
 }
 

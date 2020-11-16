@@ -63,29 +63,29 @@ struct CreateProjectView: View {
                         .zIndex(9)
                         
                         // MARK: - Form Field - Project Name aka Nama Proyek
-                        ProjectNameFieldView(contentProjectName: $contentProjectName)
+                        ProjectNameFieldView(contentProjectName: $contentProjectName, showPopOver: $showPopOver, showPopOverContents: $showPopOverContents)
                         
                         // MARK: - Form Field - Project Description
-                        DescriptionFieldView(contentDescription: $contentSummary)
+                        DescriptionFieldView(contentDescription: $contentSummary, showPopOver: $showPopOver, showPopOverContents: $showPopOverContents)
                         
                         // MARK: - Form Field - Goals aka Tujuan Proyek
-                        LearningGoalsFieldView(contentLearningGoals: $contentLearningGoals)
+                        LearningGoalsFieldView(contentLearningGoals: $contentLearningGoals, showPopOver: $showPopOver, showPopOverContents: $showPopOverContents)
                         
                         // MARK: - Form Field - Media Uploads
-                        MediaView()
+                        MediaView(showPopOver: $showPopOver, showPopOverContents: $showPopOverContents)
                         
                         // MARK: - Form Field - Activity
                         HStack {
-                            ActivityMainView(contentActivities: contentActivities)
+                            ActivityMainView(contentActivities: contentActivities, showPopOver: $showPopOver, showPopOverContents: $showPopOverContents)
                         }.padding([.top, .horizontal], 20)
                         
                         // MARK: - Form Field - Notes aka Catatan Siswa
-                        NoteToStudentFieldView(contentNotes: $contentNotes)
+                        NoteToStudentFieldView(contentNotes: $contentNotes, showPopOver: $showPopOver, showPopOverContents: $showPopOverContents)
                     }
                     
                     if self.showPopOver {
                         GeometryReader { geometry in
-                            TooltipView(tooltip: .constant(showPopOverContents), showPopOver: $showPopOver, writeFunction: {          self.write(projectStatus: .Published)
+                            TooltipView(tooltip: $showPopOverContents, showPopOver: $showPopOver, writeFunction: {          self.write(projectStatus: .Published)
                                         self.showPopOver = false
                                 })
                                 .position(x: geometry.size.width / 2, y: (geometry.size.height - (geometry.size.height / 2)))
