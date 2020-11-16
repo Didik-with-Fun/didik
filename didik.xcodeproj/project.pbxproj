@@ -38,7 +38,6 @@
 		B76C783F255DE8C000D160C3 /* LearningGoalsFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76C783E255DE8C000D160C3 /* LearningGoalsFieldView.swift */; };
 		B76C7848255DEAEF00D160C3 /* NoteToStudentFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76C7847255DEAEF00D160C3 /* NoteToStudentFieldView.swift */; };
 		B779FA76255C2E5E00D13DD2 /* DropdownGrades.swift in Sources */ = {isa = PBXBuildFile; fileRef = B779FA75255C2E5E00D13DD2 /* DropdownGrades.swift */; };
-		B779FA81255C4DE700D13DD2 /* DropdownTopics.swift in Sources */ = {isa = PBXBuildFile; fileRef = B779FA80255C4DE700D13DD2 /* DropdownTopics.swift */; };
 		B779FA88255C620000D13DD2 /* ActivityMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B779FA87255C620000D13DD2 /* ActivityMainView.swift */; };
 		B798EB3A255D4B0500236FE5 /* ActivityFieldGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B798EB39255D4B0500236FE5 /* ActivityFieldGroup.swift */; };
 		B798EB3F255DC27400236FE5 /* Struct+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B798EB3E255DC27400236FE5 /* Struct+Extensions.swift */; };
@@ -144,7 +143,6 @@
 		B76C783E255DE8C000D160C3 /* LearningGoalsFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningGoalsFieldView.swift; sourceTree = "<group>"; };
 		B76C7847255DEAEF00D160C3 /* NoteToStudentFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteToStudentFieldView.swift; sourceTree = "<group>"; };
 		B779FA75255C2E5E00D13DD2 /* DropdownGrades.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownGrades.swift; sourceTree = "<group>"; };
-		B779FA80255C4DE700D13DD2 /* DropdownTopics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownTopics.swift; sourceTree = "<group>"; };
 		B779FA87255C620000D13DD2 /* ActivityMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityMainView.swift; sourceTree = "<group>"; };
 		B798EB39255D4B0500236FE5 /* ActivityFieldGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityFieldGroup.swift; sourceTree = "<group>"; };
 		B798EB3E255DC27400236FE5 /* Struct+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Struct+Extensions.swift"; sourceTree = "<group>"; };
@@ -309,7 +307,6 @@
 			isa = PBXGroup;
 			children = (
 				B779FA75255C2E5E00D13DD2 /* DropdownGrades.swift */,
-				B779FA80255C4DE700D13DD2 /* DropdownTopics.swift */,
 			);
 			path = Dropdowns;
 			sourceTree = "<group>";
@@ -871,7 +868,6 @@
 				758081DC2552676000E50787 /* DummyModel.swift in Sources */,
 				75BE5D242553F0BD00E8677E /* NavigationBarModifier.swift in Sources */,
 				7556CBF32557DC50000539B0 /* MateriTableCellView.swift in Sources */,
-				B779FA81255C4DE700D13DD2 /* DropdownTopics.swift in Sources */,
 				BA220D2F255A67C20075458E /* IndicatorOverviewDetailProjectView.swift in Sources */,
 				75BE5D482554140A00E8677E /* ProjectDropDownMenu.swift in Sources */,
 				BA67F6F5255C4D99000A0B26 /* Extension+Image.swift in Sources */,
