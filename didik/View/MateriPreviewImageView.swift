@@ -8,20 +8,30 @@
 import SwiftUI
 
 struct MateriPreviewImageView: View {
+    
     let height: CGFloat
     let width: CGFloat
     
     let project: Project
     
+    //    @ObservedObject var imageLoader: FirestoreImageLoader
+    
+    init(height: CGFloat, width: CGFloat, project: Project) {
+        self.height = height
+        self.width = width
+        self.project = project
+        
+    }
+    
     var body: some View {
         ZStack {
-            Image(project.images[0])
-                .resizable()
+            
+            urlImage(path: project.images[0])
                 .scaledToFill()
                 .foregroundColor(.black)
+
             
             HStack {
-                
                 Spacer()
                 VStack(alignment: .center) {
                     ZStack {
