@@ -38,7 +38,7 @@ class ProjectDatabaseViewModel: ObservableObject {
     init() {
         
         // request all projects
-        FirebaseRequestService.requestAllProject { (result) in
+        service.requestAllProject { (result) in
             switch result {
             case .success(let requestProjects):
                 // initialize jelajah materi project database
@@ -65,7 +65,7 @@ class ProjectDatabaseViewModel: ObservableObject {
         }
         
         // request my projects
-        FirebaseRequestService.requestMyProject { (result) in
+        service.requestMyProject { (result) in
             switch result {
             case .success(let requestProjects):
                 // initialize my materi project database

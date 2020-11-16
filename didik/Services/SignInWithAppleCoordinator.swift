@@ -103,7 +103,7 @@ extension SignInWithAppleCoordinator: ASAuthorizationControllerDelegate {
                     if (fullName.trimmingCharacters(in: .whitespacesAndNewlines) != "" && email != nil) {
                         self.setUserInfo(for: userIdentifier, fullname: fullName, email: email)
                         
-                        
+                        // default data
                         let profile = Profile(userIdentifier: Auth.auth().currentUser!.uid,
                                               fullname: fullName, school: "", teachingGrade: .ten, teachingSubject: .Physic, teachingSince: Date(), profilePicture: "Gambar")
                         

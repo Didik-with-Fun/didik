@@ -21,11 +21,11 @@ class FirebaseRequestService: ObservableObject {
     
     let db = Firestore.firestore()
     
+    
     init() {
         
         print("Create service")
-        
-        
+
     }
     
     static func writeProject(contentProject: Project, completion: @escaping (Bool) -> ()) {
@@ -51,7 +51,7 @@ class FirebaseRequestService: ObservableObject {
         
         // new user
         do {
-            let _ = try ref.collection("profiles").addDocument(from: contentProfile) { (error) in
+            let _ = try db.collection("profiles").addDocument(from: contentProfile) { (error) in
                 if error != nil {
                     completion(.failure(.noData))
                     return
@@ -68,7 +68,7 @@ class FirebaseRequestService: ObservableObject {
     
     func getOldUser(userIdentifier: String, completion: @escaping (Result<Profile, FirebaseError>) -> ()) {
         
-        let docRef = ref.collection("profiles").whereField("userIdentifier", isEqualTo: userIdentifier).limit(to: 1)
+        let docRef = db.collection("profiles").whereField("userIdentifier", isEqualTo: userIdentifier).limit(to: 1)
         docRef.getDocuments { (querysnapshot, error) in
             if error != nil {
                 print("Document Error: ", error!)
@@ -96,23 +96,55 @@ class FirebaseRequestService: ObservableObject {
     
     
     
-    static func requestAllProject(completion: @escaping (Result<[Project], FirebaseError>) -> ()) {
+    func requestAllProject(completion: @escaping (Result<[Project], FirebaseError>) -> ()) {
         // request project still dummy
-        let data = FirebaseRequestService.createDummyProjects()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { // Change `2.0` to the desired number of seconds.
-            // Code you want to be delayed
-            completion(.success(data))
-            
-        }
-        
-    }
-    
-    static func requestMyProject(completion: @escaping (Result<[Project], FirebaseError>) -> ()) {
+//        let data = FirebaseRequestService.createDummyProjects()
+//
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { // Change `2.0` to the desired number of seconds.
+//            // Code you want to be delayed
+//            completion(.success(data))
+//
+//        }
         
         var projects = [Project]()
         
-        ref.collection("projects").whereField("projectStatus", isEqualTo: "Published")
+        db.collection("projects").whereField("projectStatus", isEqualTo: "Published")
+            .getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err.localizedDescription)")
+                    completion(.failure(.noData))
+                } else {
+                    for document in querySnapshot!.documents {
+                        
+                        let result = Result {
+                            try document.data(as: Project.self)
+                        }
+                        switch result {
+                        case .success(let project):
+                            if let bisa = project {
+                                print("title: \(bisa.name)")
+                                projects.append(bisa)
+                            } else {
+                                print("Document does not exist")
+                            }
+                        case .failure(let error):
+                            print("Error decoding city: \(error.localizedDescription)")
+                        }
+                    }
+                    
+                    if projects.isEmpty == false {
+                        completion(.success(projects))
+                    }
+                }
+            }
+        
+    }
+    
+    func requestMyProject(completion: @escaping (Result<[Project], FirebaseError>) -> ()) {
+        
+        var projects = [Project]()
+        
+        db.collection("projects").whereField("authorUID", isEqualTo: Auth.auth().currentUser!.uid)
             .getDocuments() { (querySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err.localizedDescription)")

@@ -26,7 +26,7 @@ struct MateriTableCellView: View {
                         Text(project.name)
                             .font(.title2)
                     }
-                    Text("materi.author")
+                    Text(project.authorName)
                         .foregroundColor(.gray)
                         .font(.subheadline)
                 }
