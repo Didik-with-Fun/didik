@@ -15,10 +15,10 @@ struct didikApp: App {
 
     var body: some Scene {
         WindowGroup {
-//            ContentView().environmentObject(SignInWithAppleCoordinator())
-            GeometryReader { geometry in
-                HomeView(parentGeometry: geometry).environmentObject(ProjectDatabaseViewModel())
-            }
+            ContentView().environmentObject(SignInWithAppleCoordinator())
+//            GeometryReader { geometry in
+//                HomeView(parentGeometry: geometry).environmentObject(ProjectDatabaseViewModel())
+//            }
         }
     }
 }

@@ -22,6 +22,6 @@ struct Profile: Identifiable, Codable {
 }
 
 struct Author {
-    static let authorUID = Auth.auth().currentUser?.displayName
-    static let authorFullname = Auth.auth().currentUser?.displayName
+    static let authorUID = String(Auth.auth().currentUser!.uid)
+    static let authorFullname = String(Auth.auth().currentUser!.displayName ?? "no name")
 }

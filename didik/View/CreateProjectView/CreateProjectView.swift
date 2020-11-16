@@ -16,6 +16,8 @@ let contentComments = [Comment.init(comment: "bego lu", authorID: "Mine", create
 struct CreateProjectView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
+    @EnvironmentObject var signInCoordinator: SignInWithAppleCoordinator
+    
     // MARK: - State Variable for Data Storing
     @State var contentProjectName: String = ""
     @State var contentSubject: Subject = .Mathematic        // check
@@ -167,8 +169,10 @@ struct CreateProjectView: View {
                 notes: contentNotes,
                 comments: contentComments,
                 likes: 0,
-                authorUID: Author.authorUID ?? "",
-                authorName: Author.authorFullname ?? ""
+            authorUID : Auth.auth().currentUser!.uid ?? "nil",
+            authorName : signInCoordinator.userProfile.fullname
+//                authorUID: Author.authorUID ?? "",
+//                authorName: Author.authorFullname ?? ""
             )
         
         print("--> Firebase Data Write Project Collection:")
