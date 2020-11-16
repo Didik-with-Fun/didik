@@ -12,7 +12,7 @@ struct DropdownGrades: View {
     let contents: [Grades] = Grades.allCases
     
     @State var isDropdownShowed: Bool = false
-    @Binding var selected: Grades
+    @Binding var contentGrade: Grades
     
     let width: CGFloat
     
@@ -22,7 +22,7 @@ struct DropdownGrades: View {
                 self.isDropdownShowed.toggle()
             }) {
                 HStack (spacing: 10) {
-                    Text(selected.rawValue)
+                    Text(contentGrade.rawValue)
                         .frame(width: width * 0.85, alignment: .center)
                         .foregroundColor(.black)
                         .padding(.vertical, 15)
@@ -45,7 +45,7 @@ struct DropdownGrades: View {
                                     index in
                                     Button(action: {
                                         self.isDropdownShowed.toggle()
-                                        self.selected = contents[index]
+                                        self.contentGrade = contents[index]
                                         // store subject pick and prepare POST
                                     }) {
                                         Text(contents[index].rawValue)
@@ -69,6 +69,6 @@ struct DropdownGrades: View {
 
 struct DropdownGradesPreview: PreviewProvider {
     static var previews: some View {
-        DropdownGrades(selected: .constant(.ten), width: 130)
+        DropdownGrades(contentGrade: .constant(.ten), width: 130)
     }
 }

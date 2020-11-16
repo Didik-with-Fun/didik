@@ -11,22 +11,23 @@ struct ButtonsDetailProjectView: View {
     
     let project: Project
 
-    var date: String {
-        DateUtil.convertDoubleToDate(date: project.createdDate)
-    }
+    //var date: String {
+        //DateUtil.convertDoubleToDate(date: project.createdDate)
+    //}
 
     var body: some View {
         
         VStack {
             HStack {
-                Text("\(project.subject.rawValue) \(project.grade.rawValue) || \(date)")
+                Text("\(project.subject.rawValue) \(project.grade.rawValue) || \(project.createdDate)")
                     .foregroundColor(.gray)
                 Spacer()
             }
             HStack {
                 
                 NavigationLink(
-                    destination: CreateProjectView(project: project, selectedSubject: project.subject, selectedGrade: project.grade, showPopOverContents: .deskripsiProyek, isDropdownSubjectOpen: true),
+                    destination: CreateProjectView(project: project),
+//                    destination: CreateProjectView(project: project, selectedSubject: project.subject, selectedGrade: project.grade, showPopOverContents: .deskripsiProyek, isDropdownSubjectOpen: true),
                     label: {
                       HStack(spacing: 10) {
                                     Image(systemName: "plus")

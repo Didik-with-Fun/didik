@@ -52,6 +52,7 @@
 		B7B378C9255DF07A00CE15C5 /* MediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B378C8255DF07A00CE15C5 /* MediaView.swift */; };
 		B7B378D5255DF13500CE15C5 /* TopicMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B378D4255DF13500CE15C5 /* TopicMainView.swift */; };
 		B7DF19D82550195B00953640 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B7DF19D72550195B00953640 /* GoogleService-Info.plist */; };
+		B7F0F80325619B1D00263881 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F0F80225619B1D00263881 /* Date+Extensions.swift */; };
 		B7F9649625586B82004F33B3 /* DropdownSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9649525586B82004F33B3 /* DropdownSubject.swift */; };
 		B7F9650F25592F2E004F33B3 /* Tooltip.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9650E25592F2E004F33B3 /* Tooltip.swift */; };
 		B7F9651425594A9E004F33B3 /* TooltipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9651325594A9E004F33B3 /* TooltipView.swift */; };
@@ -163,6 +164,7 @@
 		B7B378C8255DF07A00CE15C5 /* MediaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaView.swift; sourceTree = "<group>"; };
 		B7B378D4255DF13500CE15C5 /* TopicMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicMainView.swift; sourceTree = "<group>"; };
 		B7DF19D72550195B00953640 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B7F0F80225619B1D00263881 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		B7F9649525586B82004F33B3 /* DropdownSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownSubject.swift; sourceTree = "<group>"; };
 		B7F9650E25592F2E004F33B3 /* Tooltip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tooltip.swift; sourceTree = "<group>"; };
 		B7F9651325594A9E004F33B3 /* TooltipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TooltipView.swift; sourceTree = "<group>"; };
@@ -441,6 +443,10 @@
 				BA67F6F4255C4D99000A0B26 /* Extension+Image.swift */,
 				75352C3E254B41EF0039EC2D /* Extension+Color.swift */,
 				B798EB3E255DC27400236FE5 /* Struct+Extensions.swift */,
+				B7F0F80225619B1D00263881 /* Date+Extensions.swift */,
+				757EBC2C255EAB410021A3C6 /* FirebaseError.swift */,
+				757EBC31255EABAD0021A3C6 /* ProjectsGroup.swift */,
+				757EBC36255EAC5F0021A3C6 /* ViewType.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -894,6 +900,7 @@
 				B7F9745F2554762B0059C650 /* Subject.swift in Sources */,
 				B7F9745A25546A1B0059C650 /* Project.swift in Sources */,
 				BA94301F25508AF600283FB3 /* SignInWithAppleButton.swift in Sources */,
+				B7F0F80325619B1D00263881 /* Date+Extensions.swift in Sources */,
 				BABCC1BB255867C5005FCC7B /* OverviewDetailProjectView.swift in Sources */,
 				B7F9746425547F920059C650 /* ProjectActivity.swift in Sources */,
 				B7AB621E2546AB1F007E4895 /* didikApp.swift in Sources */,

@@ -7,6 +7,6 @@
 
 import Foundation
 
-enum ProjectStatus: String {
+enum ProjectStatus: String, Codable {
     case Published, Draft, Deleted
 }

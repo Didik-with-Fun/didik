@@ -28,8 +28,8 @@ extension FirebaseRequestService {
                           notes: "Do:  1. Membaca bahan belajar sebagai bahan apersepsi  2. Peserta didik menyelesaikan masalah sederhana Sistem Persamaan Linear Dua Variabel sebagai apersepsi  3. Peserta didik aktif mencari bahan untuk menjawab masalah 4. Peserta didik berkontribusi aktif dalam pemecahan masalah.    Dont  1. Pasif, tidak terlibat.  2. Takut tdk berani mencoba",
                           comments: [Comment.init(comment: "bego lu", authorID: "Mine", createdDate: Date())],
                           likes: 230,
-                          createdDate: 1415637900,
-                          updatedDate: 232.2)
+                          createdDate: Date(),
+                          updatedDate: Date())
         
         let p2 = Project(name: "Membuktikan Pythagoras dengan Tusuk Sate dan daging kambing dimasak hemmmm enak sekaliii",
                           summary: "Siswa akan Membuktikan Pythagoras dengan Tusuk Sate dan daging kambing dimasak hemmmm enak sekaliii",
@@ -44,8 +44,8 @@ extension FirebaseRequestService {
                           notes: "Do:  1. Membaca bahan belajar sebagai bahan apersepsi  2. Peserta didik menyelesaikan masalah sederhana Sistem Persamaan Linear Dua Variabel sebagai apersepsi  3. Peserta didik aktif mencari bahan untuk menjawab masalah 4. Peserta didik berkontribusi aktif dalam pemecahan masalah.    Dont  1. Pasif, tidak terlibat.  2. Takut tdk berani mencoba",
                           comments: [Comment.init(comment: "bego lu", authorID: "Atun", createdDate: Date())],
                           likes: 230,
-                          createdDate: 01.1,
-                          updatedDate: 232.2)
+                          createdDate: Date(),
+                          updatedDate: Date())
         
         let p3 = Project(name: "Membuktikan Integral dengan Tusuk Sate",
                           summary: "Siswa akan Membuktikan Integral dengan Tusuk Sate",
@@ -60,8 +60,8 @@ extension FirebaseRequestService {
                           notes: "Do:  1. Membaca bahan belajar sebagai bahan apersepsi  2. Peserta didik menyelesaikan masalah sederhana Sistem Persamaan Linear Dua Variabel sebagai apersepsi  3. Peserta didik aktif mencari bahan untuk menjawab masalah 4. Peserta didik berkontribusi aktif dalam pemecahan masalah.    Dont  1. Pasif, tidak terlibat.  2. Takut tdk berani mencoba",
                           comments: [Comment.init(comment: "bego lu", authorID: "Mine", createdDate: Date())],
                           likes: 230,
-                          createdDate: 01.1,
-                          updatedDate: 232.2)
+                          createdDate: Date(),
+                          updatedDate: Date())
         
         let p4 = Project(name: "Membuat Roket botol air",
                           summary: "Siswa akan Membuktikan Pythagoras dengan Tusuk Sate",
@@ -76,8 +76,8 @@ extension FirebaseRequestService {
                           notes: "Do:  1. Membaca bahan belajar sebagai bahan apersepsi  2. Peserta didik menyelesaikan masalah sederhana Sistem Persamaan Linear Dua Variabel sebagai apersepsi  3. Peserta didik aktif mencari bahan untuk menjawab masalah 4. Peserta didik berkontribusi aktif dalam pemecahan masalah.    Dont  1. Pasif, tidak terlibat.  2. Takut tdk berani mencoba",
                           comments: [Comment.init(comment: "bego lu", authorID: "Mine", createdDate: Date())],
                           likes: 230,
-                          createdDate: 01.1,
-                          updatedDate: 232.2)
+                          createdDate: Date(),
+                          updatedDate: Date())
         
         let p5 = Project(name: "Membuat sabun",
                           summary: "Siswa akan Membuat sabun dengan minyak",
@@ -92,8 +92,8 @@ extension FirebaseRequestService {
                           notes: "Do:  1. Membaca bahan belajar sebagai bahan apersepsi  2. Peserta didik menyelesaikan masalah sederhana Sistem Persamaan Linear Dua Variabel sebagai apersepsi  3. Peserta didik aktif mencari bahan untuk menjawab masalah 4. Peserta didik berkontribusi aktif dalam pemecahan masalah.    Dont  1. Pasif, tidak terlibat.  2. Takut tdk berani mencoba",
                           comments: [Comment.init(comment: "bego lu", authorID: "Mine", createdDate: Date())],
                           likes: 230,
-                          createdDate: 01.1,
-                          updatedDate: 232.2)
+                          createdDate: Date(),
+                          updatedDate: Date())
         
         let p6 = Project(name: "Membuat Tabung kapiler",
                           summary: "Siswa akan Membuat tabung kapiler",
@@ -108,8 +108,8 @@ extension FirebaseRequestService {
                           notes: "Do:  1. Membaca bahan belajar sebagai bahan apersepsi  2. Peserta didik menyelesaikan masalah sederhana Sistem Persamaan Linear Dua Variabel sebagai apersepsi  3. Peserta didik aktif mencari bahan untuk menjawab masalah 4. Peserta didik berkontribusi aktif dalam pemecahan masalah.    Dont  1. Pasif, tidak terlibat.  2. Takut tdk berani mencoba",
                           comments: [Comment.init(comment: "bego lu", authorID: "Mine", createdDate: Date())],
                           likes: 230,
-                          createdDate: 01.1,
-                          updatedDate: 232.2)
+                          createdDate: Date(),
+                          updatedDate: Date())
         
         let p7 = Project(name: "Membuat Tabung Hisap",
                           summary: "Siswa akan Membuat tabung kapiler",
@@ -124,8 +124,8 @@ extension FirebaseRequestService {
                           notes: "Do:  1. Membaca bahan belajar sebagai bahan apersepsi  2. Peserta didik menyelesaikan masalah sederhana Sistem Persamaan Linear Dua Variabel sebagai apersepsi  3. Peserta didik aktif mencari bahan untuk menjawab masalah 4. Peserta didik berkontribusi aktif dalam pemecahan masalah.    Dont  1. Pasif, tidak terlibat.  2. Takut tdk berani mencoba",
                           comments: [Comment.init(comment: "bego lu", authorID: "Mine", createdDate: Date())],
                           likes: 230,
-                          createdDate: 01.1,
-                          updatedDate: 232.2)
+                          createdDate: Date(),
+                          updatedDate: Date())
         
         let p8 = Project(name: "Membuat Rail Gun",
                           summary: "Siswa akan Membuat rail gun",
@@ -140,8 +140,8 @@ extension FirebaseRequestService {
                           notes: "Do:  1. Membaca bahan belajar sebagai bahan apersepsi  2. Peserta didik menyelesaikan masalah sederhana Sistem Persamaan Linear Dua Variabel sebagai apersepsi  3. Peserta didik aktif mencari bahan untuk menjawab masalah 4. Peserta didik berkontribusi aktif dalam pemecahan masalah.    Dont  1. Pasif, tidak terlibat.  2. Takut tdk berani mencoba",
                           comments: [Comment.init(comment: "bego lu", authorID: "Mine", createdDate: Date())],
                           likes: 230,
-                          createdDate: 01.1,
-                          updatedDate: 232.2)
+                          createdDate: Date(),
+                          updatedDate: Date())
         
         
         return [p1, p2, p3, p4, p5, p6, p7, p8]
@@ -166,8 +166,8 @@ let placeholder = Project(name: "Membuktikan Pythagoras dengan Kerikil sebesar k
                           notes: "Do:  1. Membaca bahan belajar sebagai bahan apersepsi  2. Peserta didik menyelesaikan masalah sederhana Sistem Persamaan Linear Dua Variabel sebagai apersepsi  3. Peserta didik aktif mencari bahan untuk menjawab masalah 4. Peserta didik berkontribusi aktif dalam pemecahan masalah.    Dont  1. Pasif, tidak terlibat.  2. Takut tdk berani mencoba",
                           comments: [Comment.init(comment: "bego lu", authorID: "Atun", createdDate: Date())],
                           likes: 230,
-                          createdDate: 01.1,
-                          updatedDate: 232.2)
+                          createdDate: Date(),
+                          updatedDate: Date())
 
 
 let placeholderGroup = ProjectsGroup(title: "title", unfilteredGroup: [placeholder], group: [placeholder])

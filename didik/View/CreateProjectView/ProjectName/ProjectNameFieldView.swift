@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct ProjectNameFieldView: View {
-    @State var contentProjectName: String
+    @Binding var contentProjectName: String
     
     var body: some View {
         VStack {
@@ -23,6 +23,7 @@ struct ProjectNameFieldView: View {
                             Image("Info")
                         })
                     }
+                    
                     if contentProjectName.isEmpty {
 
                         TextField("Tuliskan permasalahan utama yang akan diselesaikan dalam proyek", text: $contentProjectName, onEditingChanged: { (changed) in
@@ -30,7 +31,7 @@ struct ProjectNameFieldView: View {
                         })
                         .font(Font.system(size: 20))
                         .textFieldStyle(PlainTextFieldStyle())
-                        .foregroundColor(Color.Didik.GreyLight)
+                        .foregroundColor(.black)
                         .frame(height: 50)
                         .padding(.leading, 4)
                         .overlay(RoundedRectangle(cornerRadius: 13).stroke(Color.gray))
@@ -41,6 +42,7 @@ struct ProjectNameFieldView: View {
                             .overlay(RoundedRectangle(cornerRadius: 13).stroke(Color.gray))
                     }
                     
+                    
                 }
             }.padding([.top, .horizontal], 20)
         }
@@ -49,7 +51,7 @@ struct ProjectNameFieldView: View {
 
 struct ProjectNameFieldViewPreview: PreviewProvider {
     static var previews: some View {
-        ProjectNameFieldView(contentProjectName: "")
+        ProjectNameFieldView(contentProjectName: .constant(""))
     }
 }
 

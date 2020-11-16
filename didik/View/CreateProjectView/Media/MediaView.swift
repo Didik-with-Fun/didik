@@ -10,7 +10,7 @@ import SwiftUI
 
 struct MediaView: View {
     
-    @State var contentImages: [String]
+    @Binding var contentMedia: [String]
 
     var body: some View {
         HStack {
@@ -61,7 +61,9 @@ struct MediaView: View {
 }
 
 struct MediaViewPreview: PreviewProvider {
+    
     static var previews: some View {
-        MediaView(contentImages: [])
+
+        MediaView(contentMedia: .constant(FirebaseRequestService.createDummyProjects()[0].images))
     }
 }
