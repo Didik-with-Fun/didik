@@ -32,10 +32,11 @@ class ProjectDatabaseViewModel: ObservableObject {
     var specificProjects: [Project] = []
     @Published var filteredSpecificProjects: [Project] = []
     
-    
+    let service = FirebaseRequestService()
 //MARK: - init
     
     init() {
+        
         // request all projects
         FirebaseRequestService.requestAllProject { (result) in
             switch result {
