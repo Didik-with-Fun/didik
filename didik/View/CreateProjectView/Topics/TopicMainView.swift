@@ -19,86 +19,93 @@ struct TopicMainView: View {
     var body: some View {
         VStack {
             // MARK: - Topics Section
-            HStack {
-                VStack (alignment: .leading) {
-                    Text("Materi Pembelajaran")
-                        .padding(.vertical, 5)
-                    
-                    //MARK: - Dropdown Topic on Main View
-                    VStack {
-                        Button(action: {
-                            self.isDropdownShowed.toggle()
-                        }) {
-                            HStack (spacing: 10) {
-                                Text(contentTopic.name)
-                                    .frame(width: width * 0.85, alignment: .center)
-                                    .foregroundColor(.black)
-                                    .padding(.vertical, 15)
-                                    .padding(.trailing, 10)
-                                
-                                Image(systemName: "chevron.down")
-                                    .frame(width: width * 0.15, alignment: .center)
-                                    .padding(.trailing, 10)
-                                    .foregroundColor(.black)
+            ZStack (alignment: .top) {
+            
+                HStack {
+                    VStack (alignment: .leading) {
+                        Text("Materi Pembelajaran")
+                            .padding(.vertical, 5)
+                        
+                        //MARK: - Dropdown Topic on Main View
+                        VStack {
+                            Button(action: {
+                                self.isDropdownShowed.toggle()
+                            }) {
+                                HStack (spacing: 10) {
+                                    Text(contentTopic.name)
+                                        .frame(width: width * 0.85, alignment: .center)
+                                        .foregroundColor(.black)
+                                        .padding(.vertical, 15)
+                                        .padding(.trailing, 10)
+                                    
+                                    Image(systemName: "chevron.down")
+                                        .frame(width: width * 0.15, alignment: .center)
+                                        .padding(.trailing, 10)
+                                        .foregroundColor(.black)
+                                }
                             }
-                        }
-                        .foregroundColor(Color.Didik.GreyMedium)
-                        .background(Color.Didik.GreyMedium)
-                        .padding(.vertical, 0)
-                        .cornerRadius(15)
-                        .overlay(
-                            VStack{
-                                if isDropdownShowed {
-                                    VStack {
-                                        ForEach(0..<self.contents.count) {
-                                            index in
-                                            Button(action: {
-                                                self.isDropdownShowed.toggle()
-                                                self.contentTopic = contents[index]
+                            .foregroundColor(Color.Didik.GreyMedium)
+                            .background(Color.Didik.GreyMedium)
+                            .padding(.vertical, 0)
+                            .cornerRadius(15)
+                            .overlay(
+                                VStack{
+                                    if isDropdownShowed {
+                                        VStack {
+                                            ForEach(0..<self.contents.count) {
+                                                index in
+                                                Button(action: {
+                                                    self.isDropdownShowed.toggle()
+                                                    self.contentTopic = contents[index]
 
-                                                // store subject pick and prepare POST
-                                            }) {
-                                                Text(contents[index].name)
-                                                    .foregroundColor(.black)
-                                                    .font(.system(size: 17, weight: .bold, design: .default))
-                                                    .padding(.vertical, 10)
-                                                    .frame(width: width, alignment: .center)
+                                                    // store subject pick and prepare POST
+                                                }) {
+                                                    Text(contents[index].name)
+                                                        .foregroundColor(.black)
+                                                        .font(.system(size: 17, weight: .bold, design: .default))
+                                                        .padding(.vertical, 10)
+                                                        .frame(width: width, alignment: .center)
+                                                }
                                             }
                                         }
+                                        .background(Color.white)
+                                        .cornerRadius(10)
+                                        .shadow(radius: 5)
                                     }
-                                    .background(Color.white)
-                                    .cornerRadius(10)
-                                    .shadow(radius: 5)
-                                }
-                            }, alignment: .topLeading
-                        )
+                                }, alignment: .topLeading
+                            )
+                        }
                     }
                 }
-            }
-            
-            // MARK: - Section of Core Competence aka Kompentensi Dasar
-            HStack {
-                VStack (alignment: .leading) {
-                    Text("Kompentensi Dasar")
-                        .padding(.bottom, 10)
-                    
-                    ForEach(0..<contentTopic.basicCompetence.count, id: \.self) { index in
-                        HStack (alignment: .center) {
-                            if contentTopic.name != defaultTopic.name {
-                                Circle()
-                                    .fill(Color.Didik.GreyDark)
-                                    .frame(width: 10, height: 10, alignment: .center)
-                                    .padding(.trailing, 10)
-                            }
-                            
-                            Text(contentTopic.basicCompetence[index])
-                        }.padding(.bottom, 10)
-                    }
-                }
-                .padding(.top, 20)
-                .padding(.horizontal, 15)
+                .zIndex(2)
+                .padding(.top, 0)
                 
-                Spacer()
+                // MARK: - Section of Core Competence aka Kompentensi Dasar
+                HStack {
+                    VStack (alignment: .leading) {
+                        Text("Kompentensi Dasar")
+                            .padding(.bottom, 10)
+                        
+                        ForEach(0..<contentTopic.basicCompetence.count, id: \.self) { index in
+                            HStack (alignment: .center) {
+                                if contentTopic.name != defaultTopic.name {
+                                    Circle()
+                                        .fill(Color.Didik.GreyDark)
+                                        .frame(width: 10, height: 10, alignment: .center)
+                                        .padding(.trailing, 10)
+                                }
+                                
+                                Text(contentTopic.basicCompetence[index])
+                            }.padding(.bottom, 10)
+                        }
+                    }
+                    .padding(.top, 20)
+                    .padding(.horizontal, 15)
+                    
+                    Spacer()
+                }
+                .zIndex(1)
+                .padding(.top, 100)
             }
         }
     }
