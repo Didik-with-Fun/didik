@@ -8,9 +8,7 @@
 import SwiftUI
 import Firebase
 
-let imagePreview1 = "math-preview-1.jpg"
-let contentProjectImages = [imagePreview1]
-let contentProjectActivities = [ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1), ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1)]
+let contentProjectImages = ["math-preview-1.jpg"]
 let contentComments = [Comment.init(comment: "bego lu", authorID: "Mine", createdDate: Date())]
 
 struct CreateProjectView: View {
@@ -18,7 +16,7 @@ struct CreateProjectView: View {
     
     // MARK: - State Variable for Data Storing
     @State var contentProjectName: String = ""
-    @State var contentSubject: Subject = .Mathematic        // check
+    @State var contentSubject: Subject = .Mathematic
     @State var contentGrade: Grades = .ten
     @State var contentTopic: Topic = defaultTopic
     @State var contentSummary: String = ""
@@ -77,7 +75,7 @@ struct CreateProjectView: View {
                         
                         // MARK: - Form Field - Activity
                         HStack {
-                            ActivityMainView(totalActivityTime: 0)
+                            ActivityMainView(contentActivities: contentActivities)
                         }.padding([.top, .horizontal], 20)
                         
                         // MARK: - Form Field - Notes aka Catatan Siswa
@@ -165,7 +163,7 @@ struct CreateProjectView: View {
                 goal: contentLearningGoals,
                 images: contentProjectImages,
                 projectStatus: projectStatus,
-                projectActivities: contentProjectActivities,
+                projectActivities: contentActivities,
                 notes: contentNotes,
                 comments: contentComments,
                 likes: 0,
@@ -174,10 +172,6 @@ struct CreateProjectView: View {
             )
         
         print("--> Firebase Data Write Project Collection:")
-        print(newContentProject)
-        print("--> author ID: \(newContentProject.authorUID)")
-        print("--> author ID: \(newContentProject.authorName)")
-        
         
         if isFormValidate {
             FirebaseRequestService.writeProject(contentProject: newContentProject) { (status) in
