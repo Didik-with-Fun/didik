@@ -29,8 +29,24 @@ struct CreateProjectView: View {
     @State var contentActivities: [ProjectActivity] = []
     @State var contentNotes: String = ""
     
+
     @State var showPopOver = false
     @State var showPopOverContents: Tooltips = .namaProyek
+    
+    var contentActivitiesDays: Int = 0
+    
+    init(project: Project?) {
+        _contentProjectName = State(initialValue: project?.name ?? contentProjectName)
+        _contentSubject = State(initialValue: project?.subject ?? contentSubject)
+        _contentGrade = State(initialValue: project?.grade ?? contentGrade)
+        _contentTopic = State(initialValue: project?.topic ?? contentTopic)
+        _contentSummary = State(initialValue: project?.summary ?? contentSummary)
+        _contentLearningGoals = State(initialValue: project?.goal ?? contentLearningGoals)
+        _contentMedia = State(initialValue: project?.images ?? contentMedia)
+        _contentActivities = State(initialValue: project?.projectActivities ?? contentActivities)
+        self.contentActivitiesDays = project?.getTotalActivitiesDays() ?? contentActivitiesDays
+        _contentNotes = State(initialValue: project?.notes ?? contentNotes)
+    }
     
     var body: some View {
         ScrollView {
@@ -73,11 +89,11 @@ struct CreateProjectView: View {
                         LearningGoalsFieldView(contentLearningGoals: $contentLearningGoals)
                         
                         // MARK: - Form Field - Media Uploads
-                        MediaView()
+                        MediaView(contentMedia: $contentMedia)
                         
                         // MARK: - Form Field - Activity
                         HStack {
-                            ActivityMainView(totalActivityTime: 0)
+                            ActivityMainView(totalActivityTime: contentActivitiesDays, contentActivities: contentActivities)
                         }.padding([.top, .horizontal], 20)
                         
                         // MARK: - Form Field - Notes aka Catatan Siswa
@@ -200,7 +216,7 @@ struct CreateProjectView: View {
 struct CreateProjectView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            CreateProjectView(showPopOver: false, showPopOverContents: .namaProyek)
+            CreateProjectView(project: FirebaseRequestService.createDummyProjects()[0])
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }

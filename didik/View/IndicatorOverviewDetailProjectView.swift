@@ -23,9 +23,8 @@ struct IndicatorOverviewDetailProjectView: View {
                         Text("\(project.likes)")
                     }
                     
-                    
                     Rectangle().fill(Color.clear).frame(width: 1, height: 100, alignment: .bottom)
-                        .overlay(Rectangle().fill(Color.Didik.BlueSecondary).frame(width: 1, height: 90, alignment: .bottom))
+                        .overlay(Rectangle().fill(Color.Didik.BlueLight).frame(width: 1, height: 90, alignment: .bottom))
                         .padding(.leading, 15)
                         .padding(.trailing, 15)
                     
