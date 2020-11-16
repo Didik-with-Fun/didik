@@ -17,6 +17,7 @@ enum Tooltips: CaseIterable {
     case deskripsiProyek
     case tujuanPembelajaran
     case mediaUpload
+    case mediaNotAvailable
     case aktifitas
     case catatanSiswa
     case proyekBelumLengkap
@@ -36,6 +37,8 @@ enum Tooltips: CaseIterable {
                 return ("Tujuan Pembelajaran", "Tujuan pembelajaran adalah tujuan dari pemberian proyek ini kepada murid. Contoh : 1. Menjelaskan pengertian ; 2. Menjelaskan bentuk umum ; 3. Menentukan Himpunan Penyelesaian (HP) ; 4. Menyelesaikan masalah nyata yang berkaitan dengan SPLTV", "")
             case .mediaUpload:
                 return ("Media", "Masukan media referensi di mana murid bisa mendapatkan informasi tambahan mengenai proyek yang harus dilakukan.", "")
+        case .mediaNotAvailable:
+                return ("Ups", "Upload berkas gambar ke dalam materi sedang dalam pengembangan, nantikan segera.", "TooltipFailed")
             case .aktifitas:
                 return ("Aktifitas", "Tuliskan secara jelas mengenai perencanaan & penjadwalan project yang akan berlangsung. Tuliskan secara detail langkah apa saja yang harus dilewati oleh murid", "")
             case .catatanSiswa:

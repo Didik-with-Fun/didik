@@ -12,6 +12,8 @@ struct MediaView: View {
     @Binding var showPopOver: Bool
     @Binding var showPopOverContents: Tooltips
     
+    @State var mediaList: [String] = []
+    
     var body: some View {
         HStack {
             VStack (alignment: .leading, spacing: 10) {
@@ -28,6 +30,7 @@ struct MediaView: View {
                     HStack (alignment: .top, spacing: 10) {
                         Button(action: {
                             // action when add media
+                            self.mediaUnaccessible()
                         }, label: {
                             ZStack {
                                 Rectangle()
@@ -44,19 +47,20 @@ struct MediaView: View {
                                     .foregroundColor(.white)
                                 }
                             }
-                            //Image("InsertMedia")
                         })
                         
-                        
-                        Image("InsertMediaDummy").padding(.horizontal, 10)
-                        Image("InsertMediaDummy").padding(.horizontal, 10)
-                        Image("InsertMediaDummy").padding(.horizontal, 10)
-                        Image("InsertMediaDummy").padding(.horizontal, 10)
-                        Image("InsertMediaDummy").padding(.horizontal, 10)
+                        ForEach (0..<mediaList.count, id: \.self) { index in
+                            Image("InsertMediaDummy").padding(.horizontal, 10)
+                        }
                     }
                 }
             }
         }.padding([.top, .horizontal], 20)
+    }
+    
+    private func mediaUnaccessible() {
+        self.showPopOverContents = .mediaNotAvailable
+        self.showPopOver = true
     }
     
     private func childShowPopover() {
