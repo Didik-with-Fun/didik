@@ -32,7 +32,7 @@ struct MateriPreviewView: View {
                 Spacer()
             }
             HStack {
-                Text ("project.author")
+                Text ("\(project.authorName)")
                     .foregroundColor(.gray)
                     .font(.subheadline)
                     .lineLimit(1)

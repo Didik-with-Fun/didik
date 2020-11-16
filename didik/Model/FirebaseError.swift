@@ -10,4 +10,5 @@ import Foundation
 enum FirebaseError: Error {
     case error(NSError)
     case noData
+    case badHTTPResponse
 }
