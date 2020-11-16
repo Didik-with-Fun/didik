@@ -14,6 +14,8 @@ struct MediaView: View {
     
     @State var mediaList: [String] = []
     
+    @Binding var contentMedia: [String]
+
     var body: some View {
         HStack {
             VStack (alignment: .leading, spacing: 10) {
@@ -70,7 +72,8 @@ struct MediaView: View {
 }
 
 struct MediaViewPreview: PreviewProvider {
+    
     static var previews: some View {
-        MediaView(showPopOver: .constant(false), showPopOverContents: .constant(.mediaUpload))
+        MediaView(showPopOver: .constant(false), showPopOverContents: .constant(.mediaUpload), contentMedia: .constant(FirebaseRequestService.createDummyProjects()[0].images))
     }
 }

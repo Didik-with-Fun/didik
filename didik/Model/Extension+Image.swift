@@ -22,6 +22,7 @@ extension Image {
         static let LoveRed = Image("LoveRed")
         static let Bookmark = Image("Bookmark")
         static let Share = Image("Share")
+        static let Calendar = Image("CalendarGrey")
         static let CalendarDays = Image("CalendarDays")
 
         static func generateRandomDefaultImage(subject: Subject) -> Image {

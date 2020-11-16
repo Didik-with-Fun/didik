@@ -24,48 +24,30 @@ struct CompetenceOverviewDetailView: View {
                 .padding()
                 
                 //TODO: ganti dengan projectCompetences
-                ForEach(0 ..< project.projectActivities.count) { index in
+
+                ForEach(0 ..< project.topic.basicCompetence.count) { index in
                     
                     HStack (alignment: .top){
-                        Text("KD 3.1")
                         
-                        Text("Ini template aja \(project.projectActivities[index].name)")
+                        if project.topic.name != defaultTopic.name {
+                            Circle()
+                                .fill(Color.Didik.GreyDark)
+                                .frame(width: 10, height: 10, alignment: .top)
+                                .padding(.trailing, 10)
+                                .padding(.top, 5)
+                        }
+                        
+                        Text(project.topic.basicCompetence[index])
+                            .padding(.top,0)
                             .fixedSize(horizontal: false, vertical: true)
-
-                            .padding(.leading, 10)
                             
-                            Spacer()
+                        Spacer()
                     }
                     .padding(.leading, 15)
                     .padding(.bottom, 15)
 
                 }
             
-                HStack (alignment: .top){
-                    Text("KD 3.1")
-                    
-                    Text("Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.")
-                        .fixedSize(horizontal: false, vertical: true)
-
-                        .padding(.leading, 10)
-                        
-                        Spacer()
-                }
-                .padding(.leading, 15)
-                .padding(.bottom, 15)
-
-                HStack (alignment: .top) {
-                    Text("KD 3.2")
-                    
-                    Text("Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.")
-                        .fixedSize(horizontal: false, vertical: true)
-
-                        .padding(.leading, 10)
-                        
-                        Spacer()
-                }
-                .padding(.leading, 15)
-                
             }
             
             Spacer()

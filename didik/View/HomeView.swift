@@ -23,6 +23,14 @@ struct HomeView: View {
                 // Jelajah Materi Tab
                 JelajahMateriView(parentGeometry: parentGeometry)
                     .opacity(index == 0 ? 1 : 0)
+<<<<<<< HEAD
+=======
+                
+                /*
+                CreateProjectView(project: nil, selectedSubject: .constant(.Mathematic), showPopOverContents: .constant(.namaProyek), isDropdownSubjectOpen: false)
+                .opacity(index == 1 ? 1 : 0)
+                */
+>>>>>>> develop
 
                 // Materi Saya Tab
                 MateriSayaView(parentGeometry: parentGeometry)
