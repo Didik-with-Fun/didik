@@ -33,36 +33,36 @@ struct DropdownGrades: View {
                         .padding(.trailing, 10)
                         .foregroundColor(.black)
                 }
-                .foregroundColor(Color.Didik.GreyMedium)
-                .background(Color.Didik.GreyMedium)
-                .padding(.vertical, 0)
-                .cornerRadius(15)
-                .overlay(
-                    VStack{
-                        if isDropdownShowed {
-                            VStack {
-                                ForEach(0..<self.contents.count) {
-                                    index in
-                                    Button(action: {
-                                        self.isDropdownShowed.toggle()
-                                        self.contentGrade = contents[index]
-                                        // store subject pick and prepare POST
-                                    }) {
-                                        Text(contents[index].rawValue)
-                                            .foregroundColor(.black)
-                                            .font(.system(size: 17, weight: .bold, design: .default))
-                                            .padding(.vertical, 10)
-                                            .frame(width: width, alignment: .center)
-                                    }
+            }
+            .foregroundColor(Color.Didik.GreyMedium)
+            .background(Color.Didik.GreyMedium)
+            .padding(.vertical, 0)
+            .cornerRadius(15)
+            .overlay(
+                VStack{
+                    if isDropdownShowed {
+                        VStack {
+                            ForEach(0..<self.contents.count) {
+                                index in
+                                Button(action: {
+                                    self.isDropdownShowed.toggle()
+                                    self.contentGrade = contents[index]
+                                    // store subject pick and prepare POST
+                                }) {
+                                    Text(contents[index].rawValue)
+                                        .foregroundColor(.black)
+                                        .font(.system(size: 17, weight: .bold, design: .default))
+                                        .padding(.vertical, 10)
+                                        .frame(width: width, alignment: .center)
                                 }
                             }
-                            .background(Color.white)
-                            .cornerRadius(10)
-                            .shadow(radius: 5)
                         }
-                    }, alignment: .topLeading
-                )
-            }
+                        .background(Color.white)
+                        .cornerRadius(10)
+                        .shadow(radius: 5)
+                    }
+                }, alignment: .topLeading
+            )
         }
     }
 }
