@@ -12,7 +12,9 @@ struct DiscussionDetailProjectView: View {
     let project: Project
 
     var body: some View {
-        Text("Coming Soon")
+        VStack {
+            Text("Coming Soon")
+        }
     }
 }
 

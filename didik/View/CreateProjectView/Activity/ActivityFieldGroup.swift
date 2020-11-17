@@ -10,9 +10,8 @@ import SwiftUI
 
 struct ActivityFieldGroup: View {
     
-    @State var contentActivityName: String
-    @State var contentActivityTime: Int
-    @State var contentActivityDescription: String
+    @Binding var contentActivity: ProjectActivity
+    @Binding var totalActivityTime: Int
     
     var body: some View {
         VStack {
@@ -26,34 +25,48 @@ struct ActivityFieldGroup: View {
                     }
                 })
                     
-                TextEditor(text: $contentActivityName)
+                TextEditor(text: $contentActivity.name)
                     .frame(height: 55)
                     .overlay(RoundedRectangle(cornerRadius: 13).stroke(Color.gray))
                 
-                Image("Calendar")
+                Image.Didik.Calendar
                     .resizable()
                     .frame(width: 34, height: 34, alignment: .center)
                 
-                Text("\(contentActivityTime) Hari")
+                Text("\(contentActivity.time) Hari")
                     .padding(0)
                 
-                Stepper("", value: $contentActivityTime, in: 0...30)
-                    .labelsHidden()
-                    .frame(height: 75)
-                    .padding(0)
+                Stepper("", onIncrement: incrementStep, onDecrement: decrementStep)
+                .labelsHidden()
+                .frame(height: 75)
+                .padding(0)
             }
             
             // TODO: Text Editor have to be minimized white users toggle the drop button on the left of each activity
-            TextEditor(text: $contentActivityDescription)
+            TextEditor(text: $contentActivity.description)
                 .frame(height: 100)
                 .overlay(RoundedRectangle(cornerRadius: 13).stroke(Color.gray))
                 .padding(.bottom, 10)
+        }
+    }
+    
+    func incrementStep() {
+        if self.contentActivity.time <= 9 {
+            self.contentActivity.time += 1
+            self.totalActivityTime += 1
+        }
+    }
+
+    func decrementStep() {
+        if self.contentActivity.time >= 1 {
+            self.contentActivity.time -= 1
+            self.totalActivityTime -= 1
         }
     }
 }
 
 struct ActivityFieldGroupPreview: PreviewProvider {
     static var previews: some View {
-        ActivityFieldGroup(contentActivityName: "", contentActivityTime: 0, contentActivityDescription: "")
+        ActivityFieldGroup(contentActivity: .constant(ProjectActivity(name: "", description: "", time: 0)), totalActivityTime: .constant(0))
     }
 }

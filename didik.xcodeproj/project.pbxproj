@@ -427,21 +427,24 @@
 		BA3A77282553376600975121 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				BA3A772A255337DF00975121 /* UserData.swift */,
-				B7F974042554645E0059C650 /* Topic.swift */,
-				B7F9745E2554762B0059C650 /* Subject.swift */,
+				BAEC7312255527EF0069574F /* AuthState.swift */,
+				B7F97468255480710059C650 /* Comment.swift */,
+				758081DB2552676000E50787 /* DummyModel.swift */,
+				757EBC2C255EAB410021A3C6 /* FirebaseError.swift */,
 				B7F974092554657E0059C650 /* Grade.swift */,
-				B7F97454255469710059C650 /* ProjectStatus.swift */,
+				75BE5D232553F0BD00E8677E /* NavigationBarModifier.swift */,
 				B7F9745925546A1B0059C650 /* Project.swift */,
 				B7F9746325547F920059C650 /* ProjectActivity.swift */,
-				B7F97468255480710059C650 /* Comment.swift */,
-				BAEC7312255527EF0069574F /* AuthState.swift */,
-				75BE5D232553F0BD00E8677E /* NavigationBarModifier.swift */,
-				755B2179254A885100B0A7E6 /* Extension+View.swift */,
-				75352C3E254B41EF0039EC2D /* Extension+Color.swift */,
-				758081DB2552676000E50787 /* DummyModel.swift */,
+				B7F97454255469710059C650 /* ProjectStatus.swift */,
+				757EBC31255EABAD0021A3C6 /* ProjectsGroup.swift */,
+				757EBC36255EAC5F0021A3C6 /* ViewType.swift */,
+				BA3A772A255337DF00975121 /* UserData.swift */,
+				B7F9745E2554762B0059C650 /* Subject.swift */,
+				B7F974042554645E0059C650 /* Topic.swift */,
 				B7F9650E25592F2E004F33B3 /* Tooltip.swift */,
+				755B2179254A885100B0A7E6 /* Extension+View.swift */,
 				BA67F6F4255C4D99000A0B26 /* Extension+Image.swift */,
+				75352C3E254B41EF0039EC2D /* Extension+Color.swift */,
 				B798EB3E255DC27400236FE5 /* Struct+Extensions.swift */,
 				B7F0F80225619B1D00263881 /* Date+Extensions.swift */,
 				757EBC2C255EAB410021A3C6 /* FirebaseError.swift */,
@@ -1070,9 +1073,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = didik/didik.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"didik/Preview Content\"";
-				DEVELOPMENT_TEAM = JPMPS53HUZ;
+				DEVELOPMENT_TEAM = W5ZPF478J8;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = didik/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1080,8 +1085,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.developeracademy.didik-fandri";
+				PRODUCT_BUNDLE_IDENTIFIER = com.developeracademy.didik;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1094,9 +1100,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = didik/didik.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"didik/Preview Content\"";
-				DEVELOPMENT_TEAM = JPMPS53HUZ;
+				DEVELOPMENT_TEAM = W5ZPF478J8;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = didik/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1104,8 +1112,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.developeracademy.didik-fandri";
+				PRODUCT_BUNDLE_IDENTIFIER = com.developeracademy.didik;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

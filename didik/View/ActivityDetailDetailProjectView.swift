@@ -32,11 +32,19 @@ struct ActivityDetailDetailProjectView: View {
                             .font(.system(size: 24))
 
                         VStack (alignment: .leading) {
-                            Text("\(project.projectActivities[index].name)" )
-                                .font(.system(size: 24))
-                                .fixedSize(horizontal: false, vertical: true)
-                                .padding(.leading, 10)
-                                .padding(.bottom, 2)
+                            HStack {
+                                Text("\(project.projectActivities[index].name)" )
+                                    .font(.system(size: 24))
+                                    .fixedSize(horizontal: false, vertical: true)
+                                    .padding(.leading, 10)
+                                    .padding(.bottom, 2)
+                                Spacer()
+                                HStack {
+                                    Image.Didik.Calendar
+                                    Text("\(project.projectActivities[index].time) hari")
+                                }
+                                
+                            }
                             Text("\(project.projectActivities[index].description)" )
                                 .font(.system(size: 18))
                                 .fixedSize(horizontal: false, vertical: true)

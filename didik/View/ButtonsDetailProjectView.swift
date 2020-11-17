@@ -23,24 +23,29 @@ struct ButtonsDetailProjectView: View {
         
         VStack {
             HStack {
-                Text("\(project.subject.rawValue) || \(project.createdDate ?? Timestamp() ) ")
+                Text("\(project.subject.rawValue) \(project.grade.rawValue) || \(DateUtil.convertTimestampToDate(timestamp: project.createdDate ?? Timestamp()))")
                     .foregroundColor(.gray)
                 Spacer()
             }
             HStack {
-                Button(action: {}, label: {
-                    HStack(spacing: 10) {
-                            Image(systemName: "plus")
-                            Text("Gunakan Materi Ini")
-                        
-                    }
-                    
-                    .frame(width: 200, height: 30)
-                    .padding()
-                    .background(Color.Didik.BlueSecondary)
-                    .foregroundColor(.white)
-                })
-                .cornerRadius(10)
+                
+                NavigationLink(
+                    destination: CreateProjectView(project: project),
+//                    destination: CreateProjectView(project: project, selectedSubject: project.subject, selectedGrade: project.grade, showPopOverContents: .deskripsiProyek, isDropdownSubjectOpen: true),
+                    label: {
+                      HStack(spacing: 10) {
+                                    Image(systemName: "plus")
+                                    Text("Gunakan Materi Ini")
+                                
+                            }
+                            
+                            .frame(width: 200, height: 30)
+                            .padding()
+                            .background(Color.Didik.BlueSecondary)
+                            .foregroundColor(.white)
+                        .cornerRadius(10)
+                    })
+                          
                 Spacer()
                 Image.Didik.Love
                     .resizable()

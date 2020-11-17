@@ -78,14 +78,12 @@ struct TopicMainView: View {
                     }
                 }
                 .zIndex(2)
-                .padding(.top, 0)
                 
                 // MARK: - Section of Core Competence aka Kompentensi Dasar
                 HStack {
                     VStack (alignment: .leading) {
                         Text("Kompentensi Dasar")
                             .padding(.bottom, 10)
-                        
                         ForEach(0..<contentTopic.basicCompetence.count, id: \.self) { index in
                             HStack (alignment: .center) {
                                 if contentTopic.name != defaultTopic.name {
@@ -100,12 +98,12 @@ struct TopicMainView: View {
                         }
                     }
                     .padding(.top, 20)
-                    .padding(.horizontal, 15)
                     
                     Spacer()
                 }
                 .zIndex(1)
                 .padding(.top, 100)
+                .padding(.horizontal, 20)
             }
         }
     }

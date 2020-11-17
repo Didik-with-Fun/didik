@@ -15,6 +15,8 @@ struct MateriSayaView: View {
     @State var selectedGrade: Grades = .allGrades
     @State var selectedSubject: Subject = .allSubjects
     
+    var project: Project?
+    
     var parentGeometry: GeometryProxy
     var viewType: ViewType = .myMateri
 
@@ -27,7 +29,9 @@ struct MateriSayaView: View {
                 HStack{
                     Spacer()
                     NavigationLink(
-                        destination: CreateProjectView(showPopOver: false),
+                        //destination: CreateProjectView(project: nil, selectedSubject: .Mathematic, selectedGrade: .ten, contentNamaProyek: "", showPopOver: false, showPopOverContents: .namaProyek, isDropdownSubjectOpen: false),
+                        
+                        destination: CreateProjectView(project: project),
                         label: {
                             BuatMateriButton()
                         })
@@ -50,7 +54,6 @@ struct MateriSayaView: View {
                                 index in
                                 MateriPreviewCollectionView(parentGeometry: parentGeometry, projectsGroup: index, selectedGrade: $selectedGrade, selectedSubject: $selectedSubject, startPointviewType: viewType)//(parentGeometry: parentGeometry, title: index.title, ProjectsLibrary: index.group)
 
-                                
                             }
                         }
                     }

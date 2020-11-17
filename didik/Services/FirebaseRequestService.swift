@@ -97,7 +97,6 @@ class FirebaseRequestService: ObservableObject {
     
     
     func requestAllProject(completion: @escaping (Result<[Project], FirebaseError>) -> ()) {
-        // request project still dummy
 //        let data = FirebaseRequestService.createDummyProjects()
 //
 //        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { // Change `2.0` to the desired number of seconds.
