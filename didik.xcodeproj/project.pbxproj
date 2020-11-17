@@ -13,6 +13,8 @@
 		750ABE66255941D6002075F0 /* MateriSayaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750ABE65255941D6002075F0 /* MateriSayaView.swift */; };
 		750ABEC6255A95DE002075F0 /* ProjectDatabaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750ABEC5255A95DE002075F0 /* ProjectDatabaseViewModel.swift */; };
 		751C70882553BCFD0072C1B5 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751C70872553BCFD0072C1B5 /* Constant.swift */; };
+		7523451E2562D1C70065B073 /* FirestoreImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7523451D2562D1C70065B073 /* FirestoreImageLoader.swift */; };
+		752345232562E9AD0065B073 /* urlImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752345222562E9AD0065B073 /* urlImage.swift */; };
 		75352C3F254B41EF0039EC2D /* Extension+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75352C3E254B41EF0039EC2D /* Extension+Color.swift */; };
 		75352C4C254B44150039EC2D /* JelajahMateriView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75352C4B254B44150039EC2D /* JelajahMateriView.swift */; };
 		75352C51254B4F840039EC2D /* CustomNavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75352C50254B4F840039EC2D /* CustomNavigationBarView.swift */; };
@@ -118,6 +120,8 @@
 		750ABE65255941D6002075F0 /* MateriSayaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MateriSayaView.swift; sourceTree = "<group>"; };
 		750ABEC5255A95DE002075F0 /* ProjectDatabaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDatabaseViewModel.swift; sourceTree = "<group>"; };
 		751C70872553BCFD0072C1B5 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		7523451D2562D1C70065B073 /* FirestoreImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreImageLoader.swift; sourceTree = "<group>"; };
+		752345222562E9AD0065B073 /* urlImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = urlImage.swift; sourceTree = "<group>"; };
 		75352C3E254B41EF0039EC2D /* Extension+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Color.swift"; sourceTree = "<group>"; };
 		75352C4B254B44150039EC2D /* JelajahMateriView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JelajahMateriView.swift; sourceTree = "<group>"; };
 		75352C50254B4F840039EC2D /* CustomNavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBarView.swift; sourceTree = "<group>"; };
@@ -426,14 +430,11 @@
 				BAEC7312255527EF0069574F /* AuthState.swift */,
 				B7F97468255480710059C650 /* Comment.swift */,
 				758081DB2552676000E50787 /* DummyModel.swift */,
-				757EBC2C255EAB410021A3C6 /* FirebaseError.swift */,
 				B7F974092554657E0059C650 /* Grade.swift */,
 				75BE5D232553F0BD00E8677E /* NavigationBarModifier.swift */,
 				B7F9745925546A1B0059C650 /* Project.swift */,
 				B7F9746325547F920059C650 /* ProjectActivity.swift */,
 				B7F97454255469710059C650 /* ProjectStatus.swift */,
-				757EBC31255EABAD0021A3C6 /* ProjectsGroup.swift */,
-				757EBC36255EAC5F0021A3C6 /* ViewType.swift */,
 				BA3A772A255337DF00975121 /* UserData.swift */,
 				B7F9745E2554762B0059C650 /* Subject.swift */,
 				B7F974042554645E0059C650 /* Topic.swift */,
@@ -456,6 +457,8 @@
 			children = (
 				BA3A773225534EA800975121 /* UserViewModel.swift */,
 				750ABEC5255A95DE002075F0 /* ProjectDatabaseViewModel.swift */,
+				7523451D2562D1C70065B073 /* FirestoreImageLoader.swift */,
+				752345222562E9AD0065B073 /* urlImage.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -895,9 +898,11 @@
 				BA90EB3C2552B18300C6DFFD /* AuthenticationUtil.swift in Sources */,
 				B7F9740A2554657E0059C650 /* Grade.swift in Sources */,
 				B7F97469255480710059C650 /* Comment.swift in Sources */,
+				752345232562E9AD0065B073 /* urlImage.swift in Sources */,
 				B7F974052554645E0059C650 /* Topic.swift in Sources */,
 				B7F9649625586B82004F33B3 /* DropdownSubject.swift in Sources */,
 				B7F9745F2554762B0059C650 /* Subject.swift in Sources */,
+				7523451E2562D1C70065B073 /* FirestoreImageLoader.swift in Sources */,
 				B7F9745A25546A1B0059C650 /* Project.swift in Sources */,
 				BA94301F25508AF600283FB3 /* SignInWithAppleButton.swift in Sources */,
 				B7F0F80325619B1D00263881 /* Date+Extensions.swift in Sources */,
@@ -1065,9 +1070,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = didik/didik.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"didik/Preview Content\"";
-				DEVELOPMENT_TEAM = 49TZU6B4Y9;
+				DEVELOPMENT_TEAM = JPMPS53HUZ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = didik/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1075,8 +1082,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.appledeveloperacademy.didik;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.developeracademy.didik-fandri";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1089,9 +1097,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = didik/didik.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"didik/Preview Content\"";
-				DEVELOPMENT_TEAM = 49TZU6B4Y9;
+				DEVELOPMENT_TEAM = JPMPS53HUZ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = didik/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1099,8 +1109,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.appledeveloperacademy.didik;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.developeracademy.didik-fandri";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -8,7 +8,7 @@
 import Foundation
 
 struct ProjectActivity: Hashable, Codable {
-    let name: String
-    let description: String
-    let time: Int // time refer to range, not date time
+    var name: String
+    var description: String
+    var time: Int // time refer to range, not date time
 }

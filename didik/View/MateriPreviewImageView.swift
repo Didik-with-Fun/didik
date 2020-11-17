@@ -8,20 +8,29 @@
 import SwiftUI
 
 struct MateriPreviewImageView: View {
+    
     let height: CGFloat
     let width: CGFloat
     
     let project: Project
     
+    init(height: CGFloat, width: CGFloat, project: Project) {
+        self.height = height
+        self.width = width
+        self.project = project
+        
+    }
+    
     var body: some View {
         ZStack {
-            Image(project.images[0])
-                .resizable()
+            
+//            urlImage(path: project.images[0])
+            Image.Didik.generateRandomDefaultImage(subject: project.subject)
                 .scaledToFill()
                 .foregroundColor(.black)
+
             
             HStack {
-                
                 Spacer()
                 VStack(alignment: .center) {
                     ZStack {

@@ -11,8 +11,10 @@ import SwiftUI
 struct ActivityMainView: View {
     
     @State var totalActivityTime: Int = 0
-    @State var dummy = ["Text 1"]
-    @State var contentActivities: [ProjectActivity] = []
+    @Binding var contentActivities: [ProjectActivity]
+    @State var contentActivity: ProjectActivity = ProjectActivity(name: "", description: "", time: 0)
+    @Binding var showPopOver: Bool
+    @Binding var showPopOverContents: Tooltips
     
     var body: some View {
         VStack (alignment: .leading, spacing: 10) {
@@ -20,18 +22,17 @@ struct ActivityMainView: View {
                 Text("Aktifitas")
                     .padding(.vertical, 5)
                 
-                Button(action: {}, label: {
+                Button(action: { childShowPopover() }, label: {
                     Image("Info")
                 })
             }
             
             ForEach(0..<contentActivities.count, id: \.self) { index in
-                ActivityFieldGroup(contentActivityName: contentActivities[index].name, contentActivityTime: contentActivities[index].time, contentActivityDescription: contentActivities[index].description)
+                ActivityFieldGroup(contentActivity: $contentActivities[index], totalActivityTime: $totalActivityTime)
             }
             
             Button(action: {
                 self.addActivityView()
-                print("--> NEW ACTIVITY ADED, \(contentActivities)")
             }, label: {
                 ZStack {
                     Rectangle()
@@ -56,20 +57,24 @@ struct ActivityMainView: View {
                     .font(.system(size: 19, weight: .bold))
                     .padding(.trailing, 10)
             }
-            
         }
     }
     
     private func addActivityView() {
         // TODO: - Dynamicly add new activity and push it to contentActivities array of ProjectActivity
-        let newActivity = ProjectActivity(name: "Aktifitas Proyek Bersama Guru", description: "Quick jump fox runs over the lazy dog", time: 2)
+        let newActivity = ProjectActivity(name: "", description: "", time: 0)
         
         self.contentActivities.append(newActivity)
+    }
+    
+    private func childShowPopover() {
+        self.showPopOverContents = .aktifitas
+        self.showPopOver = true
     }
 }
 
 struct ActivityMainViewPreview: PreviewProvider {
     static var previews: some View {
-        ActivityMainView(totalActivityTime: 0)
+        ActivityMainView(contentActivities: .constant([]), showPopOver: .constant(false), showPopOverContents: .constant(.aktifitas))
     }
 }

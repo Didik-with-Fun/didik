@@ -9,6 +9,10 @@ import Foundation
 import SwiftUI
 
 struct MediaView: View {
+    @Binding var showPopOver: Bool
+    @Binding var showPopOverContents: Tooltips
+    
+    @State var mediaList: [String] = []
     
     @Binding var contentMedia: [String]
 
@@ -19,7 +23,7 @@ struct MediaView: View {
                     Text("Media")
                         .padding(.vertical, 5)
                     
-                    Button(action: {}, label: {
+                    Button(action: { childShowPopover() }, label: {
                         Image("Info")
                     })
                 }
@@ -28,6 +32,7 @@ struct MediaView: View {
                     HStack (alignment: .top, spacing: 10) {
                         Button(action: {
                             // action when add media
+                            self.mediaUnaccessible()
                         }, label: {
                             ZStack {
                                 Rectangle()
@@ -44,26 +49,31 @@ struct MediaView: View {
                                     .foregroundColor(.white)
                                 }
                             }
-                            //Image("InsertMedia")
                         })
                         
-                        
-                        Image("InsertMediaDummy").padding(.horizontal, 10)
-                        Image("InsertMediaDummy").padding(.horizontal, 10)
-                        Image("InsertMediaDummy").padding(.horizontal, 10)
-                        Image("InsertMediaDummy").padding(.horizontal, 10)
-                        Image("InsertMediaDummy").padding(.horizontal, 10)
+                        ForEach (0..<mediaList.count, id: \.self) { index in
+                            Image("InsertMediaDummy").padding(.horizontal, 10)
+                        }
                     }
                 }
             }
         }.padding([.top, .horizontal], 20)
+    }
+    
+    private func mediaUnaccessible() {
+        self.showPopOverContents = .mediaNotAvailable
+        self.showPopOver = true
+    }
+    
+    private func childShowPopover() {
+        self.showPopOverContents = .mediaUpload
+        self.showPopOver = true
     }
 }
 
 struct MediaViewPreview: PreviewProvider {
     
     static var previews: some View {
-
-        MediaView(contentMedia: .constant(FirebaseRequestService.createDummyProjects()[0].images))
+        MediaView(showPopOver: .constant(false), showPopOverContents: .constant(.mediaUpload), contentMedia: .constant(FirebaseRequestService.createDummyProjects()[0].images))
     }
 }

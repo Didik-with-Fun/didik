@@ -8,19 +8,16 @@
 import SwiftUI
 import Firebase
 
-let imagePreview1 = "math-preview-1.jpg"
-let contentProjectImages = [imagePreview1]
-let contentProjectActivities = [ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1), ProjectActivity.init(name: "Mengintepretasi persamaan dan pertidaksamaan nilai", description: "Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", time: 1)]
+let contentProjectImages = ["math-preview-1.jpg"]
 let contentComments = [Comment.init(comment: "bego lu", authorID: "Mine", createdDate: Date())]
 
 struct CreateProjectView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
     @EnvironmentObject var signInCoordinator: SignInWithAppleCoordinator
     
     // MARK: - State Variable for Data Storing
     @State var contentProjectName: String = ""
-    @State var contentSubject: Subject = .Mathematic        // check
+    @State var contentSubject: Subject = .Mathematic
     @State var contentGrade: Grades = .ten
     @State var contentTopic: Topic = defaultTopic
     @State var contentSummary: String = ""
@@ -28,7 +25,6 @@ struct CreateProjectView: View {
     @State var contentMedia: [String] = []
     @State var contentActivities: [ProjectActivity] = []
     @State var contentNotes: String = ""
-    
 
     @State var showPopOver = false
     @State var showPopOverContents: Tooltips = .namaProyek
@@ -52,6 +48,7 @@ struct CreateProjectView: View {
         ScrollView {
             VStack {
                 ZStack {
+                    
                     // MARK: - Form View
                     VStack {
                         
@@ -75,44 +72,48 @@ struct CreateProjectView: View {
                             }
                         }
                         .padding(.vertical, 20)
+                        .zIndex(10)
                         
                         // MARK: - Topics & Core Competence Sections
                         TopicMainView(contentTopic: $contentTopic)
+                        .zIndex(9)
                         
                         // MARK: - Form Field - Project Name aka Nama Proyek
-                        ProjectNameFieldView(contentProjectName: $contentProjectName)
+                        ProjectNameFieldView(contentProjectName: $contentProjectName, showPopOver: $showPopOver, showPopOverContents: $showPopOverContents)
                         
                         // MARK: - Form Field - Project Description
-                        DescriptionFieldView(contentDescription: $contentSummary)
+                        DescriptionFieldView(contentDescription: $contentSummary, showPopOver: $showPopOver, showPopOverContents: $showPopOverContents)
                         
                         // MARK: - Form Field - Goals aka Tujuan Proyek
-                        LearningGoalsFieldView(contentLearningGoals: $contentLearningGoals)
+                        LearningGoalsFieldView(contentLearningGoals: $contentLearningGoals, showPopOver: $showPopOver, showPopOverContents: $showPopOverContents)
                         
                         // MARK: - Form Field - Media Uploads
-                        MediaView(contentMedia: $contentMedia)
+                        MediaView(showPopOver: $showPopOver, showPopOverContents: $showPopOverContents, contentMedia: $contentMedia)
                         
                         // MARK: - Form Field - Activity
                         HStack {
-                            ActivityMainView(totalActivityTime: contentActivitiesDays, contentActivities: contentActivities)
+                            ActivityMainView(totalActivityTime: contentActivitiesDays, contentActivities: $contentActivities, showPopOver: $showPopOver, showPopOverContents: $showPopOverContents)
                         }.padding([.top, .horizontal], 20)
                         
                         // MARK: - Form Field - Notes aka Catatan Siswa
-                        NoteToStudentFieldView(contentNotes: $contentNotes)
+                        NoteToStudentFieldView(contentNotes: $contentNotes, showPopOver: $showPopOver, showPopOverContents: $showPopOverContents)
                     }
                     
                     if self.showPopOver {
-                        GeometryReader {_ in
-                            VStack(alignment: .center) {
-                                TooltipView(tooltip: .constant(.namaProyek))
-                            }
-                        }.background(
+                        GeometryReader { geometry in
+                            TooltipView(tooltip: $showPopOverContents, showPopOver: $showPopOver, writeFunction: {          self.write(projectStatus: .Published)
+                                        self.showPopOver = false
+                                })
+                                .position(x: geometry.size.width / 2, y: (geometry.size.height - (geometry.size.height / 2)))
+                        }
+                        .background(
                             Color.black.opacity(0.6)
-                                .edgesIgnoringSafeArea(.all)
-                                .onTapGesture {
-                                    withAnimation {
-                                        self.showPopOver.toggle()
-                                    }
+                            .edgesIgnoringSafeArea(.all)
+                            .onTapGesture {
+                                withAnimation {
+                                    self.showPopOver.toggle()
                                 }
+                            }
                         )
                     }
                 }
@@ -126,9 +127,9 @@ struct CreateProjectView: View {
                         projectWriteFirebase(projectStatus: .Draft)
                     }, label: {
                         Text("Save to Draft")
-                        .frame(width: 258, height: 48)
-                        .background(Color.Didik.GreyDark)
-                        .foregroundColor(.white)
+                            .frame(width: 258, height: 48)
+                            .background(Color.Didik.GreyDark)
+                            .foregroundColor(.white)
                     })
                     .cornerRadius(10)
                     
@@ -138,9 +139,9 @@ struct CreateProjectView: View {
                         projectWriteFirebase(projectStatus: .Published)
                     }, label: {
                         Text("Publish")
-                        .frame(width: 258, height: 48)
-                        .background(Color.Didik.BluePrimary)
-                        .foregroundColor(.white)
+                            .frame(width: 258, height: 48)
+                            .background(Color.Didik.BlueSecondary)
+                            .foregroundColor(.white)
                     })
                     .cornerRadius(10)
                 }
@@ -172,6 +173,27 @@ struct CreateProjectView: View {
 
         let isFormValidate = validateForm()
         
+        if !isFormValidate {
+            // perform pop up error form
+            print("Form Uncomplete!")
+            return
+        }
+        
+        if projectStatus == .Published {
+            self.showPopOverContents = .confirmationPublish
+            self.showPopOver = true
+        } else if projectStatus == .Draft {
+            self.write(projectStatus: .Draft)
+        }
+        
+        return
+    }
+    
+    func write(projectStatus: ProjectStatus) {
+        self.showPopOver = false
+        
+        print("writing to firebase...")
+        
         let newContentProject = Project(
                 name: contentProjectName,
                 summary: contentSummary,
@@ -181,32 +203,29 @@ struct CreateProjectView: View {
                 goal: contentLearningGoals,
                 images: contentProjectImages,
                 projectStatus: projectStatus,
-                projectActivities: contentProjectActivities,
+                projectActivities: contentActivities,
                 notes: contentNotes,
                 comments: contentComments,
                 likes: 0,
-            authorUID : Auth.auth().currentUser!.uid ?? "nil",
-            authorName : signInCoordinator.userProfile.fullname
-//                authorUID: Author.authorUID ?? "",
-//                authorName: Author.authorFullname ?? ""
+                authorUID : Auth.auth().currentUser!.uid ?? "nil",
+                authorName : signInCoordinator.userProfile.fullname
+                //authorUID: Author.authorUID ?? "",
+                //authorName: Author.authorFullname ?? ""
             )
         
-        print("--> Firebase Data Write Project Collection:")
-        print(newContentProject)
-        print("--> author ID: \(newContentProject.authorUID)")
-        print("--> author ID: \(newContentProject.authorName)")
+        print("UID: \(Auth.auth().currentUser!.uid)")
+        print("Fullname: \(signInCoordinator.userProfile.fullname)")
         
-        
-        if isFormValidate {
-            FirebaseRequestService.writeProject(contentProject: newContentProject) { (status) in
-                print("--> write project to firebase: \(status)")
-                 //do action after saving
-                 //animate loading of saving to draft or publishing projects
-                 //show error or success
+        FirebaseRequestService.writeProject(contentProject: newContentProject) { (status) in
+            print("--> write project to firebase: \(status)")
+            
+            if status {
+                self.showPopOverContents = (projectStatus == .Published) ? (.projectPublishSuccess) : (.projectDraftSuccess)
+            } else {
+                self.showPopOverContents = (projectStatus == .Published) ? (.projectPublishFailed) : (.projectDraftFailed)
             }
-        } else {
-            // perform pop up error form uncomplete
-            print("Form Uncomplete!")
+            
+            self.showPopOver = true
         }
         
         return
