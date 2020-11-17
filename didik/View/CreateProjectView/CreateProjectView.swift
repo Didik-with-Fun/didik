@@ -13,7 +13,6 @@ let contentComments = [Comment.init(comment: "bego lu", authorID: "Mine", create
 
 struct CreateProjectView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
     @EnvironmentObject var signInCoordinator: SignInWithAppleCoordinator
     
     // MARK: - State Variable for Data Storing
@@ -26,7 +25,6 @@ struct CreateProjectView: View {
     @State var contentMedia: [String] = []
     @State var contentActivities: [ProjectActivity] = []
     @State var contentNotes: String = ""
-    
 
     @State var showPopOver = false
     @State var showPopOverContents: Tooltips = .namaProyek
@@ -90,11 +88,11 @@ struct CreateProjectView: View {
                         LearningGoalsFieldView(contentLearningGoals: $contentLearningGoals, showPopOver: $showPopOver, showPopOverContents: $showPopOverContents)
                         
                         // MARK: - Form Field - Media Uploads
-                        MediaView(contentMedia: $contentMedia, showPopOver: $showPopOver, showPopOverContents: $showPopOverContents)
+                        MediaView(showPopOver: $showPopOver, showPopOverContents: $showPopOverContents, contentMedia: $contentMedia)
                         
                         // MARK: - Form Field - Activity
                         HStack {
-                            ActivityMainView(totalActivityTime: contentActivitiesDays, contentActivities: contentActivities, contentActivities: contentActivities, showPopOver: $showPopOver, showPopOverContents: $showPopOverContents)
+                            ActivityMainView(totalActivityTime: contentActivitiesDays, contentActivities: contentActivities, showPopOver: $showPopOver, showPopOverContents: $showPopOverContents)
                         }.padding([.top, .horizontal], 20)
                         
                         // MARK: - Form Field - Notes aka Catatan Siswa
@@ -214,6 +212,9 @@ struct CreateProjectView: View {
                 //authorUID: Author.authorUID ?? "",
                 //authorName: Author.authorFullname ?? ""
             )
+        
+        print("UID: \(Auth.auth().currentUser!.uid)")
+        print("Fullname: \(signInCoordinator.userProfile.fullname)")
         
         FirebaseRequestService.writeProject(contentProject: newContentProject) { (status) in
             print("--> write project to firebase: \(status)")
