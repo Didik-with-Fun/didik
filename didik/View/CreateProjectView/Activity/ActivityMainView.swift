@@ -11,7 +11,7 @@ import SwiftUI
 struct ActivityMainView: View {
     
     @State var totalActivityTime: Int = 0
-    @State var contentActivities: [ProjectActivity]
+    @Binding var contentActivities: [ProjectActivity]
     @State var contentActivity: ProjectActivity = ProjectActivity(name: "", description: "", time: 0)
     @Binding var showPopOver: Bool
     @Binding var showPopOverContents: Tooltips
@@ -75,6 +75,6 @@ struct ActivityMainView: View {
 
 struct ActivityMainViewPreview: PreviewProvider {
     static var previews: some View {
-        ActivityMainView(contentActivities: [], showPopOver: .constant(false), showPopOverContents: .constant(.aktifitas))
+        ActivityMainView(contentActivities: .constant([]), showPopOver: .constant(false), showPopOverContents: .constant(.aktifitas))
     }
 }

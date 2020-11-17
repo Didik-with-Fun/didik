@@ -92,7 +92,7 @@ struct CreateProjectView: View {
                         
                         // MARK: - Form Field - Activity
                         HStack {
-                            ActivityMainView(totalActivityTime: contentActivitiesDays, contentActivities: contentActivities, showPopOver: $showPopOver, showPopOverContents: $showPopOverContents)
+                            ActivityMainView(totalActivityTime: contentActivitiesDays, contentActivities: $contentActivities, showPopOver: $showPopOver, showPopOverContents: $showPopOverContents)
                         }.padding([.top, .horizontal], 20)
                         
                         // MARK: - Form Field - Notes aka Catatan Siswa
