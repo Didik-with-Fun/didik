@@ -159,29 +159,52 @@ struct CreateProjectView: View {
         
     }
     
-    func validateForm() -> Bool {
-        if (contentGrade == .allGrades) {
-            print("ERROR: Grade unselected!")
-        } else if (contentSubject == .allSubjects) {
-            print("ERROR: Subject unselected!")
-        } else if (contentTopic.name == defaultTopic.name) {
-            print("ERROR: Topic unselected!")
-        } else if (contentProjectName == "") {
-            print("ERROR: Project Name Must Be Written!")
-        } else {
-            return true
+    func validateForm(projectStatus: ProjectStatus) -> Bool {
+        switch projectStatus {
+            case .Draft:
+                if (contentGrade == .allGrades) {
+                    self.showPopOverContents = .uncompleteGrade
+                } else if (contentSubject == .allSubjects) {
+                    self.showPopOverContents = .uncompleteSubject
+                } else if (contentTopic.name == defaultTopic.name) {
+                    self.showPopOverContents = .uncompleteTopic
+                } else if (contentProjectName == "") {
+                    self.showPopOverContents = .uncompleteProjectName
+                } else {
+                    return true
+                }
+                
+                self.showPopOver = true
+                return false
+            default:
+                if (contentGrade == .allGrades) {
+                    self.showPopOverContents = .uncompleteGrade
+                } else if (contentSubject == .allSubjects) {
+                    self.showPopOverContents = .uncompleteSubject
+                } else if (contentTopic.name == defaultTopic.name) {
+                    self.showPopOverContents = .uncompleteTopic
+                } else if (contentProjectName == "") {
+                    self.showPopOverContents = .uncompleteProjectName
+                }  else if (contentSummary == "") {
+                    self.showPopOverContents = .uncompleteProjectSummary
+                } else if (contentLearningGoals == "") {
+                    self.showPopOverContents = .uncompleteProjectLearningGoals
+                } else if (contentActivities.isEmpty) {
+                    self.showPopOverContents = .uncompleteProjectActivities
+                } else {
+                    return true
+                }
+                
+                self.showPopOver = true
+                return false
         }
-        
-        return false
     }
     
     func projectWriteFirebase(projectStatus: ProjectStatus) {
 
-        let isFormValidate = validateForm()
+        let isFormValidate = validateForm(projectStatus: projectStatus)
         
         if !isFormValidate {
-            // perform pop up error form
-            print("Form Uncomplete!")
             return
         }
         
