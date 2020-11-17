@@ -14,9 +14,10 @@ struct UserButton: View {
             label: {
                 Image(systemName: "person.circle")
                     .foregroundColor(.white)
-                    .font(.system(size: 30))
-                    .padding()
-            })
+                    .font(.system(size: 35))
+        })
+        .padding(.top, 15)
+        .padding(.trailing, 25)
     }
 }
 
