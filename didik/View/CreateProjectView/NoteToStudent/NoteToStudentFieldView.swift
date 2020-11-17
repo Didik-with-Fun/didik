@@ -10,6 +10,8 @@ import SwiftUI
 
 struct NoteToStudentFieldView: View {
     @Binding var contentNotes: String
+    @Binding var showPopOver: Bool
+    @Binding var showPopOverContents: Tooltips
     
     var body: some View {
         VStack {
@@ -19,7 +21,7 @@ struct NoteToStudentFieldView: View {
                         Text("Catatan untuk Siswa")
                             .padding(.vertical, 5)
                         
-                        Button(action: {}, label: {
+                        Button(action: { childShowPopover() }, label: {
                             Image("Info")
                         })
                     }
@@ -46,11 +48,16 @@ struct NoteToStudentFieldView: View {
             }.padding([.top, .horizontal], 20)
         }
     }
+    
+    private func childShowPopover() {
+        self.showPopOverContents = .catatanSiswa
+        self.showPopOver = true
+    }
 }
 
 struct NoteToStudentFieldViewPreview: PreviewProvider {
     static var previews: some View {
-        NoteToStudentFieldView(contentNotes: .constant(""))
+        NoteToStudentFieldView(contentNotes: .constant(""), showPopOver: .constant(false), showPopOverContents: .constant(.catatanSiswa))
     }
 }
 

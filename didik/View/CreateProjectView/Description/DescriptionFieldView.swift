@@ -10,6 +10,8 @@ import SwiftUI
 
 struct DescriptionFieldView: View {
     @Binding var contentDescription: String
+    @Binding var showPopOver: Bool
+    @Binding var showPopOverContents: Tooltips
     
     var body: some View {
         VStack {
@@ -19,7 +21,7 @@ struct DescriptionFieldView: View {
                         Text("Deskripsi/ Ringkasan Proyek")
                             .padding(.vertical, 5)
                         
-                        Button(action: {}, label: {
+                        Button(action: { childShowPopover() }, label: {
                             Image("Info")
                         })
                     }
@@ -47,10 +49,15 @@ struct DescriptionFieldView: View {
             }.padding([.top, .horizontal], 20)
         }
     }
+    
+    private func childShowPopover() {
+        self.showPopOverContents = .deskripsiProyek
+        self.showPopOver = true
+    }
 }
 
 struct DescriptionFieldViewPreview: PreviewProvider {
     static var previews: some View {
-        DescriptionFieldView(contentDescription: .constant(""))
+        DescriptionFieldView(contentDescription: .constant(""), showPopOver: .constant(false), showPopOverContents: .constant(.deskripsiProyek))
     }
 }
