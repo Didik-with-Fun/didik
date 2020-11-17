@@ -93,18 +93,21 @@ extension SignInWithAppleCoordinator: ASAuthorizationControllerDelegate {
                     
                     self.isUserAuthenticated = .signedIn
                     
-                    let userIdentifier = appleIDCredential.user
+                    let appleIdentifier = appleIDCredential.user
                     let fullName = (appleIDCredential.fullName?.givenName ?? "") + " " + (appleIDCredential.fullName?.familyName ?? "")
                     let email = appleIDCredential.email
                     
-                    
+                    let firebaseUserUID = Auth.auth().currentUser!.uid
                     
                     // if new user
                     if (fullName.trimmingCharacters(in: .whitespacesAndNewlines) != "" && email != nil) {
-                        self.setUserInfo(for: userIdentifier, fullname: fullName, email: email)
+                        self.setUserInfo(firebaseUserUID: firebaseUserUID,
+                                         appleIdentifier: appleIdentifier,
+                                         fullname: fullName,
+                                         email: email)
                         
                         // default data
-                        let profile = Profile(userIdentifier: Auth.auth().currentUser!.uid,
+                        let profile = Profile(userIdentifier: firebaseUserUID,
                                               fullname: fullName, school: "", teachingGrade: .ten, teachingSubject: .Physic, teachingSince: Date(), profilePicture: "Gambar")
                         
                         self.service.writeNewUser(contentProfile: profile) { (result) in
@@ -121,7 +124,7 @@ extension SignInWithAppleCoordinator: ASAuthorizationControllerDelegate {
                         
                     } else {
                         // if old user
-                        self.service.getOldUser(userIdentifier: Auth.auth().currentUser!.uid) { (result) in
+                        self.service.getOldUser(userIdentifier: firebaseUserUID) { (result) in
                             switch result {
                             case .success(let profile):
                                 self.userProfile = profile
@@ -146,35 +149,25 @@ extension SignInWithAppleCoordinator: ASAuthorizationControllerDelegate {
 }
 
 extension SignInWithAppleCoordinator {
-    private func setUserInfo(for userId: String, fullname: String?, email: String?) {
+    private func setUserInfo(firebaseUserUID: String, appleIdentifier: String, fullname: String?, email: String?) {
         
-        ASAuthorizationAppleIDProvider().getCredentialState(forUserID: userId, completion: { (credentialState, error) in
-            
-            //            var authState: String?
-            //
-            //            switch credentialState {
-            //
-            //            case .authorized:
-            //                authState = "authorized"
-            //            case .revoked:
-            //                authState = "revoked"
-            //            case .notFound:
-            //                authState = "notFound"
-            //            case .transferred:
-            //                authState = "transferred"
-            //            @unknown default:
-            //                fatalError()
-            //            }
-            
-            let userData = UserData(appleIdentifier: userId, fullName: fullname ?? "", email: email ?? "", school: "", teachingGrades: "", teachingSubject: "", teachingSince: "")
+        ASAuthorizationAppleIDProvider().getCredentialState(forUserID: appleIdentifier, completion: { (credentialState, error) in
+                       
+            let userData = UserData(userUID: firebaseUserUID,
+                                    appleIdentifier: appleIdentifier,
+                                    fullName: fullname ?? "",
+                                    email: email ?? "",
+                                    school: "",
+                                    teachingGrades: "",
+                                    teachingSubject: "",
+                                    teachingSince: "")
             
             if let userDataEncoded = try? JSONEncoder().encode(userData) {
                 UserDefaults.standard.set(userDataEncoded, forKey: "userData")
             }
             
         })
-        
-        
+                
     }
 }
 

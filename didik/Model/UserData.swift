@@ -9,6 +9,7 @@ import Foundation
 
 struct UserData: Codable {
     
+    var userUID: String
     var appleIdentifier: String
     var fullName: String
     var email: String
