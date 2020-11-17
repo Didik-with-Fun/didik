@@ -430,14 +430,11 @@
 				BAEC7312255527EF0069574F /* AuthState.swift */,
 				B7F97468255480710059C650 /* Comment.swift */,
 				758081DB2552676000E50787 /* DummyModel.swift */,
-				757EBC2C255EAB410021A3C6 /* FirebaseError.swift */,
 				B7F974092554657E0059C650 /* Grade.swift */,
 				75BE5D232553F0BD00E8677E /* NavigationBarModifier.swift */,
 				B7F9745925546A1B0059C650 /* Project.swift */,
 				B7F9746325547F920059C650 /* ProjectActivity.swift */,
 				B7F97454255469710059C650 /* ProjectStatus.swift */,
-				757EBC31255EABAD0021A3C6 /* ProjectsGroup.swift */,
-				757EBC36255EAC5F0021A3C6 /* ViewType.swift */,
 				BA3A772A255337DF00975121 /* UserData.swift */,
 				B7F9745E2554762B0059C650 /* Subject.swift */,
 				B7F974042554645E0059C650 /* Topic.swift */,
@@ -1077,7 +1074,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"didik/Preview Content\"";
-				DEVELOPMENT_TEAM = W5ZPF478J8;
+				DEVELOPMENT_TEAM = JPMPS53HUZ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = didik/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1085,7 +1082,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.developeracademy.didik;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.developeracademy.didik-fandri";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -1104,7 +1101,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"didik/Preview Content\"";
-				DEVELOPMENT_TEAM = W5ZPF478J8;
+				DEVELOPMENT_TEAM = JPMPS53HUZ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = didik/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1112,7 +1109,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.developeracademy.didik;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.developeracademy.didik-fandri";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
