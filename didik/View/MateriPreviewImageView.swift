@@ -14,8 +14,6 @@ struct MateriPreviewImageView: View {
     
     let project: Project
     
-    //    @ObservedObject var imageLoader: FirestoreImageLoader
-    
     init(height: CGFloat, width: CGFloat, project: Project) {
         self.height = height
         self.width = width
@@ -26,7 +24,8 @@ struct MateriPreviewImageView: View {
     var body: some View {
         ZStack {
             
-            urlImage(path: project.images[0])
+//            urlImage(path: project.images[0])
+            Image.Didik.generateRandomDefaultImage(subject: project.subject)
                 .scaledToFill()
                 .foregroundColor(.black)
 

@@ -32,6 +32,6 @@ struct urlImage: View {
 
 struct urlImage_Previews: PreviewProvider {
     static var previews: some View {
-        urlImage(path: "COBA")
+        urlImage(path: "projects-media/math-preview-1.jpg")
     }
 }
