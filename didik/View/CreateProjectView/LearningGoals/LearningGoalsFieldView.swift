@@ -26,7 +26,7 @@ struct LearningGoalsFieldView: View {
                         })
                     }
                     
-                    ZStack {
+                    /*ZStack {
                         if contentLearningGoals.isEmpty {
                             TextField("Tuliskan tujuan pemebelajaran dari proyek yang ingin dibuat", text: $contentLearningGoals, onEditingChanged: { (changed) in
                                             print("--> Debug: Learning Goals onEditingChanged - \(changed)")
@@ -43,8 +43,11 @@ struct LearningGoalsFieldView: View {
                                 .frame(height: 100)
                                 .overlay(RoundedRectangle(cornerRadius: 13).stroke(Color.gray))
                         }
-                    }
+                    }*/
                     
+                    TextEditor(text: $contentLearningGoals)
+                        .frame(height: 100)
+                        .overlay(RoundedRectangle(cornerRadius: 13).stroke(Color.gray))
                 }
             }.padding([.top, .horizontal], 20)
         }
