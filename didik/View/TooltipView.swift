@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct TooltipView: View {
-    
+    @Environment(\.presentationMode) var presentationMode
     @Binding var tooltip: Tooltips
     @Binding var showPopOver: Bool
     
@@ -47,22 +47,9 @@ struct TooltipView: View {
                     .cornerRadius(10)
                     .padding(.bottom, 20)
                 } else if tooltip == .projectPublishSuccess || tooltip == .projectDraftSuccess {
-                    /*NavigationLink(
-                        destination: MateriSayaView(parentGeometry: geometry),
-                        label: {
-                            ZStack {
-                                Rectangle()
-                                    .fill(Color.Didik.BlueSecondary)
-                                    .frame(width: 258, height: 48, alignment: .center)
-                                    .cornerRadius(10)
-                                
-                                Text("Ok")
-                                .foregroundColor(.white)
-                            }
-                            .padding(.bottom, 20)
-                    })*/
                     Button(action: {
                         self.showPopOver = false
+                        self.presentationMode.wrappedValue.dismiss()
                     }, label: {
                         Text("Ok")
                             .frame(width: 258, height: 48)

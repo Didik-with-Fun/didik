@@ -14,6 +14,8 @@ struct DropdownGrades: View {
     @State var isDropdownShowed: Bool = false
     @Binding var contentGrade: Grades
     
+    var writeFunction: () -> Void
+    
     let width: CGFloat
     
     var body: some View {
@@ -47,7 +49,7 @@ struct DropdownGrades: View {
                                 Button(action: {
                                     self.isDropdownShowed.toggle()
                                     self.contentGrade = contents[index]
-                                    // store subject pick and prepare POST
+                                    self.writeFunction()
                                 }) {
                                     Text(contents[index].rawValue)
                                         .foregroundColor(.black)
@@ -69,6 +71,6 @@ struct DropdownGrades: View {
 
 struct DropdownGradesPreview: PreviewProvider {
     static var previews: some View {
-        DropdownGrades(contentGrade: .constant(.ten), width: 130)
+        DropdownGrades(contentGrade: .constant(.ten), writeFunction: {}, width: 130)
     }
 }

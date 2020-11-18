@@ -17,8 +17,8 @@ struct CreateProjectView: View {
     
     // MARK: - State Variable for Data Storing
     @State var contentProjectName: String = ""
-    @State var contentSubject: Subject = .Mathematic
-    @State var contentGrade: Grades = .ten
+    @State var contentSubject: Subject = .allSubjects
+    @State var contentGrade: Grades = .allGrades
     @State var contentTopic: Topic = defaultTopic
     @State var contentSummary: String = ""
     @State var contentLearningGoals: String = ""
@@ -28,6 +28,8 @@ struct CreateProjectView: View {
 
     @State var showPopOver = false
     @State var showPopOverContents: Tooltips = .namaProyek
+    
+    @State var dropdownTopicList: [Topic] = topicList
     
     var contentActivitiesDays: Int = 0
     
@@ -80,7 +82,8 @@ struct CreateProjectView: View {
                                     Text("Mata Pelajaran")
                                         .padding(.vertical, 5)
                                     
-                                    DropdownSubject(contentSubject: $contentSubject, width: 350)
+                                    DropdownSubject(contentSubject: $contentSubject, writeFunction: {          self.filterDropdownTopicsBySubjectGrade()
+                            }, width: 350)
                                 }
                                 
                                 // MARK: - Grades Dropdown
@@ -88,14 +91,15 @@ struct CreateProjectView: View {
                                     Text("Kelas")
                                         .padding(.vertical, 5)
                                     
-                                    DropdownGrades(contentGrade: $contentGrade, width: 350)
+                                    DropdownGrades(contentGrade: $contentGrade, writeFunction: {          self.filterDropdownTopicsBySubjectGrade()
+                                    }, width: 350)
                                 }
                             }
                             .padding(.vertical, 20)
                             .zIndex(10)
                             
                             // MARK: - Topics & Core Competence Sections
-                            TopicMainView(contentTopic: $contentTopic)
+                            TopicMainView(contentTopic: $contentTopic, contentGrade: $contentGrade, contentSubject: $contentSubject, dropdownTopicsList: $dropdownTopicList)
                             .zIndex(9)
                             
                             // MARK: - Form Field - Project Name aka Nama Proyek
@@ -273,6 +277,17 @@ struct CreateProjectView: View {
         self.contentMedia.removeAll()
         self.contentActivities.removeAll()
         self.contentNotes = ""
+        
+        return
+    }
+    
+    func filterDropdownTopicsBySubjectGrade() {
+        let dropdownTopicsFilter = topicList.filter({
+            $0.subject == self.contentSubject && $0.grade == self.contentGrade
+        })
+        
+        self.dropdownTopicList = dropdownTopicsFilter
+        self.contentTopic = defaultTopic
         
         return
     }

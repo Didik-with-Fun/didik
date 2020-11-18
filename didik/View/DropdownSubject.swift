@@ -14,6 +14,8 @@ struct DropdownSubject: View {
     @State var isDropdownShowed: Bool = false
     @Binding var contentSubject: Subject
     
+    var writeFunction: () -> Void
+    
     let width: CGFloat
     
     var body: some View {
@@ -47,7 +49,7 @@ struct DropdownSubject: View {
                                 Button(action: {
                                     self.isDropdownShowed.toggle()
                                     self.contentSubject = contents[index]
-                                    // store subject pick and prepare POST
+                                    self.writeFunction()
                                 }) {
                                     Text(contents[index].rawValue)
                                         .foregroundColor(.black)
@@ -69,6 +71,6 @@ struct DropdownSubject: View {
 
 struct DropdownSubjectPreviews: PreviewProvider {
     static var previews: some View {
-        DropdownSubject(contentSubject: .constant(.Mathematic), width: 130)
+        DropdownSubject(contentSubject: .constant(.Mathematic), writeFunction: {}, width: 130)
     }
 }
