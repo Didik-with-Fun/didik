@@ -28,4 +28,8 @@ let topicMath4 = Topic(subject: .Mathematic, grade: .ten, name: "Persamaan Kuadr
 
 let topicMath5 = Topic(subject: .Mathematic, grade: .ten, name: "Fungsi Kuadrat", coreCompetence: "", basicCompetence: ["Menjelaskan dan menentukan fungsi (terutama fungsi linear, fungsi kuadrat, dan fungsi rasional) secara formal yang meliputi notasi, daerah asal, daerah hasil, dan ekspresi simbolik, serta sketsa grafiknya.", "Menganalisa karakteristik masing-masing grafik (titik potong dengan sumbu, titik puncak, asimtot) dan perubahan grafik fungsinya akibat transformasi  dsb."])
 
-let topicList = [defaultTopic, topicMath1, topicMath2, topicMath3, topicMath4, topicMath5]
+let topicMath6 = Topic(subject: .Mathematic, grade: .eleven, name: "Fungsi Kuadrat 2", coreCompetence: "", basicCompetence: ["Menjelaskan dan menentukan fungsi (terutama fungsi linear, fungsi kuadrat, dan fungsi rasional) secara formal yang meliputi notasi, daerah asal, daerah hasil, dan ekspresi simbolik, serta sketsa grafiknya.", "Menganalisa karakteristik masing-masing grafik (titik potong dengan sumbu, titik puncak, asimtot) dan perubahan grafik fungsinya akibat transformasi  dsb."])
+
+let topicSociology1 = Topic(subject: .Sociology, grade: .ten, name: "Sosiologi Dasar", coreCompetence: "", basicCompetence: ["Menjelaskan dan menentukan fungsi (terutama fungsi linear, fungsi kuadrat, dan fungsi rasional) secara formal yang meliputi notasi, daerah asal, daerah hasil, dan ekspresi simbolik, serta sketsa grafiknya.", "Menganalisa karakteristik masing-masing grafik (titik potong dengan sumbu, titik puncak, asimtot) dan perubahan grafik fungsinya akibat transformasi  dsb."])
+
+let topicList = [defaultTopic, topicMath1, topicMath2, topicMath3, topicMath4, topicMath5, topicSociology1, topicMath6]
