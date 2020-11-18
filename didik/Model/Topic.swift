@@ -16,7 +16,7 @@ struct Topic: Identifiable, Codable {
     let basicCompetence: [String] // stands for Kompentensi Dasar
 }
 
-let defaultTopic = Topic(subject: .allSubjects, grade: .allGrades, name: "Pilih Materi Pembelajaran", coreCompetence: "", basicCompetence: ["Akan terisi secara otomatis berdasarkan materi yang dipilih"])
+let defaultTopic = Topic(subject: .allSubjects, grade: .allGrades, name: "Pilih Materi Pembelajaran", coreCompetence: "", basicCompetence: ["Akan terisi secara otomatis berdasarkan materi pembelajaran yang dipilih"])
 
 let topicMath1 = Topic(subject: .Mathematic, grade: .ten, name: "Pertidaksamaan Linear", coreCompetence: "", basicCompetence: ["Mengintepretasi persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel dengan persamaan dan pertidaksamaan linear Aljabar lainnya.", "Menyelesaikan masalah yang berkaitan dengan persamaan dan pertidaksamaan nilai mutlak dari bentuk linear satu variabel."])
 
