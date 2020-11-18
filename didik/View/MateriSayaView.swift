@@ -29,8 +29,6 @@ struct MateriSayaView: View {
                 HStack{
                     Spacer()
                     NavigationLink(
-                        //destination: CreateProjectView(project: nil, selectedSubject: .Mathematic, selectedGrade: .ten, contentNamaProyek: "", showPopOver: false, showPopOverContents: .namaProyek, isDropdownSubjectOpen: false),
-                        
                         destination: CreateProjectView(project: project),
                         label: {
                             BuatMateriButton()
@@ -52,7 +50,7 @@ struct MateriSayaView: View {
                         VStack(spacing : 0) {
                             ForEach(db.myProjectsGroup) {
                                 index in
-                                MateriPreviewCollectionView(parentGeometry: parentGeometry, projectsGroup: index, selectedGrade: $selectedGrade, selectedSubject: $selectedSubject, startPointviewType: viewType)//(parentGeometry: parentGeometry, title: index.title, ProjectsLibrary: index.group)
+                                MateriPreviewCollectionView(parentGeometry: parentGeometry, projectsGroup: index, selectedGrade: $selectedGrade, selectedSubject: $selectedSubject, startPointviewType: viewType)
 
                             }
                         }
@@ -66,6 +64,9 @@ struct MateriSayaView: View {
             
         }
         .navigationViewStyle(StackNavigationViewStyle())
+        .onAppear(perform: {
+            db.filter(grade: selectedGrade, subject: selectedSubject, view: .myMateri)
+        })
         
         
     }

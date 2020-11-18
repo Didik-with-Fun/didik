@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 import Firebase
 import FirebaseFirestoreSwift
 
@@ -32,7 +33,7 @@ class ProjectDatabaseViewModel: ObservableObject {
     var specificProjects: [Project] = []
     @Published var filteredSpecificProjects: [Project] = []
     
-    let service = FirebaseRequestService()
+    @ObservedObject var service = FirebaseRequestService()
 //MARK: - init
     
     init() {
@@ -45,17 +46,22 @@ class ProjectDatabaseViewModel: ObservableObject {
                 self.allProjects = requestProjects
                 self.filteredProjects = requestProjects
 
-                
-                
 
-                
                 let temp = Dictionary(grouping: self.filteredProjects) { (project) -> String in
                     return project.topic.name
                 }
                 for (key, value) in temp {
-                    self.jelajahMateriGroup.append(ProjectsGroup(title: key, unfilteredGroup: value, group: value))
-                    self.referenceJelajahMateriGroup.append(ProjectsGroup(title: key, unfilteredGroup: value, group: value))
+                    let sorted = value.sorted(by: { (project1, project2) -> Bool in
+                        return project1.createdDate?.dateValue() ?? Date() > project2.createdDate?.dateValue() ?? Date()
+                    })
+                    
+                    self.jelajahMateriGroup.append(ProjectsGroup(title: key, unfilteredGroup: sorted, group: sorted))
+                    self.referenceJelajahMateriGroup.append(ProjectsGroup(title: key, unfilteredGroup: sorted, group: sorted))
                 }
+                
+                self.jelajahMateriGroup = self.jelajahMateriGroup.sorted(by: { (project1, project2) -> Bool in
+                    return project1.title.lowercased() > project2.title.lowercased()
+                })
                 
                 
                 
@@ -64,6 +70,7 @@ class ProjectDatabaseViewModel: ObservableObject {
             }
         }
         
+//        self.myAllProjects = service.myProjects
         // request my projects
         service.requestMyProject { (result) in
             switch result {
@@ -76,9 +83,17 @@ class ProjectDatabaseViewModel: ObservableObject {
                     return project.projectStatus
                 }
                 for (key, value) in myTemp {
-                    self.myProjectsGroup.append(ProjectsGroup(title: key.rawValue, unfilteredGroup: value, group: value))
-                    self.referenceMyProjectsGroup.append(ProjectsGroup(title: key.rawValue, unfilteredGroup: value, group: value))
+                    let sorted = value.sorted(by: { (project1, project2) -> Bool in
+                        return project1.createdDate?.dateValue() ?? Date() > project2.createdDate?.dateValue() ?? Date()
+                    })
+                    self.myProjectsGroup.append(ProjectsGroup(title: key.rawValue, unfilteredGroup: sorted, group: sorted))
+                    self.referenceMyProjectsGroup.append(ProjectsGroup(title: key.rawValue, unfilteredGroup: sorted, group: sorted))
                 }
+                
+                self.myProjectsGroup = self.myProjectsGroup.sorted(by: { (project1, project2) -> Bool in
+                    return project1.title.lowercased() > project2.title.lowercased()
+                })
+                
                 
             case .failure(let error):
                 print(error.localizedDescription)
@@ -150,14 +165,19 @@ extension ProjectDatabaseViewModel {
         for (key, value) in temp {
             for i in referenceJelajahMateriGroup {
                 if i.title == key {
-                    updateGroup.append(ProjectsGroup(title: key, unfilteredGroup: i.unfilteredGroup, group: value))
+                    let sorted = value.sorted(by: { (project1, project2) -> Bool in
+                        return project1.createdDate?.dateValue() ?? Date() > project2.createdDate?.dateValue() ?? Date()
+                    })
+                    updateGroup.append(ProjectsGroup(title: key, unfilteredGroup: i.unfilteredGroup, group: sorted))
                 }
                 print(i.title)
             }
         }
 
         
-        self.jelajahMateriGroup = updateGroup
+        self.jelajahMateriGroup = updateGroup.sorted(by: { (project1, project2) -> Bool in
+            return project1.title.lowercased() > project2.title.lowercased()
+        })
         
     }
     
@@ -205,14 +225,33 @@ extension ProjectDatabaseViewModel {
         for (key, value) in temp {
             for i in referenceMyProjectsGroup {
                 if i.title == key.rawValue {
-                    updateGroup.append(ProjectsGroup(title: key.rawValue, unfilteredGroup: i.unfilteredGroup, group: value))
+                    let sorted = value.sorted(by: { (project1, project2) -> Bool in
+                        return project1.createdDate?.dateValue() ?? Date() > project2.createdDate?.dateValue() ?? Date()
+                    })
+                    updateGroup.append(ProjectsGroup(title: key.rawValue, unfilteredGroup: i.unfilteredGroup, group: sorted))
                 }
                 print(i.title)
             }
         }
         
-        self.myProjectsGroup = updateGroup
+        self.myProjectsGroup = updateGroup.sorted(by: { (project1, project2) -> Bool in
+            return project1.title.lowercased() > project2.title.lowercased()
+        })
         
+    }
+    
+    func refreshMyProject() {
+        service.requestMyProject { (result) in
+            switch result {
+            case .success(let requestProjects):
+                // initialize my materi project database
+                self.myAllProjects = requestProjects
+                
+                
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
     
 }
@@ -240,6 +279,8 @@ extension ProjectDatabaseViewModel {
             }
         }
         
-        self.filteredSpecificProjects = filterSubject
+        self.filteredSpecificProjects = filterSubject.sorted(by: { (project1, project2) -> Bool in
+            return project1.createdDate?.dateValue() ?? Date() > project2.createdDate?.dateValue() ?? Date()
+        })
     }
 }

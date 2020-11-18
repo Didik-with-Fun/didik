@@ -15,6 +15,7 @@
 		751C70882553BCFD0072C1B5 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751C70872553BCFD0072C1B5 /* Constant.swift */; };
 		7523451E2562D1C70065B073 /* FirestoreImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7523451D2562D1C70065B073 /* FirestoreImageLoader.swift */; };
 		752345232562E9AD0065B073 /* urlImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752345222562E9AD0065B073 /* urlImage.swift */; };
+		7531E7D22565511E006DC20B /* RefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7531E7D12565511E006DC20B /* RefreshControl.swift */; };
 		75352C3F254B41EF0039EC2D /* Extension+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75352C3E254B41EF0039EC2D /* Extension+Color.swift */; };
 		75352C4C254B44150039EC2D /* JelajahMateriView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75352C4B254B44150039EC2D /* JelajahMateriView.swift */; };
 		75352C51254B4F840039EC2D /* CustomNavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75352C50254B4F840039EC2D /* CustomNavigationBarView.swift */; };
@@ -123,6 +124,7 @@
 		751C70872553BCFD0072C1B5 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		7523451D2562D1C70065B073 /* FirestoreImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreImageLoader.swift; sourceTree = "<group>"; };
 		752345222562E9AD0065B073 /* urlImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = urlImage.swift; sourceTree = "<group>"; };
+		7531E7D12565511E006DC20B /* RefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshControl.swift; sourceTree = "<group>"; };
 		75352C3E254B41EF0039EC2D /* Extension+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Color.swift"; sourceTree = "<group>"; };
 		75352C4B254B44150039EC2D /* JelajahMateriView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JelajahMateriView.swift; sourceTree = "<group>"; };
 		75352C50254B4F840039EC2D /* CustomNavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBarView.swift; sourceTree = "<group>"; };
@@ -459,6 +461,7 @@
 				757EBC31255EABAD0021A3C6 /* ProjectsGroup.swift */,
 				757EBC36255EAC5F0021A3C6 /* ViewType.swift */,
 				B703FDDD25626A2F00FB7300 /* Profile.swift */,
+				7531E7D12565511E006DC20B /* RefreshControl.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -920,6 +923,7 @@
 				B7F0F80325619B1D00263881 /* Date+Extensions.swift in Sources */,
 				BABCC1BB255867C5005FCC7B /* OverviewDetailProjectView.swift in Sources */,
 				B7F9746425547F920059C650 /* ProjectActivity.swift in Sources */,
+				7531E7D22565511E006DC20B /* RefreshControl.swift in Sources */,
 				B7AB621E2546AB1F007E4895 /* didikApp.swift in Sources */,
 				BABCC17F25585333005FCC7B /* DetailProjectMainView.swift in Sources */,
 				75352C51254B4F840039EC2D /* CustomNavigationBarView.swift in Sources */,
@@ -1086,7 +1090,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"didik/Preview Content\"";
-				DEVELOPMENT_TEAM = W5ZPF478J8;
+				DEVELOPMENT_TEAM = JPMPS53HUZ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = didik/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1094,7 +1098,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.developeracademy.didik;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.developeracademy.didik-fandri";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -1113,7 +1117,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"didik/Preview Content\"";
-				DEVELOPMENT_TEAM = W5ZPF478J8;
+				DEVELOPMENT_TEAM = JPMPS53HUZ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = didik/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1121,7 +1125,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.developeracademy.didik;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.developeracademy.didik-fandri";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

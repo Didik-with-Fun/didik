@@ -17,7 +17,8 @@ struct JelajahMateriView: View {
     
     let viewType: ViewType = .jelajah
     var parentGeometry: GeometryProxy
-
+    
+    @State var isShowing = false
     
     var body: some View {
         NavigationView {
@@ -41,6 +42,8 @@ struct JelajahMateriView: View {
                                 MateriTableCellView(project: project, height: 125, width: 230, bookmarked: false)
                             })
                     }
+                    
+                    
                 } else {
                     ScrollView(.vertical) {
                         VStack(spacing : 0) {
@@ -50,15 +53,14 @@ struct JelajahMateriView: View {
                             }
                         }
                     }
+                    
                 }
                 
             }
             .navigationBarColor(backgroundColor: UIColor(Color.Didik.BluePrimary))
             .navigationBarTitle("Jelajah Materi", displayMode: .automatic)
             .navigationBarItems(trailing: UserButton())
-//            .onAppear(perform: {
-//                db.filter(grade: selectedGrade, subject: selectedSubject, view: .jelajah)
-//            })
+
             
         }
         .navigationViewStyle(StackNavigationViewStyle())

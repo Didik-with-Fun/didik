@@ -9,38 +9,70 @@ import SwiftUI
 
 struct DummyView: View {
     
-
+    @State var bool = false
     
     var body: some View {
-        HStack(alignment: .top){
-            HStack (alignment: .bottom) {
-                VStack {
-                    Image.Didik.Love
-                    Text("DUMMY VIEW")
-                    
+        
+        RefreshableScrollView(refreshing: $bool) {
+            HStack(alignment: .top){
+                HStack (alignment: .bottom) {
+                    VStack {
+                        Image.Didik.Love
+                        Text("DUMMY VIEW")
+                        
+                    }
+                    Text("Center")
+                    VStack {
+                        Image.Didik.Love
+                        Text("DUMMY VIEW")
+                        
+                    }
                 }
-                Text("Center")
-                VStack {
-                    Image.Didik.Love
-                    Text("DUMMY VIEW")
-                    
-                }
-            }
-            Spacer()
-            Image.Didik.MathematicDarkBlue
-                .resizable()
-                .scaledToFit()
-            
-            VStack {
                 Spacer()
-                HStack(alignment: .bottom) {
-                    Image.Didik.CalendarDays
-                    Text("ASDAD")
-                    Image.Didik.CalendarDays
+                Image.Didik.MathematicDarkBlue
+                    .resizable()
+                    .scaledToFit()
+                
+                VStack {
+                    Spacer()
+                    HStack(alignment: .bottom) {
+                        Image.Didik.CalendarDays
+                        Text("ASDAD")
+                        Image.Didik.CalendarDays
+                    }
                 }
-            }
 
-        }.fixedSize(horizontal: false, vertical: true)
+            }.fixedSize(horizontal: false, vertical: true)
+        }
+//        HStack(alignment: .top){
+//            HStack (alignment: .bottom) {
+//                VStack {
+//                    Image.Didik.Love
+//                    Text("DUMMY VIEW")
+//
+//                }
+//                Text("Center")
+//                VStack {
+//                    Image.Didik.Love
+//                    Text("DUMMY VIEW")
+//
+//                }
+//            }
+//            Spacer()
+//            Image.Didik.MathematicDarkBlue
+//                .resizable()
+//                .scaledToFit()
+//
+//            VStack {
+//                Spacer()
+//                HStack(alignment: .bottom) {
+//                    Image.Didik.CalendarDays
+//                    Text("ASDAD")
+//                    Image.Didik.CalendarDays
+//                }
+//            }
+//
+//        }.fixedSize(horizontal: false, vertical: true)
         
     }
 }

@@ -14,6 +14,7 @@ let contentComments = [Comment.init(comment: "bego lu", authorID: "Mine", create
 struct CreateProjectView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @EnvironmentObject var signInCoordinator: SignInWithAppleCoordinator
+    @EnvironmentObject var db: ProjectDatabaseViewModel
     
     // MARK: - State Variable for Data Storing
     @State var contentProjectName: String = ""
@@ -25,7 +26,7 @@ struct CreateProjectView: View {
     @State var contentMedia: [String] = []
     @State var contentActivities: [ProjectActivity] = []
     @State var contentNotes: String = ""
-
+    
     @State var showPopOver = false
     @State var showPopOverContents: Tooltips = .namaProyek
     
@@ -48,20 +49,21 @@ struct CreateProjectView: View {
         ZStack {
             if self.showPopOver {
                 GeometryReader { geometry in
-                    TooltipView(tooltip: $showPopOverContents, showPopOver: $showPopOver, writeFunction: {          self.write(projectStatus: .Published)
-                                self.showPopOver = false
+                    TooltipView(tooltip: $showPopOverContents, showPopOver: $showPopOver, writeFunction: {
+                        self.write(projectStatus: .Published)
+                        self.showPopOver = false
                     })
                     .position(x: geometry.size.width / 2, y: (geometry.size.height - (geometry.size.height / 2)))
                 }
                 .zIndex(2)
                 .background(
                     Color.black.opacity(0.6)
-                    .edgesIgnoringSafeArea(.all)
-                    .onTapGesture {
-                        withAnimation {
-                            self.showPopOver.toggle()
+                        .edgesIgnoringSafeArea(.all)
+                        .onTapGesture {
+                            withAnimation {
+                                self.showPopOver.toggle()
+                            }
                         }
-                    }
                 )
             }
             
@@ -96,7 +98,7 @@ struct CreateProjectView: View {
                             
                             // MARK: - Topics & Core Competence Sections
                             TopicMainView(contentTopic: $contentTopic)
-                            .zIndex(9)
+                                .zIndex(9)
                             
                             // MARK: - Form Field - Project Name aka Nama Proyek
                             ProjectNameFieldView(contentProjectName: $contentProjectName, showPopOver: $showPopOver, showPopOverContents: $showPopOverContents)
@@ -161,47 +163,47 @@ struct CreateProjectView: View {
     
     func validateForm(projectStatus: ProjectStatus) -> Bool {
         switch projectStatus {
-            case .Draft:
-                if (contentGrade == .allGrades) {
-                    self.showPopOverContents = .uncompleteGrade
-                } else if (contentSubject == .allSubjects) {
-                    self.showPopOverContents = .uncompleteSubject
-                } else if (contentTopic.name == defaultTopic.name) {
-                    self.showPopOverContents = .uncompleteTopic
-                } else if (contentProjectName == "") {
-                    self.showPopOverContents = .uncompleteProjectName
-                } else {
-                    return true
-                }
-                
-                self.showPopOver = true
-                return false
-            default:
-                if (contentGrade == .allGrades) {
-                    self.showPopOverContents = .uncompleteGrade
-                } else if (contentSubject == .allSubjects) {
-                    self.showPopOverContents = .uncompleteSubject
-                } else if (contentTopic.name == defaultTopic.name) {
-                    self.showPopOverContents = .uncompleteTopic
-                } else if (contentProjectName == "") {
-                    self.showPopOverContents = .uncompleteProjectName
-                }  else if (contentSummary == "") {
-                    self.showPopOverContents = .uncompleteProjectSummary
-                } else if (contentLearningGoals == "") {
-                    self.showPopOverContents = .uncompleteProjectLearningGoals
-                } else if (contentActivities.isEmpty) {
-                    self.showPopOverContents = .uncompleteProjectActivities
-                } else {
-                    return true
-                }
-                
-                self.showPopOver = true
-                return false
+        case .Draft:
+            if (contentGrade == .allGrades) {
+                self.showPopOverContents = .uncompleteGrade
+            } else if (contentSubject == .allSubjects) {
+                self.showPopOverContents = .uncompleteSubject
+            } else if (contentTopic.name == defaultTopic.name) {
+                self.showPopOverContents = .uncompleteTopic
+            } else if (contentProjectName == "") {
+                self.showPopOverContents = .uncompleteProjectName
+            } else {
+                return true
+            }
+            
+            self.showPopOver = true
+            return false
+        default:
+            if (contentGrade == .allGrades) {
+                self.showPopOverContents = .uncompleteGrade
+            } else if (contentSubject == .allSubjects) {
+                self.showPopOverContents = .uncompleteSubject
+            } else if (contentTopic.name == defaultTopic.name) {
+                self.showPopOverContents = .uncompleteTopic
+            } else if (contentProjectName == "") {
+                self.showPopOverContents = .uncompleteProjectName
+            }  else if (contentSummary == "") {
+                self.showPopOverContents = .uncompleteProjectSummary
+            } else if (contentLearningGoals == "") {
+                self.showPopOverContents = .uncompleteProjectLearningGoals
+            } else if (contentActivities.isEmpty) {
+                self.showPopOverContents = .uncompleteProjectActivities
+            } else {
+                return true
+            }
+            
+            self.showPopOver = true
+            return false
         }
     }
     
     func projectWriteFirebase(projectStatus: ProjectStatus) {
-
+        
         let isFormValidate = validateForm(projectStatus: projectStatus)
         
         if !isFormValidate {
@@ -224,23 +226,23 @@ struct CreateProjectView: View {
         print("writing to firebase...")
         
         let newContentProject = Project(
-                name: contentProjectName,
-                summary: contentSummary,
-                subject: contentSubject,
-                grade: contentGrade,
-                topic: contentTopic,
-                goal: contentLearningGoals,
-                images: contentProjectImages,
-                projectStatus: projectStatus,
-                projectActivities: contentActivities,
-                notes: contentNotes,
-                comments: contentComments,
-                likes: 0,
-                authorUID : Auth.auth().currentUser!.uid ?? "nil",
-                authorName : signInCoordinator.userProfile.fullname
-                //authorUID: Author.authorUID ?? "",
-                //authorName: Author.authorFullname ?? ""
-            )
+            name: contentProjectName,
+            summary: contentSummary,
+            subject: contentSubject,
+            grade: contentGrade,
+            topic: contentTopic,
+            goal: contentLearningGoals,
+            images: contentProjectImages,
+            projectStatus: projectStatus,
+            projectActivities: contentActivities,
+            notes: contentNotes,
+            comments: contentComments,
+            likes: 0,
+            authorUID : Auth.auth().currentUser!.uid ?? "nil",
+            authorName : signInCoordinator.userProfile.fullname
+            //authorUID: Author.authorUID ?? "",
+            //authorName: Author.authorFullname ?? ""
+        )
         
         print("UID: \(Auth.auth().currentUser!.uid)")
         print("Fullname: \(signInCoordinator.userProfile.fullname)")
@@ -249,8 +251,9 @@ struct CreateProjectView: View {
             print("--> write project to firebase: \(status)")
             
             if status {
-                self.cleanupContentProject()
+                //                self.cleanupContentProject()
                 self.showPopOverContents = (projectStatus == .Published) ? (.projectPublishSuccess) : (.projectDraftSuccess)
+                db.refreshMyProject()
             } else {
                 self.showPopOverContents = (projectStatus == .Published) ? (.projectPublishFailed) : (.projectDraftFailed)
             }
