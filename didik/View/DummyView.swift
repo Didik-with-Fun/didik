@@ -8,71 +8,32 @@
 import SwiftUI
 
 struct DummyView: View {
+    @ObservedObject var coba = cobain()
     
-    @State var bool = false
+    @State var index = 0 {
+        didSet {
+            print(index)
+        }
+    }
     
     var body: some View {
         
-        RefreshableScrollView(refreshing: $bool) {
-            HStack(alignment: .top){
-                HStack (alignment: .bottom) {
-                    VStack {
-                        Image.Didik.Love
-                        Text("DUMMY VIEW")
-                        
-                    }
-                    Text("Center")
-                    VStack {
-                        Image.Didik.Love
-                        Text("DUMMY VIEW")
-                        
-                    }
-                }
-                Spacer()
-                Image.Didik.MathematicDarkBlue
-                    .resizable()
-                    .scaledToFit()
-                
-                VStack {
-                    Spacer()
-                    HStack(alignment: .bottom) {
-                        Image.Didik.CalendarDays
-                        Text("ASDAD")
-                        Image.Didik.CalendarDays
-                    }
-                }
+        RefreshableScrollView(refreshing: self.$coba.bool) {
+            VStack{
+                Text("SADASD")
+                Text("SADASD")
+                Text("SADASD")
+                Text("SADASD")
+                Text("SADASD")
+                Button(action: {
+                    self.index += 1
+                }, label: {
+                    Text("Button")
+                })
 
             }.fixedSize(horizontal: false, vertical: true)
         }
-//        HStack(alignment: .top){
-//            HStack (alignment: .bottom) {
-//                VStack {
-//                    Image.Didik.Love
-//                    Text("DUMMY VIEW")
-//
-//                }
-//                Text("Center")
-//                VStack {
-//                    Image.Didik.Love
-//                    Text("DUMMY VIEW")
-//
-//                }
-//            }
-//            Spacer()
-//            Image.Didik.MathematicDarkBlue
-//                .resizable()
-//                .scaledToFit()
-//
-//            VStack {
-//                Spacer()
-//                HStack(alignment: .bottom) {
-//                    Image.Didik.CalendarDays
-//                    Text("ASDAD")
-//                    Image.Didik.CalendarDays
-//                }
-//            }
-//
-//        }.fixedSize(horizontal: false, vertical: true)
+
         
     }
 }
@@ -82,5 +43,24 @@ struct DummyView_Previews: PreviewProvider {
         DummyView()
             .previewDevice("iPad (8th generation)")
         
+    }
+}
+
+class cobain: ObservableObject {
+    @Published var bool: Bool = false {
+        didSet {
+            if oldValue == false && bool == true {
+                self.load()
+                
+            }
+        }
+    }
+    
+    func load() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3)) {
+                    
+                    print("REFRESH UDEEE")
+            self.bool = false
+                }
     }
 }

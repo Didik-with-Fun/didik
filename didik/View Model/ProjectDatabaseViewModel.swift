@@ -14,18 +14,18 @@ import FirebaseFirestoreSwift
 class ProjectDatabaseViewModel: ObservableObject {
     
     // all projects from firebase
-    var allProjects: [Project] = []
+   @Published var allProjects: [Project] = []
     
     // variabel to filter projects from jelajah materi view
     @Published var filteredProjects: [Project] = []
-
+    
     @Published var jelajahMateriGroup: [ProjectsGroup] = []
     var referenceJelajahMateriGroup: [ProjectsGroup] = []
     
     
     var myAllProjects: [Project] = []
     @Published var myProjects: [Project] = []
-
+    
     @Published var myProjectsGroup: [ProjectsGroup] = []
     var referenceMyProjectsGroup: [ProjectsGroup] = []
     
@@ -34,7 +34,17 @@ class ProjectDatabaseViewModel: ObservableObject {
     @Published var filteredSpecificProjects: [Project] = []
     
     @ObservedObject var service = FirebaseRequestService()
-//MARK: - init
+    
+    @Published var loading: Bool = false {
+        didSet {
+            if oldValue == false && loading == true {
+                self.stopLoading()
+            }
+        }
+    }
+    
+    
+    //MARK: - init
     
     init() {
         
@@ -45,8 +55,8 @@ class ProjectDatabaseViewModel: ObservableObject {
                 // initialize jelajah materi project database
                 self.allProjects = requestProjects
                 self.filteredProjects = requestProjects
-
-
+                
+                
                 let temp = Dictionary(grouping: self.filteredProjects) { (project) -> String in
                     return project.topic.name
                 }
@@ -70,7 +80,7 @@ class ProjectDatabaseViewModel: ObservableObject {
             }
         }
         
-//        self.myAllProjects = service.myProjects
+        //        self.myAllProjects = service.myProjects
         // request my projects
         service.requestMyProject { (result) in
             switch result {
@@ -102,13 +112,13 @@ class ProjectDatabaseViewModel: ObservableObject {
         
     }
     
-//MARK: - Filter Function
+    //MARK: - Filter Function
     
     func filter(grade: Grades, subject: Subject, view: ViewType) {
         
         switch view {
         case .myMateri:
-           filterMyMateri(grade: grade, subject: subject)
+            filterMyMateri(grade: grade, subject: subject)
             
         case .lihatSemua:
             filterLihatSemua(grade: grade, subject: subject)
@@ -120,7 +130,7 @@ class ProjectDatabaseViewModel: ObservableObject {
         
     }
     
-
+    
 }
 
 
@@ -128,7 +138,7 @@ class ProjectDatabaseViewModel: ObservableObject {
 //MARK: - Extension for ViewType Jelajah
 
 extension ProjectDatabaseViewModel {
-
+    
     
     func filterJelajah(grade: Grades, subject: Subject) {
         let filterGrade = self.allProjects.filter { (Project) -> Bool in
@@ -173,7 +183,7 @@ extension ProjectDatabaseViewModel {
                 print(i.title)
             }
         }
-
+        
         
         self.jelajahMateriGroup = updateGroup.sorted(by: { (project1, project2) -> Bool in
             return project1.title.lowercased() > project2.title.lowercased()
@@ -214,7 +224,7 @@ extension ProjectDatabaseViewModel {
     }
     
     
-
+    
     func updateMyProjectsGroup() {
         var updateGroup: [ProjectsGroup] = []
         
@@ -284,3 +294,108 @@ extension ProjectDatabaseViewModel {
         })
     }
 }
+
+//MARK: - Pull to Refresh Extension
+
+extension ProjectDatabaseViewModel {
+
+    func refreshData(completion: @escaping (Bool) -> Void) {
+        service.requestAllProject { (result) in
+            switch result {
+            case .success(let project):
+                self.allProjects = project
+                completion(true)
+//                    self.loading = false
+
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        
+        service.requestMyProject { (result) in
+            switch result {
+            case .success(let project):
+                self.myAllProjects = project
+                completion(true)
+//                    self.loading = false
+
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func stopLoading() {
+        refreshData { (tes) in
+            if tes {
+                self.loading = false
+            }
+        }
+    }
+
+    func loadJelajah(grade: Grades, subject: Subject, viewType: ViewType, completion: () -> Void) {
+        switch viewType {
+        case .jelajah:
+            service.requestAllProject { (result) in
+                switch result {
+                case .success(let project):
+                    self.allProjects = project
+                    self.filterJelajah(grade: grade, subject: subject)
+//                    self.loading = false
+
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        case .myMateri:
+            service.requestMyProject { (result) in
+                switch result {
+                case .success(let project):
+                    self.myAllProjects = project
+                    self.filterMyMateri(grade: grade, subject: subject)
+//                    self.loading = false
+
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        default:
+            print("Ga ngapa ngapain")
+        }
+        
+    }
+
+}
+
+//class RefreshViewModel: ObservableObject {
+//    var grade: Grades
+//    var subject: Subject
+//    var viewType: ViewType
+//
+//    @Published var loading: Bool = false {
+//        didSet {
+//            if oldValue == false && loading == true {
+//                self.load()
+//            }
+//        }
+//    }
+//
+//    init(grade: Grades, subject: Subject, viewType: ViewType) {
+//        self.grade = grade
+//        self.subject = subject
+//        self.viewType = viewType
+//
+//    }
+//
+//    func load() {
+//        ProjectDatabaseViewModel.loadJelajah(grade: grade, subject: subject, viewType: viewType) {
+//            print("UDAH")
+//            self.loading = false
+//        }
+////
+////        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+////            print("Udah")
+////            self.loading = false
+////        }
+//    }
+//}

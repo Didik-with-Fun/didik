@@ -16,10 +16,18 @@ struct JelajahMateriView: View {
     @State var selectedSubject: Subject = .allSubjects
     
     let viewType: ViewType = .jelajah
+    
+    
     var parentGeometry: GeometryProxy
     
     @State var isShowing = false
     
+    init(parentGeometry: GeometryProxy) {
+        self.parentGeometry = parentGeometry
+
+    }
+    
+
     var body: some View {
         NavigationView {
             VStack {
@@ -45,14 +53,18 @@ struct JelajahMateriView: View {
                     
                     
                 } else {
-                    ScrollView(.vertical) {
+//                    ScrollView(.vertical) {
+                    RefreshableScrollView(refreshing: self.$db.loading) {
                         VStack(spacing : 0) {
                             ForEach(db.jelajahMateriGroup) {
                                 index in
                                 MateriPreviewCollectionView(parentGeometry: parentGeometry, projectsGroup: index, selectedGrade: $selectedGrade, selectedSubject: $selectedSubject, startPointviewType: viewType)
                             }
                         }
+                        
                     }
+                        
+//                    }
                     
                 }
                 
