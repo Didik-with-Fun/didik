@@ -32,6 +32,7 @@ struct ContentView: View {
                     SignInView()
                 }
             }
+            .position(x: geometry.size.width / 2, y: (geometry.size.height - (geometry.size.height / 2)))
         
         }
     
