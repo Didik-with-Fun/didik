@@ -26,7 +26,7 @@ struct NoteToStudentFieldView: View {
                         })
                     }
                     
-                    ZStack {
+                    /*ZStack {
                         if contentNotes.isEmpty {
                             TextField("Berikan catatan lain untuk siswa. Contoh : hal yang harus atau tidak perlu dikerjakan", text: $contentNotes, onEditingChanged: { (changed) in
                                             print("--> Debug: ProjectNotes onEditingChanged - \(changed)")
@@ -42,8 +42,11 @@ struct NoteToStudentFieldView: View {
                                 .frame(height: 100)
                                 .overlay(RoundedRectangle(cornerRadius: 13).stroke(Color.gray))
                         }
-                    }
+                    }*/
                     
+                    TextEditor(text: $contentNotes)
+                        .frame(height: 100)
+                        .overlay(RoundedRectangle(cornerRadius: 13).stroke(Color.gray))
                 }
             }.padding([.top, .horizontal], 20)
         }

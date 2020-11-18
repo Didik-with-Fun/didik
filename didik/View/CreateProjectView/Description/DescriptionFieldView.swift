@@ -26,7 +26,7 @@ struct DescriptionFieldView: View {
                         })
                     }
                     
-                    ZStack {
+                    /*ZStack {
                         if contentDescription.isEmpty {
                             TextField("Tuliskan permasalahan utama yang akan diselesaikan dalam proyek", text: $contentDescription, onEditingChanged: { (changed) in
                                             print("Username onEditingChanged - \(changed)")
@@ -43,7 +43,11 @@ struct DescriptionFieldView: View {
                                 .frame(height: 100)
                                 .overlay(RoundedRectangle(cornerRadius: 13).stroke(Color.gray))
                         }
-                    }
+                    }*/
+                    
+                    TextEditor(text: $contentDescription)
+                        .frame(height: 100)
+                        .overlay(RoundedRectangle(cornerRadius: 13).stroke(Color.gray))
                     
                 }
             }.padding([.top, .horizontal], 20)

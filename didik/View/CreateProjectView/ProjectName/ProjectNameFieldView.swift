@@ -26,10 +26,9 @@ struct ProjectNameFieldView: View {
                         })
                     }
                     
-                    TextField("Tuliskan permasalahan utama yang akan diselesaikan dalam proyek", text: $contentProjectName, onEditingChanged: { (changed) in
+                    TextField("", text: $contentProjectName, onEditingChanged: { (changed) in
                                     print("Username onEditingChanged - \(changed)")
                     })
-                    .font(Font.system(size: 20))
                     .textFieldStyle(PlainTextFieldStyle())
                     .foregroundColor(.black)
                     .frame(height: 50)

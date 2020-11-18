@@ -45,137 +45,166 @@ struct CreateProjectView: View {
     }
     
     var body: some View {
-        ScrollView {
-            VStack {
-                ZStack {
-                    
-                    // MARK: - Form View
-                    VStack {
-                        
-                        // MARK: - Subjects & Grades Dropdown
-                        HStack (spacing: 30) {
-                            
-                            // MARK: - Subjects Dropdown
-                            VStack (alignment: .leading) {
-                                Text("Mata Pelajaran")
-                                    .padding(.vertical, 5)
-                                
-                                DropdownSubject(contentSubject: $contentSubject, width: 350)
-                            }
-                            
-                            // MARK: - Grades Dropdown
-                            VStack (alignment: .leading) {
-                                Text("Kelas")
-                                    .padding(.vertical, 5)
-                                
-                                DropdownGrades(contentGrade: $contentGrade, width: 350)
-                            }
+        ZStack {
+            if self.showPopOver {
+                GeometryReader { geometry in
+                    TooltipView(tooltip: $showPopOverContents, showPopOver: $showPopOver, writeFunction: {          self.write(projectStatus: .Published)
+                                self.showPopOver = false
+                    })
+                    .position(x: geometry.size.width / 2, y: (geometry.size.height - (geometry.size.height / 2)))
+                }
+                .zIndex(2)
+                .background(
+                    Color.black.opacity(0.6)
+                    .edgesIgnoringSafeArea(.all)
+                    .onTapGesture {
+                        withAnimation {
+                            self.showPopOver.toggle()
                         }
-                        .padding(.vertical, 20)
-                        .zIndex(10)
-                        
-                        // MARK: - Topics & Core Competence Sections
-                        TopicMainView(contentTopic: $contentTopic)
-                        .zIndex(9)
-                        
-                        // MARK: - Form Field - Project Name aka Nama Proyek
-                        ProjectNameFieldView(contentProjectName: $contentProjectName, showPopOver: $showPopOver, showPopOverContents: $showPopOverContents)
-                        
-                        // MARK: - Form Field - Project Description
-                        DescriptionFieldView(contentDescription: $contentSummary, showPopOver: $showPopOver, showPopOverContents: $showPopOverContents)
-                        
-                        // MARK: - Form Field - Goals aka Tujuan Proyek
-                        LearningGoalsFieldView(contentLearningGoals: $contentLearningGoals, showPopOver: $showPopOver, showPopOverContents: $showPopOverContents)
-                        
-                        // MARK: - Form Field - Media Uploads
-                        MediaView(showPopOver: $showPopOver, showPopOverContents: $showPopOverContents, contentMedia: $contentMedia)
-                        
-                        // MARK: - Form Field - Activity
-                        HStack {
-                            ActivityMainView(totalActivityTime: contentActivitiesDays, contentActivities: $contentActivities, showPopOver: $showPopOver, showPopOverContents: $showPopOverContents)
-                        }.padding([.top, .horizontal], 20)
-                        
-                        // MARK: - Form Field - Notes aka Catatan Siswa
-                        NoteToStudentFieldView(contentNotes: $contentNotes, showPopOver: $showPopOver, showPopOverContents: $showPopOverContents)
                     }
-                    
-                    if self.showPopOver {
-                        GeometryReader { geometry in
-                            TooltipView(tooltip: $showPopOverContents, showPopOver: $showPopOver, writeFunction: {          self.write(projectStatus: .Published)
-                                        self.showPopOver = false
-                                })
-                                .position(x: geometry.size.width / 2, y: (geometry.size.height - (geometry.size.height / 2)))
-                        }
-                        .background(
-                            Color.black.opacity(0.6)
-                            .edgesIgnoringSafeArea(.all)
-                            .onTapGesture {
-                                withAnimation {
-                                    self.showPopOver.toggle()
+                )
+            }
+            
+            ScrollView {
+                VStack {
+                    ZStack {
+                        
+                        // MARK: - Form View
+                        VStack {
+                            
+                            // MARK: - Subjects & Grades Dropdown
+                            HStack (spacing: 30) {
+                                
+                                // MARK: - Subjects Dropdown
+                                VStack (alignment: .leading) {
+                                    Text("Mata Pelajaran")
+                                        .padding(.vertical, 5)
+                                    
+                                    DropdownSubject(contentSubject: $contentSubject, width: 350)
+                                }
+                                
+                                // MARK: - Grades Dropdown
+                                VStack (alignment: .leading) {
+                                    Text("Kelas")
+                                        .padding(.vertical, 5)
+                                    
+                                    DropdownGrades(contentGrade: $contentGrade, width: 350)
                                 }
                             }
-                        )
+                            .padding(.vertical, 20)
+                            .zIndex(10)
+                            
+                            // MARK: - Topics & Core Competence Sections
+                            TopicMainView(contentTopic: $contentTopic)
+                            .zIndex(9)
+                            
+                            // MARK: - Form Field - Project Name aka Nama Proyek
+                            ProjectNameFieldView(contentProjectName: $contentProjectName, showPopOver: $showPopOver, showPopOverContents: $showPopOverContents)
+                            
+                            // MARK: - Form Field - Project Description
+                            DescriptionFieldView(contentDescription: $contentSummary, showPopOver: $showPopOver, showPopOverContents: $showPopOverContents)
+                            
+                            // MARK: - Form Field - Goals aka Tujuan Proyek
+                            LearningGoalsFieldView(contentLearningGoals: $contentLearningGoals, showPopOver: $showPopOver, showPopOverContents: $showPopOverContents)
+                            
+                            // MARK: - Form Field - Media Uploads
+                            MediaView(showPopOver: $showPopOver, showPopOverContents: $showPopOverContents, contentMedia: $contentMedia)
+                            
+                            // MARK: - Form Field - Activity
+                            HStack {
+                                ActivityMainView(totalActivityTime: contentActivitiesDays, contentActivities: $contentActivities, showPopOver: $showPopOver, showPopOverContents: $showPopOverContents)
+                            }.padding([.top, .horizontal], 20)
+                            
+                            // MARK: - Form Field - Notes aka Catatan Siswa
+                            NoteToStudentFieldView(contentNotes: $contentNotes, showPopOver: $showPopOver, showPopOverContents: $showPopOverContents)
+                        }
                     }
-                }
-                
-                // MARK: - Buttons View
-                HStack (spacing: 20) {
-                    Spacer()
                     
-                    // MARK: - Save to Draft Button
-                    Button(action: {
-                        projectWriteFirebase(projectStatus: .Draft)
-                    }, label: {
-                        Text("Save to Draft")
-                            .frame(width: 258, height: 48)
-                            .background(Color.Didik.GreyDark)
-                            .foregroundColor(.white)
-                    })
-                    .cornerRadius(10)
-                    
-                    // MARK: - Published Button
-                    Button(action: {
+                    // MARK: - Buttons View
+                    HStack (spacing: 20) {
+                        Spacer()
                         
-                        projectWriteFirebase(projectStatus: .Published)
-                    }, label: {
-                        Text("Publish")
-                            .frame(width: 258, height: 48)
-                            .background(Color.Didik.BlueSecondary)
-                            .foregroundColor(.white)
-                    })
-                    .cornerRadius(10)
+                        // MARK: - Save to Draft Button
+                        Button(action: {
+                            projectWriteFirebase(projectStatus: .Draft)
+                        }, label: {
+                            Text("Save to Draft")
+                                .frame(width: 258, height: 48)
+                                .background(Color.Didik.GreyDark)
+                                .foregroundColor(.white)
+                        })
+                        .cornerRadius(10)
+                        
+                        // MARK: - Published Button
+                        Button(action: {
+                            
+                            projectWriteFirebase(projectStatus: .Published)
+                        }, label: {
+                            Text("Publish")
+                                .frame(width: 258, height: 48)
+                                .background(Color.Didik.BlueSecondary)
+                                .foregroundColor(.white)
+                        })
+                        .cornerRadius(10)
+                    }
+                    .padding(20)
                 }
-                .padding(20)
             }
-        }
-        .navigationBarTitle("Materi Saya", displayMode: .automatic)
-        .navigationBarItems(trailing: UserButton())
-        .navigationBarColor(backgroundColor: UIColor(Color.Didik.BluePrimary))
-    }
-    
-    func validateForm() -> Bool {
-        if (contentGrade == .allGrades) {
-            print("ERROR: Grade unselected!")
-        } else if (contentSubject == .allSubjects) {
-            print("ERROR: Subject unselected!")
-        } else if (contentTopic.name == defaultTopic.name) {
-            print("ERROR: Topic unselected!")
-        } else if (contentProjectName == "") {
-            print("ERROR: Project Name Must Be Written!")
-        } else {
-            return true
+            .zIndex(1)
+            .navigationBarTitle("Materi Saya", displayMode: .automatic)
+            .navigationBarItems(trailing: UserButton())
+            .navigationBarColor(backgroundColor: UIColor(Color.Didik.BluePrimary))
         }
         
-        return false
+        
+    }
+    
+    func validateForm(projectStatus: ProjectStatus) -> Bool {
+        switch projectStatus {
+            case .Draft:
+                if (contentGrade == .allGrades) {
+                    self.showPopOverContents = .uncompleteGrade
+                } else if (contentSubject == .allSubjects) {
+                    self.showPopOverContents = .uncompleteSubject
+                } else if (contentTopic.name == defaultTopic.name) {
+                    self.showPopOverContents = .uncompleteTopic
+                } else if (contentProjectName == "") {
+                    self.showPopOverContents = .uncompleteProjectName
+                } else {
+                    return true
+                }
+                
+                self.showPopOver = true
+                return false
+            default:
+                if (contentGrade == .allGrades) {
+                    self.showPopOverContents = .uncompleteGrade
+                } else if (contentSubject == .allSubjects) {
+                    self.showPopOverContents = .uncompleteSubject
+                } else if (contentTopic.name == defaultTopic.name) {
+                    self.showPopOverContents = .uncompleteTopic
+                } else if (contentProjectName == "") {
+                    self.showPopOverContents = .uncompleteProjectName
+                }  else if (contentSummary == "") {
+                    self.showPopOverContents = .uncompleteProjectSummary
+                } else if (contentLearningGoals == "") {
+                    self.showPopOverContents = .uncompleteProjectLearningGoals
+                } else if (contentActivities.isEmpty) {
+                    self.showPopOverContents = .uncompleteProjectActivities
+                } else {
+                    return true
+                }
+                
+                self.showPopOver = true
+                return false
+        }
     }
     
     func projectWriteFirebase(projectStatus: ProjectStatus) {
 
-        let isFormValidate = validateForm()
+        let isFormValidate = validateForm(projectStatus: projectStatus)
         
         if !isFormValidate {
-            // perform pop up error form
-            print("Form Uncomplete!")
             return
         }
         
@@ -220,6 +249,7 @@ struct CreateProjectView: View {
             print("--> write project to firebase: \(status)")
             
             if status {
+                self.cleanupContentProject()
                 self.showPopOverContents = (projectStatus == .Published) ? (.projectPublishSuccess) : (.projectDraftSuccess)
             } else {
                 self.showPopOverContents = (projectStatus == .Published) ? (.projectPublishFailed) : (.projectDraftFailed)
@@ -227,6 +257,22 @@ struct CreateProjectView: View {
             
             self.showPopOver = true
         }
+        
+        return
+    }
+    
+    func cleanupContentProject() {
+        // TODO: While navigation back is still under research,
+        // this func is intended to clean users input so the user can go back from navigation bar on top left, for a while
+        self.contentSubject = .allSubjects
+        self.contentGrade = .allGrades
+        self.contentTopic = defaultTopic
+        self.contentProjectName = ""
+        self.contentSummary = ""
+        self.contentLearningGoals = ""
+        self.contentMedia.removeAll()
+        self.contentActivities.removeAll()
+        self.contentNotes = ""
         
         return
     }

@@ -29,10 +29,8 @@ struct HomeView: View {
                     .opacity(index == 1 ? 1 : 0)
                 
                 // Kelas Saya Tab
-                Button(action: {}, label: {
-                    Text("Materi Saya")
-                })
-                .opacity(index == 2 ? 1 : 0)
+                KelasSayaMainView()
+                    .opacity(index == 2 ? 1 : 0)
                 
                 Spacer()
             }
