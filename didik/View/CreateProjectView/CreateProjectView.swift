@@ -253,7 +253,6 @@ struct CreateProjectView: View {
             print("--> write project to firebase: \(status)")
             
             if status {
-                self.cleanupContentProject()
                 self.showPopOverContents = (projectStatus == .Published) ? (.projectPublishSuccess) : (.projectDraftSuccess)
             } else {
                 self.showPopOverContents = (projectStatus == .Published) ? (.projectPublishFailed) : (.projectDraftFailed)
@@ -261,22 +260,6 @@ struct CreateProjectView: View {
             
             self.showPopOver = true
         }
-        
-        return
-    }
-    
-    func cleanupContentProject() {
-        // TODO: While navigation back is still under research,
-        // this func is intended to clean users input so the user can go back from navigation bar on top left, for a while
-        self.contentSubject = .allSubjects
-        self.contentGrade = .allGrades
-        self.contentTopic = defaultTopic
-        self.contentProjectName = ""
-        self.contentSummary = ""
-        self.contentLearningGoals = ""
-        self.contentMedia.removeAll()
-        self.contentActivities.removeAll()
-        self.contentNotes = ""
         
         return
     }
