@@ -15,6 +15,7 @@ struct didikApp: App {
 
     var body: some Scene {
         WindowGroup {
+//            DummyView()
             ContentView().environmentObject(SignInWithAppleCoordinator())
 //            GeometryReader { geometry in
 //                HomeView(parentGeometry: geometry).environmentObject(ProjectDatabaseViewModel())

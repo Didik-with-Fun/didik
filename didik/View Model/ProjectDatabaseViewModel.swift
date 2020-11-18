@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 import Firebase
 import FirebaseFirestoreSwift
 
@@ -13,18 +14,18 @@ import FirebaseFirestoreSwift
 class ProjectDatabaseViewModel: ObservableObject {
     
     // all projects from firebase
-    var allProjects: [Project] = []
+   @Published var allProjects: [Project] = []
     
     // variabel to filter projects from jelajah materi view
     @Published var filteredProjects: [Project] = []
-
+    
     @Published var jelajahMateriGroup: [ProjectsGroup] = []
     var referenceJelajahMateriGroup: [ProjectsGroup] = []
     
     
     var myAllProjects: [Project] = []
     @Published var myProjects: [Project] = []
-
+    
     @Published var myProjectsGroup: [ProjectsGroup] = []
     var referenceMyProjectsGroup: [ProjectsGroup] = []
     
@@ -32,8 +33,18 @@ class ProjectDatabaseViewModel: ObservableObject {
     var specificProjects: [Project] = []
     @Published var filteredSpecificProjects: [Project] = []
     
-    let service = FirebaseRequestService()
-//MARK: - init
+    @ObservedObject var service = FirebaseRequestService()
+    
+    @Published var loading: Bool = false {
+        didSet {
+            if oldValue == false && loading == true {
+                self.stopLoading()
+            }
+        }
+    }
+    
+    
+    //MARK: - init
     
     init() {
         
@@ -44,18 +55,23 @@ class ProjectDatabaseViewModel: ObservableObject {
                 // initialize jelajah materi project database
                 self.allProjects = requestProjects
                 self.filteredProjects = requestProjects
-
                 
-                
-
                 
                 let temp = Dictionary(grouping: self.filteredProjects) { (project) -> String in
                     return project.topic.name
                 }
                 for (key, value) in temp {
-                    self.jelajahMateriGroup.append(ProjectsGroup(title: key, unfilteredGroup: value, group: value))
-                    self.referenceJelajahMateriGroup.append(ProjectsGroup(title: key, unfilteredGroup: value, group: value))
+                    let sorted = value.sorted(by: { (project1, project2) -> Bool in
+                        return project1.createdDate?.dateValue() ?? Date() > project2.createdDate?.dateValue() ?? Date()
+                    })
+                    
+                    self.jelajahMateriGroup.append(ProjectsGroup(title: key, unfilteredGroup: sorted, group: sorted))
+                    self.referenceJelajahMateriGroup.append(ProjectsGroup(title: key, unfilteredGroup: sorted, group: sorted))
                 }
+                
+                self.jelajahMateriGroup = self.jelajahMateriGroup.sorted(by: { (project1, project2) -> Bool in
+                    return project1.title.lowercased() > project2.title.lowercased()
+                })
                 
                 
                 
@@ -64,6 +80,7 @@ class ProjectDatabaseViewModel: ObservableObject {
             }
         }
         
+        //        self.myAllProjects = service.myProjects
         // request my projects
         service.requestMyProject { (result) in
             switch result {
@@ -76,9 +93,17 @@ class ProjectDatabaseViewModel: ObservableObject {
                     return project.projectStatus
                 }
                 for (key, value) in myTemp {
-                    self.myProjectsGroup.append(ProjectsGroup(title: key.rawValue, unfilteredGroup: value, group: value))
-                    self.referenceMyProjectsGroup.append(ProjectsGroup(title: key.rawValue, unfilteredGroup: value, group: value))
+                    let sorted = value.sorted(by: { (project1, project2) -> Bool in
+                        return project1.createdDate?.dateValue() ?? Date() > project2.createdDate?.dateValue() ?? Date()
+                    })
+                    self.myProjectsGroup.append(ProjectsGroup(title: key.rawValue, unfilteredGroup: sorted, group: sorted))
+                    self.referenceMyProjectsGroup.append(ProjectsGroup(title: key.rawValue, unfilteredGroup: sorted, group: sorted))
                 }
+                
+                self.myProjectsGroup = self.myProjectsGroup.sorted(by: { (project1, project2) -> Bool in
+                    return project1.title.lowercased() > project2.title.lowercased()
+                })
+                
                 
             case .failure(let error):
                 print(error.localizedDescription)
@@ -87,13 +112,13 @@ class ProjectDatabaseViewModel: ObservableObject {
         
     }
     
-//MARK: - Filter Function
+    //MARK: - Filter Function
     
     func filter(grade: Grades, subject: Subject, view: ViewType) {
         
         switch view {
         case .myMateri:
-           filterMyMateri(grade: grade, subject: subject)
+            filterMyMateri(grade: grade, subject: subject)
             
         case .lihatSemua:
             filterLihatSemua(grade: grade, subject: subject)
@@ -105,7 +130,7 @@ class ProjectDatabaseViewModel: ObservableObject {
         
     }
     
-
+    
 }
 
 
@@ -113,7 +138,7 @@ class ProjectDatabaseViewModel: ObservableObject {
 //MARK: - Extension for ViewType Jelajah
 
 extension ProjectDatabaseViewModel {
-
+    
     
     func filterJelajah(grade: Grades, subject: Subject) {
         let filterGrade = self.allProjects.filter { (Project) -> Bool in
@@ -150,14 +175,19 @@ extension ProjectDatabaseViewModel {
         for (key, value) in temp {
             for i in referenceJelajahMateriGroup {
                 if i.title == key {
-                    updateGroup.append(ProjectsGroup(title: key, unfilteredGroup: i.unfilteredGroup, group: value))
+                    let sorted = value.sorted(by: { (project1, project2) -> Bool in
+                        return project1.createdDate?.dateValue() ?? Date() > project2.createdDate?.dateValue() ?? Date()
+                    })
+                    updateGroup.append(ProjectsGroup(title: key, unfilteredGroup: i.unfilteredGroup, group: sorted))
                 }
                 print(i.title)
             }
         }
-
         
-        self.jelajahMateriGroup = updateGroup
+        
+        self.jelajahMateriGroup = updateGroup.sorted(by: { (project1, project2) -> Bool in
+            return project1.title.lowercased() > project2.title.lowercased()
+        })
         
     }
     
@@ -194,7 +224,7 @@ extension ProjectDatabaseViewModel {
     }
     
     
-
+    
     func updateMyProjectsGroup() {
         var updateGroup: [ProjectsGroup] = []
         
@@ -205,14 +235,33 @@ extension ProjectDatabaseViewModel {
         for (key, value) in temp {
             for i in referenceMyProjectsGroup {
                 if i.title == key.rawValue {
-                    updateGroup.append(ProjectsGroup(title: key.rawValue, unfilteredGroup: i.unfilteredGroup, group: value))
+                    let sorted = value.sorted(by: { (project1, project2) -> Bool in
+                        return project1.createdDate?.dateValue() ?? Date() > project2.createdDate?.dateValue() ?? Date()
+                    })
+                    updateGroup.append(ProjectsGroup(title: key.rawValue, unfilteredGroup: i.unfilteredGroup, group: sorted))
                 }
                 print(i.title)
             }
         }
         
-        self.myProjectsGroup = updateGroup
+        self.myProjectsGroup = updateGroup.sorted(by: { (project1, project2) -> Bool in
+            return project1.title.lowercased() > project2.title.lowercased()
+        })
         
+    }
+    
+    func refreshMyProject() {
+        service.requestMyProject { (result) in
+            switch result {
+            case .success(let requestProjects):
+                // initialize my materi project database
+                self.myAllProjects = requestProjects
+                
+                
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
     
 }
@@ -240,6 +289,115 @@ extension ProjectDatabaseViewModel {
             }
         }
         
-        self.filteredSpecificProjects = filterSubject
+        self.filteredSpecificProjects = filterSubject.sorted(by: { (project1, project2) -> Bool in
+            return project1.createdDate?.dateValue() ?? Date() > project2.createdDate?.dateValue() ?? Date()
+        })
     }
 }
+
+//MARK: - Pull to Refresh Extension
+
+extension ProjectDatabaseViewModel {
+
+    func refreshData(completion: @escaping (Bool) -> Void) {
+        service.requestAllProject { (result) in
+            switch result {
+            case .success(let project):
+                self.allProjects = project
+                completion(true)
+//                    self.loading = false
+
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        
+        service.requestMyProject { (result) in
+            switch result {
+            case .success(let project):
+                self.myAllProjects = project
+                completion(true)
+//                    self.loading = false
+
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    
+    func stopLoading() {
+        refreshData { (tes) in
+            if tes {
+                self.loading = false
+            }
+        }
+    }
+
+    
+    func loadJelajah(grade: Grades, subject: Subject, viewType: ViewType, completion: () -> Void) {
+        switch viewType {
+        case .jelajah:
+            service.requestAllProject { (result) in
+                switch result {
+                case .success(let project):
+                    self.allProjects = project
+                    self.filterJelajah(grade: grade, subject: subject)
+//                    self.loading = false
+
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        case .myMateri:
+            service.requestMyProject { (result) in
+                switch result {
+                case .success(let project):
+                    self.myAllProjects = project
+                    self.filterMyMateri(grade: grade, subject: subject)
+//                    self.loading = false
+
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        default:
+            print("Ga ngapa ngapain")
+        }
+        
+    }
+
+}
+
+//class RefreshViewModel: ObservableObject {
+//    var grade: Grades
+//    var subject: Subject
+//    var viewType: ViewType
+//
+//    @Published var loading: Bool = false {
+//        didSet {
+//            if oldValue == false && loading == true {
+//                self.load()
+//            }
+//        }
+//    }
+//
+//    init(grade: Grades, subject: Subject, viewType: ViewType) {
+//        self.grade = grade
+//        self.subject = subject
+//        self.viewType = viewType
+//
+//    }
+//
+//    func load() {
+//        ProjectDatabaseViewModel.loadJelajah(grade: grade, subject: subject, viewType: viewType) {
+//            print("UDAH")
+//            self.loading = false
+//        }
+////
+////        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+////            print("Udah")
+////            self.loading = false
+////        }
+//    }
+//}

@@ -21,6 +21,7 @@ class FirebaseRequestService: ObservableObject {
     
     let db = Firestore.firestore()
     
+    @Published var myProjects = [Project]()
     
     init() {
         
@@ -97,13 +98,6 @@ class FirebaseRequestService: ObservableObject {
     
     
     func requestAllProject(completion: @escaping (Result<[Project], FirebaseError>) -> ()) {
-//        let data = FirebaseRequestService.createDummyProjects()
-//
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { // Change `2.0` to the desired number of seconds.
-//            // Code you want to be delayed
-//            completion(.success(data))
-//
-//        }
         
         var projects = [Project]()
         
@@ -173,6 +167,27 @@ class FirebaseRequestService: ObservableObject {
                 }
             }
 
+    }
+    
+    func loadData() {
+
+        db.collection("projects")
+            .whereField("authorUID", isEqualTo: Auth.auth().currentUser!.uid)
+            .addSnapshotListener { (querySnapshot, error) in
+                
+            if let querySnapshot = querySnapshot {
+                self.myProjects = querySnapshot.documents.compactMap { document in
+                    do {
+                        let x = try document.data(as: Project.self)
+                        return x
+                    } catch {
+                        print(error)
+                    }
+                    return nil
+                }
+            }
+                
+        }
     }
     
     
