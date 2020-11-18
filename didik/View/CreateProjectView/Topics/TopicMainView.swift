@@ -13,6 +13,9 @@ struct TopicMainView: View {
     
     @State private var isDropdownShowed: Bool = false
     @Binding var contentTopic: Topic
+    @Binding var contentGrade: Grades
+    @Binding var contentSubject: Subject
+    @Binding var dropdownTopicsList: [Topic]
     
     @State private var width: CGFloat = 755
     
@@ -32,7 +35,7 @@ struct TopicMainView: View {
                                 self.isDropdownShowed.toggle()
                             }) {
                                 HStack (spacing: 10) {
-                                    Text(contentTopic.name)
+                                    Text((self.dropdownTopicsList.count > 0) ? (contentTopic.name) : ("Tidak Tersedia Materi Pembelajaran Pada Kombinasi Pilihan Mata Pelajaran dan Kelas ini"))
                                         .frame(width: width * 0.85, alignment: .center)
                                         .foregroundColor(.black)
                                         .padding(.vertical, 15)
@@ -52,15 +55,13 @@ struct TopicMainView: View {
                                 VStack{
                                     if isDropdownShowed {
                                         VStack {
-                                            ForEach(0..<self.contents.count) {
+                                            ForEach(0..<self.dropdownTopicsList.count) {
                                                 index in
                                                 Button(action: {
                                                     self.isDropdownShowed.toggle()
-                                                    self.contentTopic = contents[index]
-
-                                                    // store subject pick and prepare POST
+                                                    self.contentTopic = dropdownTopicsList[index]
                                                 }) {
-                                                    Text(contents[index].name)
+                                                    Text(dropdownTopicsList[index].name)
                                                         .foregroundColor(.black)
                                                         .font(.system(size: 17, weight: .bold, design: .default))
                                                         .padding(.vertical, 10)
@@ -111,6 +112,6 @@ struct TopicMainView: View {
 
 struct TopicMainViewPreview: PreviewProvider {
     static var previews: some View {
-        TopicMainView(contentTopic: .constant(defaultTopic))
+        TopicMainView(contentTopic: .constant(defaultTopic), contentGrade: .constant(.allGrades), contentSubject: .constant(.allSubjects), dropdownTopicsList: .constant(topicList))
     }
 }

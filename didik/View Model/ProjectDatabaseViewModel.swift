@@ -325,6 +325,7 @@ extension ProjectDatabaseViewModel {
         }
     }
     
+    
     func stopLoading() {
         refreshData { (tes) in
             if tes {
@@ -333,6 +334,7 @@ extension ProjectDatabaseViewModel {
         }
     }
 
+    
     func loadJelajah(grade: Grades, subject: Subject, viewType: ViewType, completion: () -> Void) {
         switch viewType {
         case .jelajah:

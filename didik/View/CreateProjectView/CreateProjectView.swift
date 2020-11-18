@@ -18,8 +18,8 @@ struct CreateProjectView: View {
     
     // MARK: - State Variable for Data Storing
     @State var contentProjectName: String = ""
-    @State var contentSubject: Subject = .Mathematic
-    @State var contentGrade: Grades = .ten
+    @State var contentSubject: Subject = .allSubjects
+    @State var contentGrade: Grades = .allGrades
     @State var contentTopic: Topic = defaultTopic
     @State var contentSummary: String = ""
     @State var contentLearningGoals: String = ""
@@ -29,6 +29,8 @@ struct CreateProjectView: View {
     
     @State var showPopOver = false
     @State var showPopOverContents: Tooltips = .namaProyek
+    
+    @State var dropdownTopicList: [Topic] = topicList
     
     var contentActivitiesDays: Int = 0
     
@@ -82,7 +84,8 @@ struct CreateProjectView: View {
                                     Text("Mata Pelajaran")
                                         .padding(.vertical, 5)
                                     
-                                    DropdownSubject(contentSubject: $contentSubject, width: 350)
+                                    DropdownSubject(contentSubject: $contentSubject, writeFunction: {          self.filterDropdownTopicsBySubjectGrade()
+                            }, width: 350)
                                 }
                                 
                                 // MARK: - Grades Dropdown
@@ -90,15 +93,16 @@ struct CreateProjectView: View {
                                     Text("Kelas")
                                         .padding(.vertical, 5)
                                     
-                                    DropdownGrades(contentGrade: $contentGrade, width: 350)
+                                    DropdownGrades(contentGrade: $contentGrade, writeFunction: {          self.filterDropdownTopicsBySubjectGrade()
+                                    }, width: 350)
                                 }
                             }
                             .padding(.vertical, 20)
                             .zIndex(10)
                             
                             // MARK: - Topics & Core Competence Sections
-                            TopicMainView(contentTopic: $contentTopic)
-                                .zIndex(9)
+                            TopicMainView(contentTopic: $contentTopic, contentGrade: $contentGrade, contentSubject: $contentSubject, dropdownTopicsList: $dropdownTopicList)
+                            .zIndex(9)
                             
                             // MARK: - Form Field - Project Name aka Nama Proyek
                             ProjectNameFieldView(contentProjectName: $contentProjectName, showPopOver: $showPopOver, showPopOverContents: $showPopOverContents)
@@ -251,7 +255,6 @@ struct CreateProjectView: View {
             print("--> write project to firebase: \(status)")
             
             if status {
-                //                self.cleanupContentProject()
                 self.showPopOverContents = (projectStatus == .Published) ? (.projectPublishSuccess) : (.projectDraftSuccess)
                 db.refreshMyProject()
             } else {
@@ -264,18 +267,13 @@ struct CreateProjectView: View {
         return
     }
     
-    func cleanupContentProject() {
-        // TODO: While navigation back is still under research,
-        // this func is intended to clean users input so the user can go back from navigation bar on top left, for a while
-        self.contentSubject = .allSubjects
-        self.contentGrade = .allGrades
+    func filterDropdownTopicsBySubjectGrade() {
+        let dropdownTopicsFilter = topicList.filter({
+            $0.subject == self.contentSubject && $0.grade == self.contentGrade
+        })
+        
+        self.dropdownTopicList = dropdownTopicsFilter
         self.contentTopic = defaultTopic
-        self.contentProjectName = ""
-        self.contentSummary = ""
-        self.contentLearningGoals = ""
-        self.contentMedia.removeAll()
-        self.contentActivities.removeAll()
-        self.contentNotes = ""
         
         return
     }
