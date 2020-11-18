@@ -70,7 +70,7 @@ class ProjectDatabaseViewModel: ObservableObject {
                 }
                 
                 self.jelajahMateriGroup = self.jelajahMateriGroup.sorted(by: { (project1, project2) -> Bool in
-                    return project1.title.lowercased() > project2.title.lowercased()
+                    return project1.title.lowercased() < project2.title.lowercased()
                 })
                 
                 
@@ -101,7 +101,7 @@ class ProjectDatabaseViewModel: ObservableObject {
                 }
                 
                 self.myProjectsGroup = self.myProjectsGroup.sorted(by: { (project1, project2) -> Bool in
-                    return project1.title.lowercased() > project2.title.lowercased()
+                    return project1.title.lowercased() < project2.title.lowercased()
                 })
                 
                 
@@ -186,7 +186,7 @@ extension ProjectDatabaseViewModel {
         
         
         self.jelajahMateriGroup = updateGroup.sorted(by: { (project1, project2) -> Bool in
-            return project1.title.lowercased() > project2.title.lowercased()
+            return project1.title.lowercased() < project2.title.lowercased()
         })
         
     }
@@ -245,7 +245,7 @@ extension ProjectDatabaseViewModel {
         }
         
         self.myProjectsGroup = updateGroup.sorted(by: { (project1, project2) -> Bool in
-            return project1.title.lowercased() > project2.title.lowercased()
+            return project1.title.lowercased() < project2.title.lowercased()
         })
         
     }

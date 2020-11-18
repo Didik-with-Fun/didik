@@ -60,10 +60,11 @@ struct JelajahMateriView: View {
                                 index in
                                 MateriPreviewCollectionView(parentGeometry: parentGeometry, projectsGroup: index, selectedGrade: $selectedGrade, selectedSubject: $selectedSubject, startPointviewType: viewType)
                             }
-                        }.onReceive(db.$allProjects) { value // Publisher
-                            // do something that does not
-                            // require the view update
                         }
+//                        .onReceive(db.$allProjects) { value // Publisher
+//                            // do something that does not
+//                            // require the view update
+//                        }
                         
                     }
                         
