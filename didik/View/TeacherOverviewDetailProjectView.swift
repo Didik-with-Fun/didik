@@ -30,7 +30,7 @@ struct TeacherOverviewDetailProjectView: View {
             
             VStack {
                 HStack {
-                    Text("FX Catur Supatmono")
+                    Text(project.authorName)
                         .fontWeight(.bold)
                         .font(.system(size: 18))
                     Spacer()

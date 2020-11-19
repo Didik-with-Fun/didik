@@ -331,7 +331,6 @@ PODS:
     - gRPC-Core/Interface (= 1.28.2)
   - gRPC-Core/Interface (1.28.2)
   - GTMSessionFetcher/Core (1.5.0)
-  - Introspect (0.1.1)
   - leveldb-library (1.22)
   - nanopb (1.30906.0):
     - nanopb/decode (= 1.30906.0)
@@ -339,8 +338,6 @@ PODS:
   - nanopb/decode (1.30906.0)
   - nanopb/encode (1.30906.0)
   - PromisesObjC (1.2.11)
-  - SwiftUIRefresh (0.0.3):
-    - Introspect (~> 0.1.0)
 
 DEPENDENCIES:
   - Firebase/Analytics
@@ -348,7 +345,6 @@ DEPENDENCIES:
   - Firebase/Firestore
   - Firebase/Storage
   - FirebaseFirestoreSwift
-  - SwiftUIRefresh
 
 SPEC REPOS:
   trunk:
@@ -369,11 +365,9 @@ SPEC REPOS:
     - "gRPC-C++"
     - gRPC-Core
     - GTMSessionFetcher
-    - Introspect
     - leveldb-library
     - nanopb
     - PromisesObjC
-    - SwiftUIRefresh
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
@@ -393,12 +387,10 @@ SPEC CHECKSUMS:
   "gRPC-C++": 13d8ccef97d5c3c441b7e3c529ef28ebee86fad2
   gRPC-Core: 4afa11bfbedf7cdecd04de535a9e046893404ed5
   GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
-  Introspect: 50c17d6b1f091f4cfd678ea8a4157ac071808fe3
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
   PromisesObjC: 8c196f5a328c2cba3e74624585467a557dcb482f
-  SwiftUIRefresh: ca6ae2718d25aad5dd68bbf5d2ae36ef6ade98bf
 
-PODFILE CHECKSUM: 249878a92a460a94a22e303281f04067f7fb2212
+PODFILE CHECKSUM: a5f3aca9ed169ca4d0ba17f909bccefdca08165e
 
 COCOAPODS: 1.10.0
