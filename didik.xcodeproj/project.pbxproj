@@ -1090,7 +1090,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"didik/Preview Content\"";
-				DEVELOPMENT_TEAM = JPMPS53HUZ;
+				DEVELOPMENT_TEAM = 49TZU6B4Y9;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = didik/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1098,7 +1098,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.developeracademy.didik-fandri";
+				PRODUCT_BUNDLE_IDENTIFIER = com.appledeveloperacademy.didik;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -1117,7 +1117,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"didik/Preview Content\"";
-				DEVELOPMENT_TEAM = JPMPS53HUZ;
+				DEVELOPMENT_TEAM = 49TZU6B4Y9;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = didik/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1125,7 +1125,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.developeracademy.didik-fandri";
+				PRODUCT_BUNDLE_IDENTIFIER = com.appledeveloperacademy.didik;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
