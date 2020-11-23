@@ -21,14 +21,11 @@ struct ContentView: View {
                     .environmentObject(ProjectDatabaseViewModel())
                 */
                 
-                if signInCoordinator.isUserAuthenticated == .signedIn {
-                    HomeView(parentGeometry: geometry)
-                        .environmentObject(ProjectDatabaseViewModel())
-                }
-                else if signInCoordinator.isUserAuthenticated == .signedOut {
+                if UserDefaults.standard.isLoggedIn() || signInCoordinator.isUserAuthenticated == .signedIn {
+                    HomeView(parentGeometry: geometry).environmentObject(ProjectDatabaseViewModel())
+                } else if UserDefaults.standard.isLoggedIn() || signInCoordinator.isUserAuthenticated == .signedOut {
                     SignInView()
-                }
-                else {
+                } else {
                     SignInView()
                 }
             }

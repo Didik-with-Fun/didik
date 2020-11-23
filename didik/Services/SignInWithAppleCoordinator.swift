@@ -48,10 +48,10 @@ class SignInWithAppleCoordinator: NSObject, ObservableObject, ASAuthorizationCon
     }
     
     func signOut() throws {
-        
         // Perform sign out from Firebase
         try Auth.auth().signOut()
         isUserAuthenticated = AuthState.signedOut
+        UserDefaults.standard.setIsLoggedIn(state: false)
     }
     
 }
@@ -97,7 +97,7 @@ extension SignInWithAppleCoordinator: ASAuthorizationControllerDelegate {
                     let fullName = (appleIDCredential.fullName?.givenName ?? "") + " " + (appleIDCredential.fullName?.familyName ?? "")
                     let email = appleIDCredential.email
                     
-                    
+                    UserDefaults.standard.setIsLoggedIn(state: true)
                     
                     // if new user
                     if (fullName.trimmingCharacters(in: .whitespacesAndNewlines) != "" && email != nil) {

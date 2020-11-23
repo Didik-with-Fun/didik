@@ -39,6 +39,7 @@
 		7AF593AB5107C24ACEB32F7E /* Pods_didik_didikUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED113C53DD92EE14323DD71B /* Pods_didik_didikUITests.framework */; };
 		B703FDDE25626A2F00FB7300 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B703FDDD25626A2F00FB7300 /* Profile.swift */; };
 		B713B62625646B64005B52A5 /* KelasSayaMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B713B62525646B64005B52A5 /* KelasSayaMainView.swift */; };
+		B74D7A9D256BBE6700675216 /* Extension+UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74D7A9C256BBE6700675216 /* Extension+UserDefaults.swift */; };
 		B76514E22552AF560041D6A3 /* CreateProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76514E12552AF560041D6A3 /* CreateProjectView.swift */; };
 		B76C783F255DE8C000D160C3 /* LearningGoalsFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76C783E255DE8C000D160C3 /* LearningGoalsFieldView.swift */; };
 		B76C7848255DEAEF00D160C3 /* NoteToStudentFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76C7847255DEAEF00D160C3 /* NoteToStudentFieldView.swift */; };
@@ -56,7 +57,7 @@
 		B7B378C9255DF07A00CE15C5 /* MediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B378C8255DF07A00CE15C5 /* MediaView.swift */; };
 		B7B378D5255DF13500CE15C5 /* TopicMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B378D4255DF13500CE15C5 /* TopicMainView.swift */; };
 		B7DF19D82550195B00953640 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B7DF19D72550195B00953640 /* GoogleService-Info.plist */; };
-		B7F0F80325619B1D00263881 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F0F80225619B1D00263881 /* Date+Extensions.swift */; };
+		B7F0F80325619B1D00263881 /* Extension+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F0F80225619B1D00263881 /* Extension+Date.swift */; };
 		B7F9649625586B82004F33B3 /* DropdownSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9649525586B82004F33B3 /* DropdownSubject.swift */; };
 		B7F9650F25592F2E004F33B3 /* Tooltip.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9650E25592F2E004F33B3 /* Tooltip.swift */; };
 		B7F9651425594A9E004F33B3 /* TooltipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F9651325594A9E004F33B3 /* TooltipView.swift */; };
@@ -149,6 +150,7 @@
 		B02666D119B4C50E1D3F287C /* Pods-didikTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-didikTests.release.xcconfig"; path = "Target Support Files/Pods-didikTests/Pods-didikTests.release.xcconfig"; sourceTree = "<group>"; };
 		B703FDDD25626A2F00FB7300 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		B713B62525646B64005B52A5 /* KelasSayaMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KelasSayaMainView.swift; sourceTree = "<group>"; };
+		B74D7A9C256BBE6700675216 /* Extension+UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UserDefaults.swift"; sourceTree = "<group>"; };
 		B76514E12552AF560041D6A3 /* CreateProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProjectView.swift; sourceTree = "<group>"; };
 		B76C783E255DE8C000D160C3 /* LearningGoalsFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningGoalsFieldView.swift; sourceTree = "<group>"; };
 		B76C7847255DEAEF00D160C3 /* NoteToStudentFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteToStudentFieldView.swift; sourceTree = "<group>"; };
@@ -172,7 +174,7 @@
 		B7B378C8255DF07A00CE15C5 /* MediaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaView.swift; sourceTree = "<group>"; };
 		B7B378D4255DF13500CE15C5 /* TopicMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicMainView.swift; sourceTree = "<group>"; };
 		B7DF19D72550195B00953640 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		B7F0F80225619B1D00263881 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		B7F0F80225619B1D00263881 /* Extension+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Date.swift"; sourceTree = "<group>"; };
 		B7F9649525586B82004F33B3 /* DropdownSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownSubject.swift; sourceTree = "<group>"; };
 		B7F9650E25592F2E004F33B3 /* Tooltip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tooltip.swift; sourceTree = "<group>"; };
 		B7F9651325594A9E004F33B3 /* TooltipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TooltipView.swift; sourceTree = "<group>"; };
@@ -455,8 +457,9 @@
 				755B2179254A885100B0A7E6 /* Extension+View.swift */,
 				BA67F6F4255C4D99000A0B26 /* Extension+Image.swift */,
 				75352C3E254B41EF0039EC2D /* Extension+Color.swift */,
+				B7F0F80225619B1D00263881 /* Extension+Date.swift */,
+				B74D7A9C256BBE6700675216 /* Extension+UserDefaults.swift */,
 				B798EB3E255DC27400236FE5 /* Struct+Extensions.swift */,
-				B7F0F80225619B1D00263881 /* Date+Extensions.swift */,
 				757EBC2C255EAB410021A3C6 /* FirebaseError.swift */,
 				757EBC31255EABAD0021A3C6 /* ProjectsGroup.swift */,
 				757EBC36255EAC5F0021A3C6 /* ViewType.swift */,
@@ -887,6 +890,7 @@
 				BA220D6D255A8D280075458E /* LearningObjectiveOverviewDetailProjectView.swift in Sources */,
 				755B217A254A885100B0A7E6 /* Extension+View.swift in Sources */,
 				75B0C894255D1997004723BE /* FirebaseRequestService.swift in Sources */,
+				B74D7A9D256BBE6700675216 /* Extension+UserDefaults.swift in Sources */,
 				755B218C254B1DB000B0A7E6 /* TabBarView.swift in Sources */,
 				BA4F58B6255718CE00C87028 /* UserProfileHeaderView.swift in Sources */,
 				B798EB47255DD0CF00236FE5 /* DescriptionFieldView.swift in Sources */,
@@ -920,7 +924,7 @@
 				7523451E2562D1C70065B073 /* FirestoreImageLoader.swift in Sources */,
 				B7F9745A25546A1B0059C650 /* Project.swift in Sources */,
 				BA94301F25508AF600283FB3 /* SignInWithAppleButton.swift in Sources */,
-				B7F0F80325619B1D00263881 /* Date+Extensions.swift in Sources */,
+				B7F0F80325619B1D00263881 /* Extension+Date.swift in Sources */,
 				BABCC1BB255867C5005FCC7B /* OverviewDetailProjectView.swift in Sources */,
 				B7F9746425547F920059C650 /* ProjectActivity.swift in Sources */,
 				7531E7D22565511E006DC20B /* RefreshControl.swift in Sources */,
@@ -1090,7 +1094,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"didik/Preview Content\"";
-				DEVELOPMENT_TEAM = 49TZU6B4Y9;
+				DEVELOPMENT_TEAM = W5ZPF478J8;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = didik/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1098,7 +1102,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.appledeveloperacademy.didik;
+				PRODUCT_BUNDLE_IDENTIFIER = com.developeracademy.didik;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -1117,7 +1121,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"didik/Preview Content\"";
-				DEVELOPMENT_TEAM = 49TZU6B4Y9;
+				DEVELOPMENT_TEAM = W5ZPF478J8;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = didik/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1125,7 +1129,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.appledeveloperacademy.didik;
+				PRODUCT_BUNDLE_IDENTIFIER = com.developeracademy.didik;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
