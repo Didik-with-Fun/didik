@@ -41,6 +41,7 @@ struct UserProfileView: View {
                     .padding()
                     .background(Color.Didik.BluePrimary)
                     .foregroundColor(.white)
+                    .cornerRadius(10)
             })
             
             Spacer(minLength: 100)

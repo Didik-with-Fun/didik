@@ -26,6 +26,7 @@ struct MateriPreviewImageView: View {
             
 //            urlImage(path: project.images[0])
             Image.Didik.generateRandomDefaultImage(subject: project.subject)
+                .resizable()
                 .scaledToFill()
                 .foregroundColor(.black)
 

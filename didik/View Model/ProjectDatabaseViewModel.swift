@@ -304,18 +304,7 @@ extension ProjectDatabaseViewModel {
             switch result {
             case .success(let project):
                 self.allProjects = project
-                completion(true)
-//                    self.loading = false
-
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-        
-        service.requestMyProject { (result) in
-            switch result {
-            case .success(let project):
-                self.myAllProjects = project
+                print(project[0].name)
                 completion(true)
 //                    self.loading = false
 
