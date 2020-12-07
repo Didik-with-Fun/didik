@@ -1092,7 +1092,7 @@
 				CODE_SIGN_ENTITLEMENTS = didik/didik.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_ASSET_PATHS = "\"didik/Preview Content\"";
 				DEVELOPMENT_TEAM = JPMPS53HUZ;
 				ENABLE_PREVIEWS = YES;
@@ -1119,7 +1119,7 @@
 				CODE_SIGN_ENTITLEMENTS = didik/didik.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_ASSET_PATHS = "\"didik/Preview Content\"";
 				DEVELOPMENT_TEAM = JPMPS53HUZ;
 				ENABLE_PREVIEWS = YES;
