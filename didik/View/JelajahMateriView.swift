@@ -20,8 +20,6 @@ struct JelajahMateriView: View {
     
     var parentGeometry: GeometryProxy
     
-    @State var isShowing = false
-    
     init(parentGeometry: GeometryProxy) {
         self.parentGeometry = parentGeometry
 

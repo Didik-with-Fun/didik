@@ -16,14 +16,22 @@ struct DetailProjectMainView: View {
     
     var body: some View {
         
-        ScrollView(.vertical)  {
-            VStack {
-                HeadDetailProjectView(project: project, parentGeometry: parentGeometry)
-                    .padding()
-                ContentDetailProjectView(project: project, parentGeometry: parentGeometry)
+        VStack {
+            //workaraund to make nav bar not expanding
+            HStack(spacing: 0) {
+                Rectangle()
+                    .foregroundColor(.white)
+                    .frame(height: 1)
             }
+            ScrollView(.vertical)  {
+                VStack {
+                    HeadDetailProjectView(project: project, parentGeometry: parentGeometry)
+                        .padding()
+                    ContentDetailProjectView(project: project, parentGeometry: parentGeometry)
+                }
+            }
+                
         }
-            
         .navigationBarTitle(title, displayMode: .automatic)
         .navigationBarItems(trailing: UserButton())
         .navigationBarColor(backgroundColor: UIColor(Color.Didik.BluePrimary))

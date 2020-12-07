@@ -31,6 +31,12 @@ struct LihatSemuaView: View {
         	VStack {
                 CustomNavigationBarView(filteredGrade: $selectedGrade, filteredSubject: $selectedSubject, searchText: $searchText, viewType: .lihatSemua)
                     .zIndex(2)
+                //workaraund to make nav bar not expanding
+                HStack(spacing: 0) {
+                    Rectangle()
+                        .foregroundColor(.white)
+                        .frame(height: 1)
+                }
                 List(db.filteredSpecificProjects.filter({ searchText.isEmpty ? true : $0.name.lowercased().contains(searchText.lowercased())
             	})) { project in
                 	NavigationLink(
@@ -52,9 +58,9 @@ struct LihatSemuaView: View {
             db.specificProjects = projectsGroup.unfilteredGroup
             db.filterLihatSemua(grade: selectedGrade, subject: selectedSubject)
         })
-        .onDisappear(perform: {
-            db.filter(grade: selectedGrade, subject: selectedSubject, view: startPointviewType)
-        })
+//        .onDisappear(perform: {
+//            db.filter(grade: selectedGrade, subject: selectedSubject, view: startPointviewType)
+//        })
         
     }
 }

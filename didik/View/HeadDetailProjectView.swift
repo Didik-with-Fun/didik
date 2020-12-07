@@ -21,6 +21,8 @@ struct HeadDetailProjectView: View {
                 .font(.system(size: 24))
                 .padding(.top, 15)
                 .padding(.bottom, 5)
+                .lineLimit(nil)
+                .fixedSize(horizontal: false, vertical: true)
 
             ButtonsDetailProjectView(project: project)
         }
